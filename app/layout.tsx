@@ -20,7 +20,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      
+      <head>
+        <link rel="icon" href="/light-logo.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/light-logo.png" />
+        <meta name="theme-color" content="#ffffff" />
+      </head>
       <body className={inter.className}>
         <ThemeProvider
           attribute="class"
