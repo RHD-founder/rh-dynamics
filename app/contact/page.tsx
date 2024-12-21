@@ -120,24 +120,23 @@ export default function ContactPage() {
                 Have a question or want to work together? We&apos;d love to hear from you.
               </p>
               <div className="space-y-4">
-              <div className="flex items-center gap-4">
+                <div className="flex items-center gap-4">
                   <Mail className="h-5 w-5 text-primary" />
                   <a href="mailto:founder@rh-dynamics.software">
-                      <span>founder@rh-dynamics.software</span>
+                    <span>founder@rh-dynamics.software</span>
                   </a>
-              </div>
-              <div className="flex items-center gap-4">
+                </div>
+                <div className="flex items-center gap-4">
                   <Phone className="h-5 w-5 text-primary" />
                   <a href="tel:+918638875149">
-                      <span>+91 8638875149</span>
+                    <span>+91 8638875149</span>
                   </a>
-              </div>
-              <div className="flex items-center gap-4">
+                </div>
+                <div className="flex items-center gap-4">
                   <MapPin className="h-5 w-5 text-primary" />
                   <span>Guwahati, Assam, India</span>
+                </div>
               </div>
-              </div>
-
             </div>
 
             <form
