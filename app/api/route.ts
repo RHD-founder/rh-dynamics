@@ -3,8 +3,8 @@ import axios from "axios";
 
 export async function POST(req: Request) {
   try {
+    // Get request body
     const { captchaToken, name, email, message } = await req.json();
-
     console.log("Received data:", { captchaToken, name, email, message });
 
     // Verify reCAPTCHA token
@@ -31,10 +31,7 @@ export async function POST(req: Request) {
         { status: 400 }
       );
       errorResponse.headers.set("Access-Control-Allow-Origin", "*");
-      errorResponse.headers.set(
-        "Access-Control-Allow-Methods",
-        "POST, OPTIONS"
-      );
+      errorResponse.headers.set("Access-Control-Allow-Methods", "POST, OPTIONS");
       errorResponse.headers.set("Access-Control-Allow-Headers", "Content-Type");
       return errorResponse;
     }
@@ -67,10 +64,7 @@ export async function POST(req: Request) {
 
     const successResponse = NextResponse.json({ success: true });
     successResponse.headers.set("Access-Control-Allow-Origin", "*");
-    successResponse.headers.set(
-      "Access-Control-Allow-Methods",
-      "POST, OPTIONS"
-    );
+    successResponse.headers.set("Access-Control-Allow-Methods", "POST, OPTIONS");
     successResponse.headers.set("Access-Control-Allow-Headers", "Content-Type");
     return successResponse;
   } catch (error) {
