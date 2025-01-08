@@ -19,10 +19,17 @@ export async function POST(req: Request) {
     );
 
     if (!recaptchaResponse.data.success) {
-      return NextResponse.json(
+      const errorResponse = NextResponse.json(
         { success: false, error: "reCAPTCHA verification failed" },
         { status: 400 }
       );
+      errorResponse.headers.set("Access-Control-Allow-Origin", "*");
+      errorResponse.headers.set(
+        "Access-Control-Allow-Methods",
+        "POST, OPTIONS"
+      );
+      errorResponse.headers.set("Access-Control-Allow-Headers", "Content-Type");
+      return errorResponse;
     }
 
     // Send email using Brevo API
@@ -48,12 +55,35 @@ export async function POST(req: Request) {
       }
     );
 
-    return NextResponse.json({ success: true });
+    const successResponse = NextResponse.json({ success: true });
+    successResponse.headers.set("Access-Control-Allow-Origin", "*");
+    successResponse.headers.set(
+      "Access-Control-Allow-Methods",
+      "POST, OPTIONS"
+    );
+    successResponse.headers.set("Access-Control-Allow-Headers", "Content-Type");
+    return successResponse;
   } catch (error) {
     console.error("Error:", error);
-    return NextResponse.json(
-      { success: false, error: "An error occurred while processing your request." },
+    const errorResponse = NextResponse.json(
+      {
+        success: false,
+        error: "An error occurred while processing your request.",
+      },
       { status: 500 }
     );
+    errorResponse.headers.set("Access-Control-Allow-Origin", "*");
+    errorResponse.headers.set("Access-Control-Allow-Methods", "POST, OPTIONS");
+    errorResponse.headers.set("Access-Control-Allow-Headers", "Content-Type");
+    return errorResponse;
   }
+}
+
+// Handle preflight OPTIONS request
+export function OPTIONS() {
+  const response = NextResponse.json(null, { status: 204 });
+  response.headers.set("Access-Control-Allow-Origin", "*");
+  response.headers.set("Access-Control-Allow-Methods", "POST, OPTIONS");
+  response.headers.set("Access-Control-Allow-Headers", "Content-Type");
+  return response;
 }
