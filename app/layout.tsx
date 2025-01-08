@@ -21,9 +21,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/light-logo.png" type="image/png" />
-        <link rel="apple-touch-icon" href="/light-logo.png" />
-        <meta name="theme-color" content="#ffffff" />
+        <head>
+          <link rel="icon" href="/icons/favicon.ico" sizes="16x16 32x32 48x48" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+          <meta name="theme-color" content="#ffffff" />
+        </head>
+
       </head>
       <body className={inter.className}>
         <ThemeProvider
