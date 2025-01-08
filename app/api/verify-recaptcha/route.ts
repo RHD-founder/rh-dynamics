@@ -3,24 +3,13 @@ import axios from "axios";
 
 export async function POST(req: Request) {
   try {
-    const { captchaToken, name, email, message } = await req.json();
+    const { name, email, message, honeypot } = await req.json();
 
-    // Verify reCAPTCHA token
-    const secretKey = process.env.RECAPTCHA_SECRET_KEY;
-    const recaptchaResponse = await axios.post(
-      "https://www.google.com/recaptcha/api/siteverify",
-      null,
-      {
-        params: {
-          secret: secretKey,
-          response: captchaToken,
-        },
-      }
-    );
-
-    if (!recaptchaResponse.data.success) {
+    // Check honeypot field to detect bots
+    if (honeypot) {
+      console.log("Bot detected due to honeypot field being filled.");
       const errorResponse = NextResponse.json(
-        { success: false, error: "reCAPTCHA verification failed" },
+        { success: false, error: "Bot detected" },
         { status: 400 }
       );
       errorResponse.headers.set("Access-Control-Allow-Origin", "*");
@@ -35,7 +24,7 @@ export async function POST(req: Request) {
     // Send email using Brevo API
     const brevoApiKey = process.env.BREVO_API_KEY;
 
-    await axios.post(
+    const emailResponse = await axios.post(
       "https://api.brevo.com/v3/smtp/email",
       {
         sender: { name: "RH-Dynamics", email: "no-reply@rh-dynamics.software" },
@@ -55,6 +44,8 @@ export async function POST(req: Request) {
       }
     );
 
+    console.log("Email sent successfully:", emailResponse.data);
+
     const successResponse = NextResponse.json({ success: true });
     successResponse.headers.set("Access-Control-Allow-Origin", "*");
     successResponse.headers.set(
@@ -65,6 +56,7 @@ export async function POST(req: Request) {
     return successResponse;
   } catch (error) {
     console.error("Error:", error);
+
     const errorResponse = NextResponse.json(
       {
         success: false,
