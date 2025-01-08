@@ -6,7 +6,7 @@ export async function POST(req: Request) {
     const { captchaToken, name, email, message } = await req.json();
 
     // Verify reCAPTCHA token
-    const secretKey = process.env.NEXT_PUBLIC_RECAPTCHA_SECRET_KEY;
+    const secretKey = process.env.RECAPTCHA_SECRET_KEY;
     const recaptchaResponse = await axios.post(
       "https://www.google.com/recaptcha/api/siteverify",
       null,
@@ -26,7 +26,7 @@ export async function POST(req: Request) {
     }
 
     // Send email using Brevo API
-    const brevoApiKey = process.env.NEXT_PUBLIC_BREVO_API_KEY;
+    const brevoApiKey = process.env.BREVO_API_KEY;
 
     await axios.post(
       "https://api.brevo.com/v3/smtp/email",
