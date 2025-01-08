@@ -14,7 +14,6 @@ import {
   DialogTitle,
   DialogFooter,
 } from "@/components/ui/dialog";
-import Script from "next/script";
 
 export default function ContactPage() {
   const { toast } = useToast();
@@ -26,19 +25,6 @@ export default function ContactPage() {
     honeypot: "", // Hidden field for bot detection
   });
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
-
-  const handleRecaptchaVerify = async () => {
-    try {
-      const token = await window.grecaptcha?.execute(
-        process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!,
-        { action: "submit" }
-      );
-      return token;
-    } catch (error) {
-      console.error("reCAPTCHA verification failed:", error);
-      return null;
-    }
-  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -64,23 +50,12 @@ export default function ContactPage() {
       return;
     }
 
-    const token = await handleRecaptchaVerify();
-    if (!token) {
-      toast({
-        title: "reCAPTCHA Failed",
-        description: "Please verify you're not a robot.",
-        variant: "destructive",
-      });
-      setIsSubmitting(false);
-      return;
-    }
-
     try {
       const response = await axios.post("/api/verify-recaptcha", {
-        captchaToken: token,
         name: formData.name,
         email: formData.email,
         message: formData.message,
+        honeypot: formData.honeypot, // Send honeypot value
       });
 
       if (response.data.success) {
@@ -107,12 +82,6 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen py-20">
-      <Script
-        src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
-        strategy="afterInteractive"
-        onError={(e) => console.error("reCAPTCHA script failed:", e)}
-      />
-
       <div className="container px-4 mx-auto">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl font-bold mb-8">Contact Us</h1>
