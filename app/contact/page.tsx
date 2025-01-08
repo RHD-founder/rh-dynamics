@@ -91,7 +91,7 @@ export default function ContactPage() {
   const handleRecaptchaVerify = async () => {
     try {
       const token = await window.grecaptcha?.execute(
-        process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!,
+        process.env.RECAPTCHA_SITE_KEY!,
         { action: "submit" }
       );
       return token;
@@ -104,7 +104,7 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen py-20">
       <Script
-        src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
+        src={`https://www.google.com/recaptcha/api.js?render=${process.env.RECAPTCHA_SITE_KEY}`}
         strategy="afterInteractive"
         onError={(e) => console.error("reCAPTCHA script failed:", e)}
       />
