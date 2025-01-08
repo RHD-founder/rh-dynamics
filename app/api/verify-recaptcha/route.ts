@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import axios from "axios";
 
+// Handling POST request explicitly
 export async function POST(req: Request) {
   try {
     const { captchaToken, name, email, message } = await req.json();
