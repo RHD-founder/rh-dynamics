@@ -13,7 +13,7 @@ import {
   DialogTitle,
   DialogFooter,
 } from "@/components/ui/dialog";
-import Script from "next/script";
+import supabase from "@/lib/supabase";
 
 export default function ContactPage() {
   const { toast } = useToast();
@@ -22,27 +22,14 @@ export default function ContactPage() {
     name: "",
     email: "",
     message: "",
-    honeypot: "", // Hidden field for bot detection
   });
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
-
-  const handleRecaptchaVerify = async () => {
-    try {
-      const token = await window.grecaptcha?.execute(
-        process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!,
-        { action: "submit" }
-      );
-      return token;
-    } catch (error) {
-      console.error("reCAPTCHA verification failed:", error);
-      return null;
-    }
-  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
+    // Validation: Check if all fields are filled
     if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
       toast({
         title: "Invalid Input",
@@ -53,52 +40,27 @@ export default function ContactPage() {
       return;
     }
 
-    if (formData.honeypot) {
-      toast({
-        title: "Bot Detected",
-        description: "Please try again.",
-        variant: "destructive",
-      });
-      setIsSubmitting(false);
-      return;
-    }
-
-    const token = await handleRecaptchaVerify();
-    if (!token) {
-      toast({
-        title: "reCAPTCHA Failed",
-        description: "Please verify you're not a robot.",
-        variant: "destructive",
-      });
-      setIsSubmitting(false);
-      return;
-    }
-
     try {
-      const response = await fetch("/api", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          captchaToken: token,
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-        }),
-      });
+      // Insert form data into Supabase
+      const { data, error } = await supabase
+        .from("contact_form") // Make sure this matches your Supabase table name
+        .insert([
+          {
+            name: formData.name,
+            email: formData.email,
+            message: formData.message,
+          },
+        ]);
 
-      const result = await response.json();
-
-      if (response.ok && result.success) {
-        setShowSuccessPopup(true);
-        setFormData({ name: "", email: "", message: "", honeypot: "" });
-      } else {
+      if (error) {
         toast({
           title: "Error Sending Message",
-          description: result.error || "Please try again later.",
+          description: error.message,
           variant: "destructive",
         });
+      } else {
+        setShowSuccessPopup(true);
+        setFormData({ name: "", email: "", message: "" });
       }
     } catch (error) {
       console.error("Error sending message:", error);
@@ -114,12 +76,6 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen py-20">
-      <Script
-        src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
-        strategy="afterInteractive"
-        onError={(e) => console.error("reCAPTCHA script failed:", e)}
-      />
-
       <div className="container px-4 mx-auto">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl font-bold mb-8">Contact Us</h1>
