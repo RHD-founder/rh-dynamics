@@ -1,59 +1,25 @@
-import { NextResponse } from "next/server";
-import axios from "axios";
+import { NextResponse } from 'next/server';
+import axios from 'axios';
 
 export async function POST(req: Request) {
   try {
+    console.log("API route hit");  // Log to check if the route is hit
+
     const { captchaToken, name, email, message } = await req.json();
+    console.log("Received data:", { captchaToken, name, email, message });
 
     // Verify reCAPTCHA token
     const secretKey = process.env.RECAPTCHA_SECRET_KEY;
-    const recaptchaResponse = await axios.post(
-      "https://www.google.com/recaptcha/api/siteverify",
-      null,
-      {
-        params: {
-          secret: secretKey,
-          response: captchaToken,
-        },
-      }
-    );
+    console.log("Using secret key:", secretKey);
 
-    if (!recaptchaResponse.data.success) {
-      const errorResponse = NextResponse.json(
-        { success: false, error: "reCAPTCHA verification failed" },
-        { status: 400 }
-      );
-      errorResponse.headers.set("Access-Control-Allow-Origin", "*");
-      return errorResponse;
-    }
-
-    // Send email using Brevo API
-    const brevoApiKey = process.env.BREVO_API_KEY;
-
-    const emailResponse = await axios.post(
-      "https://api.brevo.com/v3/smtp/email",
-      {
-        sender: { name: "RH-Dynamics", email: "no-reply@rh-dynamics.software" },
-        to: [{ email: "sunuahmed540@gmail.com" }],
-        subject: "New Message from Contact Form",
-        htmlContent: `
-          <p><strong>Name:</strong> ${name}</p>
-          <p><strong>Email:</strong> ${email}</p>
-          <p><strong>Message:</strong> ${message}</p>
-        `,
-      },
-      {
-        headers: {
-          "Content-Type": "application/json",
-          "api-key": brevoApiKey,
-        },
-      }
-    );
-
+    // More code...
+    
     const successResponse = NextResponse.json({ success: true });
-    successResponse.headers.set("Access-Control-Allow-Origin", "*");
     return successResponse;
+
   } catch (error) {
+    console.error("Error:", error);
+
     const errorResponse = NextResponse.json(
       {
         success: false,
@@ -61,13 +27,6 @@ export async function POST(req: Request) {
       },
       { status: 500 }
     );
-    errorResponse.headers.set("Access-Control-Allow-Origin", "*");
     return errorResponse;
   }
-}
-
-export function OPTIONS() {
-  const response = NextResponse.json(null, { status: 204 });
-  response.headers.set("Access-Control-Allow-Origin", "*");
-  return response;
 }
