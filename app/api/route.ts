@@ -1,9 +1,8 @@
-import { NextResponse } from 'next/server';
-import axios from 'axios';
+import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
   try {
-    console.log("API route hit");  // Log to check if the route is hit
+    console.log("API route hit"); // Log to check if the route is hit
 
     const { captchaToken, name, email, message } = await req.json();
     console.log("Received data:", { captchaToken, name, email, message });
@@ -13,10 +12,9 @@ export async function POST(req: Request) {
     console.log("Using secret key:", secretKey);
 
     // More code...
-    
+
     const successResponse = NextResponse.json({ success: true });
     return successResponse;
-
   } catch (error) {
     console.error("Error:", error);
 
