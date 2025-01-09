@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import axios from "axios";
 import { Mail, MapPin, Phone } from "lucide-react";
 import {
   Dialog,
@@ -76,20 +75,28 @@ export default function ContactPage() {
     }
 
     try {
-      const response = await axios.post("/api", {
-        captchaToken: token,
-        name: formData.name,
-        email: formData.email,
-        message: formData.message,
+      const response = await fetch("/api", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          captchaToken: token,
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        }),
       });
 
-      if (response.data.success) {
+      const result = await response.json();
+
+      if (response.ok && result.success) {
         setShowSuccessPopup(true);
         setFormData({ name: "", email: "", message: "", honeypot: "" });
       } else {
         toast({
           title: "Error Sending Message",
-          description: response.data.error || "Please try again later.",
+          description: result.error || "Please try again later.",
           variant: "destructive",
         });
       }
