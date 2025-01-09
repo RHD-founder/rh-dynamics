@@ -19,16 +19,18 @@ export async function POST(req: Request) {
     );
 
     if (!recaptchaResponse.data.success) {
-      return NextResponse.json(
+      const errorResponse = NextResponse.json(
         { success: false, error: "reCAPTCHA verification failed" },
         { status: 400 }
       );
+      errorResponse.headers.set("Access-Control-Allow-Origin", "*");
+      return errorResponse;
     }
 
     // Send email using Brevo API
     const brevoApiKey = process.env.BREVO_API_KEY;
 
-    await axios.post(
+    const emailResponse = await axios.post(
       "https://api.brevo.com/v3/smtp/email",
       {
         sender: { name: "RH-Dynamics", email: "no-reply@rh-dynamics.software" },
@@ -48,12 +50,24 @@ export async function POST(req: Request) {
       }
     );
 
-    return NextResponse.json({ success: true });
+    const successResponse = NextResponse.json({ success: true });
+    successResponse.headers.set("Access-Control-Allow-Origin", "*");
+    return successResponse;
   } catch (error) {
-    console.error("Error:", error);
-    return NextResponse.json(
-      { success: false, error: "An error occurred while processing your request." },
+    const errorResponse = NextResponse.json(
+      {
+        success: false,
+        error: "An error occurred while processing your request.",
+      },
       { status: 500 }
     );
+    errorResponse.headers.set("Access-Control-Allow-Origin", "*");
+    return errorResponse;
   }
+}
+
+export function OPTIONS() {
+  const response = NextResponse.json(null, { status: 204 });
+  response.headers.set("Access-Control-Allow-Origin", "*");
+  return response;
 }

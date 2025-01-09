@@ -1,4 +1,5 @@
 "use client";
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -12,7 +13,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogFooter,
-} from "@/components/ui/dialog"; // Assuming SadCN UI has dialog components
+} from "@/components/ui/dialog";
 import Script from "next/script";
 
 export default function ContactPage() {
@@ -24,10 +25,22 @@ export default function ContactPage() {
     message: "",
     honeypot: "", // Hidden field for bot detection
   });
-  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent, token: string) => {
+  const handleRecaptchaVerify = async () => {
+    try {
+      const token = await window.grecaptcha?.execute(
+        process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!,
+        { action: "submit" }
+      );
+      return token;
+    } catch (error) {
+      console.error("reCAPTCHA verification failed:", error);
+      return null;
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
@@ -51,33 +64,37 @@ export default function ContactPage() {
       return;
     }
 
+    const token = await handleRecaptchaVerify();
+    if (!token) {
+      toast({
+        title: "reCAPTCHA Failed",
+        description: "Please verify you're not a robot.",
+        variant: "destructive",
+      });
+      setIsSubmitting(false);
+      return;
+    }
+
     try {
-      // Call your API to verify reCAPTCHA and send the email
-      const res = await fetch("/api/verify-recaptcha", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          captchaToken: token, // Pass token directly
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-        }),
+      const response = await axios.post("/api", {
+        captchaToken: token,
+        name: formData.name,
+        email: formData.email,
+        message: formData.message,
       });
 
-      const result = await res.json();
-
-      if (result.success) {
+      if (response.data.success) {
         setShowSuccessPopup(true);
         setFormData({ name: "", email: "", message: "", honeypot: "" });
       } else {
         toast({
           title: "Error Sending Message",
-          description: result.error || "Please try again later.",
+          description: response.data.error || "Please try again later.",
           variant: "destructive",
         });
       }
     } catch (error) {
-      console.error("Error sending request:", error);
+      console.error("Error sending message:", error);
       toast({
         title: "Error",
         description: "Something went wrong. Please try again.",
@@ -85,19 +102,6 @@ export default function ContactPage() {
       });
     } finally {
       setIsSubmitting(false);
-    }
-  };
-
-  const handleRecaptchaVerify = async () => {
-    try {
-      const token = await window.grecaptcha?.execute(
-        process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!,
-        { action: "submit" }
-      );
-      return token;
-    } catch (error) {
-      console.error("reCAPTCHA verification failed:", error);
-      return null;
     }
   };
 
@@ -120,42 +124,26 @@ export default function ContactPage() {
                 Have a question or want to work together? We&apos;d love to hear from you.
               </p>
               <div className="space-y-4">
-              <div className="flex items-center gap-4">
+                <div className="flex items-center gap-4">
                   <Mail className="h-5 w-5 text-primary" />
                   <a href="mailto:founder@rh-dynamics.software">
-                      <span>founder@rh-dynamics.software</span>
+                    <span>founder@rh-dynamics.software</span>
                   </a>
-              </div>
-              <div className="flex items-center gap-4">
+                </div>
+                <div className="flex items-center gap-4">
                   <Phone className="h-5 w-5 text-primary" />
                   <a href="tel:+918638875149">
-                      <span>+91 8638875149</span>
+                    <span>+91 8638875149</span>
                   </a>
-              </div>
-              <div className="flex items-center gap-4">
+                </div>
+                <div className="flex items-center gap-4">
                   <MapPin className="h-5 w-5 text-primary" />
                   <span>Guwahati, Assam, India</span>
+                </div>
               </div>
-              </div>
-
             </div>
 
-            <form
-              onSubmit={async (e) => {
-                e.preventDefault();
-                const token = await handleRecaptchaVerify(); // Await the token
-                if (token) {
-                  handleSubmit(e, token); // Pass token to handleSubmit
-                } else {
-                  toast({
-                    title: "reCAPTCHA Failed",
-                    description: "Please verify you're not a robot.",
-                    variant: "destructive",
-                  });
-                }
-              }}
-              className="space-y-6"
-            >
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-2">
                   Name

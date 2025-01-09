@@ -5,8 +5,7 @@
     |-- about
         |-- page.tsx
     |-- api
-        |-- verify-recaptcha
-            |-- route.ts
+        |-- route.ts
     |-- careers
         |-- page.tsx
     |-- contact
@@ -88,16 +87,12 @@
 |-- package.json
 |-- postcss.config.js
 |-- public
-<<<<<<< HEAD
-    |-- dark-logo.png
-=======
     |-- android-touch-icon.png
     |-- apple-touch-icon.png
     |-- dark-logo.png
     |-- favicon.png
     |-- icons
         |-- favicon.ico
->>>>>>> 19e3a7f (Initial commit)
     |-- light-logo.png
 |-- tailwind.config.ts
 |-- tsconfig.json
