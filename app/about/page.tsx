@@ -60,7 +60,7 @@ export default function AboutPage() {
             {/* Add actual team members */}
             <div className="text-center">
               <div className="h-40 w-40 rounded-full bg-muted mx-auto mb-4"></div>
-              <h3 className="text-xl font-semibold">John Doe</h3>
+              <h3 className="text-xl font-semibold">Hashim Ahmed</h3>
               <p className="text-muted-foreground">CEO & Founder</p>
             </div>
             {/* Add more team members */}
