@@ -78,8 +78,12 @@ export function Footer() {
             <address className="text-muted-foreground not-italic">
             <p>Near Harmoni Apartment, Magzine, Guwahati, Assam, India 781171</p>
             <p>Near AGV Bank, Goranga, Golaghat, Assam, India 785603</p>
-            <p className="mt-2"><Link href="mailto:founder@rh-dynamics.software" className="text-blue-600 hover:underline">founder@rh-dynamics.software</Link></p>
-            <p>+91 8638875149</p>
+            <p className="mt-2">
+            <a href="mailto:founder@rh-dynamics.software" className="text-blue-600 hover:underline">founder@rh-dynamics.software</a>
+          </p>
+          <p>
+            <a href="tel:+918638875149" className="text-blue-600 hover:underline">+91 8638875149</a>
+          </p>
             </address>
             
             {/* Social Links */}
@@ -90,10 +94,10 @@ export function Footer() {
               <a href="#" className="text-muted-foreground hover:text-foreground">
                 <Twitter className="h-5 w-5" />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-foreground">
+              <a href="https://www.linkedin.com/company/rh-dymanics/" className="text-muted-foreground hover:text-foreground">
                 <Linkedin className="h-5 w-5" />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-foreground">
+              <a href="https://www.instagram.com/rh_dynamics/" className="text-muted-foreground hover:text-foreground">
                 <Instagram className="h-5 w-5" />
               </a>
             </div>
