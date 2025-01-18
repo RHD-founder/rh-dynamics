@@ -1,4 +1,5 @@
-import { Building2, Users, Target, Award } from "lucide-react";
+import Image from 'next/image';
+import { Building2, Users, Target, Award } from 'lucide-react';
 
 export default function AboutPage() {
   return (
@@ -56,17 +57,24 @@ export default function AboutPage() {
       <section className="py-20 bg-muted/50">
         <div className="container px-4 mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">Our Team</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Add actual team members */}
+          <div className="flex justify-center">
             <div className="text-center">
-              <div className="h-40 w-40 rounded-full bg-muted mx-auto mb-4"></div>
+              <div className="h-40 w-40 rounded-full overflow-hidden mx-auto mb-4">
+                <Image
+                  src="/img.jpeg"
+                  alt="Hashim Ahmed"
+                  width={160}
+                  height={160}
+                  className="object-cover"
+                />
+              </div>
               <h3 className="text-xl font-semibold">Hashim Ahmed</h3>
               <p className="text-muted-foreground">CEO & Founder</p>
             </div>
-            {/* Add more team members */}
           </div>
         </div>
       </section>
     </div>
   );
 }
+
