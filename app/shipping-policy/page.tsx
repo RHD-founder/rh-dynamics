@@ -33,7 +33,7 @@ export default function ShippingPolicy() {
         </p>
         <h2 className="text-2xl font-semibold mt-6 mb-4">Contact Us</h2>
         <p>
-          If you have any questions about our Shipping Policy, please contact us at <Link href="mailto:support@rhdynamics.com" className="text-blue-600 hover:underline">support@rhdynamics.com</Link>.
+          If you have any questions about our Shipping Policy, please contact us at <Link href="mailto:founder@rh-dynamics.software" className="text-blue-600 hover:underline">support@rhdynamics.com</Link>.
         </p>
       </div>
     </div>
