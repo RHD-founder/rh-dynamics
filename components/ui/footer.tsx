@@ -76,10 +76,10 @@ export function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
             <address className="text-muted-foreground not-italic">
-              <p>Guwahati, Assam</p>
-              <p>India</p>
-              <p className="mt-2">founder@rh-dynamics.software</p>
-              <p>+91 8638875149</p>
+            <p>Near Harmoni Apartment, Magzine, Guwahati, Assam, India 781171</p>
+            <p>Near AGV Bank, Goranga, Golaghat, Assam, India 785603</p>
+            <p className="mt-2">founder@rh-dynamics.software</p>
+            <p>+91 8638875149</p>
             </address>
             
             {/* Social Links */}
