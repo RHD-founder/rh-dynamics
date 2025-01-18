@@ -99,10 +99,10 @@ export default function ContactPage() {
                     <span>+91 8638875149</span>
                   </a>
                 </div>
-                <div className="flex items-center gap-4">
+{/*                 <div className="flex items-center gap-4">
                   <MapPin className="h-5 w-5 text-primary" />
                   <span>Guwahati, Assam, India</span>
-                </div>
+                </div> */}
               </div>
             </div>
 
