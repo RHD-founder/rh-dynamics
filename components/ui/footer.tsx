@@ -78,7 +78,7 @@ export function Footer() {
             <address className="text-muted-foreground not-italic">
             <p>Near Harmoni Apartment, Magzine, Guwahati, Assam, India 781171</p>
             <p>Near AGV Bank, Goranga, Golaghat, Assam, India 785603</p>
-            <p className="mt-2">founder@rh-dynamics.software</p>
+            <p className="mt-2"><Link href="mailto:founder@rh-dynamics.software" className="text-blue-600 hover:underline">founder@rh-dynamics.software</Link></p>
             <p>+91 8638875149</p>
             </address>
             
