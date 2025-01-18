@@ -38,6 +38,26 @@ export function Footer() {
                   Contact
                 </Link>
               </li>
+              <li>
+                <Link href="/privacy-policy" className="text-muted-foreground hover:text-foreground">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="/shipping-policy" className="text-muted-foreground hover:text-foreground">
+                  Shipping Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="/cancellation-and-refunds" className="text-muted-foreground hover:text-foreground">
+                  Cancellation and Refunds
+                </Link>
+              </li>
+              <li>
+                <Link href="/terms-and-conditions" className="text-muted-foreground hover:text-foreground">
+                  Terms and Conditions
+                </Link>
+              </li>
             </ul>
           </div>
 
