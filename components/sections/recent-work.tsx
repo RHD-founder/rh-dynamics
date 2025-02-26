@@ -17,7 +17,7 @@ const recentWork = [
   {
     title: "Healthcare App",
     description: "Mobile application for healthcare providers with appointment scheduling",
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=600&fit=crop",
+    image: "https://btpvofmkuwtbutwggbli.supabase.co/storage/v1/object/public/%20SE-5286761//rcw.jpeg",
     tech: ["React Native", "Node.js", "MongoDB"],
     link: "/portfolio/healthcare",
   },
