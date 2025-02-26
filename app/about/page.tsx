@@ -3,7 +3,7 @@ import { Building2, Users, Target, Award } from 'lucide-react';
 
 export default function AboutPage() {
   const teamMembers = [
-    { name: "Hashim Ahmed", role: "CEO & Founder", image: "/hashim.jpeg" },
+    { name: "Hashim Ahmed", role: "CEO & Founder", image: "/img.jpeg" },
     { name: "Arup Gogoi", role: "CTO", image: "/arup.jpeg" },
     { name: "Deepshikha Gogoi", role: "Brand Ambassador", image: "/deepshikha.jpeg" },
     { name: "Harjit Barman", role: "Gen AI Developer", image: "/harjit.jpeg" },
