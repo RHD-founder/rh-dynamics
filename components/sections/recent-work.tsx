@@ -17,14 +17,14 @@ const recentWork = [
   {
     title: "Healthcare App",
     description: "Mobile application for healthcare providers with appointment scheduling",
-    image: "https://btpvofmkuwtbutwggbli.supabase.co/storage/v1/object/public/%20SE-5286761//rcw.jpeg",
+    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=600&fit=crop",
     tech: ["React Native", "Node.js", "MongoDB"],
     link: "#/portfolio/healthcare",
   },
   {
     title: "Educational Platform",
     description: "Online learning platform with video streaming and interactive quizzes",
-    image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&h=600&fit=crop",
+    image: "https://btpvofmkuwtbutwggbli.supabase.co/storage/v1/object/public/%20SE-5286761//rcw.jpeg",
     tech: ["Next.js", "AWS", "PostgreSQL"],
     link: "#/portfolio/education",
   },
