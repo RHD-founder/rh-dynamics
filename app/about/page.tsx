@@ -2,6 +2,13 @@ import Image from 'next/image';
 import { Building2, Users, Target, Award } from 'lucide-react';
 
 export default function AboutPage() {
+  const teamMembers = [
+    { name: "Hashim Ahmed", role: "CEO & Founder", image: "/hashim.jpeg" },
+    { name: "Arup Gogoi", role: "CTO", image: "/arup.jpeg" },
+    { name: "Deepshikha Gogoi", role: "Brand Ambassador", image: "/deepshikha.jpeg" },
+    { name: "Harjit Barman", role: "Gen AI Developer", image: "/harjit.jpeg" },
+  ];
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -57,24 +64,25 @@ export default function AboutPage() {
       <section className="py-20 bg-muted/50">
         <div className="container px-4 mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">Our Team</h2>
-          <div className="flex justify-center">
-            <div className="text-center">
-              <div className="h-40 w-40 rounded-full overflow-hidden mx-auto mb-4">
-                <Image
-                  src="/img.jpeg"
-                  alt="Hashim Ahmed"
-                  width={160}
-                  height={160}
-                  className="object-cover"
-                />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+            {teamMembers.map((member, index) => (
+              <div key={index}>
+                <div className="h-40 w-40 rounded-full overflow-hidden mx-auto mb-4">
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    width={160}
+                    height={160}
+                    className="object-cover"
+                  />
+                </div>
+                <h3 className="text-xl font-semibold">{member.name}</h3>
+                <p className="text-muted-foreground">{member.role}</p>
               </div>
-              <h3 className="text-xl font-semibold">Hashim Ahmed</h3>
-              <p className="text-muted-foreground">CEO & Founder</p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
     </div>
   );
 }
-
