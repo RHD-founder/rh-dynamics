@@ -15,7 +15,7 @@ const testimonials = [
     quote: "Their expertise in mobile development helped us launch a successful app that our users love.",
     author: "Alok Khataniar",
     position: "Founder, Snapbaskiin",
-    image: " ",
+    image: "https://instagram.fjrh2-1.fna.fbcdn.net/v/t51.2885-19/403024245_317226224433915_6132356926647779091_n.jpg?stp=dst-jpg_s150x150_tt6&_nc_ht=instagram.fjrh2-1.fna.fbcdn.net&_nc_cat=103&_nc_oc=Q6cZ2AGHfrUhiM7CmXdBuYzq9zRmmDM8a4Hvs-DVSWAoREvVaGX5sx6TP-1Nbst4auAfB6M&_nc_ohc=JPzm4bjyY_IQ7kNvgE_EKFJ&_nc_gid=205f78fff9f54bbf9e10d0fac56ba813&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AYBoNXACnFXuySPPRvEzNbVqURSPUVNB7b1WbxAfh2Bt1g&oe=67C4C2BC&_nc_sid=8b3546",
   },
   {
     quote: "Professional team that consistently delivers high-quality solutions on time.",
