@@ -7,15 +7,15 @@ import Image from "next/image";
 const testimonials = [
   {
     quote: "RH Dynamics delivered an exceptional solution that transformed our business operations.",
-    author: "John Smith",
-    position: "CEO, TechCorp",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop",
+    author: "Debajit Buragohain",
+    position: "Founder at , Jilikoni",
+    image: "https://media.licdn.com/dms/image/v2/D5603AQGohDYAfxK0_A/profile-displayphoto-shrink_800_800/B56ZRUpvB9HQAc-/0/1736587016181?e=1746057600&v=beta&t=ftbcvYYxJKyzc1tIoBqkmFt9ayBMub7v3pq0g8bcG8k",
   },
   {
     quote: "Their expertise in mobile development helped us launch a successful app that our users love.",
-    author: "Sarah Johnson",
-    position: "Product Manager, AppCo",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
+    author: "Alok Khataniar",
+    position: "Founder, Snapbaskiin",
+    image: " ",
   },
   {
     quote: "Professional team that consistently delivers high-quality solutions on time.",
