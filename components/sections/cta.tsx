@@ -80,17 +80,17 @@ export function CTA() {
                         </Link>
 
                         <div className="flex flex-col sm:flex-row gap-6 mt-6 sm:mt-0">
-                            <a href="mailto:contact@rhdynamics.com" className="flex items-center text-white/90 hover:text-white transition-colors">
+                            <a href="mailto:support@rh-dynamics.software" className="flex items-center text-white/90 hover:text-white transition-colors">
                                 <div className="p-2 rounded-full bg-white/10 mr-2">
                                     <Mail className="h-4 w-4" />
                                 </div>
-                                <span>contact@rhdynamics.com</span>
+                                <span>support@rh-dynamics.software</span>
                             </a>
-                            <a href="tel:+919876543210" className="flex items-center text-white/90 hover:text-white transition-colors">
+                            <a href="tel:+918638875149" className="flex items-center text-white/90 hover:text-white transition-colors">
                                 <div className="p-2 rounded-full bg-white/10 mr-2">
                                     <Phone className="h-4 w-4" />
                                 </div>
-                                <span>+91 98765-43210</span>
+                                <span>+91 8638875149</span>
                             </a>
                         </div>
                     </motion.div>
