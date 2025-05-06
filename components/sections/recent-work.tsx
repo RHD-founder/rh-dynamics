@@ -12,21 +12,21 @@ const recentWork = [
     description: "A full-stack e-commerce solution with real-time inventory management",
     image: "https://images.unsplash.com/photo-1661956602116-aa6865609028?w=800&h=600&fit=crop",
     tech: ["Next.js", "TypeScript", "Supabase"],
-    link: "#/portfolio/e-commerce",
+    link: "/projects/e-commerce",
   },
   {
     title: "Healthcare App",
     description: "Mobile application for healthcare providers with appointment scheduling",
     image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=600&fit=crop",
     tech: ["React Native", "Node.js", "MongoDB"],
-    link: "#/portfolio/healthcare",
+    link: "/projects/healthcare",
   },
   {
     title: "Educational Platform",
     description: "Online learning platform with video streaming and interactive quizzes",
     image: "https://btpvofmkuwtbutwggbli.supabase.co/storage/v1/object/public/%20SE-5286761//rcw.jpeg",
     tech: ["Next.js", "AWS", "PostgreSQL"],
-    link: "#/portfolio/education",
+    link: "/projects/education",
   },
 ];
 
@@ -89,6 +89,19 @@ export function RecentWork() {
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="mt-12 text-center"
+        >
+          <Button asChild>
+            <Link href="/projects">
+              View Our Work
+            </Link>
+          </Button>
+        </motion.div>
       </div>
     </section>
   );
