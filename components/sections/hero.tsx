@@ -19,7 +19,7 @@ export function Hero() {
 
   const stats = [
     { value: "50+", label: "Projects Delivered" },
-    { value: "10+", label: "Years Experience" },
+    { value: "5+", label: "Years Experience" },
     { value: "98%", label: "Client Satisfaction" },
   ];
 

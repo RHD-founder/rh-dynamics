@@ -228,9 +228,9 @@ export function Testimonials() {
           transition={{ duration: 0.6, delay: 0.8 }}
           className="mt-16 text-center"
         >
-          <a href="https://www.clutch.co" target="_blank" rel="noopener noreferrer" className="text-sm text-indigo-600 hover:text-indigo-800 transition-colors">
+          {/* <a href="https://www.clutch.co" target="_blank" rel="noopener noreferrer" className="text-sm text-indigo-600 hover:text-indigo-800 transition-colors">
             View more client reviews on Clutch →
-          </a>
+          </a> */}
         </motion.div>
       </div>
     </section>
