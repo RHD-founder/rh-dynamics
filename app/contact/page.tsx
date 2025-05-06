@@ -481,15 +481,15 @@ export default function ContactPage() {
       </section>
 
       <Dialog open={showSuccessPopup} onOpenChange={setShowSuccessPopup}>
-        <DialogContent className="sm:max-w-md">
-          <DialogHeader>
+        <DialogContent className="sm:max-w-[90%] md:max-w-md max-h-[90vh] overflow-auto p-4 sm:p-6 w-[95%] sm:w-auto rounded-xl">
+          <DialogHeader className="space-y-2">
             <DialogTitle className="text-center text-xl text-emerald-700">Message Sent Successfully!</DialogTitle>
           </DialogHeader>
-          <div className="flex justify-center my-4">
-            <div className="rounded-full bg-emerald-100 p-3">
-              <div className="rounded-full bg-emerald-200 p-3">
+          <div className="flex justify-center my-3 sm:my-4">
+            <div className="rounded-full bg-emerald-100 p-2 sm:p-3">
+              <div className="rounded-full bg-emerald-200 p-2 sm:p-3">
                 <svg
-                  className="h-6 w-6 text-emerald-600"
+                  className="h-5 w-5 sm:h-6 sm:w-6 text-emerald-600"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -505,14 +505,14 @@ export default function ContactPage() {
               </div>
             </div>
           </div>
-          <div className="text-center text-muted-foreground">
+          <div className="text-center text-sm sm:text-base text-muted-foreground px-2">
             Thank you for reaching out! We've received your message and will get back to you as soon as possible.
           </div>
-          <DialogFooter className="sm:justify-center">
+          <DialogFooter className="sm:justify-center mt-4">
             <Button
               type="button"
               variant="default"
-              className="bg-emerald-600 hover:bg-emerald-700"
+              className="bg-emerald-600 hover:bg-emerald-700 w-full sm:w-auto"
               onClick={() => setShowSuccessPopup(false)}
             >
               Close
