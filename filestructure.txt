@@ -4,18 +4,43 @@
 |-- app
     |-- about
         |-- page.tsx
+    |-- api
+        |-- contact
+            |-- route.ts
+    |-- cancellation-and-refunds
+        |-- page.tsx
     |-- careers
         |-- page.tsx
     |-- contact
         |-- page.tsx
     |-- globals.css
     |-- layout.tsx
-    |-- manifest.json
+    |-- manifest.js
     |-- page.tsx
+    |-- portfolio
+        |-- page.tsx
+    |-- privacy-policy
+        |-- page.tsx
+    |-- projects
+        |-- e-commerce
+            |-- page.tsx
+        |-- education
+            |-- page.tsx
+        |-- healthcare
+            |-- page.tsx
+        |-- page.tsx
+    |-- services
+        |-- page.tsx
+    |-- shipping-policy
+        |-- page.tsx
+    |-- terms-and-conditions
+        |-- page.tsx
 |-- components
     |-- sections
+        |-- cta.tsx
         |-- hero.tsx
         |-- partners.tsx
+        |-- portfolio.tsx
         |-- recent-work.tsx
         |-- services.tsx
         |-- testimonials.tsx
@@ -83,14 +108,33 @@
 |-- next.config.js
 |-- package-lock.json
 |-- package.json
+|-- package.json.backup
 |-- postcss.config.js
 |-- public
     |-- android-touch-icon.png
     |-- apple-touch-icon.png
+    |-- arup.jpeg
+    |-- careers-team.jpg
+    |-- contact-hero.jpg
+    |-- contact-image.jpg
     |-- dark-logo.png
+    |-- deepshikha.jpeg
     |-- favicon.png
+    |-- harjit.jpeg
     |-- icons
         |-- favicon.ico
+    |-- images
+        |-- portfolio
+            |-- jilikoni.txt
+            |-- riya-polyclinic.jpg
+            |-- riya-polyclinic.txt
+            |-- shreeji-tours.txt
+        |-- projects
+    |-- img.jpeg
+    |-- journey.jpg
     |-- light-logo.png
+    |-- rcw.jpeg
+    |-- services-hero.jpg
 |-- tailwind.config.ts
 |-- tsconfig.json
+|-- vercel.json

@@ -173,8 +173,8 @@ export default function ContactPage() {
                           </div>
                           <div>
                             <h3 className="font-medium text-lg mb-1 text-emerald-900">Call Us</h3>
-                            <a href="tel:+918638875149" className="text-muted-foreground hover:text-emerald-600 transition-colors">
-                              +91 8638875149
+                            <a href="tel:+919864848781" className="text-muted-foreground hover:text-emerald-600 transition-colors">
+                              +91 9864848781
                             </a>
                           </div>
                         </div>
@@ -366,7 +366,7 @@ export default function ContactPage() {
                         <div className="text-center mt-4">
                           <p className="text-xs text-muted-foreground">
                             We're available during business hours to answer your inquiries.
-                            For immediate assistance, please call <a href="tel:+918638875149" className="text-indigo-600 dark:text-indigo-400 font-medium">+91 8638875149</a>
+                            For immediate assistance, please call <a href="tel:+919864848781" className="text-indigo-600 dark:text-indigo-400 font-medium">+91 9864848781</a>
                           </p>
                         </div>
                       </div>
@@ -437,7 +437,7 @@ export default function ContactPage() {
                       </a>
 
                       <a
-                        href="tel:+918638875149"
+                        href="tel:+919864848781"
                         className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-emerald-50 to-blue-50 border border-emerald-200 text-emerald-700 hover:bg-gradient-to-r hover:from-emerald-100 hover:to-blue-100 hover:text-emerald-800 text-sm font-medium transition-all dark:from-emerald-900/20 dark:to-blue-900/20 dark:border-emerald-800/30 dark:text-emerald-400"
                       >
                         <Phone className="h-4 w-4 mr-2" />
