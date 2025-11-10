@@ -1,6 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useRef } from "react";
+import dynamic from 'next/dynamic';
+
+// Dynamically import HCaptcha with no SSR
+const HCaptcha = dynamic(() => import('@hcaptcha/react-hcaptcha'), {
+  ssr: false
+});
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -40,6 +46,7 @@ const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }).max(50),
   email: z.string().email({ message: "Please enter a valid email address." }),
   message: z.string().min(10, { message: "Message must be at least 10 characters." }).max(1000),
+  hcaptchaToken: z.string().min(1, "Please complete the hCaptcha verification"),
 });
 
 type FormValues = z.infer<typeof formSchema>;
@@ -48,6 +55,8 @@ export default function ContactPage() {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+  const [captchaToken, setCaptchaToken] = useState("");
+  const captchaRef = useRef<any>(null);
 
   // Initialize form with react-hook-form
   const form = useForm<FormValues>({
@@ -56,11 +65,24 @@ export default function ContactPage() {
       name: "",
       email: "",
       message: "",
+      hcaptchaToken: "",
     },
+    mode: 'onChange',
   });
 
   // Handle form submission
   const onSubmit = async (data: FormValues) => {
+    
+    
+    if (!data.hcaptchaToken) {
+      toast({
+        title: "Verification Required",
+        description: "Please complete the hCaptcha verification.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
@@ -73,6 +95,7 @@ export default function ContactPage() {
           name: data.name,
           email: data.email,
           message: data.message,
+          hcaptchaToken: captchaToken,
         }),
       });
 
@@ -85,6 +108,10 @@ export default function ContactPage() {
       // Success
       setShowSuccessPopup(true);
       form.reset();
+      setCaptchaToken("");
+      if (captchaRef.current) {
+        captchaRef.current.resetCaptcha();
+      }
 
     } catch (error: any) {
       console.error('Error sending message:', error);
@@ -302,10 +329,38 @@ export default function ContactPage() {
                         </p>
                       </div>
 
+                      <div className="py-2 flex flex-col items-center">
+                        <HCaptcha
+                          sitekey={process.env.NEXT_PUBLIC_HCAPTCHA_SITEKEY || ""}
+                          onVerify={(token: string) => {
+                            
+                            setCaptchaToken(token);
+                            form.setValue('hcaptchaToken', token, { shouldValidate: true });
+                          }}
+                          onExpire={() => {
+                           
+                            setCaptchaToken('');
+                            form.setValue('hcaptchaToken', '', { shouldValidate: true });
+                          }}
+                          onError={(error) => {
+                            
+                            setCaptchaToken('');
+                            form.setValue('hcaptchaToken', '', { shouldValidate: true });
+                          }}
+                          theme="light"
+                          size="normal"
+                        />
+                        {form.formState.errors.hcaptchaToken && (
+                          <p className="text-xs text-red-500 mt-2">
+                            {form.formState.errors.hcaptchaToken.message}
+                          </p>
+                        )}
+                      </div>
+
                       <Button
                         type="submit"
                         className="w-full bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-700 hover:to-blue-700"
-                        disabled={isSubmitting}
+                        disabled={isSubmitting || !captchaToken}
                       >
                         {isSubmitting ? (
                           <div className="flex items-center">

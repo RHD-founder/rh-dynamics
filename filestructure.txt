@@ -137,4 +137,6 @@
     |-- services-hero.jpg
 |-- tailwind.config.ts
 |-- tsconfig.json
+|-- types
+    |-- hcaptcha.d.ts
 |-- vercel.json

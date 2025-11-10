@@ -2,12 +2,38 @@ import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 import { z } from "zod";
 
+// hCaptcha verification function
+async function verifyCaptcha(token: string, secret: string): Promise<boolean> {
+  try {
+    const response = await fetch('https://hcaptcha.com/siteverify', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: new URLSearchParams({
+        response: token,
+        secret: secret,
+      }),
+    });
+    
+    const data = await response.json();
+    return data.success === true;
+  } catch (error) {
+    console.error('hCaptcha verification failed:', error);
+    return false;
+  }
+}
+
 // Form validation schema
 const formSchema = z.object({
-  name: z.string().min(2).max(50),
-  email: z.string().email(),
-  message: z.string().min(10).max(1000),
+  name: z.string().min(2).max(50).trim(),
+  email: z.string().email().trim().toLowerCase(),
+  message: z.string().min(10).max(1000).trim(),
+  hcaptchaToken: z.string().min(1, 'hCaptcha token is required')
 });
+
+// Maximum request size (10KB)
+const MAX_REQUEST_SIZE = 10 * 1024;
 
 // Rate limiting - simple in-memory implementation
 const RATE_LIMIT_DURATION = 60 * 1000; // 1 minute in milliseconds
@@ -32,7 +58,20 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+
 export async function POST(request: Request) {
+  // Get client IP for rate limiting and hCaptcha
+  const ip = request.headers.get('x-forwarded-for') || 'unknown';
+  
+  // Check request size
+  const contentLength = request.headers.get('content-length');
+  if (contentLength && parseInt(contentLength) > MAX_REQUEST_SIZE) {
+    return NextResponse.json(
+      { message: 'Request too large' },
+      { status: 413 }
+    );
+  }
+
   try {
     // Check if SMTP credentials are available
     if (!process.env.SMTP_USER || !process.env.SMTP_PASSWORD) {
@@ -77,12 +116,12 @@ export async function POST(request: Request) {
     }
 
     // Parse and validate request body
-    const body = await request.json();
+    const body = await request.json().catch(() => ({}));
     const result = formSchema.safeParse(body);
 
     if (!result.success) {
       const errorMessage = result.error.issues
-        .map((issue) => issue.message)
+        .map((issue: { message: string }) => issue.message)
         .join(", ");
       return NextResponse.json(
         { message: `Validation error: ${errorMessage}` },
@@ -90,7 +129,25 @@ export async function POST(request: Request) {
       );
     }
 
-    const { name, email, message } = result.data;
+    // Verify hCaptcha token
+    if (!process.env.HCAPTCHA_SECRET_KEY) {
+      console.error('HCAPTCHA_SECRET_KEY is not set');
+      return NextResponse.json(
+        { message: 'Server configuration error. Please try again later.' },
+        { status: 500 }
+      );
+    }
+
+    if (!result.data.hcaptchaToken || 
+        !(await verifyCaptcha(result.data.hcaptchaToken, process.env.HCAPTCHA_SECRET_KEY))) {
+      return NextResponse.json(
+        { message: 'Invalid or expired hCaptcha token. Please try again.' },
+        { status: 400 }
+      );
+    }
+
+
+    const { name, email, message, hcaptchaToken } = result.data;
 
     // Define email content
     const mailOptions = {
