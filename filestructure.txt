@@ -21,6 +21,8 @@
         |-- page.tsx
     |-- privacy-policy
         |-- page.tsx
+    |-- privacy-policy-pdf-app
+        |-- page.tsx
     |-- projects
         |-- e-commerce
             |-- page.tsx
