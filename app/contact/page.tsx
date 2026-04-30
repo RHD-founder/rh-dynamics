@@ -45,6 +45,7 @@ import {
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }).max(50),
   email: z.string().email({ message: "Please enter a valid email address." }),
+  phone: z.string().min(10, { message: "Please enter a valid phone number." }),
   message: z.string().min(10, { message: "Message must be at least 10 characters." }).max(1000),
   hcaptchaToken: z.string().min(1, "Please complete the hCaptcha verification"),
 });
@@ -64,6 +65,7 @@ export default function ContactPage() {
     defaultValues: {
       name: "",
       email: "",
+      phone: "",
       message: "",
       hcaptchaToken: "",
     },
@@ -94,6 +96,7 @@ export default function ContactPage() {
         body: JSON.stringify({
           name: data.name,
           email: data.email,
+          phone: data.phone,
           message: data.message,
           hcaptchaToken: captchaToken,
         }),
@@ -291,6 +294,28 @@ export default function ContactPage() {
                                 <Input
                                   type="email"
                                   placeholder="Your Email"
+                                  className="pl-10 bg-muted/30 border-indigo-100 focus:border-indigo-300"
+                                  {...field}
+                                />
+                              </FormControl>
+                            </div>
+                            <FormMessage className="text-xs text-red-500 mt-1" />
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        control={form.control}
+                        name="phone"
+                        render={({ field }) => (
+                          <FormItem>
+                            <div className="relative">
+                              <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                <Phone className="h-5 w-5 text-indigo-400" />
+                              </div>
+                              <FormControl>
+                                <Input
+                                  type="tel"
+                                  placeholder="Your Phone Number"
                                   className="pl-10 bg-muted/30 border-indigo-100 focus:border-indigo-300"
                                   {...field}
                                 />

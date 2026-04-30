@@ -28,6 +28,7 @@ async function verifyCaptcha(token: string, secret: string): Promise<boolean> {
 const formSchema = z.object({
   name: z.string().min(2).max(50).trim(),
   email: z.string().email().trim().toLowerCase(),
+  phone: z.string().min(10).trim(),
   message: z.string().min(10).max(1000).trim(),
   hcaptchaToken: z.string().min(1, 'hCaptcha token is required')
 });
@@ -147,7 +148,7 @@ export async function POST(request: Request) {
     }
 
 
-    const { name, email, message, hcaptchaToken } = result.data;
+    const { name, email, phone, message, hcaptchaToken } = result.data;
 
     // Define email content
     const mailOptions = {
@@ -158,6 +159,7 @@ export async function POST(request: Request) {
       text: `
 Name: ${name}
 Email: ${email}
+Phone: ${phone}
 Message:
 
 ${message}
@@ -170,6 +172,7 @@ ${message}
   <div style="background-color: #f9fafb; border-left: 4px solid #4f46e5; padding: 15px; margin-bottom: 20px;">
     <p style="margin: 0 0 10px 0;"><strong style="color: #4f46e5;">Name:</strong> ${name}</p>
     <p style="margin: 0 0 10px 0;"><strong style="color: #4f46e5;">Email:</strong> <a href="mailto:${email}" style="color: #4338ca; text-decoration: none;">${email}</a></p>
+    <p style="margin: 0 0 10px 0;"><strong style="color: #4f46e5;">Phone:</strong> ${phone}</p>
   </div>
   
   <div style="background-color: #f9fafb; border-left: 4px solid #4f46e5; padding: 15px; margin-bottom: 20px;">
