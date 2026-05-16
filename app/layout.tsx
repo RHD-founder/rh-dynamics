@@ -5,7 +5,6 @@ import Script from 'next/script';
 import { Navbar } from '@/components/ui/navbar';
 import { Footer } from '@/components/ui/footer';
 import { ThemeProvider } from '@/components/theme/theme-provider';
-import Script from 'next/script';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -43,6 +42,25 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-ZX1ZT17H70"
+        />
+        <Script
+          id="google-analytics-and-ads"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-ZX1ZT17H70');
+              gtag('config', 'AW-11332621315');
+            `,
+          }}
+        />
+      </head>
       <body className={`${inter.variable} ${roboto.variable} font-sans`}>
         <ThemeProvider
           attribute="class"
