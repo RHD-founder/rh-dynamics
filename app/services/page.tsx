@@ -2,562 +2,452 @@
 import { useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Check, Smartphone, Globe, Code, Server, Database, Zap, Shield, LineChart, ArrowRight, BriefcaseBusiness, PackageCheck, Layers, PanelRight } from "lucide-react";
+import { Check, Smartphone, Globe, Code, Server, Database, Zap, Shield, LineChart, ArrowRight, BriefcaseBusiness, PackageCheck, Layers, Megaphone, Star } from "lucide-react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
-// Main service categories with detailed offerings
+// --- Data Definitions ---
+
+const marketingPackages = [
+  {
+    name: "Essential",
+    price: "₹15,000",
+    idealFor: "Basic Presence",
+    features: [
+      { name: "Content System", value: "Core Branding" },
+      { name: "Ad-Focused Reels", value: "4 (Client Clips)" },
+      { name: "Creative Posts", value: "12 / Month" },
+      { name: "Professional Shoot", value: "—" },
+      { name: "Ads Management", value: "Meta Ads" },
+      { name: "Lead Strategy", value: "Basic Campaigns" },
+      { name: "Automation", value: "—" },
+      { name: "Google Presence", value: "Basic GMB Setup" },
+      { name: "Reporting", value: "—" },
+      { name: "Support", value: "Standard" }
+    ],
+    color: "from-blue-600 to-cyan-500",
+    bgAccent: "bg-blue-500/10",
+    buttonColor: "bg-blue-600 hover:bg-blue-700",
+    tag: ""
+  },
+  {
+    name: "Growth",
+    price: "₹25,000",
+    idealFor: "Scaling Leads",
+    features: [
+      { name: "Content System", value: "Strong Content Engine" },
+      { name: "Ad-Focused Reels", value: "8 (Incl. 1 Shoot)" },
+      { name: "Creative Posts", value: "20 / Month" },
+      { name: "Professional Shoot", value: "1 Session / Month" },
+      { name: "Ads Management", value: "Meta + Google Ads" },
+      { name: "Lead Strategy", value: "Optimized Generation" },
+      { name: "Automation", value: "WhatsApp Setup" },
+      { name: "Google Presence", value: "Optimized GMB" },
+      { name: "Reporting", value: "Monthly Insights" },
+      { name: "Support", value: "Priority" }
+    ],
+    color: "from-purple-600 to-pink-500",
+    bgAccent: "bg-purple-500/10",
+    buttonColor: "bg-purple-600 hover:bg-purple-700",
+    tag: "Most Popular"
+  },
+  {
+    name: "Dominance",
+    price: "₹60,000",
+    idealFor: "Rapid Market Growth",
+    features: [
+      { name: "Content System", value: "Full-Scale Daily System" },
+      { name: "Ad-Focused Reels", value: "12 (Weekly Shoots)" },
+      { name: "Creative Posts", value: "30 / Month" },
+      { name: "Professional Shoot", value: "4 Sessions / Month" },
+      { name: "Ads Management", value: "Advanced + Retargeting" },
+      { name: "Lead Strategy", value: "Full Funnel System" },
+      { name: "Automation", value: "Full Booking System" },
+      { name: "Google Presence", value: "Advanced SEO Focus" },
+      { name: "Reporting", value: "Advanced Scaling Data" },
+      { name: "Support", value: "Dedicated Priority" }
+    ],
+    color: "from-amber-500 to-orange-500",
+    bgAccent: "bg-amber-500/10",
+    buttonColor: "bg-amber-600 hover:bg-amber-700",
+    tag: "Premium"
+  }
+];
+
 const serviceCategories = [
     {
         id: "mobile",
-        name: "Mobile Development",
+        name: "Mobile Apps",
         icon: Smartphone,
         color: "from-indigo-600 to-blue-500",
-        accentColor: "bg-indigo-500",
-        lightColor: "bg-indigo-50",
-        textColor: "text-indigo-600",
-        borderColor: "border-indigo-200",
-        hoverBorderColor: "hover:border-indigo-300",
-        description: "High-performance native and cross-platform mobile applications for businesses seeking exceptional user experiences.",
+        bgAccent: "bg-indigo-500/10",
+        description: "High-performance native and cross-platform mobile applications for exceptional user experiences.",
         offerings: [
             {
-                title: "Native iOS Application",
+                title: "Native iOS App",
                 price: "₹1,50,000+",
                 timeframe: "12-16 weeks",
-                description: "Premium native iOS applications built with Swift for optimal performance and seamless user experience. Includes comprehensive testing across all Apple devices.",
-                features: [
-                    "Modern Swift-based architecture",
-                    "Apple design guidelines compliance",
-                    "Push notifications integration",
-                    "In-app purchases (if needed)",
-                    "App Store submission assistance",
-                    "Post-launch support (30 days)"
-                ],
-                ideal: "Businesses requiring high-performance iOS apps with sophisticated features and animations",
+                description: "Premium native iOS applications built with Swift for optimal performance and seamless user experience.",
+                features: ["Modern Swift architecture", "Apple design guidelines", "Push notifications", "App Store submission assistance"],
+                ideal: "Businesses requiring high-performance iOS apps",
                 tag: "Premium"
             },
             {
-                title: "Native Android Application",
+                title: "Native Android App",
                 price: "₹1,25,000+",
                 timeframe: "12-16 weeks",
-                description: "Robust Android applications built with Kotlin for optimal performance across the diverse Android ecosystem. Includes comprehensive testing across multiple device types.",
-                features: [
-                    "Modern Kotlin-based architecture",
-                    "Material Design implementation",
-                    "Push notifications integration",
-                    "In-app purchases (if needed)",
-                    "Play Store submission assistance",
-                    "Post-launch support (30 days)"
-                ],
-                ideal: "Businesses requiring high-performance Android apps with sophisticated features",
+                description: "Robust Android applications built with Kotlin for optimal performance across the diverse Android ecosystem.",
+                features: ["Modern Kotlin architecture", "Material Design", "Push notifications", "Play Store submission"],
+                ideal: "Businesses requiring high-performance Android apps",
                 tag: "Premium"
             },
             {
-                title: "Cross-Platform Application",
+                title: "Cross-Platform App",
                 price: "₹95,000+",
                 timeframe: "10-14 weeks",
-                description: "Cost-effective app development for both iOS and Android using React Native or Flutter, delivering near-native performance with faster time-to-market.",
-                features: [
-                    "Single codebase for iOS and Android",
-                    "Native-like performance and UI",
-                    "Push notifications integration",
-                    "Custom animations and transitions",
-                    "App Store & Play Store submission",
-                    "Post-launch support (30 days)"
-                ],
-                ideal: "Businesses looking to target both platforms with balanced budget and timeline constraints",
+                description: "Cost-effective app development for both iOS and Android using React Native, delivering near-native performance.",
+                features: ["Single codebase", "Native-like performance", "Custom animations", "Dual store submission"],
+                ideal: "Targeting both platforms with balanced budget",
                 tag: "Most Popular"
             },
             {
-                title: "E-Commerce Mobile App",
+                title: "E-Commerce App",
                 price: "₹1,95,000+",
                 timeframe: "16-20 weeks",
-                description: "Comprehensive mobile shopping experience with secure payment processing, product management, user accounts, and order tracking.",
-                features: [
-                    "Product catalog with search and filters",
-                    "Secure payment gateway integration",
-                    "User registration and profiles",
-                    "Order tracking and history",
-                    "Wishlist and favorites functionality",
-                    "Admin dashboard for management"
-                ],
-                ideal: "Retail businesses looking to create dedicated mobile shopping experiences",
+                description: "Comprehensive mobile shopping experience with secure payment processing, product management, and tracking.",
+                features: ["Product catalog & filters", "Secure payment gateway", "User registration", "Order tracking"],
+                ideal: "Retail businesses creating mobile shopping experiences",
                 tag: "Enterprise"
             }
         ]
     },
     {
         id: "web",
-        name: "Web Development",
+        name: "Web Solutions",
         icon: Globe,
         color: "from-emerald-600 to-teal-500",
-        accentColor: "bg-emerald-500",
-        lightColor: "bg-emerald-50",
-        textColor: "text-emerald-600",
-        borderColor: "border-emerald-200",
-        hoverBorderColor: "hover:border-emerald-300",
-        description: "Responsive, high-performance websites and web applications designed to convert visitors and streamline operations.",
+        bgAccent: "bg-emerald-500/10",
+        description: "Responsive, high-performance websites and web applications designed to convert visitors.",
         offerings: [
             {
                 title: "Business Website",
                 price: "₹35,000+",
                 timeframe: "4-6 weeks",
-                description: "Professional, responsive business website designed to establish your online presence, showcase services, and generate leads.",
-                features: [
-                    "Responsive design for all devices",
-                    "5-7 custom designed pages",
-                    "Contact forms and lead capture",
-                    "SEO optimization fundamentals",
-                    "Google Analytics integration",
-                    "CMS for easy content updates"
-                ],
-                ideal: "Small to medium businesses establishing or upgrading their online presence",
+                description: "Professional, responsive business website designed to establish your online presence and generate leads.",
+                features: ["Responsive design", "5-7 custom pages", "Lead capture forms", "SEO fundamentals"],
+                ideal: "SMEs upgrading their online presence",
                 tag: "Essential"
             },
             {
                 title: "E-Commerce Website",
                 price: "₹75,000+",
                 timeframe: "8-12 weeks",
-                description: "Comprehensive online store with product management, secure checkout, payment processing, and customer account features.",
-                features: [
-                    "Product catalog with categories",
-                    "Secure shopping cart and checkout",
-                    "Multiple payment gateway options",
-                    "Order tracking and management",
-                    "Customer account dashboard",
-                    "Inventory management system"
-                ],
-                ideal: "Retail businesses looking to sell products online with a professional shopping experience",
+                description: "Comprehensive online store with product management, secure checkout, and payment processing.",
+                features: ["Product catalog", "Secure checkout", "Multiple gateways", "Inventory management"],
+                ideal: "Retailers selling products online natively",
                 tag: "Premium"
             },
             {
-                title: "Custom Web Application",
+                title: "Custom Web App",
                 price: "₹1,25,000+",
                 timeframe: "12-20 weeks",
-                description: "Tailored web applications built to solve specific business challenges, streamline operations, or deliver unique services to your customers.",
-                features: [
-                    "Custom database architecture",
-                    "User authentication and roles",
-                    "Business process automation",
-                    "API integrations with other services",
-                    "Real-time data processing",
-                    "Scalable cloud-based hosting"
-                ],
-                ideal: "Businesses requiring specific functionality beyond standard website capabilities",
+                description: "Tailored web applications built to solve specific business challenges or streamline operations.",
+                features: ["Custom architecture", "User authentication", "Process automation", "API integrations"],
+                ideal: "Businesses with complex functional needs",
                 tag: "Enterprise"
             },
             {
-                title: "Progressive Web App (PWA)",
+                title: "Progressive Web App",
                 price: "₹85,000+",
                 timeframe: "10-14 weeks",
-                description: "Modern web applications that function like native apps, with offline capabilities, home screen installation, and push notifications.",
-                features: [
-                    "Works offline or on low networks",
-                    "App-like experience on devices",
-                    "Installable on home screen",
-                    "Push notification support",
-                    "Background synchronization",
-                    "Hardware access capabilities"
-                ],
-                ideal: "Businesses wanting app-like functionality without the app store process",
+                description: "Modern web apps that function like native apps with offline capabilities and home screen installation.",
+                features: ["Offline support", "App-like experience", "Push notifications", "Hardware access"],
+                ideal: "App-like functionality without the app store process",
                 tag: "Innovative"
             }
         ]
     },
     {
         id: "enterprise",
-        name: "Enterprise Solutions",
+        name: "Enterprise",
         icon: BriefcaseBusiness,
         color: "from-purple-600 to-violet-500",
-        accentColor: "bg-purple-500",
-        lightColor: "bg-purple-50",
-        textColor: "text-purple-600",
-        borderColor: "border-purple-200",
-        hoverBorderColor: "hover:border-purple-300",
-        description: "Scalable, secure enterprise applications designed to optimize operations and drive business growth.",
+        bgAccent: "bg-purple-500/10",
+        description: "Scalable, secure enterprise applications designed to optimize operations and drive growth.",
         offerings: [
             {
                 title: "ERP System",
                 price: "₹5,00,000+",
                 timeframe: "24-36 weeks",
-                description: "Comprehensive Enterprise Resource Planning solution to streamline and integrate core business processes.",
-                features: [
-                    "Financial management module",
-                    "Inventory & supply chain module",
-                    "HR & payroll management",
-                    "Customer relationship module",
-                    "Business intelligence dashboards",
-                    "Role-based access control"
-                ],
-                ideal: "Medium to large businesses seeking to integrate operations across departments",
+                description: "Comprehensive Enterprise Resource Planning solution to streamline core business processes.",
+                features: ["Financial management", "Supply chain module", "HR & payroll", "BI dashboards"],
+                ideal: "Medium to large businesses integrating operations",
                 tag: "Enterprise"
             },
             {
                 title: "CRM Solution",
                 price: "₹2,50,000+",
                 timeframe: "16-24 weeks",
-                description: "Custom Customer Relationship Management system to enhance customer service, sales tracking, and marketing effectiveness.",
-                features: [
-                    "Contact and lead management",
-                    "Sales pipeline and forecasting",
-                    "Email marketing integration",
-                    "Customer service ticketing",
-                    "Performance analytics",
-                    "Mobile access for field teams"
-                ],
-                ideal: "Sales-driven organizations looking to improve customer relationships and conversion rates",
+                description: "Custom Customer Relationship Management system to enhance customer service and sales tracking.",
+                features: ["Lead management", "Sales forecasting", "Email marketing", "Performance analytics"],
+                ideal: "Sales-driven organizations",
                 tag: "Premium"
-            },
-            {
-                title: "Learning Management System",
-                price: "₹3,00,000+",
-                timeframe: "16-24 weeks",
-                description: "Comprehensive eLearning platform for educational institutions or corporate training programs.",
-                features: [
-                    "Course creation and management",
-                    "Student enrollment and tracking",
-                    "Assessment and quiz modules",
-                    "Discussion forums and messaging",
-                    "Certificate generation",
-                    "Progress tracking and reporting"
-                ],
-                ideal: "Educational institutions or corporations with extensive training needs",
-                tag: "Specialized"
-            },
-            {
-                title: "Healthcare Management System",
-                price: "₹4,00,000+",
-                timeframe: "20-32 weeks",
-                description: "HIPAA-compliant healthcare management solution for clinics, hospitals, and medical practices.",
-                features: [
-                    "Patient records management",
-                    "Appointment scheduling",
-                    "Billing and insurance processing",
-                    "Prescription management",
-                    "Medical imaging integration",
-                    "Analytics and reporting"
-                ],
-                ideal: "Healthcare providers requiring comprehensive patient and practice management",
-                tag: "Specialized"
             }
         ]
     },
     {
         id: "bundles",
-        name: "Solution Bundles",
+        name: "Bundles",
         icon: PackageCheck,
         color: "from-rose-600 to-pink-500",
-        accentColor: "bg-rose-500",
-        lightColor: "bg-rose-50",
-        textColor: "text-rose-600",
-        borderColor: "border-rose-200",
-        hoverBorderColor: "hover:border-rose-300",
+        bgAccent: "bg-rose-500/10",
         description: "Integrated packages combining multiple services for comprehensive digital transformation.",
         offerings: [
             {
                 title: "Digital Presence Bundle",
                 price: "₹1,25,000+",
                 timeframe: "12-16 weeks",
-                description: "Complete package including website, mobile app, and social media setup for establishing a strong digital presence.",
-                features: [
-                    "Responsive business website",
-                    "Mobile app (iOS & Android)",
-                    "Social media profile setup",
-                    "Consistent branding across platforms",
-                    "Content strategy guidelines",
-                    "Analytics integration for all channels"
-                ],
-                ideal: "Businesses establishing their complete digital footprint from scratch",
+                description: "Complete package including website, mobile app, and social media setup.",
+                features: ["Business website", "Mobile app (iOS & Android)", "Social media setup", "Analytics"],
+                ideal: "Establishing a complete digital footprint",
                 tag: "Best Value"
             },
             {
-                title: "E-Commerce Complete Solution",
+                title: "E-Commerce Complete",
                 price: "₹2,50,000+",
                 timeframe: "20-28 weeks",
-                description: "Comprehensive e-commerce package with website, mobile apps, inventory management, and marketing tools.",
-                features: [
-                    "E-commerce website with payment processing",
-                    "Native mobile apps for iOS and Android",
-                    "Inventory management system",
-                    "Customer loyalty program",
-                    "Marketing automation setup",
-                    "Analytics and sales dashboards"
-                ],
-                ideal: "Retail businesses looking for a complete online sales ecosystem",
+                description: "Comprehensive e-commerce package with website, mobile apps, and marketing tools.",
+                features: ["E-commerce website", "Native mobile apps", "Inventory system", "Marketing automation"],
+                ideal: "Retailers needing a full digital ecosystem",
                 tag: "Premium"
-            },
-            {
-                title: "Enterprise Transformation Package",
-                price: "₹7,50,000+",
-                timeframe: "32-48 weeks",
-                description: "Complete digital transformation package for enterprises, including ERP, CRM, mobile apps, and integrations.",
-                features: [
-                    "Custom ERP system",
-                    "Integrated CRM solution",
-                    "Employee mobile applications",
-                    "Customer-facing web portal",
-                    "Business intelligence suite",
-                    "Legacy system integrations"
-                ],
-                ideal: "Large enterprises undergoing comprehensive digital transformation",
-                tag: "Enterprise"
-            },
-            {
-                title: "SaaS Startup Package",
-                price: "₹3,50,000+",
-                timeframe: "20-30 weeks",
-                description: "Complete package for SaaS startups including web application, mobile apps, subscription management, and analytics.",
-                features: [
-                    "Cloud-based SaaS platform",
-                    "Subscription and billing system",
-                    "Mobile applications for key platforms",
-                    "Admin dashboard and controls",
-                    "User onboarding workflows",
-                    "Analytics and customer insights"
-                ],
-                ideal: "Technology startups launching SaaS products requiring comprehensive platforms",
-                tag: "Innovative"
             }
         ]
     }
 ];
 
-// Maintenance and support plans
 const maintenancePlans = [
     {
         title: "Essential Maintenance",
-        price: "₹5,000+/month",
+        price: "₹5,000/mo",
         description: "Basic maintenance package ensuring your digital solutions remain operational and secure.",
-        features: [
-            "Security updates and patches",
-            "Performance monitoring",
-            "Bug fixes (up to 10 hours/month)",
-            "Weekly automated backups",
-            "Monthly status reports",
-            "Email support (business hours)"
-        ]
+        features: ["Security updates", "Performance monitoring", "Bug fixes (10 hrs)", "Weekly backups"],
+        color: "from-slate-500/20 to-slate-500/5",
+        btnColor: "bg-slate-700 hover:bg-slate-600"
     },
     {
         title: "Premium Support",
-        price: "₹12,000+/month",
+        price: "₹12,000/mo",
         description: "Comprehensive support package for business-critical applications requiring regular updates.",
-        features: [
-            "All Essential Maintenance features",
-            "Minor feature enhancements (up to 20 hours/month)",
-            "Daily automated backups",
-            "Proactive performance optimization",
-            "Monthly consultation calls",
-            "Priority email and phone support"
-        ]
+        features: ["Essential features +", "Minor enhancements (20 hrs)", "Daily backups", "Priority support"],
+        color: "from-primary/20 to-primary/5",
+        btnColor: "bg-primary hover:bg-primary/90 text-primary-foreground"
     },
     {
         title: "Enterprise Care",
-        price: "₹25,000+/month",
+        price: "₹25,000/mo",
         description: "Complete care package for enterprise solutions with dedicated support and ongoing development.",
-        features: [
-            "All Premium Support features",
-            "Dedicated support manager",
-            "24/7 emergency support",
-            "Continuous improvement cycles",
-            "Quarterly strategy sessions",
-            "User training and documentation"
-        ]
+        features: ["Premium features +", "Dedicated manager", "24/7 emergency support", "Strategy sessions"],
+        color: "from-purple-500/20 to-purple-500/5",
+        btnColor: "bg-purple-600 hover:bg-purple-700"
     }
 ];
 
+// --- Main Component ---
+
 export default function ServicesPage() {
     const [activeTab, setActiveTab] = useState("mobile");
-
-    // Get the active category based on the selected tab
     const activeCategory = serviceCategories.find(category => category.id === activeTab) || serviceCategories[0];
 
     return (
-        <div className="min-h-screen">
-            {/* Hero Section */}
-            <section className="relative">
-                <div className="relative h-[60vh] md:h-[50vh] lg:h-[60vh] w-full overflow-hidden">
-                    <div className={`absolute inset-0 bg-gradient-to-r ${activeCategory.color} opacity-90 z-10`}></div>
-                    <Image
-                        src="/services-hero.jpg"
-                        alt="RH Dynamics Services"
-                        fill
-                        className="object-cover"
-                        priority
-                    />
-                    <div className="absolute inset-0 flex items-center z-20">
-                        <div className="container px-4 mx-auto">
-                            <div className="max-w-3xl">
-                                <Badge className="mb-6 px-4 py-1.5 bg-white/20 text-white border-0 text-sm backdrop-blur-sm">
-                                    Professional Software Services
-                                </Badge>
-                                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">Enterprise-Grade Solutions</h1>
-                                <p className="text-xl md:text-2xl text-white/90 max-w-2xl mb-8">
-                                    High-quality software development services for businesses that demand excellence and innovation.
-                                </p>
-                                <div className="flex flex-wrap gap-4">
-                                    <Link href="#categories">
-                                        <Button size="lg" className="bg-white text-primary hover:bg-white/90 font-medium px-6">
-                                            Explore Services
-                                        </Button>
-                                    </Link>
-                                    <Link href="/contact">
-                                        <Button size="lg" variant="outline" className="text-white border-white/80 bg-primary/40 hover:bg-primary/60 hover:border-white font-medium px-6 backdrop-blur-sm">
-                                            Request Consultation
-                                        </Button>
-                                    </Link>
-                                </div>
-                            </div>
+        <div className="min-h-screen bg-background text-foreground pt-24 pb-12 overflow-hidden">
+            {/* Dynamic Grid Background */}
+            <div className="fixed inset-0 bg-dot-pattern opacity-30 dark:opacity-20 pointer-events-none z-0" />
+            
+            {/* Soft Ambient Orbs */}
+            <div className="fixed top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-primary/10 blur-[120px] pointer-events-none z-0" />
+            <div className="fixed bottom-[-10%] right-[-10%] w-[40vw] h-[40vw] rounded-full bg-purple-500/10 blur-[100px] pointer-events-none z-0" />
+
+            {/* --- Hero Section --- */}
+            <section className="relative z-10 pt-16 pb-24 text-center container px-4 mx-auto">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                >
+                    <Badge variant="outline" className="mb-6 px-4 py-1.5 bg-primary/10 text-primary border border-primary/20 backdrop-blur-sm text-sm pointer-events-none">
+                        Professional Digital Services
+                    </Badge>
+                    <h1 className="text-5xl md:text-7xl font-black font-heading mb-6 tracking-tight text-foreground">
+                        Scale With <span className="text-gradient">Precision</span>
+                    </h1>
+                    <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
+                        From high-converting marketing campaigns to scalable enterprise software, we provide the complete ecosystem for your digital dominance.
+                    </p>
+                    <div className="flex flex-wrap justify-center gap-4">
+                        <Link href="#marketing">
+                            <Button size="lg" className="h-14 px-8 text-base shadow-lg shadow-primary/20 hover:-translate-y-1 transition-all rounded-full">
+                                Marketing Packages
+                            </Button>
+                        </Link>
+                        <Link href="#software">
+                            <Button size="lg" variant="outline" className="h-14 px-8 text-base glass-card hover:bg-muted transition-all rounded-full">
+                                Software Solutions
+                            </Button>
+                        </Link>
+                    </div>
+                </motion.div>
+            </section>
+
+            {/* --- Marketing Packages --- */}
+            <section id="marketing" className="relative z-10 py-24 border-y border-border/50 bg-muted/20 backdrop-blur-sm">
+                <div className="container px-4 mx-auto">
+                    <div className="text-center max-w-3xl mx-auto mb-16">
+                        <div className="inline-flex items-center justify-center p-3 mb-4 rounded-2xl bg-purple-500/10 text-purple-500">
+                            <Megaphone className="w-8 h-8" />
                         </div>
+                        <h2 className="text-3xl md:text-5xl font-bold font-heading mb-6 text-foreground">Marketing & Growth Packages</h2>
+                        <p className="text-lg text-muted-foreground">
+                            Dominate your market with our data-driven content, ads, and lead generation systems.
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                        {marketingPackages.map((pkg, idx) => (
+                            <motion.div
+                                key={pkg.name}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                                className={`glass-card dark:glass-card-dark rounded-3xl p-8 relative flex flex-col overflow-hidden ${pkg.tag === 'Premium' ? 'border-amber-500/50 shadow-2xl shadow-amber-500/10 scale-105 z-10' : ''}`}
+                            >
+                                {/* Glowing Accent */}
+                                <div className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-br ${pkg.color} opacity-10 blur-[80px] rounded-full pointer-events-none`} />
+
+                                {pkg.tag && (
+                                    <div className={`absolute top-0 right-0 py-1.5 px-6 rounded-bl-xl text-xs font-bold uppercase tracking-wider text-white bg-gradient-to-r ${pkg.color}`}>
+                                        {pkg.tag}
+                                    </div>
+                                )}
+
+                                <div className="mb-8">
+                                    <h3 className="text-2xl font-bold font-heading mb-2">{pkg.name}</h3>
+                                    <p className="text-muted-foreground mb-4">Ideal For: <span className="font-semibold text-foreground">{pkg.idealFor}</span></p>
+                                    <div className="flex items-baseline gap-2">
+                                        <span className="text-4xl font-black">{pkg.price}</span>
+                                        <span className="text-muted-foreground font-medium">/ month</span>
+                                    </div>
+                                </div>
+
+                                <div className="space-y-4 mb-10 flex-grow">
+                                    {pkg.features.map((feature, i) => (
+                                        <div key={i} className="flex items-start gap-3">
+                                            <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                                            <div>
+                                                <span className="text-sm text-muted-foreground block">{feature.name}</span>
+                                                <span className="font-medium text-foreground">{feature.value}</span>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+
+                                <Link href={`/contact?service=${encodeURIComponent(pkg.name + ' Marketing Package')}`} className="mt-auto">
+                                    <Button className={`w-full h-12 text-base font-semibold text-white ${pkg.buttonColor} border-0 rounded-full transition-all hover:scale-[1.02]`}>
+                                        Select {pkg.name}
+                                    </Button>
+                                </Link>
+                            </motion.div>
+                        ))}
                     </div>
                 </div>
             </section>
 
-            {/* Our Approach */}
-            <section className="py-24 bg-gradient-to-b from-muted/30 to-background">
+            {/* --- Software Solutions --- */}
+            <section id="software" className="relative z-10 py-24">
                 <div className="container px-4 mx-auto">
-                    <div className="max-w-3xl mx-auto text-center mb-16">
-                        <Badge className="mb-4 px-3 py-1 bg-amber-100 text-amber-700 border-0 text-sm">Our Methodology</Badge>
-                        <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Development Approach</h2>
+                    <div className="text-center max-w-3xl mx-auto mb-16">
+                        <div className="inline-flex items-center justify-center p-3 mb-4 rounded-2xl bg-blue-500/10 text-blue-500">
+                            <Code className="w-8 h-8" />
+                        </div>
+                        <h2 className="text-3xl md:text-5xl font-bold font-heading mb-6 text-foreground">Custom Software Solutions</h2>
                         <p className="text-lg text-muted-foreground">
-                            We don't just build software; we craft solutions that empower your business. Our quality-first approach ensures your digital investments deliver long-term value.
+                            Enterprise-grade applications built with modern architectures for unmatched performance.
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-                        <Card className="bg-background border-0 shadow-lg hover:shadow-xl transition-all group">
-                            <CardHeader className="pb-2">
-                                <div className="w-16 h-16 rounded-2xl bg-amber-50 flex items-center justify-center mb-4 group-hover:bg-amber-100 transition-all">
-                                    <Shield className="h-8 w-8 text-amber-600" />
-                                </div>
-                                <CardTitle className="text-2xl">Quality Assurance</CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                <p className="text-muted-foreground">
-                                    Rigorous testing methodologies ensure your solutions are robust, secure, and ready for real-world use. We test early and often throughout the development process.
-                                </p>
-                            </CardContent>
-                        </Card>
-
-                        <Card className="bg-background border-0 shadow-lg hover:shadow-xl transition-all group">
-                            <CardHeader className="pb-2">
-                                <div className="w-16 h-16 rounded-2xl bg-emerald-50 flex items-center justify-center mb-4 group-hover:bg-emerald-100 transition-all">
-                                    <Zap className="h-8 w-8 text-emerald-600" />
-                                </div>
-                                <CardTitle className="text-2xl">Agile Development</CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                <p className="text-muted-foreground">
-                                    Our iterative approach allows for continuous feedback and adaptation, ensuring the final product aligns perfectly with your business requirements and goals.
-                                </p>
-                            </CardContent>
-                        </Card>
-
-                        <Card className="bg-background border-0 shadow-lg hover:shadow-xl transition-all group">
-                            <CardHeader className="pb-2">
-                                <div className="w-16 h-16 rounded-2xl bg-purple-50 flex items-center justify-center mb-4 group-hover:bg-purple-100 transition-all">
-                                    <Layers className="h-8 w-8 text-purple-600" />
-                                </div>
-                                <CardTitle className="text-2xl">Scalable Architecture</CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                <p className="text-muted-foreground">
-                                    We design solutions that grow with your business, utilizing modern architectures and technologies that provide flexibility and future-proof your investment.
-                                </p>
-                            </CardContent>
-                        </Card>
-                    </div>
-                </div>
-            </section>
-
-            {/* Service Categories */}
-            <section id="categories" className="py-24">
-                <div className="container px-4 mx-auto">
-                    <div className="max-w-3xl mx-auto text-center mb-16">
-                        <Badge className={`mb-4 px-3 py-1 ${activeCategory.lightColor} ${activeCategory.textColor} border-0 text-sm`}>Our Services</Badge>
-                        <h2 className="text-3xl md:text-4xl font-bold mb-6">Comprehensive Digital Solutions</h2>
-                        <p className="text-lg text-muted-foreground">
-                            Choose from our extensive range of services designed to meet the specific needs of your business, from mobile applications to enterprise-grade systems.
-                        </p>
-                    </div>
-
-                    <Tabs defaultValue="mobile" className="mb-10" onValueChange={setActiveTab}>
-                        <TabsList className="w-full max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 mb-16 bg-muted/50 p-1.5 rounded-xl">
+                    <Tabs defaultValue="mobile" onValueChange={setActiveTab} className="max-w-6xl mx-auto">
+                        <TabsList className="w-full grid grid-cols-2 md:grid-cols-4 mb-12 bg-background/50 backdrop-blur-md border border-border p-1.5 rounded-2xl h-auto">
                             {serviceCategories.map((category) => (
                                 <TabsTrigger
                                     key={category.id}
                                     value={category.id}
-                                    className={`flex items-center gap-2 py-3 px-4 rounded-lg data-[state=active]:${category.lightColor} data-[state=active]:${category.textColor}`}
+                                    className="py-3 px-4 rounded-xl data-[state=active]:bg-muted data-[state=active]:text-foreground text-muted-foreground transition-all"
                                 >
-                                    <category.icon className="h-5 w-5" />
-                                    <span className="hidden md:inline font-medium">{category.name}</span>
-                                    <span className="md:hidden font-medium">{category.name.split(' ')[0]}</span>
+                                    <div className="flex items-center gap-2">
+                                        <category.icon className="h-5 w-5" />
+                                        <span className="font-medium">{category.name}</span>
+                                    </div>
                                 </TabsTrigger>
                             ))}
                         </TabsList>
 
                         {serviceCategories.map((category) => (
-                            <TabsContent key={category.id} value={category.id}>
-                                <div className={`mb-12 ${category.lightColor} p-6 rounded-xl border ${category.borderColor}`}>
-                                    <div className="flex flex-col md:flex-row items-start md:items-center gap-6 mb-4">
-                                        <div className={`w-16 h-16 ${category.accentColor} rounded-xl flex items-center justify-center shrink-0`}>
-                                            <category.icon className="h-8 w-8 text-white" />
+                            <TabsContent key={category.id} value={category.id} className="focus-visible:outline-none">
+                                <motion.div 
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.4 }}
+                                    className={`mb-10 ${category.bgAccent} border border-border rounded-3xl p-8 md:p-10`}
+                                >
+                                    <div className="flex flex-col md:flex-row gap-6 items-center">
+                                        <div className={`p-4 rounded-2xl bg-gradient-to-br ${category.color} text-white`}>
+                                            <category.icon className="h-10 w-10" />
                                         </div>
-                                        <div>
-                                            <h3 className="text-2xl md:text-3xl font-bold mb-2">{category.name}</h3>
-                                            <p className="text-muted-foreground text-lg">{category.description}</p>
+                                        <div className="text-center md:text-left">
+                                            <h3 className="text-3xl font-bold font-heading mb-2">{category.name}</h3>
+                                            <p className="text-lg text-muted-foreground">{category.description}</p>
                                         </div>
                                     </div>
-                                </div>
+                                </motion.div>
 
                                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                                    {category.offerings.map((offering, index) => (
-                                        <Card key={index} className={`border ${category.borderColor} ${category.hoverBorderColor} shadow-lg hover:shadow-xl transition-all overflow-hidden group flex flex-col h-full`}>
-                                            <div className={`h-2 ${category.accentColor} w-full group-hover:h-3 transition-all`} />
-                                            <CardHeader className="pb-2 pt-6 px-6">
-                                                <div className="flex justify-between items-start mb-4">
-                                                    <CardTitle className="text-2xl font-bold">{offering.title}</CardTitle>
-                                                    <Badge variant="outline" className={`${category.lightColor} ${category.textColor} border-${category.borderColor} font-medium`}>
+                                    {category.offerings.map((offering, idx) => (
+                                        <div key={idx} className="glass-card dark:glass-card-dark rounded-3xl p-8 flex flex-col h-full group hover:border-primary/50 transition-colors">
+                                            <div className="flex justify-between items-start mb-6">
+                                                <div>
+                                                    <h4 className="text-2xl font-bold mb-1">{offering.title}</h4>
+                                                    <p className="text-primary font-medium">From {offering.price} • {offering.timeframe}</p>
+                                                </div>
+                                                {offering.tag && (
+                                                    <Badge variant="secondary" className="bg-secondary text-secondary-foreground">
                                                         {offering.tag}
                                                     </Badge>
-                                                </div>
-                                                <CardDescription className={`text-base ${category.textColor} font-medium mt-2`}>
-                                                    Starting at {offering.price} • {offering.timeframe}
-                                                </CardDescription>
-                                            </CardHeader>
-                                            <CardContent className="space-y-6 px-6 flex-grow">
-                                                <p className="text-muted-foreground">{offering.description}</p>
+                                                )}
+                                            </div>
+                                            
+                                            <p className="text-muted-foreground mb-8 text-base leading-relaxed">{offering.description}</p>
+                                            
+                                            <div className="mb-10 flex-grow">
+                                                <h5 className="font-semibold text-foreground mb-4">Core Deliverables</h5>
+                                                <ul className="space-y-3">
+                                                    {offering.features.map((feature, i) => (
+                                                        <li key={i} className="flex items-start gap-3">
+                                                            <div className="bg-primary/20 p-1 rounded-full mt-0.5">
+                                                                <Check className="w-3 h-3 text-primary" />
+                                                            </div>
+                                                            <span className="text-muted-foreground">{feature}</span>
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            </div>
 
-                                                <div className="pt-2">
-                                                    <h4 className="font-medium text-lg mb-4">Key Features</h4>
-                                                    <ul className="space-y-3 pl-1">
-                                                        {offering.features.map((feature, idx) => (
-                                                            <li key={idx} className="flex items-start gap-3">
-                                                                <div className={`${category.lightColor} rounded-full p-1 mt-0.5`}>
-                                                                    <Check className={`h-4 w-4 ${category.textColor} shrink-0`} />
-                                                                </div>
-                                                                <span className="text-base">{feature}</span>
-                                                            </li>
-                                                        ))}
-                                                    </ul>
-                                                </div>
-
-                                                <div className={`pt-3 ${category.lightColor}/50 p-5 rounded-lg`}>
-                                                    <h4 className="font-medium mb-2">Ideal For</h4>
-                                                    <p className="text-muted-foreground">{offering.ideal}</p>
-                                                </div>
-                                            </CardContent>
-                                            <CardFooter className="flex justify-between border-t pt-6 pb-6 px-6 gap-4 mt-auto">
-                                                <Button variant="outline" className={`flex-1 hover:${category.lightColor} hover:${category.textColor}`}>Learn More</Button>
-                                                <Link href="/contact" className="flex-1">
-                                                    <Button className={`w-full ${category.accentColor} hover:${category.accentColor}/90`}>
-                                                        Request Quote
-                                                        <ArrowRight className="ml-2 h-4 w-4" />
-                                                    </Button>
-                                                </Link>
-                                            </CardFooter>
-                                        </Card>
+                                            <Link href={`/contact?service=${encodeURIComponent(offering.title)}`} className="mt-auto">
+                                                <Button variant="outline" className="w-full h-12 glass-card text-foreground hover:bg-primary hover:text-primary-foreground border-border transition-all rounded-full hover:scale-[1.02]">
+                                                    Request Proposal <ArrowRight className="ml-2 w-4 h-4" />
+                                                </Button>
+                                            </Link>
+                                        </div>
                                     ))}
                                 </div>
                             </TabsContent>
@@ -566,82 +456,44 @@ export default function ServicesPage() {
                 </div>
             </section>
 
-            {/* Maintenance & Support */}
-            <section className="py-24 bg-gradient-to-b from-background to-amber-50/30">
+            {/* --- Maintenance & Support --- */}
+            <section className="relative z-10 py-24 border-t border-border/50">
                 <div className="container px-4 mx-auto">
-                    <div className="max-w-3xl mx-auto text-center mb-16">
-                        <Badge className="mb-4 px-3 py-1 bg-teal-100 text-teal-700 border-0 text-sm">Support Plans</Badge>
-                        <h2 className="text-3xl md:text-4xl font-bold mb-6">Maintenance & Support</h2>
+                    <div className="text-center max-w-3xl mx-auto mb-16">
+                        <h2 className="text-3xl md:text-5xl font-bold font-heading mb-6 text-foreground">Maintenance & Support</h2>
                         <p className="text-lg text-muted-foreground">
-                            Ensure the continued success of your digital solutions with our comprehensive maintenance and support plans.
+                            Ensure maximum uptime and security for your custom software solutions.
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
-                        {maintenancePlans.map((plan, index, array) => {
-                            // Create a gradient of colors from teal to purple across the maintenance plans
-                            const colors = [
-                                { bg: "bg-teal-500", light: "bg-teal-50", text: "text-teal-700", border: "border-teal-200" },
-                                { bg: "bg-blue-500", light: "bg-blue-50", text: "text-blue-700", border: "border-blue-200" },
-                                { bg: "bg-indigo-500", light: "bg-indigo-50", text: "text-indigo-700", border: "border-indigo-200" }
-                            ];
-                            const color = colors[index % colors.length];
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                        {maintenancePlans.map((plan, idx) => (
+                            <div key={idx} className="glass-card dark:glass-card-dark rounded-3xl p-8 relative overflow-hidden flex flex-col group">
+                                <div className={`absolute inset-0 bg-gradient-to-br ${plan.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                                
+                                <div className="relative z-10">
+                                    <h3 className="text-2xl font-bold mb-2">{plan.title}</h3>
+                                    <div className="text-3xl font-black text-foreground mb-4">{plan.price}</div>
+                                    <p className="text-muted-foreground mb-8 min-h-[60px]">{plan.description}</p>
+                                    
+                                    <ul className="space-y-4 mb-10">
+                                        {plan.features.map((feat, i) => (
+                                            <li key={i} className="flex items-center gap-3 text-muted-foreground">
+                                                <Check className="w-5 h-5 text-foreground opacity-50" />
+                                                {feat}
+                                            </li>
+                                        ))}
+                                    </ul>
 
-                            return (
-                                <Card key={index} className={`border ${color.border} hover:border-primary/20 shadow-lg hover:shadow-xl transition-all group overflow-hidden flex flex-col h-full`}>
-                                    <div className={`h-1 ${color.bg} w-full group-hover:h-2 transition-all`} />
-                                    <CardHeader className="pt-8 px-6">
-                                        <CardTitle className="text-2xl">{plan.title}</CardTitle>
-                                        <CardDescription className={`text-xl font-medium ${color.text} mt-3`}>
-                                            {plan.price}
-                                        </CardDescription>
-                                    </CardHeader>
-                                    <CardContent className="space-y-6 px-6 flex-grow">
-                                        <p className="text-muted-foreground">{plan.description}</p>
-
-                                        <div className="pt-2">
-                                            <h4 className="font-medium text-lg mb-4">Includes</h4>
-                                            <ul className="space-y-3 pl-1">
-                                                {plan.features.map((feature, idx) => (
-                                                    <li key={idx} className="flex items-start gap-3">
-                                                        <div className={`${color.light} rounded-full p-1 mt-0.5`}>
-                                                            <Check className={`h-4 w-4 ${color.text} shrink-0`} />
-                                                        </div>
-                                                        <span className="text-base">{feature}</span>
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        </div>
-                                    </CardContent>
-                                    <CardFooter className="pt-6 pb-6 px-6 mt-auto">
-                                        <Link href="/contact" className="w-full">
-                                            <Button className={`w-full ${color.bg} hover:${color.bg}/90`}>Request Details</Button>
-                                        </Link>
-                                    </CardFooter>
-                                </Card>
-                            );
-                        })}
+                                    <Link href={`/contact?service=${encodeURIComponent(plan.title)}`} className="mt-auto block">
+                                        <Button className={`w-full h-12 text-white border-0 ${plan.btnColor} rounded-full transition-all hover:scale-[1.02]`}>
+                                            Secure Plan
+                                        </Button>
+                                    </Link>
+                                </div>
+                            </div>
+                        ))}
                     </div>
-                </div>
-            </section>
-
-            {/* CTA Section */}
-            <section className="py-24 bg-gradient-to-r from-purple-600 to-indigo-600 text-white relative overflow-hidden">
-                <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10"></div>
-                <div className="container px-4 mx-auto text-center relative z-10">
-                    <Badge className="mb-6 px-4 py-1.5 bg-white/20 text-white border-0 text-sm backdrop-blur-sm inline-block">
-                        Let's Work Together
-                    </Badge>
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">Ready to Transform Your Business?</h2>
-                    <p className="text-xl text-white/80 max-w-2xl mx-auto mb-10">
-                        Let's discuss how our high-quality digital solutions can help you achieve your business objectives.
-                    </p>
-                    <Link href="/contact">
-                        <Button size="lg" className="bg-white text-indigo-700 hover:bg-white/90 font-medium px-8 py-6 text-lg">
-                            Schedule a Consultation
-                            <ArrowRight className="ml-2 h-5 w-5" />
-                        </Button>
-                    </Link>
                 </div>
             </section>
         </div>

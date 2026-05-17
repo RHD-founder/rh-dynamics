@@ -1,212 +1,158 @@
 "use client";
 
-import { Code, Smartphone, Globe, Server, ShieldCheck, BarChart3, Lightbulb } from "lucide-react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { 
+  Smartphone, Globe, LayoutTemplate,
+  Target, TrendingUp, Megaphone,
+  ShieldAlert, Bot, GraduationCap,
+  Network, Server, Video
+} from "lucide-react";
 
-type ServiceColor = "indigo" | "purple" | "blue" | "emerald" | "rose" | "amber";
-
-interface Service {
-  icon: React.ElementType;
+type ServiceCategory = {
+  id: string;
   title: string;
   description: string;
-  color: ServiceColor;
-}
-
-interface ColorClasses {
-  accent: string;
-  icon: string;
-  hover: string;
-  link: string;
-  border: string;
-}
-
-const services: Service[] = [
-  {
-    icon: Code,
-    title: "Custom Software Development",
-    description:
-      "Enterprise-grade solutions built with cutting-edge technologies to solve your complex business challenges.",
-    color: "indigo"
-  },
-  {
-    icon: Smartphone,
-    title: "Mobile App Development",
-    description:
-      "Native and cross-platform apps that deliver exceptional user experiences across iOS and Android platforms.",
-    color: "purple"
-  },
-  {
-    icon: Globe,
-    title: "Web Development",
-    description:
-      "Responsive web applications with modern UI/UX that scale seamlessly from startup to enterprise needs.",
-    color: "blue"
-  },
-  {
-    icon: Server,
-    title: "Cloud Solutions",
-    description:
-      "Scalable cloud infrastructure and migration services utilizing AWS, Azure, and Google Cloud platforms.",
-    color: "emerald"
-  },
-  {
-    icon: ShieldCheck,
-    title: "Cybersecurity",
-    description:
-      "Comprehensive security assessments and solutions to protect your digital assets and customer data.",
-    color: "rose"
-  },
-  {
-    icon: BarChart3,
-    title: "Data Analytics",
-    description:
-      "Transform your raw data into actionable insights with our advanced analytics and visualization tools.",
-    color: "amber"
-  },
-];
-
-// Function to get color-specific classes
-const getColorClasses = (color: ServiceColor): ColorClasses => {
-  const colorMap: Record<ServiceColor, ColorClasses> = {
-    indigo: {
-      accent: "bg-indigo-50/80",
-      icon: "text-indigo-600",
-      hover: "group-hover:bg-indigo-100",
-      link: "text-indigo-600 hover:text-indigo-700",
-      border: "border-indigo-100 hover:border-indigo-200",
-    },
-    purple: {
-      accent: "bg-purple-50/80",
-      icon: "text-purple-600",
-      hover: "group-hover:bg-purple-100",
-      link: "text-purple-600 hover:text-purple-700",
-      border: "border-purple-100 hover:border-purple-200",
-    },
-    blue: {
-      accent: "bg-blue-50/80",
-      icon: "text-blue-600",
-      hover: "group-hover:bg-blue-100",
-      link: "text-blue-600 hover:text-blue-700",
-      border: "border-blue-100 hover:border-blue-200",
-    },
-    emerald: {
-      accent: "bg-emerald-50/80",
-      icon: "text-emerald-600",
-      hover: "group-hover:bg-emerald-100",
-      link: "text-emerald-600 hover:text-emerald-700",
-      border: "border-emerald-100 hover:border-emerald-200",
-    },
-    rose: {
-      accent: "bg-rose-50/80",
-      icon: "text-rose-600",
-      hover: "group-hover:bg-rose-100",
-      link: "text-rose-600 hover:text-rose-700",
-      border: "border-rose-100 hover:border-rose-200",
-    },
-    amber: {
-      accent: "bg-amber-50/80",
-      icon: "text-amber-600",
-      hover: "group-hover:bg-amber-100",
-      link: "text-amber-600 hover:text-amber-700",
-      border: "border-amber-100 hover:border-amber-200",
-    }
-  };
-
-  return colorMap[color] || colorMap.blue;
+  color: string;
+  items: {
+    title: string;
+    icon: React.ElementType;
+    desc: string;
+  }[];
 };
+
+const categories: ServiceCategory[] = [
+  {
+    id: "software",
+    title: "Software Solutions",
+    description: "Enterprise-grade digital products tailored for your business.",
+    color: "from-blue-500 to-cyan-500",
+    items: [
+      { title: "Web Applications", icon: Globe, desc: "Scalable, high-performance web apps." },
+      { title: "Mobile Apps", icon: Smartphone, desc: "Native & cross-platform mobile solutions." },
+      { title: "Custom Platforms", icon: LayoutTemplate, desc: "Bespoke SaaS and internal tools." }
+    ]
+  },
+  {
+    id: "marketing",
+    title: "Digital Marketing",
+    description: "Data-driven strategies to scale your brand visibility.",
+    color: "from-purple-500 to-pink-500",
+    items: [
+      { title: "Performance Marketing", icon: Target, desc: "High ROI paid advertising campaigns." },
+      { title: "SEO & Analytics", icon: TrendingUp, desc: "Search optimization and data insights." },
+      { title: "Brand Strategy", icon: Megaphone, desc: "Comprehensive digital branding." }
+    ]
+  },
+  {
+    id: "training",
+    title: "Training & Education",
+    description: "Empowering the next generation with advanced tech skills.",
+    color: "from-emerald-500 to-teal-500",
+    items: [
+      { title: "Cyber Security", icon: ShieldAlert, desc: "Workshops and corporate training." },
+      { title: "Robotics & AI", icon: Bot, desc: "School integrations and ATL Services." },
+      { title: "Skill Development", icon: GraduationCap, desc: "Advanced technical certifications." }
+    ]
+  },
+  {
+    id: "infrastructure",
+    title: "IT Infrastructure",
+    description: "Robust hardware and network setups for modern institutions.",
+    color: "from-orange-500 to-amber-500",
+    items: [
+      { title: "Networking & Comm", icon: Network, desc: "Enterprise network architecture." },
+      { title: "Lab Setup", icon: Server, desc: "Complete computer & tech lab installations." },
+      { title: "CCTV & Security", icon: Video, desc: "Smart surveillance systems." }
+    ]
+  }
+];
 
 export function Services() {
   const [ref, inView] = useInView({
     triggerOnce: true,
-    threshold: 0.1,
+    threshold: 0.05,
   });
 
   return (
-    <section id="services" className="py-24 bg-background relative">
-      {/* Enhanced background pattern with subtle gradient */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-5" />
-      <div className="absolute inset-0 bg-gradient-to-b from-indigo-50/30 to-background" />
+    <section id="services" className="py-32 relative overflow-hidden bg-background">
+      {/* Premium Background Elements */}
+      <div className="absolute inset-0 bg-dot-pattern opacity-50 dark:opacity-20" />
+      <div className="absolute top-0 left-0 w-full h-[500px] bg-gradient-to-b from-primary/5 to-transparent pointer-events-none" />
 
-      <div className="container px-4 mx-auto relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+      <div className="container px-4 mx-auto relative z-10" ref={ref}>
+        <div className="text-center max-w-3xl mx-auto mb-20">
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={inView ? { opacity: 1 } : {}}
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-600 font-medium mb-2"
+            className="inline-flex items-center rounded-full px-3 py-1 text-sm font-medium bg-secondary text-secondary-foreground mb-6"
           >
-            OUR EXPERTISE
+            Capabilities
           </motion.div>
 
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
-            className="text-4xl font-bold font-heading mb-4 text-indigo-900"
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-4xl md:text-5xl font-black font-heading mb-6 text-foreground"
           >
-            Comprehensive Digital Services
+            End-to-End Technology <br />
+            <span className="text-gradient">Ecosystem</span>
           </motion.h2>
 
           <motion.p
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-muted-foreground"
+            className="text-lg text-muted-foreground"
           >
-            We offer end-to-end technology solutions that help businesses in Northeast
-            India and beyond compete in the global digital landscape.
+            From deploying scalable cloud software to installing robust physical IT infrastructure, we are your single-source technology partner.
           </motion.p>
         </div>
 
-        <div
-          ref={ref}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
-          {services.map((service, index) => {
-            const colorClasses = getColorClasses(service.color);
+        {/* Bento Box Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {categories.map((category, idx) => (
+            <motion.div
+              key={category.id}
+              initial={{ opacity: 0, y: 30 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.2 + idx * 0.1 }}
+              className="glass-card dark:glass-card-dark rounded-3xl p-8 relative overflow-hidden group"
+            >
+              {/* Category Glow Effect */}
+              <div className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-br ${category.color} rounded-full blur-[80px] opacity-10 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none`} />
 
-            return (
-              <motion.div
-                key={service.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className={`p-8 rounded-xl border ${colorClasses.border} bg-card hover:shadow-xl transition-all duration-300 group relative overflow-hidden`}
-              >
-                {/* Decorative corner accent with service-specific color */}
-                <div className={`absolute -top-2 -right-2 w-12 h-12 ${colorClasses.accent} rounded-bl-xl transform rotate-0 group-hover:rotate-90 transition-transform duration-300`} />
+              <h3 className="text-3xl font-bold font-heading mb-3 text-foreground">{category.title}</h3>
+              <p className="text-muted-foreground mb-8 text-lg">{category.description}</p>
 
-                <div className={`p-3 rounded-lg ${colorClasses.accent} ${colorClasses.hover} inline-flex mb-5 transition-colors duration-300`}>
-                  <service.icon className={`h-6 w-6 ${colorClasses.icon}`} />
-                </div>
-
-                <h3 className="text-xl font-semibold font-heading mb-3">{service.title}</h3>
-                <p className="text-muted-foreground mb-5">{service.description}</p>
-
-                <Link href={`/services#${service.title.toLowerCase().replace(/\s+/g, '-')}`} className={`${colorClasses.link} text-sm font-medium hover:underline`}>
-                  Learn more →
-                </Link>
-              </motion.div>
-            );
-          })}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                {category.items.map((item, itemIdx) => (
+                  <div key={itemIdx} className="flex flex-col">
+                    <div className="h-12 w-12 rounded-2xl bg-secondary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                      <item.icon className="h-6 w-6 text-foreground" />
+                    </div>
+                    <h4 className="text-base font-semibold mb-2 text-foreground">{item.title}</h4>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          ))}
         </div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="mt-16 text-center"
+          className="mt-20 text-center"
         >
-          <Link href="/services">
-            <Button
-              variant="outline"
-              size="lg"
-              className="mx-auto bg-gradient-to-r from-indigo-50 to-blue-50 border-indigo-200 text-indigo-700 hover:bg-gradient-to-r hover:from-indigo-100 hover:to-blue-100 hover:text-indigo-800"
-            >
-              View All Services <Lightbulb className="ml-2 h-4 w-4" />
+          <Link href="/contact">
+            <Button size="lg" className="h-14 px-8 text-base shadow-lg transition-transform hover:-translate-y-1">
+              Discuss Your Requirements
             </Button>
           </Link>
         </motion.div>
@@ -214,10 +160,3 @@ export function Services() {
     </section>
   );
 }
-
-// Add this to your globals.css or create a new component
-// .bg-grid-pattern {
-//   background-image: linear-gradient(to right, #f0f0f0 1px, transparent 1px),
-//                     linear-gradient(to bottom, #f0f0f0 1px, transparent 1px);
-//   background-size: 20px 20px;
-// }

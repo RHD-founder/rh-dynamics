@@ -73,11 +73,6 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/careers" className="text-muted-foreground hover:text-primary transition-colors">
-                  Careers
-                </Link>
-              </li>
-              <li>
                 <Link href="/contact" className="text-muted-foreground hover:text-primary transition-colors">
                   Contact
                 </Link>
@@ -124,7 +119,7 @@ export function Footer() {
               <li className="flex">
                 <MapPin className="h-5 w-5 text-primary shrink-0 mr-3 mt-1" />
                 <span className="text-muted-foreground">
-                  Near Harmoni Apartment, Magzine,<br />Guwahati, Assam, India 781171
+                  Near downtown hospital, urban villa,<br />Sarumotoria, Guwahati, Assam 781036
                 </span>
               </li>
               <li className="flex">
@@ -139,11 +134,16 @@ export function Footer() {
                   founder@rh-dynamics.software
                 </a>
               </li>
-              <li className="flex items-center">
-                <Phone className="h-5 w-5 text-primary shrink-0 mr-3" />
-                <a href="tel:+919864848781" className="text-muted-foreground hover:text-primary transition-colors">
-                  +91 9864848781
-                </a>
+              <li className="flex items-start">
+                <Phone className="h-5 w-5 text-primary shrink-0 mr-3 mt-1" />
+                <div className="flex flex-col">
+                  <a href="tel:+918638875149" className="text-muted-foreground hover:text-primary transition-colors">
+                    +91 86388 75149
+                  </a>
+                  <a href="tel:+919864848781" className="text-muted-foreground hover:text-primary transition-colors">
+                    +91 98648 48781
+                  </a>
+                </div>
               </li>
             </ul>
           </div>

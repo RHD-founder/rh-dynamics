@@ -18,78 +18,68 @@ export function Hero() {
   }, []);
 
   const stats = [
-    { value: "50+", label: "Projects Delivered" },
-    { value: "5+", label: "Years Experience" },
-    { value: "98%", label: "Client Satisfaction" },
+    { value: "20+", label: "Premium Projects" },
+    { value: "Est. 2025", label: "Startup India Recognized" },
+    { value: "100%", label: "Client Satisfaction" },
   ];
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Enhanced background gradient with richer colors */}
-      <div
-        className="absolute inset-0 bg-gradient-to-r from-rose-500/20 via-indigo-600/15 to-blue-600/10"
-        style={{
-          transform: `translateY(${scrollY * 0.2}px)`,
-        }}
+    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-background">
+      {/* Dynamic Grid Background */}
+      <div 
+        className="absolute inset-0 bg-grid-pattern opacity-30 dark:opacity-20"
+        style={{ transform: `translateY(${scrollY * 0.1}px)` }}
       />
 
-      {/* Background pattern with updated color */}
-      <div className="absolute inset-0 opacity-10"
-        style={{
-          backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%234F46E5' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")",
-          transform: `translateY(${scrollY * 0.1}px)`,
-        }}
-      />
-
-      {/* Add colorful geometric shapes in background */}
-      <div className="absolute top-1/4 left-10 w-40 h-40 rounded-full bg-gradient-to-br from-purple-400/10 to-purple-600/5 blur-3xl"></div>
-      <div className="absolute bottom-1/4 right-10 w-60 h-60 rounded-full bg-gradient-to-tl from-amber-400/10 to-amber-600/5 blur-3xl"></div>
+      {/* Abstract Glowing Orbs for Depth */}
+      <div className="absolute top-1/4 left-1/4 w-[40vw] h-[40vw] rounded-full bg-primary/20 dark:bg-primary/10 blur-[120px] mix-blend-screen" />
+      <div className="absolute bottom-1/4 right-1/4 w-[30vw] h-[30vw] rounded-full bg-blue-500/20 dark:bg-blue-600/10 blur-[100px] mix-blend-screen" />
 
       <div className="container px-4 mx-auto text-center z-10">
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          className="mb-4 font-semibold tracking-wide bg-gradient-to-r from-indigo-600 via-primary to-purple-600 text-transparent bg-clip-text"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="inline-flex items-center rounded-full px-3 py-1 text-sm font-medium border border-primary/20 bg-primary/10 text-primary mb-8 backdrop-blur-md"
         >
-          NORTHEAST INDIA'S PREMIER SOFTWARE AGENCY
+          <span className="flex h-2 w-2 rounded-full bg-primary mr-2 animate-pulse"></span>
+          Next-Gen Software & IT Solutions
         </motion.div>
 
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.8 }}
-          className="text-5xl md:text-6xl font-heading font-bold mb-6 leading-tight"
+          className="text-5xl md:text-7xl font-heading font-black mb-6 tracking-tight text-foreground"
         >
-          Transforming <span className="text-rose-600">Ideas</span> Into <br />
-          <span className="text-indigo-600">Powerful</span> Digital Solutions
+          Architecting Your <br className="hidden md:block" />
+          <span className="text-gradient">Digital Future</span>
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.8 }}
-          className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto"
+          className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto font-light"
         >
-          At RH Dynamics, we combine regional expertise with global standards to
-          deliver exceptional software that drives your business forward.
+          From enterprise software and mobile apps to comprehensive IT infrastructure and advanced robotics training. We deliver global standards locally.
         </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.8 }}
-          className="flex gap-4 justify-center mb-12"
+          className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
         >
           <Link href="/contact">
-            <Button size="lg" className="group bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-700 hover:to-blue-700">
-              Get Started
-              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            <Button size="lg" className="h-14 px-8 text-base shadow-lg shadow-primary/25 transition-transform hover:-translate-y-1">
+              Start Your Project
+              <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </Link>
-          <Link href="/projects">
-            <Button variant="outline" size="lg" className="border-indigo-200 text-indigo-700 hover:bg-indigo-50 hover:text-indigo-800">
-              View Our Work
+          <Link href="/services">
+            <Button variant="outline" size="lg" className="h-14 px-8 text-base bg-background/50 backdrop-blur-sm border-border hover:bg-muted transition-transform hover:-translate-y-1">
+              Explore Services
             </Button>
           </Link>
         </motion.div>
@@ -98,22 +88,19 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.8 }}
-          className="grid grid-cols-3 gap-8 max-w-3xl mx-auto"
+          className="grid grid-cols-3 gap-4 md:gap-8 max-w-4xl mx-auto glass-card rounded-2xl p-6 md:p-8"
         >
           {stats.map((stat, index) => (
             <div key={index} className="text-center">
               <motion.div
-                initial={{ scale: 0.8 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 0.8 + index * 0.2, duration: 0.5, type: "spring" }}
-                className={`text-4xl font-bold mb-1 ${index === 0 ? "text-rose-600" :
-                  index === 1 ? "text-indigo-600" :
-                    "text-blue-600"
-                  }`}
+                initial={{ scale: 0.5, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ delay: 1 + index * 0.1, duration: 0.5, type: "spring" }}
+                className="text-3xl md:text-5xl font-black mb-2 text-foreground"
               >
                 {stat.value}
               </motion.div>
-              <div className="text-sm text-muted-foreground">{stat.label}</div>
+              <div className="text-sm md:text-base text-muted-foreground font-medium uppercase tracking-wider">{stat.label}</div>
             </div>
           ))}
         </motion.div>
@@ -124,7 +111,7 @@ export function Hero() {
           transition={{ delay: 1.5, duration: 1 }}
           className="absolute bottom-8 left-0 right-0 flex justify-center"
         >
-          <Button variant="ghost" size="icon" className="animate-bounce text-indigo-600 hover:text-indigo-700 hover:bg-indigo-50">
+          <Button variant="ghost" size="icon" className="animate-bounce text-muted-foreground hover:text-primary rounded-full h-12 w-12 bg-background/50 backdrop-blur-sm border border-border">
             <ChevronDown className="h-6 w-6" />
           </Button>
         </motion.div>

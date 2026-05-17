@@ -1,183 +1,153 @@
-import Image from 'next/image';
-import { Building2, Users, Target, Award, Clock, Trophy, BookOpen, Rocket, Code, LineChart, Eye, Heart, Lightbulb, Briefcase, Zap, Shield } from 'lucide-react';
+"use client";
+
+import { motion } from "framer-motion";
+import { ShieldCheck, Rocket, Zap, Globe, Target, Building2, Shield, HeartHandshake } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
+const values = [
+  {
+    icon: Rocket,
+    title: "Aggressive Innovation",
+    description: "We don't follow trends; we set them. Our stack is always modern, fast, and scalable."
+  },
+  {
+    icon: Target,
+    title: "Performance Driven",
+    description: "Every line of code and every campaign we run is designed to generate measurable ROI."
+  },
+  {
+    icon: Shield,
+    title: "Enterprise Integrity",
+    description: "Operating with absolute transparency and enterprise-grade security protocols."
+  },
+  {
+    icon: HeartHandshake,
+    title: "Client Obsession",
+    description: "Your business goals become our technical mandates. We win when you dominate."
+  }
+];
+
 export default function AboutPage() {
-  const teamMembers = [
-    { name: "Hashim Ahmed", role: "CEO & Founder", image: "/img.jpeg" },
-    { name: "Arup Gogoi", role: "CTO", image: "/arup.jpeg" },
-  ];
-
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background text-foreground pt-32 pb-24 overflow-hidden relative">
+      {/* Background ambient glow strictly contained to clip horizontal overflow */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3" />
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/3" />
+      </div>
+
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-b from-purple-50 to-background">
-        <div className="container px-4 mx-auto">
-          <Badge className="mb-6 px-4 py-1.5 bg-purple-100 text-purple-700 border-0 text-sm">About Us</Badge>
-          <h1 className="text-4xl font-bold mb-6 text-purple-900">About RH Dynamics</h1>
-          <p className="text-xl text-muted-foreground max-w-3xl">
-            Founded in Guwahati, Assam, RH Dynamics has been at the forefront of digital innovation
-            in Northeast India. We specialize in creating robust software solutions that help
-            businesses thrive in the digital age.
-          </p>
+      <section className="container px-4 mx-auto relative z-10 mb-32">
+        <div className="max-w-4xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8"
+          >
+            <Badge variant="outline" className="px-4 py-1.5 bg-primary/10 text-primary border border-primary/20 text-sm tracking-wider uppercase pointer-events-none">
+              RHD Softwaresolutions LLP (ACN-1931)
+            </Badge>
+            <Badge variant="outline" className="px-4 py-1.5 bg-orange-500/10 text-orange-500 border border-orange-500/20 text-sm tracking-wider uppercase flex items-center gap-2 pointer-events-none">
+              <ShieldCheck className="w-4 h-4" /> Startup India Recognized
+            </Badge>
+          </motion.div>
+          
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-5xl md:text-7xl font-black mb-8 tracking-tight font-heading"
+          >
+            Architecting <br className="hidden md:block" />
+            <span className="text-gradient">Digital Dominance</span>
+          </motion.h1>
+          
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto"
+          >
+            We are a premium digital agency established in Guwahati, Assam. We specialize in engineering high-performance software and executing aggressive marketing strategies that position our clients as undisputed industry leaders.
+          </motion.p>
         </div>
       </section>
 
-      {/* Company History Section */}
-      <section className="py-20">
-        <div className="container px-4 mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="relative h-[450px] rounded-lg overflow-hidden shadow-xl order-2 md:order-1">
-              <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/20 to-blue-500/10"></div>
-              <Image
-                src="/journey.jpg"
-                alt="RH Dynamics journey"
-                fill
-                className="object-cover"
-                priority
-              />
-            </div>
-            <div className="order-1 md:order-2">
-              <Badge className="mb-4 px-3 py-1 bg-indigo-100 text-indigo-700 border-0 text-sm">Our Story</Badge>
-              <h2 className="text-3xl font-bold mb-6 text-indigo-900">Our Journey</h2>
-              <p className="text-muted-foreground mb-4">
-                RH Dynamics was established with a vision to transform the technological landscape of Northeast India.
-                Starting as a small team of passionate developers, we've grown into a comprehensive software
-                development company serving clients across industries.
-              </p>
-              <p className="text-muted-foreground mb-4">
-                Our expertise in cutting-edge technologies and commitment to excellence has allowed us to deliver
-                innovative solutions that address complex business challenges.
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
-                <div className="bg-indigo-50 p-4 rounded-lg text-center shadow-sm">
-                  <Rocket className="h-8 w-8 mx-auto text-indigo-600 mb-2" />
-                  <p className="font-bold text-2xl text-indigo-900">5+</p>
-                  <p className="text-sm text-indigo-700">Years Experience</p>
-                </div>
-                <div className="bg-blue-50 p-4 rounded-lg text-center shadow-sm">
-                  <Briefcase className="h-8 w-8 mx-auto text-blue-600 mb-2" />
-                  <p className="font-bold text-2xl text-blue-900">50+</p>
-                  <p className="text-sm text-blue-700">Projects Completed</p>
-                </div>
-                <div className="bg-emerald-50 p-4 rounded-lg text-center shadow-sm">
-                  <Heart className="h-8 w-8 mx-auto text-emerald-600 mb-2" />
-                  <p className="font-bold text-2xl text-emerald-900">20+</p>
-                  <p className="text-sm text-emerald-700">Happy Clients</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Mission & Vision Section */}
-      <section className="py-20 bg-gradient-to-b from-teal-50 to-emerald-50/30">
-        <div className="container px-4 mx-auto">
-          <Badge className="mx-auto mb-4 px-3 py-1 bg-teal-100 text-teal-700 border-0 text-sm block w-fit">Our Purpose</Badge>
-          <h2 className="text-3xl font-bold text-center mb-10 text-teal-900">Our Mission & Vision</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div className="bg-background p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow border border-teal-100">
-              <h3 className="text-2xl font-bold mb-4 flex items-center text-teal-700">
-                <Zap className="h-6 w-6 mr-3 text-teal-500" />
-                Our Mission
+      {/* Origin Story Section */}
+      <section className="container px-4 mx-auto relative z-10 mb-32">
+        <div className="glass-card dark:glass-card-dark rounded-[3rem] p-8 md:p-16 border border-border/50 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <h2 className="text-sm font-bold text-primary tracking-widest uppercase mb-4 flex items-center gap-2">
+                <Globe className="w-4 h-4" /> Our Origin
+              </h2>
+              <h3 className="text-4xl md:text-5xl font-black font-heading mb-6 leading-tight">
+                Officially Founded <br/> <span className="text-muted-foreground">March 29th, 2025</span>
               </h3>
-              <p className="text-muted-foreground leading-relaxed">
-                To empower businesses in Northeast India with innovative software solutions that drive
-                growth and transformation. We aim to bridge the technological gap and bring world-class
-                digital capabilities to organizations of all sizes in the region.
+              <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+                Born out of a necessity to bring world-class, premium digital execution to Northeast India. RH Dynamics was established not just to build websites, but to construct robust, high-converting digital ecosystems.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                As a fast-scaling startup, we operate with intense agility. We bypass legacy bureaucracy to deliver cutting-edge technology and data-driven marketing directly to the businesses that need it most.
               </p>
             </div>
-            <div className="bg-background p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow border border-emerald-100">
-              <h3 className="text-2xl font-bold mb-4 flex items-center text-emerald-700">
-                <Eye className="h-6 w-6 mr-3 text-emerald-500" />
-                Our Vision
-              </h3>
-              <p className="text-muted-foreground leading-relaxed">
-                To be the leading software development company in Northeast India, recognized for our
-                technical excellence, innovative solutions, and commitment to client success. We envision
-                creating a tech ecosystem that fosters growth and positions the region as a hub for digital innovation.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Values Section */}
-      <section className="py-20 bg-gradient-to-b from-amber-50 to-background">
-        <div className="container px-4 mx-auto">
-          <Badge className="mx-auto mb-4 px-3 py-1 bg-amber-100 text-amber-700 border-0 text-sm block w-fit">What We Stand For</Badge>
-          <h2 className="text-3xl font-bold text-center mb-6 text-amber-900">Our Values</h2>
-          <p className="text-center text-muted-foreground max-w-2xl mx-auto mb-12">
-            At RH Dynamics, our core values guide everything we do, from how we develop solutions
-            to how we interact with our clients and community.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="text-center p-8 bg-background rounded-lg shadow-md hover:shadow-lg transition-all hover:translate-y-[-5px] border border-amber-100">
-              <div className="bg-amber-50 p-4 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6">
-                <Lightbulb className="h-10 w-10 text-amber-600" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3 text-amber-700">Innovation</h3>
-              <p className="text-muted-foreground">
-                Pushing boundaries with cutting-edge solutions
-              </p>
-            </div>
-            <div className="text-center p-8 bg-background rounded-lg shadow-md hover:shadow-lg transition-all hover:translate-y-[-5px] border border-orange-100">
-              <div className="bg-orange-50 p-4 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6">
-                <Users className="h-10 w-10 text-orange-600" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3 text-orange-700">Collaboration</h3>
-              <p className="text-muted-foreground">
-                Working together to achieve excellence
-              </p>
-            </div>
-            <div className="text-center p-8 bg-background rounded-lg shadow-md hover:shadow-lg transition-all hover:translate-y-[-5px] border border-rose-100">
-              <div className="bg-rose-50 p-4 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6">
-                <Code className="h-10 w-10 text-rose-600" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3 text-rose-700">Quality</h3>
-              <p className="text-muted-foreground">
-                Delivering excellence in every project
-              </p>
-            </div>
-            <div className="text-center p-8 bg-background rounded-lg shadow-md hover:shadow-lg transition-all hover:translate-y-[-5px] border border-blue-100">
-              <div className="bg-blue-50 p-4 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6">
-                <Shield className="h-10 w-10 text-blue-600" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3 text-blue-700">Integrity</h3>
-              <p className="text-muted-foreground">
-                Building trust through transparency
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Team Section */}
-      <section className="py-20 bg-gradient-to-b from-indigo-50/50 to-background">
-        <div className="container px-4 mx-auto">
-          <Badge className="mx-auto mb-4 px-3 py-1 bg-indigo-100 text-indigo-700 border-0 text-sm block w-fit">Our Team</Badge>
-          <h2 className="text-3xl font-bold text-center mb-4 text-indigo-900">Leadership Team</h2>
-          <p className="text-center text-muted-foreground max-w-2xl mx-auto mb-12">
-            Meet the experts behind RH Dynamics who are driving innovation and excellence in software development.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-            {teamMembers.map((member, index) => (
-              <div key={index} className="flex flex-col items-center bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-all border border-indigo-100">
-                <div className="h-48 w-48 rounded-full overflow-hidden mb-6 border-4 border-indigo-200">
-                  <Image
-                    src={member.image}
-                    alt={member.name}
-                    width={192}
-                    height={192}
-                    className="object-cover"
-                  />
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="bg-background/50 backdrop-blur-md p-8 rounded-3xl border border-border/50 flex flex-col justify-center text-center">
+                <div className="p-3 bg-primary/10 text-primary rounded-xl w-fit mx-auto mb-4">
+                  <Building2 className="w-8 h-8" />
                 </div>
-                <h3 className="text-2xl font-semibold text-indigo-900">{member.name}</h3>
-                <p className="text-indigo-600 font-medium">{member.role}</p>
+                <h4 className="text-4xl font-black font-heading text-foreground mb-2">20+</h4>
+                <p className="text-sm text-muted-foreground font-medium uppercase tracking-wider">Premium Projects</p>
               </div>
-            ))}
+              <div className="bg-background/50 backdrop-blur-md p-8 rounded-3xl border border-border/50 flex flex-col justify-center text-center">
+                <div className="p-3 bg-blue-500/10 text-blue-500 rounded-xl w-fit mx-auto mb-4">
+                  <ShieldCheck className="w-8 h-8" />
+                </div>
+                <h4 className="text-4xl font-black font-heading text-foreground mb-2">100%</h4>
+                <p className="text-sm text-muted-foreground font-medium uppercase tracking-wider">Client Retention</p>
+              </div>
+              <div className="sm:col-span-2 bg-background/50 backdrop-blur-md p-8 rounded-3xl border border-border/50 flex flex-col justify-center text-center">
+                <div className="p-3 bg-orange-500/10 text-orange-500 rounded-xl w-fit mx-auto mb-4">
+                  <Zap className="w-8 h-8" />
+                </div>
+                <h4 className="text-4xl font-black font-heading text-foreground mb-2">Recognized</h4>
+                <p className="text-sm text-muted-foreground font-medium uppercase tracking-wider">By Startup India</p>
+              </div>
+            </div>
           </div>
+        </div>
+      </section>
+
+      {/* Core Values */}
+      <section className="container px-4 mx-auto relative z-10">
+        <div className="text-center mb-16">
+          <h2 className="text-sm font-bold text-primary tracking-widest uppercase mb-4">The DNA</h2>
+          <h3 className="text-4xl md:text-5xl font-black font-heading">Our Core Values</h3>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {values.map((value, index) => (
+            <motion.div 
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="glass-card dark:glass-card-dark p-8 rounded-3xl border border-border/50 hover:-translate-y-2 transition-transform duration-300 group"
+            >
+              <div className="p-4 bg-primary/10 text-primary rounded-2xl w-fit mb-6 group-hover:scale-110 transition-transform duration-300">
+                <value.icon className="w-8 h-8" />
+              </div>
+              <h4 className="text-xl font-bold font-heading mb-4 text-foreground">{value.title}</h4>
+              <p className="text-muted-foreground leading-relaxed">
+                {value.description}
+              </p>
+            </motion.div>
+          ))}
         </div>
       </section>
     </div>

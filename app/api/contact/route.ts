@@ -30,7 +30,8 @@ const formSchema = z.object({
   email: z.string().email().trim().toLowerCase(),
   phone: z.string().min(10).trim(),
   message: z.string().min(10).max(1000).trim(),
-  hcaptchaToken: z.string().min(1, 'hCaptcha token is required')
+  hcaptchaToken: z.string().min(1, 'hCaptcha token is required'),
+  service: z.string().optional()
 });
 
 // Maximum request size (10KB)
@@ -148,18 +149,22 @@ export async function POST(request: Request) {
     }
 
 
-    const { name, email, phone, message, hcaptchaToken } = result.data;
+    const { name, email, phone, message, hcaptchaToken, service } = result.data;
+
+    const serviceDisplay = service ? `Service Requested: ${service}` : '';
 
     // Define email content
     const mailOptions = {
       from: "RH-Dynamics <no-reply@rh-dynamics.software>", // Use verified sender with readable name
       to: "founder@rh-dynamics.software", // Business email
       replyTo: email,
-      subject: `Contact Form: Message from ${name}`,
+      subject: `Contact Form: Message from ${name}${service ? ` [${service}]` : ''}`,
       text: `
 Name: ${name}
 Email: ${email}
 Phone: ${phone}
+${serviceDisplay}
+
 Message:
 
 ${message}
@@ -173,6 +178,7 @@ ${message}
     <p style="margin: 0 0 10px 0;"><strong style="color: #4f46e5;">Name:</strong> ${name}</p>
     <p style="margin: 0 0 10px 0;"><strong style="color: #4f46e5;">Email:</strong> <a href="mailto:${email}" style="color: #4338ca; text-decoration: none;">${email}</a></p>
     <p style="margin: 0 0 10px 0;"><strong style="color: #4f46e5;">Phone:</strong> ${phone}</p>
+    ${service ? `<p style="margin: 0 0 10px 0;"><strong style="color: #4f46e5;">Service Requested:</strong> <span style="background-color: #e0e7ff; padding: 2px 8px; border-radius: 4px; font-weight: bold;">${service}</span></p>` : ''}
   </div>
   
   <div style="background-color: #f9fafb; border-left: 4px solid #4f46e5; padding: 15px; margin-bottom: 20px;">
@@ -207,6 +213,10 @@ ${message}
   <p style="margin-bottom: 20px; color: #4b5563;">Hello ${name},</p>
   <p style="margin-bottom: 20px; color: #4b5563;">Thank you for reaching out to RH Dynamics. We've received your message and will get back to you as soon as possible, typically within 24 hours during business days.</p>
   
+  ${service ? `<div style="background-color: #f0fdf4; border-left: 4px solid #22c55e; padding: 15px; margin-bottom: 20px;">
+    <p style="margin: 0; color: #166534;">We have noted your interest in our <strong>${service}</strong>. A specialist will be assigned to assist you with this specific requirement.</p>
+  </div>` : ''}
+
   <div style="background-color: #f9fafb; border-left: 4px solid #4f46e5; padding: 15px; margin-bottom: 20px;">
     <p style="margin: 0; color: #4b5563;"><strong style="color: #4f46e5;">Your message:</strong></p>
     <p style="white-space: pre-line; color: #6b7280; margin-top: 10px;">${message.substring(
@@ -215,14 +225,14 @@ ${message}
     )}${message.length > 150 ? "..." : ""}</p>
   </div>
   
-  <p style="margin-bottom: 10px; color: #4b5563;">If you need immediate assistance, please call us at <a href="tel:+919864848781" style="color: #4338ca; text-decoration: none;">+91 9864848781</a>.</p>
+  <p style="margin-bottom: 10px; color: #4b5563;">If you need immediate assistance, please call us at <a href="tel:+918638875149" style="color: #4338ca; text-decoration: none;">+91 86388 75149</a> or <a href="tel:+919864848781" style="color: #4338ca; text-decoration: none;">+91 98648 48781</a>.</p>
   
   <p style="margin-bottom: 10px; color: #4b5563;">Best regards,</p>
   <p style="margin-bottom: 30px; color: #4b5563;"><strong>The RH Dynamics Team</strong></p>
   
   <div style="border-top: 1px solid #e5e7eb; padding-top: 20px; text-align: center;">
     <p style="font-size: 12px; color: #6b7280; margin: 0;">
-      RH Dynamics | Near Harmoni Apartment, Magzine, Guwahati, Assam, India 781171
+      RH Dynamics | Near downtown hospital, urban villa, Sarumotoria, Guwahati, Assam 781036
     </p>
     <p style="font-size: 12px; color: #6b7280; margin-top: 5px;">
       <a href="https://rh-dynamics.software" style="color: #4338ca; text-decoration: none;">https://rh-dynamics.software</a>
