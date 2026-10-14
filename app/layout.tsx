@@ -112,6 +112,11 @@ export const metadata: Metadata = {
       { url: '/apple-touch-icon.png' },
     ],
   },
+  verification: {
+    other: {
+      'msvalidate.01': '6F69BB940F846B6AB1706CB47002D58B',
+    },
+  },
 };
 
 export default function RootLayout({
@@ -122,6 +127,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <meta name="msvalidate.01" content="6F69BB940F846B6AB1706CB47002D58B" />
         <Script
           strategy="afterInteractive"
           src="https://www.googletagmanager.com/gtag/js?id=G-ZX1ZT17H70"
