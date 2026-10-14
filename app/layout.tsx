@@ -144,8 +144,8 @@ export default function RootLayout({
       <body className={`${inter.variable} ${roboto.variable} font-sans`}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
-          enableSystem
+          defaultTheme="light"
+          enableSystem={false}
           disableTransitionOnChange
         >
           <Navbar />
