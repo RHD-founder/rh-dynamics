@@ -1,0 +1,280 @@
+import { Metadata } from "next";
+import Link from "next/link";
+import { 
+  ShieldCheck, Server, Network, Database, 
+  Building2, MapPin, CheckCircle2, ArrowRight, 
+  ArrowUpRight, Phone, Mail, Award, Lock, Cpu
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+export const metadata: Metadata = {
+  title: "About RH Dynamics | Systems Engineering & Cloud Infrastructure Guwahati",
+  description:
+    "Learn about RHD Softwaresolutions LLP (ACN-1931), a Startup India recognized systems engineering and clinical software firm rooted in Guwahati, Assam.",
+  keywords: [
+    "rh dynamics about",
+    "software company guwahati",
+    "rhd softwaresolutions llp",
+    "systems engineering assam",
+    "hospital software developers northeast india"
+  ],
+  alternates: {
+    canonical: "https://rhdynamics.in/about",
+  },
+};
+
+const corporateMilestones = [
+  { label: "Statutory Incorporation", value: "LLP ACN-1931", sub: "Ministry of Corporate Affairs" },
+  { label: "Startup Recognition", value: "DPIIT Certified", sub: "Startup India Initiative" },
+  { label: "Regional Deployments", value: "20+ Enterprise", sub: "Hospitals, Schools & Supply Chains" },
+  { label: "Engineering SLA", value: "< 2 Hours", sub: "On-site Guwahati response" }
+];
+
+const engineeringPillars = [
+  {
+    tag: "01 // DATA SOVEREIGNTY",
+    title: "100% Code & Database Ownership",
+    description: "We engineer software as a permanent capital asset for your organization. Your data resides on your own isolated dedicated database instance or on-premise servers. Zero vendor lock-in.",
+    points: ["Dedicated PostgreSQL instances", "Immutable automated backups", "Client-held IP rights"]
+  },
+  {
+    tag: "02 // CAPITAL EFFICIENCY",
+    title: "Zero Per-Seat SaaS Licensing Debt",
+    description: "Off-the-shelf software vendors punish your company's growth with compounding per-user monthly seat fees. We architect bespoke systems where you can scale from 10 to 1,000 users at ₹0 additional licensing cost.",
+    points: ["One-time capital engineering", "Unlimited staff seats", "Zero recurring user penalties"]
+  },
+  {
+    tag: "03 // LOCALIZED INTEGRATION",
+    title: "Deep Statutory Indian Compliance",
+    description: "Generic US/European templates cannot handle the ground realities of Indian compliance. Our platforms natively integrate with ABDM (ABHA M1–M3), PMJAY claims, GSTN E-way billing, and biometric machines.",
+    points: ["ABHA creation & linking", "GSTN automated ledger sync", "Biometric hardware protocols"]
+  },
+  {
+    tag: "04 // LOCAL PRESENCE",
+    title: "Guwahati-Based On-Site SLA",
+    description: "Mission-critical systems cannot afford offshore ticketing delays and automated chatbots. Our systems architects and field engineers are on the ground in Assam with guaranteed emergency physical response.",
+    points: ["Direct senior engineer access", "On-site staff floor training", "Local hardware spares inventory"]
+  }
+];
+
+export default function AboutPage() {
+  return (
+    <div className="min-h-screen bg-background text-foreground pt-32 pb-24 relative overflow-hidden">
+      
+      {/* Background Grid Pattern */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-primary/5 rounded-full blur-[140px] pointer-events-none" />
+
+      <div className="container px-4 mx-auto relative z-10 max-w-6xl">
+
+        {/* Hero Section */}
+        <div className="max-w-4xl mb-20">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium tracking-wider uppercase border border-border bg-secondary/30 text-muted-foreground mb-8">
+            <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+            Organization & Engineering Mandate // Guwahati, Assam
+          </div>
+
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black font-heading tracking-tight mb-8 leading-[1.08]">
+            Systems Engineered for Longevity. <br className="hidden sm:block" />
+            <span className="text-gradient">Rooted in Northeast India.</span>
+          </h1>
+
+          <p className="text-xl text-muted-foreground max-w-2xl font-light leading-relaxed mb-10">
+            RHD Softwaresolutions LLP was founded to bridge the critical technological divide in Northeast India. We engineer clinical healthcare systems, campus optical networks, and custom cloud ERPs with guaranteed on-site SLA.
+          </p>
+
+          <div className="flex flex-wrap items-center gap-3">
+            <div className="px-3.5 py-1.5 rounded-full text-xs font-mono uppercase tracking-wider bg-secondary border border-border/60 text-foreground font-semibold">
+              RHD Softwaresolutions LLP (ACN-1931)
+            </div>
+            <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-mono uppercase tracking-wider bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/20 font-semibold">
+              <ShieldCheck className="w-3.5 h-3.5" />
+              Startup India Recognized (DPIIT)
+            </div>
+          </div>
+        </div>
+
+        {/* Corporate Metrics Ribbon */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border/40 rounded-2xl overflow-hidden mb-28 border border-border/60">
+          {corporateMilestones.map((milestone, i) => (
+            <div key={i} className="bg-card p-6 md:p-8 flex flex-col justify-between">
+              <span className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-4">{milestone.label}</span>
+              <div>
+                <p className="text-2xl md:text-3xl font-black font-heading text-foreground tracking-tight">{milestone.value}</p>
+                <p className="text-xs text-muted-foreground mt-1">{milestone.sub}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Origin & Operational Mandate */}
+        <div className="rounded-3xl glass-card dark:glass-card-dark border border-border/60 p-8 md:p-14 mb-28">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+            <div className="lg:col-span-5">
+              <span className="text-xs font-mono uppercase tracking-widest text-primary font-bold block mb-3">
+                Origins & Mission
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-black font-heading tracking-tight mb-4">
+                Why RH Dynamics Exists
+              </h2>
+              <p className="text-sm text-muted-foreground font-light leading-relaxed mb-6">
+                Officially founded on March 29th, 2025, in Guwahati, Assam, RH Dynamics was created to challenge the status quo of outdated, fragile software and offshore agency neglect in Northeast India.
+              </p>
+              <div className="p-4 rounded-xl bg-secondary/30 border border-border/50 font-mono text-xs text-muted-foreground space-y-2">
+                <div className="flex items-center justify-between">
+                  <span>Legal Entity:</span>
+                  <strong className="text-foreground">RHD Softwaresolutions LLP</strong>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span>LLP Identification:</span>
+                  <strong className="text-foreground">ACN-1931</strong>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span>Headquarters:</span>
+                  <strong className="text-foreground">Golaghat, Assam (Upper Assam HQ)</strong>
+                </div>
+              </div>
+            </div>
+
+            <div className="lg:col-span-7 space-y-6 text-sm text-muted-foreground font-light leading-relaxed">
+              <p>
+                For decades, healthcare institutions, distributed enterprises, and educational institutions in Assam had only two unsatisfactory options: fragile offline desktop software prone to data corruption, or multi-tenant Western SaaS that required high recurring license fees without integrating with local Indian workflows.
+              </p>
+              <p>
+                RH Dynamics operates as a direct systems engineering partner. We combine modern edge-rendered software architectures (Next.js, PostgreSQL, Node.js) with physical hardware topology (optical fiber backbones, lab virtualization, biometric attendance machines).
+              </p>
+              <p>
+                Every solution we deploy is built for operational autonomy: 100% owned by the client, zero seat subscription taxes, and supported directly by senior engineers stationed in Guwahati.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* 4 Architectural Engineering Pillars */}
+        <div className="mb-28">
+          <div className="max-w-2xl mb-12">
+            <span className="text-xs font-mono uppercase tracking-widest text-primary font-bold">
+              Engineering Governance
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-black font-heading tracking-tight mt-2">
+              Our Core Architecture Principles
+            </h2>
+            <p className="text-muted-foreground mt-3 text-sm font-light">
+              The non-negotiable technical mandates that guide every line of code, network schema, and clinical module we build.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {engineeringPillars.map((pillar, idx) => (
+              <div 
+                key={idx}
+                className="p-8 rounded-2xl glass-card dark:glass-card-dark border border-border/60 hover:border-primary/50 transition-all flex flex-col justify-between"
+              >
+                <div>
+                  <span className="text-[11px] font-mono tracking-wider uppercase text-muted-foreground block mb-3">
+                    {pillar.tag}
+                  </span>
+                  <h3 className="text-xl font-bold font-heading mb-3 text-foreground">
+                    {pillar.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground font-light leading-relaxed mb-6">
+                    {pillar.description}
+                  </p>
+                </div>
+
+                <div className="pt-4 border-t border-border/40 space-y-2">
+                  {pillar.points.map((pt, pIdx) => (
+                    <div key={pIdx} className="flex items-center gap-2 text-xs text-foreground/90 font-medium">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-primary shrink-0" />
+                      <span>{pt}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Regional Hubs & Infrastructure */}
+        <div className="mb-28">
+          <div className="max-w-2xl mb-12">
+            <span className="text-xs font-mono uppercase tracking-widest text-primary font-bold">
+              Regional Footprint
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-black font-heading tracking-tight mt-2">
+              On-the-Ground Engineering Hubs
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Golaghat Corporate HQ */}
+            <div className="p-8 rounded-2xl border border-border/60 bg-secondary/15 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-primary mb-3 font-bold">
+                  <MapPin className="w-4 h-4" /> Corporate Headquarters (HQ)
+                </div>
+                <h3 className="text-2xl font-black font-heading text-foreground mb-3">
+                  Golaghat Corporate HQ
+                </h3>
+                <p className="text-sm text-muted-foreground font-light leading-relaxed mb-6">
+                  Near AGV Bank, Goranga, Golaghat, Assam 785603. Serves as our primary registered headquarters, institutional operations base, and regional hardware logistics center.
+                </p>
+              </div>
+              <div className="pt-4 border-t border-border/40 font-mono text-xs text-muted-foreground">
+                Upper Assam Regional Base &amp; Institutional Deployments
+              </div>
+            </div>
+
+            {/* Guwahati Engineering Center */}
+            <div className="p-8 rounded-2xl border border-border/60 bg-secondary/15 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-primary mb-3 font-bold">
+                  <MapPin className="w-4 h-4" /> Systems Engineering Lab
+                </div>
+                <h3 className="text-2xl font-black font-heading text-foreground mb-3">
+                  Guwahati Engineering Center
+                </h3>
+                <p className="text-sm text-muted-foreground font-light leading-relaxed mb-6">
+                  Near Downtown Hospital, Urban Villa, Sarumotoria, Guwahati, Assam 781036. Houses our software architects, clinical integration leads, and primary server staging lab.
+                </p>
+              </div>
+              <div className="pt-4 border-t border-border/40 font-mono text-xs text-muted-foreground">
+                Same-Day Emergency On-Site SLA for Guwahati &amp; Kamrup Metro
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Minimalist Discovery CTA */}
+        <div className="rounded-3xl border border-border/80 p-8 md:p-14 bg-gradient-to-b from-secondary/30 to-background text-center relative overflow-hidden">
+          <div className="max-w-2xl mx-auto">
+            <span className="text-xs font-mono uppercase tracking-widest text-primary mb-3 block">
+              Direct Technical Discovery
+            </span>
+            <h2 className="text-3xl md:text-4xl font-black font-heading tracking-tight mb-4">
+              Engage Our Systems Team
+            </h2>
+            <p className="text-muted-foreground text-sm leading-relaxed mb-8 font-light">
+              Speak directly with our technical partners in Guwahati. We will review your existing architecture, database schemas, and hardware setup without commercial fluff.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Link href="/contact">
+                <Button size="lg" className="h-13 px-8 text-sm font-semibold rounded-full shadow-lg shadow-primary/20 hover:-translate-y-0.5 transition-all">
+                  Request Technical Consultation
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
+              <a href="tel:+918638875149">
+                <Button variant="ghost" size="lg" className="h-13 px-8 text-sm font-medium rounded-full text-muted-foreground hover:text-foreground">
+                  <Phone className="mr-2 h-4 w-4 text-primary" />
+                  +91 86388 75149
+                </Button>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  );
+}

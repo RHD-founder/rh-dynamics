@@ -1,0 +1,144 @@
+|-- .env.local
+|-- .eslintrc.json
+|-- .gitignore
+|-- app
+    |-- about
+        |-- page.tsx
+    |-- api
+        |-- contact
+            |-- route.ts
+    |-- cancellation-and-refunds
+        |-- page.tsx
+    |-- careers
+        |-- page.tsx
+    |-- contact
+        |-- page.tsx
+    |-- globals.css
+    |-- layout.tsx
+    |-- manifest.js
+    |-- page.tsx
+    |-- portfolio
+        |-- page.tsx
+    |-- privacy-policy
+        |-- page.tsx
+    |-- privacy-policy-pdf-app
+        |-- page.tsx
+    |-- projects
+        |-- e-commerce
+            |-- page.tsx
+        |-- education
+            |-- page.tsx
+        |-- healthcare
+            |-- page.tsx
+        |-- page.tsx
+    |-- services
+        |-- page.tsx
+    |-- shipping-policy
+        |-- page.tsx
+    |-- terms-and-conditions
+        |-- page.tsx
+|-- components
+    |-- sections
+        |-- cta.tsx
+        |-- hero.tsx
+        |-- partners.tsx
+        |-- portfolio.tsx
+        |-- recent-work.tsx
+        |-- services.tsx
+        |-- testimonials.tsx
+    |-- theme
+        |-- theme-provider.tsx
+        |-- theme-toggle.tsx
+    |-- ui
+        |-- accordion.tsx
+        |-- alert-dialog.tsx
+        |-- alert.tsx
+        |-- aspect-ratio.tsx
+        |-- avatar.tsx
+        |-- badge.tsx
+        |-- breadcrumb.tsx
+        |-- button.tsx
+        |-- calendar.tsx
+        |-- card.tsx
+        |-- carousel.tsx
+        |-- chart.tsx
+        |-- checkbox.tsx
+        |-- collapsible.tsx
+        |-- command.tsx
+        |-- context-menu.tsx
+        |-- dialog.tsx
+        |-- drawer.tsx
+        |-- dropdown-menu.tsx
+        |-- footer.tsx
+        |-- form.tsx
+        |-- hover-card.tsx
+        |-- input-otp.tsx
+        |-- input.tsx
+        |-- label.tsx
+        |-- menubar.tsx
+        |-- navbar.tsx
+        |-- navigation-menu.tsx
+        |-- pagination.tsx
+        |-- popover.tsx
+        |-- progress.tsx
+        |-- radio-group.tsx
+        |-- resizable.tsx
+        |-- scroll-area.tsx
+        |-- select.tsx
+        |-- separator.tsx
+        |-- sheet.tsx
+        |-- skeleton.tsx
+        |-- slider.tsx
+        |-- sonner.tsx
+        |-- switch.tsx
+        |-- table.tsx
+        |-- tabs.tsx
+        |-- textarea.tsx
+        |-- toast.tsx
+        |-- toaster.tsx
+        |-- toggle-group.tsx
+        |-- toggle.tsx
+        |-- tooltip.tsx
+|-- components.json
+|-- global.d.ts
+|-- hooks
+    |-- use-toast.ts
+|-- lib
+    |-- supabase.ts
+    |-- utils.ts
+|-- next-env.d.ts
+|-- next.config.js
+|-- package-lock.json
+|-- package.json
+|-- package.json.backup
+|-- postcss.config.js
+|-- public
+    |-- android-touch-icon.png
+    |-- apple-touch-icon.png
+    |-- arup.jpeg
+    |-- careers-team.jpg
+    |-- contact-hero.jpg
+    |-- contact-image.jpg
+    |-- dark-logo.png
+    |-- deepshikha.jpeg
+    |-- favicon.png
+    |-- harjit.jpeg
+    |-- icons
+        |-- favicon.ico
+    |-- images
+        |-- portfolio
+            |-- jilikoni.txt
+            |-- riya-polyclinic.jpg
+            |-- riya-polyclinic.txt
+            |-- shreeji-tours.txt
+        |-- projects
+    |-- img.jpeg
+    |-- journey.jpg
+    |-- light-logo.png
+    |-- rcw.jpeg
+    |-- services-hero.jpg
+|-- tailwind.config.ts
+|-- tsconfig.json
+|-- types
+    |-- hcaptcha.d.ts
+|-- vercel.json
