@@ -4,6 +4,7 @@ import fs from "fs/promises";
 import path from "path";
 import { verifySeoAuthToken, AUTH_COOKIE_NAME } from "@/lib/security/seo-auth";
 import { getSupabaseAdmin } from "@/lib/supabase/server";
+import sitemap from "@/app/sitemap";
 
 const TELEMETRY_FILE = path.join(process.cwd(), "data", "visitor-telemetry.json");
 const INQUIRIES_FILE = path.join(process.cwd(), "data", "inquiries.json");
@@ -140,10 +141,20 @@ export async function GET() {
     }
 
     // Load master SEO tracker
-    let seoData = null;
+    let seoData: any = null;
     try {
       const rawSeo = await fs.readFile(SEO_TRACKER_FILE, "utf-8");
       seoData = JSON.parse(rawSeo);
+      const sitemapUrls = sitemap();
+      if (seoData && seoData.stats) {
+        seoData.stats.totalPagesIndexed = sitemapUrls.length;
+        if (Array.isArray(seoData.pages)) {
+          seoData.stats.totalKeywordsTracked = seoData.pages.reduce(
+            (acc: number, p: any) => acc + (p.primaryKeyword ? 1 : 0) + (p.secondaryKeywords?.length || 0),
+            0
+          );
+        }
+      }
     } catch {}
 
     return NextResponse.json({

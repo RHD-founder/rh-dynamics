@@ -630,10 +630,10 @@ export default function SeoCommandPage() {
             </div>
             <div className="p-4 rounded-xl border border-border/60 bg-card/40">
               <span className="text-[10px] font-mono uppercase text-muted-foreground block mb-1">
-                Indexed Pages
+                Sitemap Pages
               </span>
               <span className="text-2xl sm:text-3xl font-heading font-black text-foreground">
-                {data?.seo?.stats?.totalPagesIndexed || 39}
+                {data?.seo?.stats?.totalPagesIndexed || 28}
               </span>
             </div>
             <div className="p-4 rounded-xl border border-border/60 bg-card/40">
@@ -641,7 +641,7 @@ export default function SeoCommandPage() {
                 Tracked Keywords
               </span>
               <span className="text-2xl sm:text-3xl font-heading font-black text-foreground">
-                {data?.seo?.stats?.totalKeywordsTracked || 42}
+                {data?.seo?.stats?.totalKeywordsTracked || 54}
               </span>
             </div>
           </div>
