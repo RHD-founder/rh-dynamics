@@ -1459,7 +1459,7 @@ export default function SeoCommandPage() {
               <div>
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium tracking-wider uppercase border border-border bg-secondary/40 text-muted-foreground mb-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                  Live Feedback Moderation // Storage: data/testimonials.json
+                  Live Feedback Moderation // Storage: Supabase Cloud Database
                 </div>
                 <h2 className="text-xl sm:text-2xl font-black font-heading text-foreground">
                   Client Reviews &amp; Testimonials Hub

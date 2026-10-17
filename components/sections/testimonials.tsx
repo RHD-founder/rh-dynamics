@@ -6,7 +6,7 @@ import { useInView } from "react-intersection-observer";
 import { Star, MessageSquare, ArrowRight, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import testimonialsData from "@/data/testimonials.json";
+import { DEFAULT_REVIEWS } from "@/lib/reviews/default-reviews";
 
 export function Testimonials() {
   const [ref, inView] = useInView({
@@ -14,7 +14,7 @@ export function Testimonials() {
     threshold: 0.1,
   });
 
-  const [testimonials, setTestimonials] = useState(testimonialsData);
+  const [testimonials, setTestimonials] = useState(DEFAULT_REVIEWS);
 
   useEffect(() => {
     fetch("/api/review")

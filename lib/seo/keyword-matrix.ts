@@ -1,0 +1,286 @@
+import sitemap from "@/app/sitemap";
+
+export interface KeywordPageItem {
+  id: string;
+  url: string;
+  title: string;
+  category: string;
+  status: string;
+  primaryKeyword: string;
+  secondaryKeywords: string[];
+  googleSearchUrl: string;
+  searchIntent: string;
+  monthlySearchVolume: string;
+  targetRank: string;
+  keyFeatures: string;
+}
+
+export interface CalendarChecklistItem {
+  day: number;
+  topic: string;
+  channel: string;
+  status: string;
+}
+
+export const KEYWORD_PAGES: KeywordPageItem[] = [
+  {
+    id: "pathology-lis-assam",
+    url: "/pathology-lab-software-assam",
+    title: "Pathology Lab Software in Assam & Diagnostic LIS Guwahati | RH CORE™ LIS",
+    category: "Healthcare IT",
+    status: "Live & Indexed",
+    primaryKeyword: "pathology lab software in assam",
+    secondaryKeywords: [
+      "diagnostic lis software guwahati",
+      "blood test reporting software assam",
+      "analyzer interfacing software northeast india",
+      "nabl compliant lab software assam"
+    ],
+    googleSearchUrl: "https://www.google.com/search?q=pathology+lab+software+in+assam",
+    searchIntent: "High Commercial Intent (Diagnostic Lab Owners, Pathologists)",
+    monthlySearchVolume: "850+ / month (Regional)",
+    targetRank: "#1 in Assam",
+    keyFeatures: "Sub-2s WhatsApp PDF delivery, ASTM/HL7 analyzer sync (Sysmex, Mindray, Erba), barcode tube accessioning, NABL audit trails"
+  },
+  {
+    id: "clinic-software-guwahati",
+    url: "/clinic-management-software-guwahati",
+    title: "Clinic Management Software in Guwahati & Assam | Doctor EMR & OPD",
+    category: "Healthcare IT",
+    status: "Live & Indexed",
+    primaryKeyword: "clinic management software in guwahati",
+    secondaryKeywords: [
+      "doctor prescription software assam",
+      "opd management system guwahati",
+      "doctor emr software assam",
+      "polyclinic billing software northeast india"
+    ],
+    googleSearchUrl: "https://www.google.com/search?q=clinic+management+software+in+guwahati",
+    searchIntent: "High Commercial Intent (Private Physicians, Polyclinics, Consultants)",
+    monthlySearchVolume: "650+ / month (Regional)",
+    targetRank: "#1 in Guwahati",
+    keyFeatures: "45s digital prescription pad, waiting room token calling TV screens, ABHA Scan & Share QR check-in, WhatsApp recalls"
+  },
+  {
+    id: "custom-erp-assam",
+    url: "/custom-erp-software-assam",
+    title: "Custom ERP Software Company in Assam | Multi-Branch Cloud ERP Guwahati",
+    category: "Enterprise ERP",
+    status: "Live & Indexed",
+    primaryKeyword: "custom erp software company in assam",
+    secondaryKeywords: [
+      "cloud erp software guwahati",
+      "inventory management software assam",
+      "multi branch warehouse software northeast india",
+      "gst billing and erp software assam"
+    ],
+    googleSearchUrl: "https://www.google.com/search?q=custom+erp+software+company+in+assam",
+    searchIntent: "High B2B Commercial Intent (Wholesale Distributors, Tea Estates, Retail Chains)",
+    monthlySearchVolume: "700+ / month (Regional)",
+    targetRank: "#1 in Assam",
+    keyFeatures: "Multi-warehouse real-time inventory sync, 1-click GST e-invoices & e-way bills, B2B distributor portal, 50/50 milestone pricing"
+  },
+  {
+    id: "mobile-app-dev-guwahati",
+    url: "/mobile-app-development-guwahati",
+    title: "Mobile App Development Company in Guwahati | Android & iOS Apps Assam",
+    category: "Mobile & Web",
+    status: "Live & Indexed",
+    primaryKeyword: "mobile app development company in guwahati",
+    secondaryKeywords: [
+      "android app developers assam",
+      "ios app development company guwahati",
+      "flutter app development northeast india",
+      "custom mobile application development assam"
+    ],
+    googleSearchUrl: "https://www.google.com/search?q=mobile+app+development+company+in+guwahati",
+    searchIntent: "B2B / Startup Intent (Founders, Enterprises, Brands)",
+    monthlySearchVolume: "1,200+ / month (Regional)",
+    targetRank: "Top 3 in Guwahati",
+    keyFeatures: "60 FPS Flutter & React Native apps, offline-first SQLite sync, biometric auth, turnkey App Store & Play Store publishing"
+  },
+  {
+    id: "hospital-software-assam",
+    url: "/hospital-management-software-assam",
+    title: "ABDM Hospital Management Software in Assam | RH-HSMS",
+    category: "Healthcare IT",
+    status: "Live & Indexed",
+    primaryKeyword: "hospital management software assam",
+    secondaryKeywords: [
+      "hospital management system guwahati",
+      "abdm compliant hospital software",
+      "ayushman bharat pmjay hospital billing software",
+      "best hsms software assam"
+    ],
+    googleSearchUrl: "https://www.google.com/search?q=hospital+management+software+assam",
+    searchIntent: "High Commercial Intent (Hospital Directors, Medical Superintendents)",
+    monthlySearchVolume: "1,100+ / month (Regional)",
+    targetRank: "#1 in Northeast India",
+    keyFeatures: "ABDM M1-M3 certification, visual bed ward matrix, nursing requisitions, PMJAY claims engine, < 2-hour SLA"
+  },
+  {
+    id: "software-company-guwahati",
+    url: "/software-company-guwahati",
+    title: "Leading Software Company in Guwahati, Assam | RH Dynamics",
+    category: "Corporate Authority",
+    status: "Live & Indexed",
+    primaryKeyword: "software company in guwahati",
+    secondaryKeywords: [
+      "best software company in assam",
+      "software development company guwahati",
+      "it company in guwahati",
+      "custom software development northeast india"
+    ],
+    googleSearchUrl: "https://www.google.com/search?q=software+company+in+guwahati",
+    searchIntent: "General Tech Inquiries (CXOs, Founders, Procurement)",
+    monthlySearchVolume: "2,400+ / month (Regional)",
+    targetRank: "Top 3 in Guwahati",
+    keyFeatures: "DPIIT Startup India recognized, LLP ACN-1931, Sarumotoria engineering hub, Golaghat corporate HQ"
+  },
+  {
+    id: "web-development-guwahati",
+    url: "/web-development-guwahati",
+    title: "High-Performance Web Development Company in Guwahati | RH Dynamics",
+    category: "Mobile & Web",
+    status: "Live & Indexed",
+    primaryKeyword: "web development company in guwahati",
+    secondaryKeywords: [
+      "website design company in guwahati",
+      "nextjs web development assam",
+      "seo web designers guwahati"
+    ],
+    googleSearchUrl: "https://www.google.com/search?q=web+development+company+in+guwahati",
+    searchIntent: "Commercial Web Inquiries",
+    monthlySearchVolume: "1,600+ / month (Regional)",
+    targetRank: "Top 3 in Guwahati",
+    keyFeatures: "Sub-second Next.js edge performance, structured JSON-LD local SEO, WhatsApp lead capture"
+  },
+  {
+    id: "rh-core-hsms-platform",
+    url: "/hsms",
+    title: "RH CORE™ | Next-Gen Hospital Software (HSMS) & Clinical LIS | v1.0 Live",
+    category: "Flagship Product",
+    status: "Live & Indexed",
+    primaryKeyword: "rh core hsms",
+    secondaryKeywords: [
+      "rh core lis",
+      "rh dynamics hospital software",
+      "next-gen hospital operating system"
+    ],
+    googleSearchUrl: "https://www.google.com/search?q=rh+core+hsms",
+    searchIntent: "Branded & Product Search",
+    monthlySearchVolume: "300+ / month",
+    targetRank: "#1 Organic Dominance",
+    keyFeatures: "v1.0 Live release, unified inpatient bed matrix, doctor prescription pad, lab LIS, Ayushman Bharat"
+  },
+  {
+    id: "blog-analyzer-guide",
+    url: "/blog/pathology-analyzer-interfacing-guide-assam",
+    title: "How to Interface Analyzers with Cloud LIS in Assam (ASTM/HL7 Protocol)",
+    category: "Educational / Top of Funnel",
+    status: "Live & Indexed",
+    primaryKeyword: "analyzer interfacing software assam",
+    secondaryKeywords: [
+      "astm hl7 lab machine interfacing guwahati",
+      "sysmex mindray erba machine interfacing",
+      "whatsapp blood test reporting assam"
+    ],
+    googleSearchUrl: "https://www.google.com/search?q=analyzer+interfacing+software+assam",
+    searchIntent: "Technical Informational (Lab Technicians, Biochemists, Pathologists)",
+    monthlySearchVolume: "400+ / month",
+    targetRank: "#1 in Northeast",
+    keyFeatures: "Step-by-step RS232 & TCP/IP guide, supported Sysmex/Mindray/Erba models, WhatsApp PDF delivery"
+  },
+  {
+    id: "blog-abdm-checklist",
+    url: "/blog/abdm-m1-m2-m3-compliance-checklist-hospitals",
+    title: "ABDM M1, M2 & M3 Compliance Checklist for Hospitals in Assam (2026 Guide)",
+    category: "Educational / Top of Funnel",
+    status: "Live & Indexed",
+    primaryKeyword: "abdm compliance checklist assam",
+    secondaryKeywords: [
+      "ayushman bharat hospital software northeast india",
+      "abha scan and share software guwahati",
+      "pmjay claims software assam"
+    ],
+    googleSearchUrl: "https://www.google.com/search?q=abdm+compliance+checklist+assam",
+    searchIntent: "Regulatory Informational (Hospital Directors, Health Administrators)",
+    monthlySearchVolume: "350+ / month",
+    targetRank: "#1 in Northeast",
+    keyFeatures: "NHA M1, M2, M3 breakdown, ABHA QR token workflow, FHIR data exchange"
+  },
+  {
+    id: "blog-erp-vs-tally",
+    url: "/blog/custom-cloud-erp-vs-tally-assam-wholesalers",
+    title: "Why Assam Wholesalers Are Migrating from Desktop Accounting to Cloud ERP",
+    category: "Educational / Top of Funnel",
+    status: "Live & Indexed",
+    primaryKeyword: "custom erp vs tally assam wholesalers",
+    secondaryKeywords: [
+      "cloud erp software guwahati",
+      "multi branch warehouse inventory assam",
+      "gst e-way bill billing software northeast india"
+    ],
+    googleSearchUrl: "https://www.google.com/search?q=custom+erp+vs+tally+assam+wholesalers",
+    searchIntent: "Comparative B2B (Distributors, Stockists, CFOs)",
+    monthlySearchVolume: "300+ / month",
+    targetRank: "#1 in Northeast",
+    keyFeatures: "Multi-godown stock sync bottlenecks, automated GST e-way bills, ransomware prevention"
+  },
+  {
+    id: "blog-offline-flutter",
+    url: "/blog/building-offline-first-mobile-apps-flutter",
+    title: "Engineering Offline-First Mobile Apps in Assam & Northeast India",
+    category: "Educational / Top of Funnel",
+    status: "Live & Indexed",
+    primaryKeyword: "offline first mobile app flutter assam",
+    secondaryKeywords: [
+      "mobile app development company in guwahati",
+      "sqlite sync mobile apps northeast india",
+      "field sales mobile app development guwahati"
+    ],
+    googleSearchUrl: "https://www.google.com/search?q=offline+first+mobile+app+flutter+assam",
+    searchIntent: "Technical Informational (Enterprises, Tech Founders)",
+    monthlySearchVolume: "250+ / month",
+    targetRank: "#1 in Northeast",
+    keyFeatures: "Flutter & SQLite local-first writes, optimistic UI updates, background worker sync"
+  }
+];
+
+export const CALENDAR_CHECKLIST: CalendarChecklistItem[] = [
+  { day: 1, topic: "Why Waiting for Printed Pathology Reports is Obsolete", channel: "LinkedIn + GBP", status: "Published (/blog/pathology-analyzer-interfacing-guide-assam)" },
+  { day: 2, topic: "How RH CORE™ LIS Interfaces with Sysmex & Mindray", channel: "Technical Carousel", status: "Live on /pathology-lab-software-assam" },
+  { day: 3, topic: "Case Study: Eliminating Phlebotomy Barcode Errors", channel: "GBP Update", status: "Ready for Broadcast" },
+  { day: 4, topic: "NABL Audit Trails: Delta Checks and Critical Value Alarms", channel: "LinkedIn Post", status: "Ready for Broadcast" },
+  { day: 5, topic: "Sub-2s WhatsApp PDF Reports: Patient Experience", channel: "Short Video / Demo", status: "Ready for Broadcast" },
+  { day: 6, topic: "Referral Doctor Ledgers: Transparent Commission Accounting", channel: "LinkedIn Infographic", status: "Ready for Broadcast" },
+  { day: 7, topic: "Weekly Digest: Automated Clinical Diagnostics", channel: "WhatsApp Broadcast", status: "Ready for Broadcast" },
+  { day: 8, topic: "ABDM M1 to M3 Explained for Northeast Hospitals", channel: "Blog Post + LinkedIn", status: "Published (/blog/abdm-m1-m2-m3-compliance-checklist-hospitals)" },
+  { day: 9, topic: "Real-Time IPD Bed Grid vs Stagnant Whiteboards", channel: "GBP Post", status: "Ready for Broadcast" },
+  { day: 10, topic: "How Doctor Prescription Autocomplete Saves 1.5h Daily", channel: "Doctor Chamber Reel", status: "Live on /clinic-management-software-guwahati" },
+  { day: 15, topic: "Why Generic Accounting Fails Multi-Branch Wholesalers", channel: "Blog + LinkedIn", status: "Published (/blog/custom-cloud-erp-vs-tally-assam-wholesalers)" },
+  { day: 22, topic: "Native 60 FPS Flutter vs Sluggish WebWrappers", channel: "Blog + LinkedIn", status: "Published (/blog/building-offline-first-mobile-apps-flutter)" }
+];
+
+export function getSeoMetadataPayload() {
+  const liveSitemap = sitemap();
+  const totalKeywords = KEYWORD_PAGES.reduce(
+    (acc, p) => acc + (p.primaryKeyword ? 1 : 0) + (p.secondaryKeywords?.length || 0),
+    0
+  );
+
+  return {
+    project: "RH Dynamics (RHD Softwaresolutions LLP)",
+    llpin: "ACN-1931",
+    domain: "https://rhdynamics.in",
+    targetRegions: ["Guwahati", "Upper Assam (Golaghat, Jorhat, Dibrugarh)", "Silchar & Barak Valley", "Northeast India"],
+    stats: {
+      totalPagesIndexed: liveSitemap.length,
+      totalKeywordsTracked: totalKeywords,
+      topIntentPages: 8,
+      blogBlueprints: 4
+    },
+    pages: KEYWORD_PAGES,
+    calendarChecklist: CALENDAR_CHECKLIST
+  };
+}

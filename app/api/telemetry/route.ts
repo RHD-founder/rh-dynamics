@@ -4,13 +4,11 @@ import fs from "fs/promises";
 import path from "path";
 import { verifySeoAuthToken, AUTH_COOKIE_NAME } from "@/lib/security/seo-auth";
 import { getSupabaseAdmin } from "@/lib/supabase/server";
-import sitemap from "@/app/sitemap";
+import { getSeoMetadataPayload } from "@/lib/seo/keyword-matrix";
+import { DEFAULT_REVIEWS } from "@/lib/reviews/default-reviews";
 
-const TELEMETRY_FILE = path.join(process.cwd(), "data", "visitor-telemetry.json");
 const INQUIRIES_FILE = path.join(process.cwd(), "data", "inquiries.json");
 const GLITCH_FILE = path.join(process.cwd(), "data", "glitch-reports.json");
-const REVIEWS_FILE = path.join(process.cwd(), "data", "testimonials.json");
-const SEO_TRACKER_FILE = path.join(process.cwd(), "data", "seo-master-tracker.json");
 
 interface TelemetryData {
   totalPageViews: number;
@@ -28,6 +26,16 @@ interface TelemetryData {
     referrer: string;
   }>;
 }
+
+// In-memory telemetry store (zero disk dependency, superseded by GA4 live API)
+const inMemoryTelemetry: TelemetryData = {
+  totalPageViews: 0,
+  uniqueSessions: 0,
+  lastUpdated: new Date().toISOString(),
+  deviceBreakdown: { desktop: 0, mobile: 0 },
+  pageCounts: Object.create(null),
+  recentVisits: []
+};
 
 // In-memory rate limiter for telemetry ingestion (max 30 requests per minute per IP)
 const telemetryRateLimitMap = new Map<string, { count: number; resetAt: number }>();
@@ -47,22 +55,6 @@ function checkTelemetryRateLimit(ip: string): boolean {
 
   record.count += 1;
   return true;
-}
-
-async function getTelemetryData(): Promise<TelemetryData> {
-  try {
-    const raw = await fs.readFile(TELEMETRY_FILE, "utf-8");
-    return JSON.parse(raw);
-  } catch {
-    return {
-      totalPageViews: 0,
-      uniqueSessions: 0,
-      lastUpdated: new Date().toISOString(),
-      deviceBreakdown: { desktop: 0, mobile: 0 },
-      pageCounts: Object.create(null),
-      recentVisits: []
-    };
-  }
 }
 
 // -------------------------------------------------------------
@@ -85,8 +77,6 @@ export async function GET() {
       );
     }
 
-    const telemetry = await getTelemetryData();
-
     // Count inquiries
     let inquiriesCount = 0;
     try {
@@ -104,15 +94,9 @@ export async function GET() {
       glitchCount = Array.isArray(recentGlitches) ? recentGlitches.length : 0;
     } catch {}
 
-    // Load reviews list & count
-    let reviewsCount = 0;
-    let reviewsList: any[] = [];
-    try {
-      const rawReviews = await fs.readFile(REVIEWS_FILE, "utf-8");
-      const rev = JSON.parse(rawReviews);
-      reviewsList = Array.isArray(rev) ? rev : [];
-      reviewsCount = reviewsList.length;
-    } catch {}
+    // Reviews list & count (Primary: Supabase Cloud Database, Fallback: DEFAULT_REVIEWS)
+    let reviewsList: any[] = [...DEFAULT_REVIEWS];
+    let reviewsCount = reviewsList.length;
 
     // Cloud Database Hydration (Supabase)
     const supabase = getSupabaseAdmin();
@@ -136,30 +120,16 @@ export async function GET() {
           inquiriesCount = inqCount;
         }
       } catch (sbEx) {
-        console.warn("[Telemetry API] Supabase fallback to local:", sbEx);
+        console.warn("[Telemetry API] Supabase fallback to default reviews:", sbEx);
       }
     }
 
-    // Load master SEO tracker
-    let seoData: any = null;
-    try {
-      const rawSeo = await fs.readFile(SEO_TRACKER_FILE, "utf-8");
-      seoData = JSON.parse(rawSeo);
-      const sitemapUrls = sitemap();
-      if (seoData && seoData.stats) {
-        seoData.stats.totalPagesIndexed = sitemapUrls.length;
-        if (Array.isArray(seoData.pages)) {
-          seoData.stats.totalKeywordsTracked = seoData.pages.reduce(
-            (acc: number, p: any) => acc + (p.primaryKeyword ? 1 : 0) + (p.secondaryKeywords?.length || 0),
-            0
-          );
-        }
-      }
-    } catch {}
+    // Dynamic SEO Tracker computed from live sitemap & keyword matrix
+    const seoData = getSeoMetadataPayload();
 
     return NextResponse.json({
       status: "success",
-      telemetry,
+      telemetry: inMemoryTelemetry,
       stats: {
         inquiriesCount,
         glitchCount,
@@ -179,7 +149,7 @@ export async function GET() {
 }
 
 // -------------------------------------------------------------
-// POST: Anonymous Ingestion Beacon (Strictly Sanitized & Rate-Limited)
+// POST: Anonymous Ingestion Beacon (In-Memory, No Disk File Dependency)
 // -------------------------------------------------------------
 const FORBIDDEN_PROPERTY_KEYS = new Set(["__proto__", "constructor", "prototype", "toString", "valueOf"]);
 
@@ -204,10 +174,8 @@ export async function POST(request: Request) {
 
     // 1. Sanitize Path (prevent Prototype Pollution, XSS, and Path Traversal)
     let rawPath = typeof body.path === "string" ? body.path.trim().slice(0, 100) : "/";
-    // Strip HTML tags and dangerous characters
     rawPath = rawPath.replace(/[<>"'`\\]/g, "");
     
-    // Validate path structure: must start with / and only contain standard URL characters
     const isValidPath = /^\/[a-zA-Z0-9\-_./]*$/.test(rawPath);
     const sanitizedPath = (isValidPath && !FORBIDDEN_PROPERTY_KEYS.has(rawPath)) ? rawPath : "/";
 
@@ -221,40 +189,36 @@ export async function POST(request: Request) {
       ? rawReferrer
       : "direct";
 
-    const current = await getTelemetryData();
-    
-    current.totalPageViews += 1;
+    inMemoryTelemetry.totalPageViews += 1;
     if (body.isNewSession === true) {
-      current.uniqueSessions += 1;
+      inMemoryTelemetry.uniqueSessions += 1;
     }
-    current.lastUpdated = new Date().toISOString();
+    inMemoryTelemetry.lastUpdated = new Date().toISOString();
     
     // Increment device
     if (device === "mobile") {
-      current.deviceBreakdown.mobile += 1;
+      inMemoryTelemetry.deviceBreakdown.mobile += 1;
     } else {
-      current.deviceBreakdown.desktop += 1;
+      inMemoryTelemetry.deviceBreakdown.desktop += 1;
     }
 
     // Safely increment page counter without prototype pollution
-    if (!Object.prototype.hasOwnProperty.call(current.pageCounts, sanitizedPath)) {
-      current.pageCounts[sanitizedPath] = 0;
+    if (!Object.prototype.hasOwnProperty.call(inMemoryTelemetry.pageCounts, sanitizedPath)) {
+      inMemoryTelemetry.pageCounts[sanitizedPath] = 0;
     }
-    current.pageCounts[sanitizedPath] = (current.pageCounts[sanitizedPath] || 0) + 1;
+    inMemoryTelemetry.pageCounts[sanitizedPath] = (inMemoryTelemetry.pageCounts[sanitizedPath] || 0) + 1;
 
     // Append to recent visits (limit to 50 most recent)
-    current.recentVisits.unshift({
+    inMemoryTelemetry.recentVisits.unshift({
       timestamp: new Date().toISOString(),
       path: sanitizedPath,
       device,
       referrer: sanitizedReferrer
     });
 
-    if (current.recentVisits.length > 50) {
-      current.recentVisits = current.recentVisits.slice(0, 50);
+    if (inMemoryTelemetry.recentVisits.length > 50) {
+      inMemoryTelemetry.recentVisits = inMemoryTelemetry.recentVisits.slice(0, 50);
     }
-
-    await fs.writeFile(TELEMETRY_FILE, JSON.stringify(current, null, 2), "utf-8");
 
     return NextResponse.json({ status: "recorded" });
   } catch {

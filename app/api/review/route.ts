@@ -2,11 +2,10 @@ import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import nodemailer from "nodemailer";
 import { z } from "zod";
-import fs from "fs/promises";
-import path from "path";
 import { evaluateBotDefense } from "@/lib/security/bot-defense";
 import { verifySeoAuthToken, AUTH_COOKIE_NAME } from "@/lib/security/seo-auth";
 import { getSupabaseAdmin } from "@/lib/supabase/server";
+import { DEFAULT_REVIEWS } from "@/lib/reviews/default-reviews";
 
 const reviewSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters").max(60).trim(),
@@ -118,19 +117,6 @@ export async function POST(request: Request) {
       }
     }
 
-    // 2. Local Fallback write to data/testimonials.json
-    try {
-      const filePath = path.join(process.cwd(), "data", "testimonials.json");
-      const existingData = await fs.readFile(filePath, "utf-8").catch(() => "[]");
-      const reviews = JSON.parse(existingData);
-
-      reviews.push(newReview);
-      await fs.writeFile(filePath, JSON.stringify(reviews, null, 2), "utf-8");
-      console.log(`[Review API] Appended review to local data/testimonials.json`);
-    } catch (fsErr) {
-      console.error("[Review API] Could not write to testimonials.json:", fsErr);
-    }
-
     // Email notification to founder
     if (process.env.SMTP_USER && process.env.SMTP_PASSWORD) {
       const transporter = getTransporter();
@@ -171,7 +157,7 @@ export async function POST(request: Request) {
 }
 
 // -------------------------------------------------------------
-// GET: Public list of reviews (Supabase Cloud DB with Local Fallback)
+// GET: Public list of reviews (Supabase Cloud DB with In-Memory Fallback)
 // -------------------------------------------------------------
 export async function GET() {
   try {
@@ -189,22 +175,19 @@ export async function GET() {
           return NextResponse.json({ status: "success", source: "supabase", reviews: data }, { status: 200 });
         }
       } catch (sbEx) {
-        console.warn("[Review API] Supabase read error, falling back to local file:", sbEx);
+        console.warn("[Review API] Supabase read error, falling back to default reviews:", sbEx);
       }
     }
 
-    // 2. Fallback to local data/testimonials.json
-    const filePath = path.join(process.cwd(), "data", "testimonials.json");
-    const existingData = await fs.readFile(filePath, "utf-8").catch(() => "[]");
-    const reviews = JSON.parse(existingData);
-    return NextResponse.json({ status: "success", source: "local", reviews }, { status: 200 });
+    // 2. In-memory fallback
+    return NextResponse.json({ status: "success", source: "default", reviews: DEFAULT_REVIEWS }, { status: 200 });
   } catch (error) {
-    return NextResponse.json({ message: "Failed to read reviews" }, { status: 500 });
+    return NextResponse.json({ message: "Failed to read reviews", reviews: DEFAULT_REVIEWS }, { status: 500 });
   }
 }
 
 // -------------------------------------------------------------
-// DELETE: Protected Review Removal (Supabase + Local Sync)
+// DELETE: Protected Review Removal (Supabase Cloud DB)
 // -------------------------------------------------------------
 export async function DELETE(request: Request) {
   try {
@@ -241,6 +224,8 @@ export async function DELETE(request: Request) {
 
     // 1. Delete from Supabase if connected
     const supabase = getSupabaseAdmin();
+    let remainingReviews = DEFAULT_REVIEWS.filter((r) => String(r.id) !== reviewId);
+
     if (supabase) {
       try {
         const { error: sbDelErr } = await supabase.from("reviews").delete().eq("id", reviewId);
@@ -249,29 +234,26 @@ export async function DELETE(request: Request) {
         } else {
           console.log(`[Review API] Deleted review ${reviewId} from Supabase table 'reviews'`);
         }
+
+        // Fetch remaining
+        const { data: refreshed } = await supabase
+          .from("reviews")
+          .select("*")
+          .order("date", { ascending: false });
+
+        if (Array.isArray(refreshed)) {
+          remainingReviews = refreshed;
+        }
       } catch (sbEx) {
         console.warn("[Review API] Supabase delete error:", sbEx);
       }
     }
 
-    // 2. Local Fallback sync in data/testimonials.json
-    const filePath = path.join(process.cwd(), "data", "testimonials.json");
-    const existingData = await fs.readFile(filePath, "utf-8").catch(() => "[]");
-    const reviews: any[] = JSON.parse(existingData);
-
-    const initialLength = reviews.length;
-    const updatedReviews = reviews.filter((r) => String(r.id) !== reviewId);
-
-    if (updatedReviews.length !== initialLength) {
-      await fs.writeFile(filePath, JSON.stringify(updatedReviews, null, 2), "utf-8");
-      console.log(`[Review API] Synced local deletion for id ${reviewId}. Remaining count: ${updatedReviews.length}`);
-    }
-
     return NextResponse.json({
       status: "success",
       message: "Review successfully deleted.",
-      remainingCount: updatedReviews.length,
-      reviews: updatedReviews,
+      remainingCount: remainingReviews.length,
+      reviews: remainingReviews,
     }, { status: 200 });
   } catch (error) {
     console.error("[Review API] Error deleting review:", error);
