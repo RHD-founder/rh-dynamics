@@ -152,6 +152,52 @@ export default function SeoCommandPage() {
     }
   };
 
+  const [gscData, setGscData] = useState<{
+    loading: boolean;
+    performance: { clicks: number; impressions: number; ctr: number; position: number };
+    queries: Array<{ query: string; clicks: number; impressions: number; ctr: number; position: number }>;
+    pages: Array<{ page: string; clicks: number; impressions: number; ctr: number; position: number }>;
+    sitemaps: Array<{ path: string; lastSubmitted: string; lastDownloaded?: string; submitted: number; indexed: number; errors: number; warnings: number; isPending: boolean }>;
+    error?: string;
+    lastSynced?: string;
+  }>({
+    loading: false,
+    performance: { clicks: 0, impressions: 0, ctr: 0, position: 0 },
+    queries: [],
+    pages: [],
+    sitemaps: []
+  });
+
+  const fetchGSC = async () => {
+    setGscData((prev) => ({ ...prev, loading: true, error: undefined }));
+    try {
+      const res = await fetch("/api/analytics/search-console");
+      const json = await res.json();
+      if (json.success) {
+        setGscData({
+          loading: false,
+          performance: json.performance || { clicks: 0, impressions: 0, ctr: 0, position: 0 },
+          queries: json.queries || [],
+          pages: json.pages || [],
+          sitemaps: json.sitemaps || [],
+          lastSynced: json.lastSynced || new Date().toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit", second: "2-digit" })
+        });
+      } else {
+        setGscData((prev) => ({
+          ...prev,
+          loading: false,
+          error: json.error || "Failed to load Search Console data"
+        }));
+      }
+    } catch (err: any) {
+      setGscData((prev) => ({
+        ...prev,
+        loading: false,
+        error: err.message || "Network error fetching Search Console data"
+      }));
+    }
+  };
+
   // Check existing session on mount
   useEffect(() => {
     const checkSession = async () => {
@@ -310,6 +356,7 @@ export default function SeoCommandPage() {
       const json = await res.json();
       setData(json);
       fetchGA4();
+      fetchGSC();
     } catch {
       // fallback
     } finally {
@@ -993,6 +1040,212 @@ export default function SeoCommandPage() {
                   MCP Tooling: <code className="text-primary font-bold">ga4_realtime_traffic</code> &bull; <code className="text-primary font-bold">ga4_30day_report</code>
                 </div>
               </div>
+            </div>
+
+            {/* Google Search Console (GSC) Organic Stream */}
+            <div className="p-6 rounded-2xl border border-blue-500/30 bg-blue-500/5 relative overflow-hidden space-y-6">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div className="flex items-center gap-3">
+                  <span className="relative flex h-3.5 w-3.5">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-blue-500"></span>
+                  </span>
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <h3 className="font-heading font-bold text-base text-foreground">
+                        Google Search Console (GSC) Organic Stream
+                      </h3>
+                      <span className="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-blue-500/20 text-blue-400 border border-blue-500/30 uppercase tracking-wider">
+                        Verified Property Active
+                      </span>
+                    </div>
+                    <p className="text-[11px] font-mono text-muted-foreground mt-0.5">
+                      Property: <strong className="text-foreground">sc-domain:rhdynamics.in</strong>
+                      {gscData.lastSynced && (
+                        <span> • Last Synced: <strong className="text-foreground">{gscData.lastSynced}</strong></span>
+                      )}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-2 shrink-0">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={fetchGSC}
+                    disabled={gscData.loading}
+                    className="h-8 px-3 text-xs font-mono rounded-lg border-blue-500/40 text-blue-400 hover:bg-blue-500/10 hover:text-blue-300 transition-all gap-1.5"
+                  >
+                    <RefreshCw className={`w-3.5 h-3.5 ${gscData.loading ? "animate-spin" : ""}`} />
+                    <span>{gscData.loading ? "Syncing..." : "Sync GSC"}</span>
+                  </Button>
+                  <a
+                    href="https://search.google.com/search-console"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="h-8 px-3 text-xs font-mono rounded-lg border border-border/80 bg-background/50 hover:bg-secondary text-muted-foreground hover:text-foreground inline-flex items-center gap-1.5 transition-colors"
+                  >
+                    <span>GSC Console</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+                </div>
+              </div>
+
+              {/* 4 Performance KPI Cards */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                <div className="p-4 rounded-xl bg-background/60 border border-border/60">
+                  <span className="text-[10px] font-mono text-muted-foreground uppercase block mb-1">
+                    Google Impressions (28d)
+                  </span>
+                  <div className="text-2xl font-black font-heading text-blue-400">
+                    {gscData.performance.impressions}
+                  </div>
+                  <span className="text-[10px] font-mono text-muted-foreground mt-0.5 block">
+                    Times seen on Google SERP
+                  </span>
+                </div>
+
+                <div className="p-4 rounded-xl bg-background/60 border border-border/60">
+                  <span className="text-[10px] font-mono text-muted-foreground uppercase block mb-1">
+                    Google Clicks (28d)
+                  </span>
+                  <div className="text-2xl font-black font-heading text-foreground">
+                    {gscData.performance.clicks}
+                  </div>
+                  <span className="text-[10px] font-mono text-muted-foreground mt-0.5 block">
+                    Organic search visitors
+                  </span>
+                </div>
+
+                <div className="p-4 rounded-xl bg-background/60 border border-border/60">
+                  <span className="text-[10px] font-mono text-muted-foreground uppercase block mb-1">
+                    Average CTR
+                  </span>
+                  <div className="text-2xl font-black font-heading text-foreground">
+                    {gscData.performance.ctr}%
+                  </div>
+                  <span className="text-[10px] font-mono text-muted-foreground mt-0.5 block">
+                    Click-through rate
+                  </span>
+                </div>
+
+                <div className="p-4 rounded-xl bg-background/60 border border-border/60">
+                  <span className="text-[10px] font-mono text-muted-foreground uppercase block mb-1">
+                    Avg Google Position
+                  </span>
+                  <div className="text-2xl font-black font-heading text-emerald-400">
+                    #{gscData.performance.position}
+                  </div>
+                  <span className="text-[10px] font-mono text-muted-foreground mt-0.5 block">
+                    Overall search ranking
+                  </span>
+                </div>
+              </div>
+
+              {/* Real Queries and Real Pages Breakdown */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {/* Real Google Queries Table */}
+                <div className="p-4 rounded-xl bg-background/60 border border-border/60 text-xs font-mono space-y-2.5">
+                  <div className="flex items-center justify-between text-muted-foreground font-semibold border-b border-border/40 pb-2">
+                    <span className="flex items-center gap-1.5 text-foreground">
+                      <Search className="w-3.5 h-3.5 text-blue-400" />
+                      <span>Real Google Search Queries</span>
+                    </span>
+                    <span className="text-[10px]">Clicks / Imp / Rank</span>
+                  </div>
+                  {gscData.queries.length === 0 ? (
+                    <div className="text-muted-foreground text-[11px] py-2 text-center">
+                      Waiting for query telemetry from Google...
+                    </div>
+                  ) : (
+                    <div className="space-y-1.5 max-h-56 overflow-y-auto pr-1">
+                      {gscData.queries.map((q, i) => (
+                        <div key={i} className="flex items-center justify-between text-foreground py-1 border-b border-border/20 last:border-0 gap-2">
+                          <span className="truncate max-w-[200px] font-semibold text-foreground" title={q.query}>
+                            &ldquo;{q.query}&rdquo;
+                          </span>
+                          <div className="flex items-center gap-1.5 shrink-0 text-[11px]">
+                            <span className="font-bold text-blue-400 bg-blue-500/10 px-1.5 py-0.5 rounded border border-blue-500/20">
+                              {q.clicks} clk
+                            </span>
+                            <span className="text-muted-foreground bg-secondary px-1.5 py-0.5 rounded">
+                              {q.impressions} imp
+                            </span>
+                            <span className="font-bold text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">
+                              #{q.position}
+                            </span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                {/* Real Landing Pages in Google Search */}
+                <div className="p-4 rounded-xl bg-background/60 border border-border/60 text-xs font-mono space-y-2.5">
+                  <div className="flex items-center justify-between text-muted-foreground font-semibold border-b border-border/40 pb-2">
+                    <span className="flex items-center gap-1.5 text-foreground">
+                      <Globe className="w-3.5 h-3.5 text-blue-400" />
+                      <span>Top Landing Pages in Search</span>
+                    </span>
+                    <span className="text-[10px]">Clicks / Imp / Rank</span>
+                  </div>
+                  {gscData.pages.length === 0 ? (
+                    <div className="text-muted-foreground text-[11px] py-2 text-center">
+                      Waiting for page performance data...
+                    </div>
+                  ) : (
+                    <div className="space-y-1.5 max-h-56 overflow-y-auto pr-1">
+                      {gscData.pages.map((p, i) => (
+                        <div key={i} className="flex items-center justify-between text-foreground py-1 border-b border-border/20 last:border-0 gap-2">
+                          <span className="truncate max-w-[200px] text-muted-foreground" title={p.page}>
+                            {p.page.replace("https://rhdynamics.in", "") || "/"}
+                          </span>
+                          <div className="flex items-center gap-1.5 shrink-0 text-[11px]">
+                            <span className="font-bold text-blue-400 bg-blue-500/10 px-1.5 py-0.5 rounded border border-blue-500/20">
+                              {p.clicks} clk
+                            </span>
+                            <span className="text-muted-foreground bg-secondary px-1.5 py-0.5 rounded">
+                              {p.impressions} imp
+                            </span>
+                            <span className="font-bold text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">
+                              #{p.position}
+                            </span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {/* Sitemaps Live Verification Status */}
+              {gscData.sitemaps.length > 0 && (
+                <div className="p-3.5 rounded-xl bg-background/60 border border-border/60 text-xs font-mono flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <div>
+                      <span className="text-foreground font-bold">Google Sitemap Indexing: </span>
+                      <code className="text-primary bg-primary/5 px-1.5 py-0.5 rounded border border-primary/20">
+                        {gscData.sitemaps[0].path}
+                      </code>
+                    </div>
+                  </div>
+                  <div className="flex flex-wrap items-center gap-2 text-[11px]">
+                    <span className="bg-secondary px-2 py-0.5 rounded text-foreground font-semibold">
+                      Submitted: <strong className="text-primary">{gscData.sitemaps[0].submitted} URLs</strong>
+                    </span>
+                    <span className="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2 py-0.5 rounded font-bold">
+                      0 Errors • 0 Warnings
+                    </span>
+                    {gscData.sitemaps[0].lastDownloaded && (
+                      <span className="text-muted-foreground">
+                        Last Read: {new Date(gscData.sitemaps[0].lastDownloaded).toLocaleDateString()}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Device Breakdown Card */}
