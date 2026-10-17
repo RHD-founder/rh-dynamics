@@ -124,7 +124,19 @@ export async function fetchGSCData(): Promise<GSCPayload> {
     const creds = JSON.parse(credsRaw);
     const token = await getGscOAuthToken(creds);
 
-    const siteUrl = encodeURIComponent("sc-domain:rhdynamics.in");
+    let targetSite = "sc-domain:rhdynamics.in";
+    try {
+      const sitesListRes = await fetch("https://www.googleapis.com/webmasters/v3/sites", {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      const sitesListData = await sitesListRes.json();
+      if (Array.isArray(sitesListData.siteEntry) && sitesListData.siteEntry.length > 0) {
+        const found = sitesListData.siteEntry.find((s: any) => s.siteUrl?.includes("rhdynamics.in"));
+        if (found?.siteUrl) targetSite = found.siteUrl;
+      }
+    } catch {}
+
+    const siteUrl = encodeURIComponent(targetSite);
     const today = new Date();
     const past = new Date();
     past.setDate(today.getDate() - 28);
