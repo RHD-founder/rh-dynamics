@@ -113,6 +113,10 @@ export default function SeoCommandPage() {
       screenPageViews: number;
       sessions: number;
     };
+    deviceBreakdown?: {
+      desktop: number;
+      mobile: number;
+    };
     error?: string;
     lastChecked?: string;
   }>({
@@ -134,6 +138,7 @@ export default function SeoCommandPage() {
           cities: json.cities || [],
           pages: json.pages || [],
           historical30Days: json.historical30Days,
+          deviceBreakdown: json.deviceBreakdown,
           lastChecked: new Date().toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit", second: "2-digit" })
         });
       } else {
@@ -549,9 +554,11 @@ export default function SeoCommandPage() {
   };
 
   const totalViews = data?.telemetry?.totalPageViews || 0;
-  const desktopViews = data?.telemetry?.deviceBreakdown?.desktop || 0;
-  const mobileViews = data?.telemetry?.deviceBreakdown?.mobile || 0;
-  const desktopPct = totalViews > 0 ? Math.round((desktopViews / totalViews) * 100) : 50;
+  const hasGa4Devices = Boolean(ga4Data.deviceBreakdown && (ga4Data.deviceBreakdown.desktop > 0 || ga4Data.deviceBreakdown.mobile > 0));
+  const desktopViews = hasGa4Devices ? (ga4Data.deviceBreakdown?.desktop || 0) : (data?.telemetry?.deviceBreakdown?.desktop || 0);
+  const mobileViews = hasGa4Devices ? (ga4Data.deviceBreakdown?.mobile || 0) : (data?.telemetry?.deviceBreakdown?.mobile || 0);
+  const combinedTotal = desktopViews + mobileViews;
+  const desktopPct = combinedTotal > 0 ? Math.round((desktopViews / combinedTotal) * 100) : 50;
   const mobilePct = 100 - desktopPct;
 
   // 2. Full Dashboard Screen when authenticated
@@ -1250,18 +1257,23 @@ export default function SeoCommandPage() {
 
             {/* Device Breakdown Card */}
             <div className="p-6 rounded-2xl border border-border/60 bg-card/40">
-              <h3 className="font-heading font-bold text-base text-foreground mb-4 flex items-center gap-2">
-                <Monitor className="w-4 h-4 text-primary" />
-                Visitor Device Telemetry
-              </h3>
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+                <h3 className="font-heading font-bold text-base text-foreground flex items-center gap-2">
+                  <Monitor className="w-4 h-4 text-primary" />
+                  <span>Visitor Device Breakdown</span>
+                </h3>
+                <span className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground bg-secondary px-2 py-0.5 rounded w-fit">
+                  {hasGa4Devices ? "Verified Google Analytics 30-Day Stream" : "Local Browser Telemetry"}
+                </span>
+              </div>
 
               <div className="space-y-3">
                 <div className="flex items-center justify-between text-xs font-mono">
                   <span className="flex items-center gap-1.5 text-foreground">
-                    <Monitor className="w-3.5 h-3.5 text-blue-500" /> Desktop ({desktopViews} visits)
+                    <Monitor className="w-3.5 h-3.5 text-blue-500" /> Desktop ({desktopViews} {hasGa4Devices ? "users" : "visits"})
                   </span>
                   <span className="flex items-center gap-1.5 text-foreground">
-                    <Smartphone className="w-3.5 h-3.5 text-emerald-500" /> Mobile ({mobileViews} visits)
+                    <Smartphone className="w-3.5 h-3.5 text-emerald-500" /> Mobile ({mobileViews} {hasGa4Devices ? "users" : "visits"})
                   </span>
                 </div>
 

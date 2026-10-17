@@ -12,6 +12,10 @@ export interface GA4AnalyticsPayload {
     screenPageViews: number;
     sessions: number;
   };
+  deviceBreakdown?: {
+    desktop: number;
+    mobile: number;
+  };
   error?: string;
 }
 
@@ -161,17 +165,36 @@ export async function fetchGA4Realtime(): Promise<GA4AnalyticsPayload> {
       }
     );
 
-    const [totalRes, citiesRes, screensRes, reportRes] = await Promise.all([
+    // 5. Fetch 30-Day Device Categories from Google
+    const devicesPromise = fetch(
+      `https://analyticsdata.googleapis.com/v1beta/properties/${propertyId}:runReport`,
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          dateRanges: [{ startDate: "30daysAgo", endDate: "today" }],
+          dimensions: [{ name: "deviceCategory" }],
+          metrics: [{ name: "activeUsers" }]
+        })
+      }
+    );
+
+    const [totalRes, citiesRes, screensRes, reportRes, devicesRes] = await Promise.all([
       realtimeTotalPromise,
       realtimeCitiesPromise,
       realtimeScreensPromise,
-      reportPromise
+      reportPromise,
+      devicesPromise
     ]);
 
     const totalData = await totalRes.json();
     const citiesData = await citiesRes.json();
     const screensData = await screensRes.json();
     const reportData = await reportRes.json();
+    const devicesData = await devicesRes.json();
 
     if (!totalRes.ok) {
       return {
@@ -221,12 +244,26 @@ export async function fetchGA4Realtime(): Promise<GA4AnalyticsPayload> {
       };
     }
 
+    const deviceBreakdown = { desktop: 0, mobile: 0 };
+    if (devicesRes.ok && Array.isArray(devicesData.rows)) {
+      for (const row of devicesData.rows) {
+        const cat = (row.dimensionValues?.[0]?.value || "").toLowerCase();
+        const users = parseInt(row.metricValues?.[0]?.value || "0", 10);
+        if (cat === "mobile" || cat === "tablet") {
+          deviceBreakdown.mobile += users;
+        } else {
+          deviceBreakdown.desktop += users;
+        }
+      }
+    }
+
     return {
       success: true,
       activeUsers: totalActive,
       cities,
       pages,
-      historical30Days
+      historical30Days,
+      deviceBreakdown
     };
   } catch (error: any) {
     return {
