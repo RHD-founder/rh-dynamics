@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "google-analytics": {
+      "command": "node",
+      "args": ["scripts/mcp-ga4-server.mjs"],
+      "env": {
+        "GA_PROPERTY_ID": "470856530"
+      }
+    }
+  }
+}

@@ -1,0 +1,68 @@
+[
+  {
+    "id": "1",
+    "quote": "RH Dynamics delivered an exceptional digital platform that transformed our business operations in Assam. Their technical precision and speed helped us increase customer engagement by 40%.",
+    "author": "Debajit Buragohain",
+    "position": "Founder",
+    "company": "Jilikoni",
+    "metric": "+40% Engagement",
+    "rating": 5,
+    "verified": true,
+    "date": "2025-06-15"
+  },
+  {
+    "id": "2",
+    "quote": "Their systems engineering expertise in mobile and web platforms helped us launch a high-performance app our users love. The team is responsive, professional, and understands regional market dynamics.",
+    "author": "Alok Khataniar",
+    "position": "Founder",
+    "company": "Snapbaskiin",
+    "metric": "High Retention",
+    "rating": 5,
+    "verified": true,
+    "date": "2025-08-20"
+  },
+  {
+    "id": "3",
+    "quote": "The patient management and booking architecture they engineered significantly improved our clinical footfall and reduced counter wait times. Attentive to clinical healthcare compliance.",
+    "author": "Rupen Das",
+    "position": "Owner",
+    "company": "Riya Polyclinic",
+    "metric": "Optimized Wait Times",
+    "rating": 5,
+    "verified": true,
+    "date": "2025-10-10"
+  },
+  {
+    "id": "4",
+    "quote": "Their custom ordering and dispatch solution helped us streamline food operations across Guwahati. Reliable systems, robust uptime, and zero software headaches.",
+    "author": "Mukut Das",
+    "position": "Owner",
+    "company": "Mukutda Kitchen",
+    "metric": "Streamlined Logistics",
+    "rating": 5,
+    "verified": true,
+    "date": "2025-12-05"
+  },
+  {
+    "id": "1792128135961",
+    "quote": "RH Dynamics delivered a great website for our hospital",
+    "author": "Dr. Hrishikesh Hazarika",
+    "position": "Director",
+    "company": "COSMO MEDICAL",
+    "metric": "Great SLA",
+    "rating": 5,
+    "verified": true,
+    "date": "2026-10-16"
+  },
+  {
+    "id": "1792150635853",
+    "quote": "RH Dynamics built a lightning-fast hospital portal for us. The SLA response times are incredible.",
+    "author": "Arunav Sharma",
+    "position": "Client",
+    "company": "Brahmaputra Health",
+    "metric": "< 2-Hour SLA",
+    "rating": 5,
+    "verified": true,
+    "date": "2026-10-16"
+  }
+]

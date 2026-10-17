@@ -52,7 +52,7 @@ export function CTA() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-sm sm:text-base text-muted-foreground font-light leading-relaxed mb-8 max-w-xl mx-auto"
             >
-              Consult directly with our technical partners in Guwahati. We will audit your existing workflows, database schemas, and hardware setup with zero commercial fluff.
+              Consult directly with our technical partners in Guwahati. We will audit your existing workflows, database schemas, and software architecture with zero commercial fluff.
             </motion.p>
 
             {/* Action Buttons */}

@@ -7,17 +7,18 @@ import { Testimonials } from "@/components/sections/testimonials";
 import { CTA } from "@/components/sections/cta";
 
 export const metadata: Metadata = {
-  title: "RH Dynamics | Systems Engineering, Hospital Software & Cloud ERP Guwahati",
+  title: "RH Dynamics | Software Company, Hospital Systems (HSMS/LIS) & Cloud ERP Guwahati",
   description:
-    "RHD Softwaresolutions LLP (ACN-1931). Startup India recognized engineering firm architecting ABDM hospital management systems (RH-HSMS), custom cloud ERPs, and campus optical networks in Assam and Northeast India.",
+    "RHD Softwaresolutions LLP (ACN-1931). Startup India recognized software engineering firm building healthcare management systems (RH-HSMS), clinical LIS, custom enterprise ERPs, and high-performance web & mobile platforms.",
   keywords: [
     "rh dynamics",
     "software company guwahati",
     "hospital management software assam",
     "rh-hsms",
+    "laboratory information system lis",
     "custom erp development northeast india",
-    "campus networking assam",
-    "systems engineering guwahati"
+    "web development guwahati",
+    "systems engineering assam"
   ],
   alternates: {
     canonical: "https://rhdynamics.in",

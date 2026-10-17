@@ -4,56 +4,56 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { ArrowRight, BarChart3, Activity, ShieldCheck, Database, Check } from "lucide-react";
+import { ArrowRight, Activity, ShieldCheck, Database, Globe, Smartphone, Check } from "lucide-react";
 
 const recentWork = [
   {
-    title: "Cosmomedical Guwahati",
-    category: "Speciality Healthcare",
-    tagline: "Flagship Digital Patient Ecosystem & High-Conversion Booking",
-    problem: "Outdated web presence, severe patient drop-offs from slow mobile pages, and zero structured digital lead acquisition.",
+    title: "RH CORE™ Hospital Information System (HSMS)",
+    category: "Clinical Healthcare Suite (v1.0 Live)",
+    tagline: "ABDM-Compliant Evergreen Hospital Management Platform",
+    problem: "Healthcare facilities managing patient records across disconnected systems, facing billing delays, and needing mandatory Ayushman Bharat integration.",
     metrics: [
-      { value: "3.2x", label: "Qualified Surgical Leads" },
-      { value: "< 1.1s", label: "Page Load Speed" }
+      { value: "ABDM Ready", label: "National Health Standards" },
+      { value: "Real-Time", label: "OPD/IPD Bed Matrix" }
     ],
-    tech: ["Next.js 16", "WhatsApp API", "Local SEO Engine"],
-    link: "/projects",
+    tech: ["Next.js", "PostgreSQL", "ABDM Gateways", "Encrypted Cloud"],
+    link: "/hsms",
   },
   {
-    title: "Army Public School Narengi",
-    category: "Campus Infrastructure",
-    tagline: "Campus-Wide Optical Fiber Backbone & 40+ Workstation Lab",
-    problem: "Fragmented cabling, unstable school block Wi-Fi, outdated lab hardware, and unmonitored security zones.",
-    metrics: [
-      { value: "100%", label: "Campus Gigabit Coverage" },
-      { value: "Zero", label: "Network Downtime" }
-    ],
-    tech: ["Optical Fiber", "Layer-3 Switches", "CCTV Telemetry"],
-    link: "/projects",
-  },
-  {
-    title: "Spektra Diagnostics & Multispeciality",
-    category: "Clinical Diagnostics",
-    tagline: "Automated Pathology LIS & Instant WhatsApp Report Delivery",
-    problem: "Manual sample accessioning, slow physical report collection queues, and stiff competition from diagnostic chains.",
+    title: "RH CORE™ Diagnostic LIS & Pathology Engine",
+    category: "Laboratory Automation (v1.0 Live)",
+    tagline: "Automated Lab Management & Instant WhatsApp Report Delivery",
+    problem: "Manual sample accessioning, delayed patient report delivery, and complex multi-counter laboratory accounting.",
     metrics: [
       { value: "< 2 Sec", label: "WhatsApp Report Dispatch" },
-      { value: "45%", label: "Counter Queue Drop" }
+      { value: "Automated", label: "Barcode Accessioning" }
     ],
-    tech: ["LIS Engine", "WhatsApp Cloud", "Barcode Accessioning"],
-    link: "/projects",
+    tech: ["LIS Engine", "WhatsApp Cloud", "Analyzer Interfacing"],
+    link: "/pathology-lab-software-assam",
   },
   {
-    title: "RH-HSMS Hospital Platform",
-    category: "Clinical Hospital ERP",
-    tagline: "ABDM & PMJAY-Compliant Cloud Hospital Management System",
-    problem: "Hospitals trapped on fragile offline desktop EXEs, losing pharmacy billing revenue and failing Ayushman Bharat integration.",
+    title: "Custom Cloud ERP & Distribution Engine",
+    category: "Enterprise Operations",
+    tagline: "Multi-Branch Inventory Sync & Operational Workflow Architecture",
+    problem: "Enterprises struggling with spreadsheet errors, multi-warehouse stock discrepancies, and rigid third-party SaaS license penalties.",
     metrics: [
-      { value: "40%+", label: "Patient Wait Reduction" },
-      { value: "ABDM M3", label: "Statutory Compliance" }
+      { value: "Sub-Second", label: "Multi-Branch Sync" },
+      { value: "Automated", label: "GST & Tax Ledgers" }
     ],
-    tech: ["PostgreSQL", "ABDM Gateways", "Next.js 16"],
-    link: "/hsms",
+    tech: ["TypeScript", "PostgreSQL", "Cloud Architecture"],
+    link: "/custom-erp-software-assam",
+  },
+  {
+    title: "High-Performance Web & Mobile Platforms",
+    category: "Modern Web & Mobile",
+    tagline: "Sub-Second Edge Platforms & Cross-Platform Mobile Applications",
+    problem: "Slow legacy websites causing high visitor bounce rates, poor Google rankings, and lost inbound inquiries.",
+    metrics: [
+      { value: "< 1.1s", label: "Edge Page Load Speed" },
+      { value: "100%", label: "Mobile Responsive" }
+    ],
+    tech: ["Next.js", "React", "Mobile Stacks", "SEO Schema"],
+    link: "/mobile-app-development-guwahati",
   },
 ];
 
@@ -81,7 +81,7 @@ export function RecentWork() {
               className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium tracking-wider uppercase border border-border bg-secondary/40 text-muted-foreground mb-4"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-              Verified Deployments // Case Studies
+              Software Solutions // Product Architecture
             </motion.div>
 
             <motion.h2
@@ -90,7 +90,7 @@ export function RecentWork() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-3xl sm:text-5xl font-black font-heading text-foreground tracking-tight"
             >
-              Proven Deployments. <br />
+              Engineered Software. <br />
               <span className="text-gradient">Measurable Impact.</span>
             </motion.h2>
           </div>
@@ -104,7 +104,7 @@ export function RecentWork() {
               href="/projects" 
               className="inline-flex items-center text-xs font-mono uppercase tracking-wider text-primary hover:underline font-bold"
             >
-              <span>Explore All 20+ Case Studies</span>
+              <span>Explore All Software Architectures</span>
               <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
             </Link>
           </motion.div>
@@ -126,7 +126,7 @@ export function RecentWork() {
                     {project.category}
                   </span>
                   <span className="text-[10px] font-mono text-muted-foreground">
-                    DEPLOYMENT // 0{index + 1}
+                    STACK // 0{index + 1}
                   </span>
                 </div>
 

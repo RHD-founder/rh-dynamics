@@ -6,14 +6,19 @@ export function JsonLd() {
         "@type": ["Organization", "LocalBusiness", "ProfessionalService"],
         "@id": "https://rhdynamics.in/#organization",
         "name": "RH Dynamics",
-        "legalName": "RH Dynamics",
-        "alternateName": ["RH Dynamics IT Solutions", "RH Dynamics Guwahati"],
+        "legalName": "RHD Softwaresolutions LLP",
+        "alternateName": ["RH Dynamics", "RH Dynamics IT Solutions", "RH Dynamics Guwahati", "RHD Softwaresolutions LLP"],
         "url": "https://rhdynamics.in",
         "logo": "https://rhdynamics.in/light-logo.png",
         "image": "https://rhdynamics.in/opengraph-image",
-        "description": "RH Dynamics is a leading software development company, custom ERP and HSMS (Hospital Management System) provider based in Guwahati, Assam, serving Northeast India and global enterprises.",
+        "description": "RH Dynamics (RHD Softwaresolutions LLP) is a leading systems engineering and software development company based in Guwahati and Golaghat, Assam. Providing custom cloud ERPs, ABDM-compliant HSMS hospital systems, and high-performance web applications across Northeast India.",
         "telephone": "+918638875149",
         "email": "support@rhdynamics.in",
+        "sameAs": [
+          "https://www.linkedin.com/company/rhdynamics",
+          "https://twitter.com/rhdynamics",
+          "https://www.zaubacorp.com/company/RHD-SOFTWARE-SOLUTIONS-LLP/ACN-1931"
+        ],
         "priceRange": "₹₹",
         "address": {
           "@type": "PostalAddress",

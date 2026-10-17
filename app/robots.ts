@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/"],
+        disallow: ["/api/", "/seo-command"],
       },
       {
         userAgent: [
@@ -20,7 +20,7 @@ export default function robots(): MetadataRoute.Robots {
           "Applebot",
         ],
         allow: "/",
-        disallow: ["/api/"],
+        disallow: ["/api/", "/seo-command"],
       },
     ],
     sitemap: "https://rhdynamics.in/sitemap.xml",

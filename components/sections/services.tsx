@@ -12,40 +12,40 @@ import {
 
 const capabilities = [
   {
-    tag: "01 // CLINICAL PLATFORMS",
-    title: "RH-HSMS Hospital Information System",
-    description: "Ayushman Bharat ABDM (M1–M3) compliant cloud hospital platform. Unifies inpatient bed matrices, doctor EMR pads, nursing requisitions, and automated pharmacy billing.",
+    tag: "01 // CLINICAL PLATFORMS (v1.0 LIVE)",
+    title: "RH CORE™ Hospital & Clinical LIS",
+    description: "Ayushman Bharat ABDM (M1–M3) compliant evergreen healthcare platform. Unifies inpatient bed matrices, doctor EMR pads, diagnostic LIS, and automated pharmacy billing with continuous cloud updates.",
     href: "/hsms",
-    cta: "Explore RH-HSMS Platform",
+    cta: "Explore RH CORE™ v1.0",
     icon: Activity,
-    specs: ["ABDM ABHA M1–M3 Gateways", "Zero Lost Pharmacy Billing", "WhatsApp LIS Delivery"]
+    specs: ["Sub-2s WhatsApp PDF Reports", "ABDM ABHA M1–M3 Ready", "Continuous Cloud Auto-Updates"]
   },
   {
     tag: "02 // ENTERPRISE SOFTWARE",
-    title: "Custom Cloud ERP & Supply Chain",
-    description: "Bespoke software engineered around your exact operational workflows. Real-time multi-branch inventory sync, Indian GSTN tax ledgers, and biometric hardware payroll.",
+    title: "Custom Cloud ERP & Business Systems",
+    description: "Bespoke software engineered around your exact operational workflows. Real-time multi-branch inventory sync, Indian GSTN tax ledgers, and automated workflow pipelines.",
     href: "/custom-software",
     cta: "Review ERP Architecture",
     icon: Database,
-    specs: ["100% Client Code & DB Ownership", "₹0 Per-User Monthly Fees", "Automated E-Way Billing"]
+    specs: ["Enterprise Codebase or Cloud SaaS", "Transparent Scope Pricing", "Automated GSTN & E-Way Sync"]
   },
   {
-    tag: "03 // CAMPUS NETWORKING",
-    title: "Enterprise Optical Fiber & Hardware Labs",
-    description: "Design and deployment of campus Gigabit fiber optic backbones, server rooms, virtualization topology, and 40+ workstation computing labs with CCTV telemetry.",
-    href: "/projects",
-    cta: "View Campus Deployments",
-    icon: Network,
-    specs: ["Redundant Layer-3 Switching", "Enterprise Perimeter Firewalls", "On-Site Hardware Spares"]
+    tag: "03 // MOBILE ENGINEERING",
+    title: "iOS, Android & Clinical Mobile Apps",
+    description: "High-performance React Native & Flutter mobile applications for doctor rounds, field teams, on-the-go patient records, and real-time operations.",
+    href: "/services",
+    cta: "Explore Mobile Solutions",
+    icon: Cpu,
+    specs: ["Cross-Platform iOS & Android", "Offline-First Local Caching", "Biometric Authentication & APIs"]
   },
   {
     tag: "04 // DIGITAL ECOSYSTEMS",
-    title: "Flagship Web Platforms & Search Dominance",
-    description: "Next.js edge-rendered patient and customer acquisition platforms coupled with automated WhatsApp Business routing and aggressive local Google Maps SERP rankings.",
+    title: "Premium Web Platforms & Search Dominance",
+    description: "Next.js edge-rendered customer acquisition platforms coupled with automated WhatsApp routing, conversion optimization, and top search engine rankings.",
     href: "/projects",
-    cta: "Inspect Web Case Studies",
+    cta: "Inspect Web Platforms",
     icon: Globe,
-    specs: ["< 1.1s Mobile LCP Performance", "WhatsApp Cloud API Webhooks", "Dominant Regional SERP Rank"]
+    specs: ["< 1.1s Mobile LCP Performance", "WhatsApp Cloud API Webhooks", "Dominant Organic Search Rank"]
   }
 ];
 
@@ -91,7 +91,7 @@ export function Services() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-base sm:text-lg text-muted-foreground font-light leading-relaxed"
           >
-            From clinical hospital wards and distributed supply chains to campus optical fiber and high-performance web platforms, explore our engineering disciplines.
+            From clinical hospital wards and diagnostic labs to enterprise supply chains, high-performance web systems, and mobile applications, explore our software engineering disciplines.
           </motion.p>
         </div>
 

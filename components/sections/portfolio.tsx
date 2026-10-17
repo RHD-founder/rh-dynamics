@@ -13,46 +13,51 @@ const portfolioCategories = [
     icon: Activity,
     clients: [
       {
-        name: "Cosmomedical Guwahati",
-        tag: "Speciality Healthcare",
-        description: "Full-stack medical platform with high-conversion surgical booking, dynamic doctor rosters, and automated WhatsApp triage.",
-        services: ["Next.js Platform", "WhatsApp Cloud API", "Local SEO Engine", "Performance Marketing"],
-        metrics: ["3.2x Surge in Surgical Leads", "< 1.1s Page Load Speed", "#1 Regional Google SERP"]
+        name: "RH CORE™ Hospital System (HSMS)",
+        tag: "Inpatient Clinical Operations",
+        description: "Ayushman Bharat ABDM (M1-M3) compliant cloud hospital platform. Unifies inpatient bed matrices, doctor EMR pads, nursing requisitions, and automated pharmacy billing.",
+        services: ["ABDM ABHA Gateways", "Visual Bed Ward Matrix", "Integrated Pharmacy Billing", "Role-Based EMR"],
+        metrics: ["40%+ Wait Time Reduction", "Zero Lost Pharmacy Charges", "100% ABDM M1-M3 Ready"],
+        link: "/hsms"
       },
       {
-        name: "Spektra Diagnostics & Multispeciality",
-        tag: "Clinical Diagnostics",
-        description: "Automated pathology LIS integration with instant WhatsApp PDF delivery, sample barcode tracking, and hyper-local test campaigns.",
-        services: ["Pathology LIS", "WhatsApp PDF Dispatch", "Local SEO", "Campaign Automation"],
-        metrics: ["< 2 Sec WhatsApp Delivery", "45% Counter Queue Drop", "2.8x Home Collection Growth"]
+        name: "RH CORE™ Diagnostic LIS Platform",
+        tag: "Laboratory Automation Engine",
+        description: "Automated laboratory information system with bidirectional analyzer sync, sample barcode tracking, and instant WhatsApp report delivery.",
+        services: ["Pathology LIS", "WhatsApp PDF Dispatch", "Bidirectional ASTM/HL7", "Critical Value Alerts"],
+        metrics: ["< 2 Sec WhatsApp Delivery", "Zero Manual Transcription", "100% Barcode Integrity"],
+        link: "/pathology-lab-software-assam"
       },
       {
-        name: "Gate Rajdhani Hospital",
-        tag: "Multispeciality Inpatient",
-        description: "Reputation infrastructure and patient acquisition funnel positioning the hospital at the top of regional search queries for surgical care.",
-        services: ["Patient Acquisition", "Reputation Management", "Lead Routing", "Content Systems"],
-        metrics: ["180%+ Inpatient Growth", "4.8★ Google Review Rating", "24/7 Lead Routing"]
+        name: "RH CORE™ Doctor & Clinic Suite",
+        tag: "Healthcare Digital Presence",
+        description: "Next.js edge-rendered patient consultation platform with verified physician profiles, dynamic OPD appointment routing, and local search dominance.",
+        services: ["Next.js Platform", "WhatsApp Cloud API", "Local Schema JSON-LD", "Instant Triage"],
+        metrics: ["< 1.1s Mobile Load Speed", "Top Regional Search Rank", "24/7 Automated Triage"],
+        link: "/clinic-management-software-guwahati"
       }
     ]
   },
   {
-    title: "Campus Infrastructure & Custom Cloud ERP",
-    tagline: "Enterprise Gigabit optical backbones, server room virtualization, and bespoke regional supply chain automation.",
+    title: "Enterprise Software & Cloud Platforms",
+    tagline: "Bespoke cloud ERPs, real-time multi-branch inventory sync, and scalable mobile platforms.",
     icon: Network,
     clients: [
       {
-        name: "Army Public School Narengi",
-        tag: "Campus Infrastructure",
-        description: "Comprehensive campus optical fiber backbone, server virtualization, 40+ high-performance computer lab terminals, and CCTV telemetry.",
-        services: ["Optical Fiber Backbone", "Managed Layer-3 Switches", "Enterprise Firewall", "Surveillance Telemetry"],
-        metrics: ["100% Gigabit Campus Coverage", "40+ Workstations", "Zero Downtime Topology"]
+        name: "Multi-Branch Cloud Supply Chain ERP",
+        tag: "Distributed Enterprise Operations",
+        description: "Custom cloud enterprise resource planning replacing legacy spreadsheets with real-time multi-warehouse inventory sync, automated GST billing, and biometric payroll.",
+        services: ["PostgreSQL", "Node.js Microservices", "GSTN E-Way Billing", "Biometric Integration"],
+        metrics: ["Sub-Second Branch Sync", "100% Stock Sync Accuracy", "85% Faster Month Closing"],
+        link: "/custom-erp-software-assam"
       },
       {
-        name: "Northeast Multi-Branch Supply Chain ERP",
-        tag: "Enterprise Cloud Software",
-        description: "Custom cloud ERP replacing spreadsheets with real-time multi-branch inventory sync, automated GST billing, and biometric payroll.",
-        services: ["PostgreSQL", "Node.js", "Biometric Integration", "GSTN API"],
-        metrics: ["₹0 SaaS Seat Fees", "100% Stock Sync Accuracy", "85% Faster Month Closing"]
+        name: "Field Operations & Mobile Suite",
+        tag: "Cross-Platform Field Mobility",
+        description: "Native iOS and Android field applications with offline-first synchronization, barcode scanning, and instant cloud dispatch for distributed sales teams.",
+        services: ["React Native / Flutter", "Offline-First SQLite", "Cloud Sync APIs", "Biometric Auth"],
+        metrics: ["100% Offline Resilience", "Real-Time Field Tracking", "Instant Order Processing"],
+        link: "/mobile-app-development-guwahati"
       }
     ]
   }
@@ -84,7 +89,7 @@ export function Portfolio() {
             Engineered for <span className="text-gradient">Real-World Scale</span>.
           </h2>
           <p className="text-lg text-muted-foreground font-light leading-relaxed">
-            From hospital admissions and clinical diagnostics to campus fiber optics and multi-warehouse distribution, explore how our systems power critical operations.
+            From hospital admissions and clinical diagnostics to high-throughput web applications and multi-branch cloud ERPs, explore how our systems power critical operations.
           </p>
         </div>
 
@@ -140,9 +145,12 @@ export function Portfolio() {
                       </span>
                     </div>
 
-                    <h4 className="text-xl md:text-2xl font-black font-heading text-foreground tracking-tight mb-3 group-hover:text-primary transition-colors">
-                      {client.name}
-                    </h4>
+                    <Link href={client.link} className="block group/link">
+                      <h4 className="text-xl md:text-2xl font-black font-heading text-foreground tracking-tight mb-3 group-hover/link:text-primary transition-colors flex items-center justify-between">
+                        <span>{client.name}</span>
+                        <ArrowRight className="w-4 h-4 opacity-0 group-hover/link:opacity-100 transition-all text-primary shrink-0 -translate-x-1 group-hover/link:translate-x-0" />
+                      </h4>
+                    </Link>
 
                     <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed font-light mb-6">
                       {client.description}
@@ -166,9 +174,18 @@ export function Portfolio() {
                   </div>
 
                   <div className="pt-4 border-t border-border/40">
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-primary font-bold block mb-2">
-                      Verified Metrics
-                    </span>
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-[10px] font-mono uppercase tracking-wider text-primary font-bold block">
+                        Verified Metrics
+                      </span>
+                      <Link 
+                        href={client.link}
+                        className="text-[11px] font-mono text-primary font-bold hover:underline flex items-center gap-1"
+                      >
+                        <span>Details</span>
+                        <ArrowRight className="w-3 h-3" />
+                      </Link>
+                    </div>
                     <ul className="space-y-1.5">
                       {client.metrics.map((metric, i) => (
                         <li key={i} className="flex items-center text-xs font-medium text-foreground/90">

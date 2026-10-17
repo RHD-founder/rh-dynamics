@@ -2,27 +2,28 @@ import type { Metadata } from "next";
 import { HsmsClientPage } from "@/components/pages/hsms-client-page";
 
 export const metadata: Metadata = {
-  title: "RH-HSMS | #1 Hospital Management System & Healthcare Software in Assam",
+  title: "RH CORE™ | Next-Gen Hospital Software (HSMS) & Clinical LIS | v1.0 Live",
   description:
-    "RH-HSMS is Northeast India's premier ABDM-compliant Hospital Information System (HIS). Features OPD/IPD tracking, doctor EMR, pathology LIS with WhatsApp reports, pharmacy inventory, and Ayushman Bharat / PMJAY billing.",
+    "RH CORE v1.0 by RH Dynamics is the premier, continuously-updated healthcare operating system. Unifying RH CORE HSMS (Hospital Management) and RH CORE LIS (Laboratory Automation) with ABDM M1-M3, WhatsApp reports, and rapid < 2-hour SLA.",
   keywords: [
-    "hospital management system guwahati",
+    "rh core",
+    "rh core hsms",
+    "rh core lis",
+    "hospital management software guwahati",
     "hospital software assam",
-    "best hsms software northeast india",
+    "laboratory information system lis northeast india",
     "abdm compliant hospital software",
-    "clinic management software guwahati",
     "pathology lab software with whatsapp reports",
     "ayushman bharat pmjay hospital billing software",
-    "nabh compliant his software india",
     "hospital software company in guwahati"
   ],
   alternates: {
     canonical: "https://rhdynamics.in/hsms",
   },
   openGraph: {
-    title: "RH-HSMS | Enterprise Hospital Management Software in Guwahati, Assam",
+    title: "RH CORE™ | Next-Gen Hospital Software (HSMS) & Clinical LIS | v1.0 Live",
     description:
-      "Transform your healthcare facility with RH-HSMS. Trusted by leading regional hospitals and diagnostics centers in Northeast India. Book a free live demonstration.",
+      "Transform clinical operations with RH CORE v1.0. Continuously updated healthcare software unifying hospital wards, doctor EMR, pathology LIS, and statutory compliance.",
     url: "https://rhdynamics.in/hsms",
     images: ["/opengraph-image"],
   },

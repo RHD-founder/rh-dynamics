@@ -33,3 +33,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# credentials & keys
+*service-account*.json
+google-credentials.json
+ga-credentials.json
+
+# IDE agents & local metadata
+.agents/

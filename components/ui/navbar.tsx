@@ -6,7 +6,8 @@ import Image from "next/image";
 import { Button } from "./button";
 import { 
   Menu, X, ChevronDown, Activity, Database, 
-  Network, Globe, ArrowRight, ShieldCheck, Sparkles 
+  Smartphone, Globe, ArrowRight, ShieldCheck, Sparkles,
+  Star, MessageSquare, FlaskConical, Stethoscope
 } from "lucide-react";
 import { ThemeToggle } from "@/components/theme/theme-toggle";
 import { useTheme } from "next-themes";
@@ -14,41 +15,55 @@ import { usePathname } from 'next/navigation';
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 
-const solutionsDropdown = [
+const servicesDropdown = [
   {
-    title: "RH-HSMS Hospital System",
-    description: "ABDM & PMJAY-compliant cloud HIS, bed matrix, EMR, and pharmacy billing.",
+    title: "RH CORE™ Hospital & HSMS",
+    description: "v1.0 Live: ABDM M1-M3, bed matrix, ward telemetry & PMJAY claims.",
     href: "/hsms",
     icon: Activity,
-    badge: "Clinical HIS"
+    badge: "v1.0 Live"
   },
   {
-    title: "Custom Cloud ERP & Software",
-    description: "Bespoke supply chain, multi-branch inventory, GST ledger & biometric payroll.",
-    href: "/custom-software",
+    title: "Pathology & Diagnostic LIS",
+    description: "Analyzer interfacing, barcode accessioning & sub-2s WhatsApp reports.",
+    href: "/pathology-lab-software-assam",
+    icon: FlaskConical,
+    badge: "Diagnostics"
+  },
+  {
+    title: "Doctor EMR & Clinic Suite",
+    description: "45s digital prescriptions, waiting room token calling & WhatsApp recalls.",
+    href: "/clinic-management-software-guwahati",
+    icon: Stethoscope,
+    badge: "OPD Suite"
+  },
+  {
+    title: "Custom Cloud ERP & SCM",
+    description: "Multi-branch inventory sync, Indian GST e-way billing & distribution.",
+    href: "/custom-erp-software-assam",
     icon: Database,
-    badge: "Enterprise ERP"
+    badge: "Enterprise"
   },
   {
-    title: "Campus IT & Infrastructure",
-    description: "Gigabit optical fiber backbones, server rooms, computing labs & CCTV security.",
-    href: "/services",
-    icon: Network,
-    badge: "Hardware & Labs"
+    title: "Mobile App Development",
+    description: "Flutter & React Native iOS/Android apps with offline-first SQLite sync.",
+    href: "/mobile-app-development-guwahati",
+    icon: Smartphone,
+    badge: "Mobile Apps"
   },
   {
-    title: "Full-Stack Web & Performance",
-    description: "High-conversion Next.js platforms, local Google Maps SEO & automated lead funnels.",
-    href: "/services",
+    title: "High-Performance Web Apps",
+    description: "Sub-second Next.js web applications with technical SEO architecture.",
+    href: "/web-development-guwahati",
     icon: Globe,
-    badge: "Web & Growth"
+    badge: "Web Systems"
   }
 ];
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [mobileSolutionsOpen, setMobileSolutionsOpen] = useState(false);
-  const [solutionsHovered, setSolutionsHovered] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [servicesHovered, setServicesHovered] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { theme } = useTheme();
   const pathname = usePathname();
@@ -75,26 +90,33 @@ export function Navbar() {
 
   useEffect(() => {
     setMobileMenuOpen(false);
-    setSolutionsHovered(false);
+    setServicesHovered(false);
   }, [pathname]);
 
   const handleMouseEnter = () => {
     if (dropdownTimeoutRef.current) {
       clearTimeout(dropdownTimeoutRef.current);
     }
-    setSolutionsHovered(true);
+    setServicesHovered(true);
   };
 
   const handleMouseLeave = () => {
     dropdownTimeoutRef.current = setTimeout(() => {
-      setSolutionsHovered(false);
+      setServicesHovered(false);
     }, 150);
   };
 
-  const isSolutionsActive = 
+  const isServicesActive = 
     pathname === "/services" || 
     pathname === "/hsms" || 
-    pathname === "/custom-software";
+    pathname === "/custom-software" ||
+    pathname === "/pathology-lab-software-assam" ||
+    pathname === "/clinic-management-software-guwahati" ||
+    pathname === "/custom-erp-software-assam" ||
+    pathname === "/mobile-app-development-guwahati" ||
+    pathname === "/hospital-management-software-assam" ||
+    pathname === "/web-development-guwahati" ||
+    pathname === "/software-company-guwahati";
 
   return (
     <>
@@ -110,13 +132,13 @@ export function Navbar() {
         )}>
           {/* Logo */}
           <Link href="/" className="flex items-center group shrink-0">
-            <div className="relative">
+            <div className="relative w-8 h-8 sm:w-9 sm:h-9 rounded-xl overflow-hidden bg-white p-0.5 border border-border/60 shadow-sm flex items-center justify-center shrink-0">
               <Image
-                src={theme === "dark" ? "/dark-logo.png" : "/light-logo.png"}
-                alt="RH Dynamics"
-                width={34}
-                height={34}
-                className="rounded-full transition-transform duration-300 group-hover:scale-105"
+                src="/images/rh-official-logo.jpg"
+                alt="RH Dynamics Logo"
+                width={36}
+                height={36}
+                className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
                 priority
               />
             </div>
@@ -125,7 +147,7 @@ export function Navbar() {
                 RH Dynamics
               </span>
               <span className="text-[9px] font-mono tracking-widest text-muted-foreground uppercase mt-0.5 hidden sm:block">
-                Systems & Engineering
+                Software &amp; Clinical Systems
               </span>
             </div>
           </Link>
@@ -133,7 +155,7 @@ export function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-1 justify-center relative">
             
-            {/* Solutions Dropdown Trigger */}
+            {/* Services Dropdown Trigger */}
             <div 
               className="relative"
               onMouseEnter={handleMouseEnter}
@@ -142,59 +164,56 @@ export function Navbar() {
               <button
                 className={cn(
                   "px-3.5 py-1.5 rounded-full text-xs font-mono uppercase tracking-wider transition-all duration-200 flex items-center gap-1.5",
-                  isSolutionsActive || solutionsHovered
+                  isServicesActive || servicesHovered
                     ? "text-foreground bg-secondary font-bold" 
                     : "text-muted-foreground hover:text-foreground hover:bg-secondary/60 font-medium"
                 )}
-                aria-expanded={solutionsHovered}
+                aria-expanded={servicesHovered}
               >
-                <span>Solutions</span>
+                <span>Services</span>
                 <ChevronDown className={cn(
                   "w-3.5 h-3.5 transition-transform duration-200",
-                  solutionsHovered ? "rotate-180 text-primary" : "text-muted-foreground"
+                  servicesHovered ? "rotate-180 text-primary" : "text-muted-foreground"
                 )} />
               </button>
 
               {/* Desktop Dropdown Popover */}
               <AnimatePresence>
-                {solutionsHovered && (
+                {servicesHovered && (
                   <motion.div
                     initial={{ opacity: 0, y: 8, scale: 0.98 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 6, scale: 0.98 }}
                     transition={{ duration: 0.18 }}
-                    className="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[460px] pointer-events-auto"
+                    className="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[580px] pointer-events-auto"
                   >
                     <div className="rounded-2xl glass-card dark:glass-card-dark border border-border/80 shadow-2xl p-3 bg-background/95 backdrop-blur-xl">
                       <div className="px-3 py-2 border-b border-border/50 mb-2 flex items-center justify-between">
                         <span className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground">
-                          Engineered Platforms // Northeast India
+                          Engineered Software &amp; Platforms
                         </span>
                         <span className="text-[10px] font-mono text-primary font-bold">
-                          4 Core Stacks
+                          DPIIT Recognized (ACN-1931)
                         </span>
                       </div>
 
-                      <div className="grid grid-cols-1 gap-1">
-                        {solutionsDropdown.map((item) => (
+                      <div className="grid grid-cols-2 gap-1.5">
+                        {servicesDropdown.map((item) => (
                           <Link
                             key={item.title}
                             href={item.href}
-                            className="p-3 rounded-xl hover:bg-secondary/70 transition-colors flex items-start gap-3 group/item border border-transparent hover:border-border/40"
+                            className="p-2.5 rounded-xl hover:bg-secondary/70 transition-colors flex items-start gap-2.5 group/item border border-transparent hover:border-border/40"
                           >
-                            <div className="p-2 rounded-lg bg-secondary text-primary group-hover/item:bg-primary group-hover/item:text-primary-foreground transition-colors shrink-0 mt-0.5">
-                              <item.icon className="w-4 h-4" />
+                            <div className="p-1.5 rounded-lg bg-secondary text-primary group-hover/item:bg-primary group-hover/item:text-primary-foreground transition-colors shrink-0 mt-0.5">
+                              <item.icon className="w-3.5 h-3.5" />
                             </div>
                             <div className="flex-1 min-w-0">
-                              <div className="flex items-center justify-between gap-2 mb-0.5">
-                                <span className="text-xs font-bold font-heading text-foreground group-hover/item:text-primary transition-colors">
+                              <div className="flex items-center justify-between gap-1 mb-0.5">
+                                <span className="text-xs font-bold font-heading text-foreground group-hover/item:text-primary transition-colors truncate">
                                   {item.title}
                                 </span>
-                                <span className="text-[9px] font-mono px-2 py-0.5 rounded-full bg-secondary text-muted-foreground border border-border/50">
-                                  {item.badge}
-                                </span>
                               </div>
-                              <p className="text-[11px] text-muted-foreground line-clamp-1 font-light">
+                              <p className="text-[10px] text-muted-foreground line-clamp-2 font-light leading-tight">
                                 {item.description}
                               </p>
                             </div>
@@ -207,12 +226,15 @@ export function Navbar() {
                           href="/services" 
                           className="text-[11px] font-mono uppercase tracking-wider text-primary hover:underline flex items-center gap-1 font-bold"
                         >
-                          <span>Explore All Capabilities</span>
+                          <span>All Services &amp; Scope</span>
                           <ArrowRight className="w-3 h-3" />
                         </Link>
-                        <span className="text-[10px] font-mono text-muted-foreground">
-                          Guwahati On-Site SLA
-                        </span>
+                        <Link 
+                          href="/software-company-guwahati"
+                          className="text-[10px] font-mono text-muted-foreground hover:text-foreground transition-colors"
+                        >
+                          Guwahati Engineering Hub &rarr;
+                        </Link>
                       </div>
                     </div>
                   </motion.div>
@@ -220,7 +242,7 @@ export function Navbar() {
               </AnimatePresence>
             </div>
 
-            {/* Direct Case Studies Link */}
+            {/* Direct Projects Link */}
             <Link
               href="/projects"
               className={cn(
@@ -230,7 +252,34 @@ export function Navbar() {
                   : "text-muted-foreground hover:text-foreground hover:bg-secondary/60 font-medium"
               )}
             >
-              Case Studies
+              Projects
+            </Link>
+
+            {/* Direct Reviews Link */}
+            <Link
+              href="/review"
+              className={cn(
+                "px-3.5 py-1.5 rounded-full text-xs font-mono uppercase tracking-wider transition-all duration-200 flex items-center gap-1",
+                pathname === "/review"
+                  ? "text-foreground bg-secondary font-bold" 
+                  : "text-muted-foreground hover:text-foreground hover:bg-secondary/60 font-medium"
+              )}
+            >
+              <Star className="w-3 h-3 text-amber-500 fill-amber-500" />
+              <span>Reviews</span>
+            </Link>
+
+            {/* Direct Blog Link */}
+            <Link
+              href="/blog"
+              className={cn(
+                "px-3.5 py-1.5 rounded-full text-xs font-mono uppercase tracking-wider transition-all duration-200",
+                pathname?.startsWith("/blog")
+                  ? "text-foreground bg-secondary font-bold" 
+                  : "text-muted-foreground hover:text-foreground hover:bg-secondary/60 font-medium"
+              )}
+            >
+              Blog
             </Link>
 
             {/* About Link */}
@@ -245,27 +294,14 @@ export function Navbar() {
             >
               About
             </Link>
-
-            {/* Contact Link */}
-            <Link
-              href="/contact"
-              className={cn(
-                "px-3.5 py-1.5 rounded-full text-xs font-mono uppercase tracking-wider transition-all duration-200",
-                pathname === "/contact"
-                  ? "text-foreground bg-secondary font-bold" 
-                  : "text-muted-foreground hover:text-foreground hover:bg-secondary/60 font-medium"
-              )}
-            >
-              Contact
-            </Link>
           </div>
 
           {/* Desktop Right Actions */}
           <div className="hidden md:flex items-center gap-2.5 shrink-0">
             <ThemeToggle />
             <Link href="/contact">
-              <Button size="sm" className="rounded-full px-4 py-1.5 text-xs font-mono font-semibold uppercase tracking-wider shadow-sm shadow-primary/20 hover:shadow-primary/30 transition-all">
-                Let's Talk
+              <Button size="sm" className="rounded-full px-5 py-2 text-xs font-mono font-bold uppercase tracking-wider shadow-md shadow-primary/20 hover:shadow-primary/30 transition-all">
+                Contact Us
                 <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
               </Button>
             </Link>
@@ -299,13 +335,13 @@ export function Navbar() {
               
               <div className="space-y-4 mb-8">
                 <span className="text-[11px] font-mono uppercase tracking-widest text-muted-foreground block mb-2">
-                  Architecture & Registry
+                  Navigation &amp; Stacks
                 </span>
 
                 <Link 
                   href="/" 
                   className={cn(
-                    "text-2xl font-heading font-black block transition-colors", 
+                    "text-xl font-heading font-black block transition-colors", 
                     pathname === '/' ? "text-primary" : "text-foreground"
                   )}
                   onClick={() => setMobileMenuOpen(false)}
@@ -313,22 +349,22 @@ export function Navbar() {
                   Home
                 </Link>
 
-                {/* Mobile Collapsible Solutions */}
+                {/* Mobile Collapsible Services */}
                 <div className="border-y border-border/50 py-3">
                   <button
-                    onClick={() => setMobileSolutionsOpen(!mobileSolutionsOpen)}
-                    className="w-full flex items-center justify-between text-2xl font-heading font-black text-foreground"
+                    onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                    className="w-full flex items-center justify-between text-xl font-heading font-black text-foreground"
                   >
-                    <span>Solutions & Platforms</span>
+                    <span>Services &amp; Software</span>
                     <ChevronDown className={cn(
                       "w-5 h-5 transition-transform text-muted-foreground",
-                      mobileSolutionsOpen ? "rotate-180 text-primary" : ""
+                      mobileServicesOpen ? "rotate-180 text-primary" : ""
                     )} />
                   </button>
 
-                  {mobileSolutionsOpen && (
+                  {mobileServicesOpen && (
                     <div className="mt-4 space-y-2 pl-2">
-                      {solutionsDropdown.map((sub) => (
+                      {servicesDropdown.map((sub) => (
                         <Link
                           key={sub.title}
                           href={sub.href}
@@ -346,6 +382,14 @@ export function Navbar() {
                           </div>
                         </Link>
                       ))}
+
+                      <Link
+                        href="/services"
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="text-xs font-mono uppercase tracking-wider text-primary font-bold block pt-2 pl-1"
+                      >
+                        &rarr; View All Services &amp; Scope
+                      </Link>
                     </div>
                   )}
                 </div>
@@ -353,18 +397,43 @@ export function Navbar() {
                 <Link 
                   href="/projects" 
                   className={cn(
-                    "text-2xl font-heading font-black block transition-colors", 
+                    "text-xl font-heading font-black block transition-colors", 
                     pathname === '/projects' ? "text-primary" : "text-foreground"
                   )}
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  Case Studies & Deployments
+                  Projects &amp; Deployments
+                </Link>
+
+                <Link 
+                  href="/review" 
+                  className={cn(
+                    "text-xl font-heading font-black flex items-center gap-2 transition-colors", 
+                    pathname === '/review' ? "text-primary" : "text-foreground"
+                  )}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <span>Client Reviews</span>
+                  <span className="text-xs font-mono px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-500 border border-amber-500/20 font-bold">
+                    Feedback
+                  </span>
+                </Link>
+
+                <Link 
+                  href="/blog" 
+                  className={cn(
+                    "text-xl font-heading font-black block transition-colors", 
+                    pathname?.startsWith('/blog') ? "text-primary" : "text-foreground"
+                  )}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Engineering Blog
                 </Link>
 
                 <Link 
                   href="/about" 
                   className={cn(
-                    "text-2xl font-heading font-black block transition-colors", 
+                    "text-xl font-heading font-black block transition-colors", 
                     pathname === '/about' ? "text-primary" : "text-foreground"
                   )}
                   onClick={() => setMobileMenuOpen(false)}
@@ -375,27 +444,27 @@ export function Navbar() {
                 <Link 
                   href="/contact" 
                   className={cn(
-                    "text-2xl font-heading font-black block transition-colors", 
+                    "text-xl font-heading font-black block transition-colors", 
                     pathname === '/contact' ? "text-primary" : "text-foreground"
                   )}
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  Direct Contact
+                  Contact &amp; Meetings
                 </Link>
               </div>
 
               {/* Mobile Footer Meta */}
               <div className="mt-auto pt-6 border-t border-border/60">
                 <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
-                  <Button className="w-full h-12 rounded-full font-mono text-xs uppercase tracking-wider font-bold mb-4">
-                    Schedule Discovery Session
+                  <Button className="w-full h-12 rounded-full font-mono text-xs uppercase tracking-wider font-bold mb-4 shadow-md shadow-primary/20">
+                    Get in Touch / Request Quote
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </Link>
                 
                 <div className="flex items-center justify-between text-xs font-mono text-muted-foreground">
-                  <span>Guwahati // Assam</span>
-                  <a href="tel:+918638875149" className="text-primary hover:underline">
+                  <span>Guwahati &amp; Golaghat</span>
+                  <a href="tel:+918638875149" className="text-primary hover:underline font-bold">
                     +91 86388 75149
                   </a>
                 </div>

@@ -11,6 +11,50 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 1.0,
     },
+    // High-Intent Regional Search Hubs
+    {
+      url: `${baseUrl}/software-company-guwahati`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.98,
+    },
+    {
+      url: `${baseUrl}/hospital-management-software-assam`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.98,
+    },
+    {
+      url: `${baseUrl}/pathology-lab-software-assam`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.98,
+    },
+    {
+      url: `${baseUrl}/clinic-management-software-guwahati`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.98,
+    },
+    {
+      url: `${baseUrl}/custom-erp-software-assam`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.98,
+    },
+    {
+      url: `${baseUrl}/mobile-app-development-guwahati`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.98,
+    },
+    {
+      url: `${baseUrl}/web-development-guwahati`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.95,
+    },
+    // Core Product & Service Pages
     {
       url: `${baseUrl}/services`,
       lastModified: now,
@@ -54,12 +98,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/portfolio`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
       url: `${baseUrl}/about`,
       lastModified: now,
       changeFrequency: "monthly",
@@ -70,6 +108,44 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.8,
+    },
+    // Technical Blog & Architectural Insights
+    {
+      url: `${baseUrl}/blog`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.90,
+    },
+    {
+      url: `${baseUrl}/blog/pathology-analyzer-interfacing-guide-assam`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/blog/abdm-m1-m2-m3-compliance-checklist-hospitals`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/blog/custom-cloud-erp-vs-tally-assam-wholesalers`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/blog/building-offline-first-mobile-apps-flutter`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
+    // Legal & Statutory Pages
+    {
+      url: `${baseUrl}/company-policy`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.5,
     },
     {
       url: `${baseUrl}/terms-and-conditions`,

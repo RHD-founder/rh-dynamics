@@ -26,34 +26,34 @@ export const metadata: Metadata = {
 const corporateMilestones = [
   { label: "Statutory Incorporation", value: "LLP ACN-1931", sub: "Ministry of Corporate Affairs" },
   { label: "Startup Recognition", value: "DPIIT Certified", sub: "Startup India Initiative" },
-  { label: "Regional Deployments", value: "20+ Enterprise", sub: "Hospitals, Schools & Supply Chains" },
-  { label: "Engineering SLA", value: "< 2 Hours", sub: "On-site Guwahati response" }
+  { label: "Enterprise Deployments", value: "20+ Platforms", sub: "Healthcare, Web & Business Systems" },
+  { label: "Response SLA", value: "< 2 Hours", sub: "Worldwide via Phone, WhatsApp, Video & In-Person" }
 ];
 
 const engineeringPillars = [
   {
-    tag: "01 // DATA SOVEREIGNTY",
-    title: "100% Code & Database Ownership",
-    description: "We engineer software as a permanent capital asset for your organization. Your data resides on your own isolated dedicated database instance or on-premise servers. Zero vendor lock-in.",
-    points: ["Dedicated PostgreSQL instances", "Immutable automated backups", "Client-held IP rights"]
+    tag: "01 // FLEXIBLE ARCHITECTURE",
+    title: "Dedicated Codebase or Managed SaaS",
+    description: "Every organization has unique compliance and operational needs. For enterprise clients requiring complete independence, we deliver full dedicated codebases and isolated databases. For clinics and businesses wanting turnkey simplicity, we provide reliable managed Cloud SaaS.",
+    points: ["Enterprise source code options", "Dedicated or managed PostgreSQL", "Zero vendor lock-in"]
   },
   {
-    tag: "02 // CAPITAL EFFICIENCY",
-    title: "Zero Per-Seat SaaS Licensing Debt",
-    description: "Off-the-shelf software vendors punish your company's growth with compounding per-user monthly seat fees. We architect bespoke systems where you can scale from 10 to 1,000 users at ₹0 additional licensing cost.",
-    points: ["One-time capital engineering", "Unlimited staff seats", "Zero recurring user penalties"]
+    tag: "02 // CAPITAL & SUBSCRIPTION EFFICIENCY",
+    title: "Transparent Cloud & Enterprise Models",
+    description: "We eliminate hidden fees and predatory pricing. Whether you choose our ready-to-deploy SaaS platforms (HSMS, LIS) or a bespoke enterprise build, you get transparent, predictable pricing without artificial per-seat penalties that restrict your team's growth.",
+    points: ["Turnkey SaaS for healthcare & clinics", "Custom enterprise software delivery", "Transparent, scope-based pricing"]
   },
   {
     tag: "03 // LOCALIZED INTEGRATION",
     title: "Deep Statutory Indian Compliance",
     description: "Generic US/European templates cannot handle the ground realities of Indian compliance. Our platforms natively integrate with ABDM (ABHA M1–M3), PMJAY claims, GSTN E-way billing, and biometric machines.",
-    points: ["ABHA creation & linking", "GSTN automated ledger sync", "Biometric hardware protocols"]
+    points: ["ABHA creation & linking", "GSTN automated ledger sync", "Biometric & diagnostic device APIs"]
   },
   {
-    tag: "04 // LOCAL PRESENCE",
-    title: "Guwahati-Based On-Site SLA",
-    description: "Mission-critical systems cannot afford offshore ticketing delays and automated chatbots. Our systems architects and field engineers are on the ground in Assam with guaranteed emergency physical response.",
-    points: ["Direct senior engineer access", "On-site staff floor training", "Local hardware spares inventory"]
+    tag: "04 // RAPID SLA",
+    title: "< 2-Hour Response Worldwide & In-Person",
+    description: "Mission-critical software cannot wait days for automated tickets. Once you are in touch with us, we commit to a response SLA within 2 hours. We are available via direct phone, WhatsApp, website appointment, Google Meet, or in-person across Assam.",
+    points: ["Direct senior engineer access", "Phone, WhatsApp & video appointments", "In-person availability across Assam & Northeast"]
   }
 ];
 
@@ -80,7 +80,7 @@ export default function AboutPage() {
           </h1>
 
           <p className="text-xl text-muted-foreground max-w-2xl font-light leading-relaxed mb-10">
-            RHD Softwaresolutions LLP was founded to bridge the critical technological divide in Northeast India. We engineer clinical healthcare systems, campus optical networks, and custom cloud ERPs with guaranteed on-site SLA.
+            RHD Softwaresolutions LLP was founded to engineer world-class software solutions rooted in Northeast India. We build clinical healthcare systems (HSMS, LIS), custom enterprise software, premium web platforms, and mobile apps with guaranteed rapid SLA.
           </p>
 
           <div className="flex flex-wrap items-center gap-3">
@@ -118,7 +118,7 @@ export default function AboutPage() {
                 Why RH Dynamics Exists
               </h2>
               <p className="text-sm text-muted-foreground font-light leading-relaxed mb-6">
-                Officially founded on March 29th, 2025, in Guwahati, Assam, RH Dynamics was created to challenge the status quo of outdated, fragile software and offshore agency neglect in Northeast India.
+                Officially founded on March 29th, 2025, in Guwahati, Assam, RH Dynamics was created to challenge the status quo of outdated, fragile software and offshore agency neglect in Northeast India and beyond.
               </p>
               <div className="p-4 rounded-xl bg-secondary/30 border border-border/50 font-mono text-xs text-muted-foreground space-y-2">
                 <div className="flex items-center justify-between">
@@ -138,13 +138,13 @@ export default function AboutPage() {
 
             <div className="lg:col-span-7 space-y-6 text-sm text-muted-foreground font-light leading-relaxed">
               <p>
-                For decades, healthcare institutions, distributed enterprises, and educational institutions in Assam had only two unsatisfactory options: fragile offline desktop software prone to data corruption, or multi-tenant Western SaaS that required high recurring license fees without integrating with local Indian workflows.
+                For years, healthcare providers, distributed businesses, and modern enterprises in Assam and across India struggled with two poor choices: fragile legacy desktop software prone to crashes and data loss, or generic foreign SaaS that carried high recurring subscriptions without adapting to ground-level Indian workflows.
               </p>
               <p>
-                RH Dynamics operates as a direct systems engineering partner. We combine modern edge-rendered software architectures (Next.js, PostgreSQL, Node.js) with physical hardware topology (optical fiber backbones, lab virtualization, biometric attendance machines).
+                RH Dynamics operates as a direct software engineering partner. We build modern, lightning-fast web applications, mobile platforms, and clinical systems utilizing cutting-edge stacks (Next.js, React, Node.js, PostgreSQL) paired with seamless integrations for diagnostic analyzers, biometric terminals, and compliance APIs.
               </p>
               <p>
-                Every solution we deploy is built for operational autonomy: 100% owned by the client, zero seat subscription taxes, and supported directly by senior engineers stationed in Guwahati.
+                Whether you need dedicated enterprise code sovereignty or a turnkey cloud SaaS deployment, every system is supported directly with a committed response SLA under 2 hours via phone, WhatsApp, video conference, or in-person.
               </p>
             </div>
           </div>
@@ -217,11 +217,11 @@ export default function AboutPage() {
                   Golaghat Corporate HQ
                 </h3>
                 <p className="text-sm text-muted-foreground font-light leading-relaxed mb-6">
-                  Near AGV Bank, Goranga, Golaghat, Assam 785603. Serves as our primary registered headquarters, institutional operations base, and regional hardware logistics center.
+                  Near AGV Bank, Goranga, Golaghat, Assam 785603. Serves as our primary registered corporate headquarters and institutional administration base.
                 </p>
               </div>
               <div className="pt-4 border-t border-border/40 font-mono text-xs text-muted-foreground">
-                Upper Assam Regional Base &amp; Institutional Deployments
+                Upper Assam Corporate HQ &amp; Operations
               </div>
             </div>
 
@@ -229,17 +229,17 @@ export default function AboutPage() {
             <div className="p-8 rounded-2xl border border-border/60 bg-secondary/15 flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-primary mb-3 font-bold">
-                  <MapPin className="w-4 h-4" /> Systems Engineering Lab
+                  <MapPin className="w-4 h-4" /> Systems Engineering Hub
                 </div>
                 <h3 className="text-2xl font-black font-heading text-foreground mb-3">
                   Guwahati Engineering Center
                 </h3>
                 <p className="text-sm text-muted-foreground font-light leading-relaxed mb-6">
-                  Near Downtown Hospital, Urban Villa, Sarumotoria, Guwahati, Assam 781036. Houses our software architects, clinical integration leads, and primary server staging lab.
+                  Near Downtown Hospital, Urban Villa, Sarumotoria, Guwahati, Assam 781036. Houses our software engineering teams, clinical product staging, and rapid-response operations.
                 </p>
               </div>
               <div className="pt-4 border-t border-border/40 font-mono text-xs text-muted-foreground">
-                Same-Day Emergency On-Site SLA for Guwahati &amp; Kamrup Metro
+                Rapid &lt; 2hr SLA Worldwide via Phone/WhatsApp/Video &amp; In-Person across Assam
               </div>
             </div>
           </div>

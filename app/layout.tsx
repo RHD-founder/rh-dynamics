@@ -6,6 +6,8 @@ import { Navbar } from '@/components/ui/navbar';
 import { Footer } from '@/components/ui/footer';
 import { ThemeProvider } from '@/components/theme/theme-provider';
 import { JsonLd } from '@/components/seo/json-ld';
+import { GlitchListener } from '@/components/ui/glitch-listener';
+import { VisitorTracker } from '@/components/telemetry/visitor-tracker';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -53,7 +55,7 @@ export const metadata: Metadata = {
     'mobile app development guwahati',
     'react nextjs web developers india',
     'clinic management software',
-    'campus lab setup and it infrastructure',
+    'rh core lis pathology lab software',
     'digital marketing agency guwahati assam'
   ],
   authors: [{ name: 'RH Dynamics', url: 'https://rhdynamics.in' }],
@@ -130,7 +132,7 @@ export default function RootLayout({
         <meta name="msvalidate.01" content="6F69BB940F846B6AB1706CB47002D58B" />
         <Script
           strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=G-ZX1ZT17H70"
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-ZX1ZT17H70'}`}
         />
         <Script
           id="google-analytics-and-ads"
@@ -140,7 +142,7 @@ export default function RootLayout({
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-ZX1ZT17H70');
+              gtag('config', '${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-ZX1ZT17H70'}');
               gtag('config', 'AW-11332621315');
             `,
           }}
@@ -157,6 +159,8 @@ export default function RootLayout({
           <Navbar />
           <main className="pt-16">{children}</main>
           <Footer />
+          <GlitchListener />
+          <VisitorTracker />
         </ThemeProvider>
       </body>
     </html>

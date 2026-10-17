@@ -6,10 +6,10 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 const stats = [
-  { value: "20+", label: "Regional Deployments", sub: "Assam & Northeast" },
+  { value: "20+", label: "Enterprise Deployments", sub: "Healthcare & Modern Businesses" },
   { value: "ABDM Ready", label: "Ayushman Bharat M1–M3", sub: "Clinical compliance" },
-  { value: "99.9%", label: "Infrastructure Uptime", sub: "Enterprise SLA" },
-  { value: "₹0 Forever", label: "SaaS Seat Debt", sub: "100% Code ownership" },
+  { value: "< 2 Hours", label: "Response SLA", sub: "Worldwide & In-Person" },
+  { value: "Flexible", label: "Delivery Options", sub: "Managed SaaS or Source Code" },
 ];
 
 export function Hero() {
@@ -30,7 +30,7 @@ export function Hero() {
           className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-medium tracking-wider uppercase border border-border bg-secondary/40 text-muted-foreground mb-8"
         >
           <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-          Systems Engineering & Cloud Infrastructure // Guwahati, Assam
+          Software Engineering &amp; Clinical Systems // Guwahati, Assam
         </motion.div>
 
         {/* Headline */}
@@ -51,7 +51,7 @@ export function Hero() {
           transition={{ delay: 0.3, duration: 0.6 }}
           className="text-lg sm:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto font-light leading-relaxed"
         >
-          We architect ABDM-compliant hospital management systems (RH-HSMS), dedicated cloud ERPs, and mission-critical campus optical networks across Assam and Northeast India.
+          We engineer clinical healthcare software (RH-HSMS &amp; LIS), custom enterprise software, premium web platforms, and mobile apps with guaranteed rapid SLA worldwide.
         </motion.p>
 
         {/* Action Buttons */}

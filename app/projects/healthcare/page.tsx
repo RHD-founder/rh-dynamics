@@ -67,7 +67,7 @@ export default function HealthcarePage() {
                         <div className="space-y-4">
                             <div>
                                 <h4 className="text-sm font-semibold mb-1">Client</h4>
-                                <p className="text-muted-foreground">Riya Polyclinic</p>
+                                <p className="text-muted-foreground">Regional Healthcare Provider</p>
                             </div>
 
                             <div>

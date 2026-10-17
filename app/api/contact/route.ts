@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 import { z } from "zod";
 import { evaluateBotDefense } from "@/lib/security/bot-defense";
+import { getSupabaseAdmin } from "@/lib/supabase/server";
 
 // Form validation schema with security trap attributes
 const formSchema = z.object({
@@ -119,7 +120,34 @@ export async function POST(request: Request) {
     }
 
     // -------------------------------------------------------------------------
-    // EMAIL TRANSMISSION (Human verified)
+    // 1. SUPABASE LEAD STORAGE (Permanent Cloud CRM Backup)
+    // -------------------------------------------------------------------------
+    const supabase = getSupabaseAdmin();
+    if (supabase) {
+      try {
+        const { error: sbLeadErr } = await supabase.from("inquiries").insert({
+          name,
+          email,
+          phone,
+          organization: organization || null,
+          service: service || null,
+          timeline: timeline || null,
+          message,
+          client_ip: clientIp,
+          status: "new",
+        });
+        if (sbLeadErr) {
+          console.warn("[Contact API] Supabase lead insertion warning:", sbLeadErr.message);
+        } else {
+          console.log(`[Contact API] Client inquiry lead permanently saved to Supabase for ${name} (${email})`);
+        }
+      } catch (sbEx) {
+        console.warn("[Contact API] Supabase error:", sbEx);
+      }
+    }
+
+    // -------------------------------------------------------------------------
+    // 2. EMAIL TRANSMISSION (Human verified)
     // -------------------------------------------------------------------------
     const serviceDisplay = service ? `Service Scope: ${service}` : "";
     const orgDisplay = organization ? `Organization: ${organization}` : "";

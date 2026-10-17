@@ -1,0 +1,221 @@
+{
+  "totalPageViews": 33,
+  "uniqueSessions": 3,
+  "lastUpdated": "2026-10-17T03:21:40.378Z",
+  "deviceBreakdown": {
+    "desktop": 33,
+    "mobile": 0
+  },
+  "pageCounts": {
+    "/hsms": 1,
+    "/pathology-lab-software-assam": 1,
+    "/software-company-guwahati": 1,
+    "/company-policy": 1,
+    "/blog": 2,
+    "/seo": 1,
+    "/about": 1,
+    "/contact": 5,
+    "/review": 9,
+    "/": 11
+  },
+  "recentVisits": [
+    {
+      "timestamp": "2026-10-17T03:21:40.378Z",
+      "path": "/",
+      "device": "desktop",
+      "referrer": "direct"
+    },
+    {
+      "timestamp": "2026-10-17T03:16:04.569Z",
+      "path": "/",
+      "device": "desktop",
+      "referrer": "direct"
+    },
+    {
+      "timestamp": "2026-10-17T03:11:14.850Z",
+      "path": "/",
+      "device": "desktop",
+      "referrer": "direct"
+    },
+    {
+      "timestamp": "2026-10-16T12:05:08.345Z",
+      "path": "/",
+      "device": "desktop",
+      "referrer": "direct"
+    },
+    {
+      "timestamp": "2026-10-16T12:05:03.111Z",
+      "path": "/",
+      "device": "desktop",
+      "referrer": "direct"
+    },
+    {
+      "timestamp": "2026-10-16T12:02:53.349Z",
+      "path": "/review",
+      "device": "desktop",
+      "referrer": "direct"
+    },
+    {
+      "timestamp": "2026-10-16T11:55:12.845Z",
+      "path": "/review",
+      "device": "desktop",
+      "referrer": "direct"
+    },
+    {
+      "timestamp": "2026-10-16T11:50:29.411Z",
+      "path": "/",
+      "device": "desktop",
+      "referrer": "direct"
+    },
+    {
+      "timestamp": "2026-10-16T11:50:19.093Z",
+      "path": "/review",
+      "device": "desktop",
+      "referrer": "direct"
+    },
+    {
+      "timestamp": "2026-10-16T11:38:37.237Z",
+      "path": "/review",
+      "device": "desktop",
+      "referrer": "direct"
+    },
+    {
+      "timestamp": "2026-10-16T11:38:34.206Z",
+      "path": "/contact",
+      "device": "desktop",
+      "referrer": "direct"
+    },
+    {
+      "timestamp": "2026-10-16T11:38:28.072Z",
+      "path": "/",
+      "device": "desktop",
+      "referrer": "direct"
+    },
+    {
+      "timestamp": "2026-10-16T11:36:00.071Z",
+      "path": "/review",
+      "device": "desktop",
+      "referrer": "direct"
+    },
+    {
+      "timestamp": "2026-10-16T11:35:20.724Z",
+      "path": "/",
+      "device": "desktop",
+      "referrer": "direct"
+    },
+    {
+      "timestamp": "2026-10-16T11:35:02.877Z",
+      "path": "/",
+      "device": "desktop",
+      "referrer": "direct"
+    },
+    {
+      "timestamp": "2026-10-16T11:34:12.955Z",
+      "path": "/review",
+      "device": "desktop",
+      "referrer": "direct"
+    },
+    {
+      "timestamp": "2026-10-16T11:29:17.223Z",
+      "path": "/review",
+      "device": "desktop",
+      "referrer": "direct"
+    },
+    {
+      "timestamp": "2026-10-16T11:29:09.730Z",
+      "path": "/",
+      "device": "desktop",
+      "referrer": "direct"
+    },
+    {
+      "timestamp": "2026-10-16T11:26:55.282Z",
+      "path": "/",
+      "device": "desktop",
+      "referrer": "direct"
+    },
+    {
+      "timestamp": "2026-10-16T11:25:23.220Z",
+      "path": "/review",
+      "device": "desktop",
+      "referrer": "direct"
+    },
+    {
+      "timestamp": "2026-10-16T11:24:05.079Z",
+      "path": "/contact",
+      "device": "desktop",
+      "referrer": "direct"
+    },
+    {
+      "timestamp": "2026-10-16T11:23:46.518Z",
+      "path": "/contact",
+      "device": "desktop",
+      "referrer": "direct"
+    },
+    {
+      "timestamp": "2026-10-16T11:23:17.499Z",
+      "path": "/contact",
+      "device": "desktop",
+      "referrer": "direct"
+    },
+    {
+      "timestamp": "2026-10-16T11:23:01.588Z",
+      "path": "/review",
+      "device": "desktop",
+      "referrer": "direct"
+    },
+    {
+      "timestamp": "2026-10-16T11:22:22.924Z",
+      "path": "/contact",
+      "device": "desktop",
+      "referrer": "direct"
+    },
+    {
+      "timestamp": "2026-10-16T11:22:13.772Z",
+      "path": "/blog",
+      "device": "desktop",
+      "referrer": "direct"
+    },
+    {
+      "timestamp": "2026-10-16T11:22:03.160Z",
+      "path": "/about",
+      "device": "desktop",
+      "referrer": "direct"
+    },
+    {
+      "timestamp": "2026-10-16T09:08:50.873Z",
+      "path": "/seo",
+      "device": "desktop",
+      "referrer": "direct"
+    },
+    {
+      "timestamp": "2026-10-16T09:08:36.184Z",
+      "path": "/blog",
+      "device": "desktop",
+      "referrer": "direct"
+    },
+    {
+      "timestamp": "2026-10-16T09:08:33.089Z",
+      "path": "/company-policy",
+      "device": "desktop",
+      "referrer": "direct"
+    },
+    {
+      "timestamp": "2026-10-16T09:01:17.279Z",
+      "path": "/software-company-guwahati",
+      "device": "desktop",
+      "referrer": "direct"
+    },
+    {
+      "timestamp": "2026-10-16T09:01:10.208Z",
+      "path": "/pathology-lab-software-assam",
+      "device": "desktop",
+      "referrer": "direct"
+    },
+    {
+      "timestamp": "2026-10-16T09:01:04.162Z",
+      "path": "/hsms",
+      "device": "desktop",
+      "referrer": "direct"
+    }
+  ]
+}
