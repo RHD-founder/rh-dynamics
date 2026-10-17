@@ -93,8 +93,23 @@ export async function fetchGA4Realtime(): Promise<GA4AnalyticsPayload> {
     const creds = JSON.parse(credsRaw);
     const token = await getGoogleOAuthToken(creds);
 
-    // 1. Fetch Realtime Active Users
-    const realtimePromise = fetch(
+    // 1. Fetch Exact Unique Realtime Active Users (matches GA4 Web Dashboard 1-to-1)
+    const realtimeTotalPromise = fetch(
+      `https://analyticsdata.googleapis.com/v1beta/properties/${propertyId}:runRealtimeReport`,
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          metrics: [{ name: "activeUsers" }]
+        })
+      }
+    );
+
+    // 2. Fetch Realtime City Breakdown
+    const realtimeCitiesPromise = fetch(
       `https://analyticsdata.googleapis.com/v1beta/properties/${propertyId}:runRealtimeReport`,
       {
         method: "POST",
@@ -104,12 +119,28 @@ export async function fetchGA4Realtime(): Promise<GA4AnalyticsPayload> {
         },
         body: JSON.stringify({
           metrics: [{ name: "activeUsers" }],
-          dimensions: [{ name: "city" }, { name: "unifiedScreenName" }]
+          dimensions: [{ name: "city" }]
         })
       }
     );
 
-    // 2. Fetch 30-Day Totals
+    // 3. Fetch Realtime Screen Breakdown
+    const realtimeScreensPromise = fetch(
+      `https://analyticsdata.googleapis.com/v1beta/properties/${propertyId}:runRealtimeReport`,
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          metrics: [{ name: "activeUsers" }],
+          dimensions: [{ name: "unifiedScreenName" }]
+        })
+      }
+    );
+
+    // 4. Fetch 30-Day Totals
     const reportPromise = fetch(
       `https://analyticsdata.googleapis.com/v1beta/properties/${propertyId}:runReport`,
       {
@@ -130,38 +161,48 @@ export async function fetchGA4Realtime(): Promise<GA4AnalyticsPayload> {
       }
     );
 
-    const [realtimeRes, reportRes] = await Promise.all([realtimePromise, reportPromise]);
-    const realtimeData = await realtimeRes.json();
+    const [totalRes, citiesRes, screensRes, reportRes] = await Promise.all([
+      realtimeTotalPromise,
+      realtimeCitiesPromise,
+      realtimeScreensPromise,
+      reportPromise
+    ]);
+
+    const totalData = await totalRes.json();
+    const citiesData = await citiesRes.json();
+    const screensData = await screensRes.json();
     const reportData = await reportRes.json();
 
-    if (!realtimeRes.ok) {
+    if (!totalRes.ok) {
       return {
         success: false,
         activeUsers: 0,
         cities: [],
         pages: [],
-        error: realtimeData?.error?.message || "Google Analytics Realtime API returned an error"
+        error: totalData?.error?.message || "Google Analytics Realtime API returned an error"
       };
     }
 
-    let totalActive = 0;
-    const citiesMap = new Map<string, number>();
-    const pagesMap = new Map<string, number>();
+    // Exact Unique Active Users matching Google Analytics Web UI
+    const totalActive = parseInt(totalData.rows?.[0]?.metricValues?.[0]?.value || "0", 10);
 
-    if (Array.isArray(realtimeData.rows)) {
-      realtimeData.rows.forEach((row: any) => {
-        const city = row.dimensionValues?.[0]?.value || "(not set)";
-        const page = row.dimensionValues?.[1]?.value || "/";
+    const cities: Array<{ city: string; activeUsers: number }> = [];
+    if (Array.isArray(citiesData.rows)) {
+      citiesData.rows.forEach((row: any) => {
+        const city = row.dimensionValues?.[0]?.value?.trim() || "(not set)";
         const count = parseInt(row.metricValues?.[0]?.value || "0", 10);
-
-        totalActive += count;
-        citiesMap.set(city, (citiesMap.get(city) || 0) + count);
-        pagesMap.set(page, (pagesMap.get(page) || 0) + count);
+        cities.push({ city, activeUsers: count });
       });
     }
 
-    const cities = Array.from(citiesMap.entries()).map(([city, activeUsers]) => ({ city, activeUsers }));
-    const pages = Array.from(pagesMap.entries()).map(([pageTitle, activeUsers]) => ({ pageTitle, activeUsers }));
+    const pages: Array<{ pageTitle: string; activeUsers: number }> = [];
+    if (Array.isArray(screensData.rows)) {
+      screensData.rows.forEach((row: any) => {
+        const pageTitle = row.dimensionValues?.[0]?.value || "/";
+        const count = parseInt(row.metricValues?.[0]?.value || "0", 10);
+        pages.push({ pageTitle, activeUsers: count });
+      });
+    }
 
     let historical30Days = undefined;
     if (reportRes.ok && Array.isArray(reportData.rows)) {
