@@ -13,32 +13,32 @@ export function Footer() {
       {/* Background Grid Pattern */}
       <div className="absolute inset-0 bg-grid-pattern opacity-10 pointer-events-none" />
 
-      <div className="container mx-auto px-4 sm:px-6 py-16 relative z-10 max-w-6xl">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 py-16 relative z-10">
         
         {/* Top Status & Identity Banner */}
         <div className="pb-12 mb-12 border-b border-border/50 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div>
-            <div className="flex items-center gap-3 mb-2">
-              <div className="w-8 h-8 rounded-lg overflow-hidden bg-white p-0.5 border border-border/50 shadow-sm flex items-center justify-center shrink-0">
+            <div className="flex items-center gap-3 mb-2 flex-wrap">
+              <div className="w-9 h-9 rounded-xl overflow-hidden bg-white p-0.5 border border-border/50 shadow-sm flex items-center justify-center shrink-0">
                 <Image
                   src="/images/rh-official-logo.jpg"
                   alt="RH Dynamics Logo"
-                  width={32}
-                  height={32}
+                  width={36}
+                  height={36}
                   className="w-full h-full object-contain"
                 />
               </div>
               <span className="font-heading font-black text-xl uppercase tracking-wider text-foreground">
                 RH Dynamics
               </span>
-              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono uppercase tracking-wider bg-secondary text-muted-foreground border border-border/50">
+              <span className="px-3 py-1 rounded-full text-xs font-mono uppercase tracking-wider bg-secondary text-foreground/80 border border-border/60 font-semibold">
                 LLP ACN-1931
               </span>
-              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-mono uppercase tracking-wider bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/20">
-                <ShieldCheck className="w-3 h-3" /> Startup India
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono uppercase tracking-wider bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/20 font-semibold">
+                <ShieldCheck className="w-3.5 h-3.5" /> Startup India
               </span>
             </div>
-            <p className="text-xs sm:text-sm text-muted-foreground font-light max-w-xl">
+            <p className="text-sm text-muted-foreground font-normal max-w-2xl leading-relaxed mt-2">
               Cloud software engineering, ABDM-compliant clinical platforms (RH CORE™), and enterprise ERP solutions delivered with a &lt; 2-hour SLA worldwide.
             </p>
           </div>
@@ -138,6 +138,12 @@ export function Footer() {
               <li>
                 <Link href="/web-development-guwahati" className="text-muted-foreground hover:text-foreground transition-colors flex items-center justify-between group">
                   <span>Next.js Web Applications</span>
+                  <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </Link>
+              </li>
+              <li>
+                <Link href="/offshore-software-development" className="text-primary hover:underline transition-colors flex items-center justify-between group font-semibold">
+                  <span>Offshore Software Dev (US/EU)</span>
                   <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Link>
               </li>

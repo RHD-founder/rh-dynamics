@@ -38,11 +38,11 @@ export default function CompanyPolicyPage() {
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-mono">
           <div className="p-3.5 rounded-xl bg-secondary/50 border border-border/60">
-            <span className="text-muted-foreground block text-[10px] uppercase">Corporate Identity</span>
+            <span className="text-muted-foreground block text-xs uppercase">Corporate Identity</span>
             <strong className="text-foreground text-sm">LLPIN: ACN-1931</strong>
           </div>
           <div className="p-3.5 rounded-xl bg-secondary/50 border border-border/60">
-            <span className="text-muted-foreground block text-[10px] uppercase">National Accreditation</span>
+            <span className="text-muted-foreground block text-xs uppercase">National Accreditation</span>
             <strong className="text-foreground text-sm">DPIIT Startup India Certified</strong>
           </div>
         </div>

@@ -7,6 +7,7 @@ export interface GA4AnalyticsPayload {
   activeUsers: number;
   cities: Array<{ city: string; activeUsers: number }>;
   pages: Array<{ pageTitle: string; activeUsers: number }>;
+  countries?: Array<{ country: string; activeUsers: number; sessions: number; pageViews: number }>;
   historical30Days?: {
     activeUsers: number;
     screenPageViews: number;
@@ -182,12 +183,41 @@ export async function fetchGA4Realtime(): Promise<GA4AnalyticsPayload> {
       }
     );
 
-    const [totalRes, citiesRes, screensRes, reportRes, devicesRes] = await Promise.all([
+    // 6. Fetch 30-Day Country Breakdown
+    const countriesPromise = fetch(
+      `https://analyticsdata.googleapis.com/v1beta/properties/${propertyId}:runReport`,
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          dateRanges: [{ startDate: "30daysAgo", endDate: "today" }],
+          dimensions: [{ name: "country" }],
+          metrics: [
+            { name: "activeUsers" },
+            { name: "sessions" },
+            { name: "screenPageViews" }
+          ],
+          orderBys: [
+            {
+              metric: { metricName: "activeUsers" },
+              desc: true
+            }
+          ],
+          limit: 15
+        })
+      }
+    );
+
+    const [totalRes, citiesRes, screensRes, reportRes, devicesRes, countriesRes] = await Promise.all([
       realtimeTotalPromise,
       realtimeCitiesPromise,
       realtimeScreensPromise,
       reportPromise,
-      devicesPromise
+      devicesPromise,
+      countriesPromise
     ]);
 
     const totalData = await totalRes.json();
@@ -195,6 +225,7 @@ export async function fetchGA4Realtime(): Promise<GA4AnalyticsPayload> {
     const screensData = await screensRes.json();
     const reportData = await reportRes.json();
     const devicesData = await devicesRes.json();
+    const countriesData = await countriesRes.json();
 
     if (!totalRes.ok) {
       return {
@@ -202,6 +233,7 @@ export async function fetchGA4Realtime(): Promise<GA4AnalyticsPayload> {
         activeUsers: 0,
         cities: [],
         pages: [],
+        countries: [],
         error: totalData?.error?.message || "Google Analytics Realtime API returned an error"
       };
     }
@@ -215,6 +247,17 @@ export async function fetchGA4Realtime(): Promise<GA4AnalyticsPayload> {
         const city = row.dimensionValues?.[0]?.value?.trim() || "(not set)";
         const count = parseInt(row.metricValues?.[0]?.value || "0", 10);
         cities.push({ city, activeUsers: count });
+      });
+    }
+
+    const countries: Array<{ country: string; activeUsers: number; sessions: number; pageViews: number }> = [];
+    if (countriesRes.ok && Array.isArray(countriesData.rows)) {
+      countriesData.rows.forEach((row: any) => {
+        const country = row.dimensionValues?.[0]?.value || "(not set)";
+        const activeUsers = parseInt(row.metricValues?.[0]?.value || "0", 10);
+        const sessions = parseInt(row.metricValues?.[1]?.value || "0", 10);
+        const pageViews = parseInt(row.metricValues?.[2]?.value || "0", 10);
+        countries.push({ country, activeUsers, sessions, pageViews });
       });
     }
 
@@ -261,6 +304,7 @@ export async function fetchGA4Realtime(): Promise<GA4AnalyticsPayload> {
       success: true,
       activeUsers: totalActive,
       cities,
+      countries,
       pages,
       historical30Days,
       deviceBreakdown

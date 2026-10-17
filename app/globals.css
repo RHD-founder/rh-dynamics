@@ -124,4 +124,17 @@
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-500;
   }
+
+  /* World-Class Responsive Container System */
+  .section-container {
+    @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12;
+  }
+
+  .section-container-wide {
+    @apply w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12;
+  }
+
+  .section-container-editorial {
+    @apply w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
 }

@@ -69,7 +69,7 @@ export function RecentWork() {
       {/* Background Grid Pattern */}
       <div className="absolute inset-0 bg-grid-pattern opacity-15 pointer-events-none" />
 
-      <div className="container px-4 mx-auto relative z-10 max-w-6xl" ref={ref}>
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 relative z-10" ref={ref}>
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
@@ -78,9 +78,9 @@ export function RecentWork() {
               initial={{ opacity: 0, y: 15 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium tracking-wider uppercase border border-border bg-secondary/40 text-muted-foreground mb-4"
+              className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-xs sm:text-sm font-mono font-semibold tracking-wider uppercase border border-border bg-secondary/50 text-foreground/80 mb-4 shadow-sm"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+              <span className="w-2 h-2 rounded-full bg-primary" />
               Software Solutions // Product Architecture
             </motion.div>
 
@@ -88,7 +88,7 @@ export function RecentWork() {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-3xl sm:text-5xl font-black font-heading text-foreground tracking-tight"
+              className="text-3xl sm:text-5xl lg:text-6xl font-black font-heading text-foreground tracking-tight"
             >
               Engineered Software. <br />
               <span className="text-gradient">Measurable Impact.</span>
@@ -102,51 +102,51 @@ export function RecentWork() {
           >
             <Link 
               href="/projects" 
-              className="inline-flex items-center text-xs font-mono uppercase tracking-wider text-primary hover:underline font-bold"
+              className="inline-flex items-center text-xs sm:text-sm font-mono uppercase tracking-wider text-primary hover:underline font-bold"
             >
               <span>Explore All Software Architectures</span>
-              <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
+              <ArrowRight className="ml-1.5 h-4 w-4" />
             </Link>
           </motion.div>
         </div>
 
         {/* 2x2 Dossier Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
           {recentWork.map((project, index) => (
             <motion.div
               key={project.title}
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.45, delay: index * 0.1 }}
-              className="group relative rounded-2xl glass-card dark:glass-card-dark border border-border/60 hover:border-primary/50 transition-all duration-300 p-7 sm:p-8 flex flex-col justify-between"
+              className="group relative rounded-2xl glass-card dark:glass-card-dark border border-border/70 hover:border-primary/50 transition-all duration-300 p-8 sm:p-10 flex flex-col justify-between shadow-sm hover:shadow-xl"
             >
               <div>
                 <div className="flex items-center justify-between gap-2 mb-4">
-                  <span className="text-[10px] font-mono uppercase tracking-wider px-2.5 py-1 rounded-full bg-secondary text-foreground/80 border border-border/50">
+                  <span className="text-xs font-mono uppercase tracking-wider px-3 py-1 rounded-full bg-secondary text-foreground font-semibold border border-border/60">
                     {project.category}
                   </span>
-                  <span className="text-[10px] font-mono text-muted-foreground">
+                  <span className="text-xs font-mono text-muted-foreground font-semibold">
                     STACK // 0{index + 1}
                   </span>
                 </div>
 
-                <h3 className="text-2xl font-black font-heading text-foreground tracking-tight mb-2 group-hover:text-primary transition-colors">
+                <h3 className="text-2xl sm:text-3xl font-black font-heading text-foreground tracking-tight mb-2 group-hover:text-primary transition-colors">
                   {project.title}
                 </h3>
 
-                <p className="text-xs sm:text-sm font-medium text-foreground/80 mb-4 font-heading">
+                <p className="text-sm sm:text-base font-semibold text-foreground/90 mb-3 font-heading">
                   {project.tagline}
                 </p>
 
-                <p className="text-xs text-muted-foreground font-light leading-relaxed mb-6">
+                <p className="text-sm sm:text-base text-muted-foreground font-normal leading-relaxed mb-6">
                   {project.problem}
                 </p>
 
-                <div className="flex flex-wrap gap-1.5 mb-6">
+                <div className="flex flex-wrap gap-2 mb-8">
                   {project.tech.map((t) => (
                     <span
                       key={t}
-                      className="text-[11px] px-2.5 py-0.5 bg-secondary/50 text-muted-foreground rounded-full border border-border/40 font-mono"
+                      className="text-xs px-3 py-1 bg-secondary text-foreground/90 rounded-full border border-border/60 font-mono font-medium"
                     >
                       {t}
                     </span>
@@ -154,14 +154,14 @@ export function RecentWork() {
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-border/40 flex items-center justify-between">
-                <div className="flex items-center gap-6">
+              <div className="pt-5 border-t border-border/40 flex items-center justify-between">
+                <div className="flex items-center gap-6 sm:gap-8">
                   {project.metrics.map((m, mIdx) => (
                     <div key={mIdx}>
-                      <span className="text-xl font-black font-heading text-foreground block tracking-tight">
+                      <span className="text-2xl sm:text-3xl font-black font-heading text-foreground block tracking-tight">
                         {m.value}
                       </span>
-                      <span className="text-[10px] text-muted-foreground font-medium uppercase font-mono">
+                      <span className="text-xs text-muted-foreground font-semibold uppercase font-mono mt-0.5">
                         {m.label}
                       </span>
                     </div>
@@ -169,9 +169,9 @@ export function RecentWork() {
                 </div>
 
                 <Link href={project.link}>
-                  <Button variant="outline" size="sm" className="rounded-full text-xs font-mono uppercase tracking-wider border-border/70 hover:bg-secondary">
+                  <Button variant="outline" size="sm" className="rounded-full text-xs sm:text-sm font-mono uppercase tracking-wider font-semibold border-border/80 hover:bg-secondary px-4 py-2">
                     View Specs
-                    <ArrowRight className="ml-1 h-3 w-3" />
+                    <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
                   </Button>
                 </Link>
               </div>

@@ -63,15 +63,13 @@ export default function AboutPage() {
       
       {/* Background Grid Pattern */}
       <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-primary/5 rounded-full blur-[140px] pointer-events-none" />
-
-      <div className="container px-4 mx-auto relative z-10 max-w-6xl">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-primary/5 rounded-full blur-[140px] pointer-events-none" />      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 relative z-10">
 
         {/* Hero Section */}
         <div className="max-w-4xl mb-20">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium tracking-wider uppercase border border-border bg-secondary/30 text-muted-foreground mb-8">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-medium tracking-wider uppercase border border-border bg-secondary/30 text-muted-foreground mb-8">
             <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-            Organization & Engineering Mandate // Guwahati, Assam
+            Organization &amp; Engineering Mandate // Guwahati, Assam
           </div>
 
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black font-heading tracking-tight mb-8 leading-[1.08]">
@@ -79,64 +77,64 @@ export default function AboutPage() {
             <span className="text-gradient">Rooted in Northeast India.</span>
           </h1>
 
-          <p className="text-xl text-muted-foreground max-w-2xl font-light leading-relaxed mb-10">
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl font-light leading-relaxed mb-10">
             RHD Softwaresolutions LLP was founded to engineer world-class software solutions rooted in Northeast India. We build clinical healthcare systems (HSMS, LIS), custom enterprise software, premium web platforms, and mobile apps with guaranteed rapid SLA.
           </p>
 
           <div className="flex flex-wrap items-center gap-3">
-            <div className="px-3.5 py-1.5 rounded-full text-xs font-mono uppercase tracking-wider bg-secondary border border-border/60 text-foreground font-semibold">
+            <div className="px-4 py-2 rounded-full text-xs font-mono uppercase tracking-wider bg-secondary border border-border/60 text-foreground font-semibold">
               RHD Softwaresolutions LLP (ACN-1931)
             </div>
-            <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-mono uppercase tracking-wider bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/20 font-semibold">
-              <ShieldCheck className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-mono uppercase tracking-wider bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/20 font-semibold">
+              <ShieldCheck className="w-4 h-4" />
               Startup India Recognized (DPIIT)
             </div>
           </div>
         </div>
 
         {/* Corporate Metrics Ribbon */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border/40 rounded-2xl overflow-hidden mb-28 border border-border/60">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-border/40 rounded-2xl overflow-hidden mb-28 border border-border/60 shadow-lg">
           {corporateMilestones.map((milestone, i) => (
-            <div key={i} className="bg-card p-6 md:p-8 flex flex-col justify-between">
-              <span className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-4">{milestone.label}</span>
+            <div key={i} className="bg-card p-6 sm:p-8 md:p-10 flex flex-col justify-between">
+              <span className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-4 font-medium">{milestone.label}</span>
               <div>
-                <p className="text-2xl md:text-3xl font-black font-heading text-foreground tracking-tight">{milestone.value}</p>
-                <p className="text-xs text-muted-foreground mt-1">{milestone.sub}</p>
+                <p className="text-2xl sm:text-3xl md:text-4xl font-black font-heading text-foreground tracking-tight">{milestone.value}</p>
+                <p className="text-xs sm:text-sm text-muted-foreground mt-2 leading-relaxed">{milestone.sub}</p>
               </div>
             </div>
           ))}
         </div>
 
         {/* Origin & Operational Mandate */}
-        <div className="rounded-3xl glass-card dark:glass-card-dark border border-border/60 p-8 md:p-14 mb-28">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        <div className="rounded-3xl glass-card dark:glass-card-dark border border-border/60 p-8 sm:p-12 md:p-16 mb-28">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
             <div className="lg:col-span-5">
               <span className="text-xs font-mono uppercase tracking-widest text-primary font-bold block mb-3">
-                Origins & Mission
+                Origins &amp; Mission
               </span>
-              <h2 className="text-3xl sm:text-4xl font-black font-heading tracking-tight mb-4">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-heading tracking-tight mb-4">
                 Why RH Dynamics Exists
               </h2>
-              <p className="text-sm text-muted-foreground font-light leading-relaxed mb-6">
+              <p className="text-sm sm:text-base text-muted-foreground font-light leading-relaxed mb-6">
                 Officially founded on March 29th, 2025, in Guwahati, Assam, RH Dynamics was created to challenge the status quo of outdated, fragile software and offshore agency neglect in Northeast India and beyond.
               </p>
-              <div className="p-4 rounded-xl bg-secondary/30 border border-border/50 font-mono text-xs text-muted-foreground space-y-2">
-                <div className="flex items-center justify-between">
+              <div className="p-5 rounded-2xl bg-secondary/30 border border-border/50 font-mono text-xs sm:text-sm text-muted-foreground space-y-3">
+                <div className="flex items-center justify-between gap-4">
                   <span>Legal Entity:</span>
-                  <strong className="text-foreground">RHD Softwaresolutions LLP</strong>
+                  <strong className="text-foreground text-right">RHD Softwaresolutions LLP</strong>
                 </div>
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between gap-4">
                   <span>LLP Identification:</span>
-                  <strong className="text-foreground">ACN-1931</strong>
+                  <strong className="text-foreground text-right">ACN-1931</strong>
                 </div>
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between gap-4">
                   <span>Headquarters:</span>
-                  <strong className="text-foreground">Golaghat, Assam (Upper Assam HQ)</strong>
+                  <strong className="text-foreground text-right">Golaghat, Assam (Upper Assam HQ)</strong>
                 </div>
               </div>
             </div>
 
-            <div className="lg:col-span-7 space-y-6 text-sm text-muted-foreground font-light leading-relaxed">
+            <div className="lg:col-span-7 space-y-6 text-sm sm:text-base text-muted-foreground font-light leading-relaxed">
               <p>
                 For years, healthcare providers, distributed businesses, and modern enterprises in Assam and across India struggled with two poor choices: fragile legacy desktop software prone to crashes and data loss, or generic foreign SaaS that carried high recurring subscriptions without adapting to ground-level Indian workflows.
               </p>
@@ -152,40 +150,40 @@ export default function AboutPage() {
 
         {/* 4 Architectural Engineering Pillars */}
         <div className="mb-28">
-          <div className="max-w-2xl mb-12">
+          <div className="max-w-3xl mb-12">
             <span className="text-xs font-mono uppercase tracking-widest text-primary font-bold">
               Engineering Governance
             </span>
-            <h2 className="text-3xl sm:text-4xl font-black font-heading tracking-tight mt-2">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-heading tracking-tight mt-2">
               Our Core Architecture Principles
             </h2>
-            <p className="text-muted-foreground mt-3 text-sm font-light">
+            <p className="text-muted-foreground mt-3 text-base sm:text-lg font-light leading-relaxed">
               The non-negotiable technical mandates that guide every line of code, network schema, and clinical module we build.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {engineeringPillars.map((pillar, idx) => (
               <div 
                 key={idx}
-                className="p-8 rounded-2xl glass-card dark:glass-card-dark border border-border/60 hover:border-primary/50 transition-all flex flex-col justify-between"
+                className="p-8 sm:p-10 rounded-2xl glass-card dark:glass-card-dark border border-border/60 hover:border-primary/50 transition-all flex flex-col justify-between"
               >
                 <div>
-                  <span className="text-[11px] font-mono tracking-wider uppercase text-muted-foreground block mb-3">
+                  <span className="text-xs font-mono tracking-wider uppercase text-primary font-semibold block mb-3">
                     {pillar.tag}
                   </span>
-                  <h3 className="text-xl font-bold font-heading mb-3 text-foreground">
+                  <h3 className="text-xl sm:text-2xl font-bold font-heading mb-3 text-foreground">
                     {pillar.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground font-light leading-relaxed mb-6">
+                  <p className="text-sm sm:text-base text-muted-foreground font-light leading-relaxed mb-6">
                     {pillar.description}
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-border/40 space-y-2">
+                <div className="pt-5 border-t border-border/40 space-y-2.5">
                   {pillar.points.map((pt, pIdx) => (
-                    <div key={pIdx} className="flex items-center gap-2 text-xs text-foreground/90 font-medium">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-primary shrink-0" />
+                    <div key={pIdx} className="flex items-center gap-2.5 text-xs sm:text-sm text-foreground/90 font-medium">
+                      <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />
                       <span>{pt}</span>
                     </div>
                   ))}
@@ -197,48 +195,48 @@ export default function AboutPage() {
 
         {/* Regional Hubs & Infrastructure */}
         <div className="mb-28">
-          <div className="max-w-2xl mb-12">
+          <div className="max-w-3xl mb-12">
             <span className="text-xs font-mono uppercase tracking-widest text-primary font-bold">
               Regional Footprint
             </span>
-            <h2 className="text-3xl sm:text-4xl font-black font-heading tracking-tight mt-2">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-heading tracking-tight mt-2">
               On-the-Ground Engineering Hubs
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Golaghat Corporate HQ */}
-            <div className="p-8 rounded-2xl border border-border/60 bg-secondary/15 flex flex-col justify-between">
+            <div className="p-8 sm:p-10 rounded-2xl border border-border/60 bg-secondary/15 flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-primary mb-3 font-bold">
                   <MapPin className="w-4 h-4" /> Corporate Headquarters (HQ)
                 </div>
-                <h3 className="text-2xl font-black font-heading text-foreground mb-3">
+                <h3 className="text-2xl sm:text-3xl font-black font-heading text-foreground mb-3">
                   Golaghat Corporate HQ
                 </h3>
-                <p className="text-sm text-muted-foreground font-light leading-relaxed mb-6">
+                <p className="text-sm sm:text-base text-muted-foreground font-light leading-relaxed mb-6">
                   Near AGV Bank, Goranga, Golaghat, Assam 785603. Serves as our primary registered corporate headquarters and institutional administration base.
                 </p>
               </div>
-              <div className="pt-4 border-t border-border/40 font-mono text-xs text-muted-foreground">
+              <div className="pt-4 border-t border-border/40 font-mono text-xs sm:text-sm text-muted-foreground">
                 Upper Assam Corporate HQ &amp; Operations
               </div>
             </div>
 
             {/* Guwahati Engineering Center */}
-            <div className="p-8 rounded-2xl border border-border/60 bg-secondary/15 flex flex-col justify-between">
+            <div className="p-8 sm:p-10 rounded-2xl border border-border/60 bg-secondary/15 flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-primary mb-3 font-bold">
                   <MapPin className="w-4 h-4" /> Systems Engineering Hub
                 </div>
-                <h3 className="text-2xl font-black font-heading text-foreground mb-3">
+                <h3 className="text-2xl sm:text-3xl font-black font-heading text-foreground mb-3">
                   Guwahati Engineering Center
                 </h3>
-                <p className="text-sm text-muted-foreground font-light leading-relaxed mb-6">
+                <p className="text-sm sm:text-base text-muted-foreground font-light leading-relaxed mb-6">
                   Near Downtown Hospital, Urban Villa, Sarumotoria, Guwahati, Assam 781036. Houses our software engineering teams, clinical product staging, and rapid-response operations.
                 </p>
               </div>
-              <div className="pt-4 border-t border-border/40 font-mono text-xs text-muted-foreground">
+              <div className="pt-4 border-t border-border/40 font-mono text-xs sm:text-sm text-muted-foreground">
                 Rapid &lt; 2hr SLA Worldwide via Phone/WhatsApp/Video &amp; In-Person across Assam
               </div>
             </div>
@@ -246,15 +244,15 @@ export default function AboutPage() {
         </div>
 
         {/* Minimalist Discovery CTA */}
-        <div className="rounded-3xl border border-border/80 p-8 md:p-14 bg-gradient-to-b from-secondary/30 to-background text-center relative overflow-hidden">
-          <div className="max-w-2xl mx-auto">
-            <span className="text-xs font-mono uppercase tracking-widest text-primary mb-3 block">
+        <div className="rounded-3xl border border-border/80 p-8 sm:p-12 md:p-16 bg-gradient-to-b from-secondary/30 to-background text-center relative overflow-hidden">
+          <div className="max-w-3xl mx-auto">
+            <span className="text-xs font-mono uppercase tracking-widest text-primary mb-3 block font-semibold">
               Direct Technical Discovery
             </span>
-            <h2 className="text-3xl md:text-4xl font-black font-heading tracking-tight mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-heading tracking-tight mb-4">
               Engage Our Systems Team
             </h2>
-            <p className="text-muted-foreground text-sm leading-relaxed mb-8 font-light">
+            <p className="text-muted-foreground text-sm sm:text-base leading-relaxed mb-8 font-light">
               Speak directly with our technical partners in Guwahati. We will review your existing architecture, database schemas, and hardware setup without commercial fluff.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

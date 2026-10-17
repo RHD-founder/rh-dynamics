@@ -206,33 +206,33 @@ export default function PathologyLabSoftwareAssamPage() {
       {/* Hero Section */}
       <section className="relative pt-28 pb-16 sm:pt-36 sm:pb-24 border-b border-border/40 overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-10 pointer-events-none" />
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-emerald-500/10 blur-[130px] rounded-full pointer-events-none" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[450px] bg-emerald-500/10 blur-[140px] rounded-full pointer-events-none" />
 
-        <div className="container mx-auto px-4 sm:px-6 relative z-10 max-w-5xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs font-mono mb-6">
-            <FlaskConical className="w-3.5 h-3.5" />
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 relative z-10">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs font-mono font-medium mb-6">
+            <FlaskConical className="w-4 h-4" />
             <span>CLINICAL DIAGNOSTICS &amp; LIS // ASSAM &amp; NORTHEAST</span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-heading font-black tracking-tight leading-[1.1] mb-6">
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-heading font-black tracking-tight leading-[1.08] mb-6">
             Next-Gen Pathology Lab Software in Assam.{" "}
             <span className="bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-500 bg-clip-text text-transparent">
               Automated WhatsApp Reports &amp; Machine Interfacing.
             </span>
           </h1>
 
-          <p className="text-base sm:text-lg text-muted-foreground font-light max-w-3xl mb-8 leading-relaxed">
+          <p className="text-lg sm:text-xl text-muted-foreground font-light max-w-4xl mb-8 leading-relaxed">
             Eliminate reception queues, transcription errors, and paper clutter. <strong className="text-foreground font-medium">RH CORE™ LIS</strong> by RH Dynamics seamlessly synchronizes clinical analyzers (Sysmex, Mindray, Erba, Roche), prints barcode accession labels, and delivers encrypted PDF test results straight to patient WhatsApp in under 2 seconds.
           </p>
 
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-            <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-mono text-xs uppercase tracking-wider h-12 px-6" asChild>
+            <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-mono text-xs uppercase tracking-wider h-13 px-8 rounded-full shadow-lg shadow-primary/20 hover:-translate-y-0.5 transition-all" asChild>
               <Link href="/contact">
                 <span>Book Live Pathology LIS Demo</span>
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Link>
             </Button>
-            <Button size="lg" variant="outline" className="font-mono text-xs uppercase tracking-wider h-12 px-6 border-border/80" asChild>
+            <Button size="lg" variant="outline" className="font-mono text-xs uppercase tracking-wider h-13 px-8 rounded-full border-border/80" asChild>
               <a href="tel:+918638875149">
                 <Phone className="w-4 h-4 mr-2 text-primary" />
                 <span>Call Lab Engineers: +91 86388 75149</span>
@@ -241,36 +241,36 @@ export default function PathologyLabSoftwareAssamPage() {
           </div>
 
           {/* Quick Metrics Bar */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mt-12 pt-10 border-t border-border/40">
-            <div>
-              <span className="text-2xl sm:text-3xl font-heading font-black text-foreground block">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mt-14 pt-10 border-t border-border/40">
+            <div className="p-4 sm:p-5 rounded-2xl bg-secondary/20 border border-border/40">
+              <span className="text-3xl sm:text-4xl font-heading font-black text-foreground block mb-1">
                 &lt; 1.8s
               </span>
-              <span className="text-xs font-mono text-muted-foreground">
+              <span className="text-xs sm:text-sm font-mono text-muted-foreground">
                 WhatsApp PDF Dispatch
               </span>
             </div>
-            <div>
-              <span className="text-2xl sm:text-3xl font-heading font-black text-foreground block">
+            <div className="p-4 sm:p-5 rounded-2xl bg-secondary/20 border border-border/40">
+              <span className="text-3xl sm:text-4xl font-heading font-black text-foreground block mb-1">
                 100%
               </span>
-              <span className="text-xs font-mono text-muted-foreground">
+              <span className="text-xs sm:text-sm font-mono text-muted-foreground">
                 Zero Typo Analyzer Sync
               </span>
             </div>
-            <div>
-              <span className="text-2xl sm:text-3xl font-heading font-black text-foreground block">
+            <div className="p-4 sm:p-5 rounded-2xl bg-secondary/20 border border-border/40">
+              <span className="text-3xl sm:text-4xl font-heading font-black text-foreground block mb-1">
                 NABL
               </span>
-              <span className="text-xs font-mono text-muted-foreground">
+              <span className="text-xs sm:text-sm font-mono text-muted-foreground">
                 Standard Audit Trails
               </span>
             </div>
-            <div>
-              <span className="text-2xl sm:text-3xl font-heading font-black text-foreground block">
+            <div className="p-4 sm:p-5 rounded-2xl bg-secondary/20 border border-border/40">
+              <span className="text-3xl sm:text-4xl font-heading font-black text-foreground block mb-1">
                 &lt; 2-Hour
               </span>
-              <span className="text-xs font-mono text-muted-foreground">
+              <span className="text-xs sm:text-sm font-mono text-muted-foreground">
                 Local On-Site SLA in Assam
               </span>
             </div>
@@ -279,33 +279,33 @@ export default function PathologyLabSoftwareAssamPage() {
       </section>
 
       {/* 4 Pillars Grid */}
-      <section className="py-16 sm:py-24 border-b border-border/40 bg-secondary/10">
-        <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
-          <div className="mb-12">
+      <section className="py-20 sm:py-28 border-b border-border/40 bg-secondary/10">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+          <div className="mb-14 max-w-3xl">
             <span className="text-xs font-mono uppercase tracking-widest text-primary font-bold block mb-2">
               Enterprise Engineering For Diagnostic Labs
             </span>
-            <h2 className="text-2xl sm:text-4xl font-heading font-black tracking-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-black tracking-tight">
               Built to Solve The Daily Friction in Pathology Centers
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {diagnosticPillars.map((pillar, idx) => (
               <div 
                 key={idx} 
-                className="p-6 sm:p-8 rounded-2xl border border-border/80 bg-card/60 backdrop-blur-sm hover:border-primary/50 transition-all duration-300"
+                className="p-8 sm:p-10 rounded-2xl border border-border/80 bg-card/60 backdrop-blur-sm hover:border-primary/50 transition-all duration-300"
               >
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-xs font-mono uppercase tracking-wider px-2.5 py-1 rounded-full bg-primary/10 text-primary border border-primary/20 font-bold">
+                <div className="flex items-center justify-between mb-5">
+                  <span className="text-xs font-mono uppercase tracking-wider px-3 py-1.5 rounded-full bg-primary/10 text-primary border border-primary/20 font-bold">
                     {pillar.metric}
                   </span>
                   <CheckCircle2 className="w-5 h-5 text-emerald-500" />
                 </div>
-                <h3 className="text-lg font-heading font-bold mb-2 text-foreground">
+                <h3 className="text-xl sm:text-2xl font-heading font-bold mb-3 text-foreground">
                   {pillar.title}
                 </h3>
-                <p className="text-sm text-muted-foreground font-light leading-relaxed">
+                <p className="text-sm sm:text-base text-muted-foreground font-light leading-relaxed">
                   {pillar.desc}
                 </p>
               </div>
@@ -315,34 +315,34 @@ export default function PathologyLabSoftwareAssamPage() {
       </section>
 
       {/* 5-Step Workflow Section */}
-      <section className="py-16 sm:py-24 border-b border-border/40">
-        <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
-          <div className="mb-12">
+      <section className="py-20 sm:py-28 border-b border-border/40">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+          <div className="mb-14 max-w-3xl">
             <span className="text-xs font-mono uppercase tracking-widest text-primary font-bold block mb-2">
               Automated Diagnostic Telemetry
             </span>
-            <h2 className="text-2xl sm:text-4xl font-heading font-black tracking-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-black tracking-tight">
               From Blood Sample Collection to WhatsApp PDF in 5 Steps
             </h2>
-            <p className="text-sm sm:text-base text-muted-foreground mt-2 max-w-2xl font-light">
+            <p className="text-base sm:text-lg text-muted-foreground mt-3 font-light leading-relaxed">
               Watch how RH CORE™ LIS automates your laboratory pipeline without manual retyping or missing patient contact details.
             </p>
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-5">
             {workflowSteps.map((step, idx) => (
               <div 
                 key={idx}
-                className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 p-6 rounded-2xl border border-border/60 bg-card/40 hover:bg-card/80 transition-colors"
+                className="flex flex-col sm:flex-row items-start gap-5 sm:gap-8 p-7 sm:p-8 rounded-2xl border border-border/60 bg-card/40 hover:bg-card/80 transition-colors"
               >
-                <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center font-mono font-black text-lg text-primary shrink-0">
+                <div className="w-14 h-14 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center font-mono font-black text-xl text-primary shrink-0">
                   {step.step}
                 </div>
                 <div>
-                  <h3 className="text-base sm:text-lg font-heading font-bold text-foreground mb-1">
+                  <h3 className="text-lg sm:text-xl font-heading font-bold text-foreground mb-2">
                     {step.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-muted-foreground font-light leading-relaxed">
+                  <p className="text-sm sm:text-base text-muted-foreground font-light leading-relaxed">
                     {step.desc}
                   </p>
                 </div>
@@ -353,91 +353,91 @@ export default function PathologyLabSoftwareAssamPage() {
       </section>
 
       {/* Analyzer Integration Ecosystem */}
-      <section className="py-16 sm:py-24 border-b border-border/40 bg-secondary/15">
-        <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-            <div>
+      <section className="py-20 sm:py-28 border-b border-border/40 bg-secondary/15">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+            <div className="max-w-2xl">
               <span className="text-xs font-mono uppercase tracking-widest text-primary font-bold block mb-2">
                 Universal Machine Compatibility
               </span>
-              <h2 className="text-2xl sm:text-4xl font-heading font-black tracking-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-black tracking-tight">
                 Interfaced with Major Clinical Analyzers
               </h2>
             </div>
-            <p className="text-xs sm:text-sm text-muted-foreground max-w-md font-light">
+            <p className="text-sm sm:text-base text-muted-foreground max-w-md font-light leading-relaxed">
               Our engineering team configures direct RS232 serial and TCP/IP LAN socket listeners on-site at your facility.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {analyzerBrands.map((brand, idx) => (
               <div 
                 key={idx}
-                className="p-4 rounded-xl border border-border/70 bg-card/60 hover:border-emerald-500/50 transition-colors"
+                className="p-6 rounded-2xl border border-border/70 bg-card/60 hover:border-emerald-500/50 transition-colors"
               >
-                <div className="flex items-center gap-2 mb-1.5">
-                  <Cpu className="w-4 h-4 text-emerald-500" />
-                  <span className="font-heading font-bold text-sm text-foreground">
+                <div className="flex items-center gap-2.5 mb-2">
+                  <Cpu className="w-5 h-5 text-emerald-500" />
+                  <span className="font-heading font-bold text-base sm:text-lg text-foreground">
                     {brand.name}
                   </span>
                 </div>
-                <span className="text-[11px] font-mono text-muted-foreground block">
+                <span className="text-xs font-mono text-muted-foreground block">
                   {brand.category}
                 </span>
               </div>
             ))}
           </div>
 
-          <div className="mt-8 p-4 rounded-xl bg-primary/5 border border-primary/20 flex items-center gap-3 text-xs font-mono text-muted-foreground">
-            <Zap className="w-4 h-4 text-primary shrink-0" />
+          <div className="mt-10 p-5 sm:p-6 rounded-2xl bg-primary/5 border border-primary/20 flex items-center gap-3.5 text-xs sm:text-sm font-mono text-muted-foreground">
+            <Zap className="w-5 h-5 text-primary shrink-0" />
             <span>Have a specialized or imported analyzer? Our team writes bespoke ASTM/HL7 driver interfaces during on-site deployment.</span>
           </div>
         </div>
       </section>
 
       {/* Comparison Matrix: Modern Cloud vs Legacy CD/EXE */}
-      <section className="py-16 sm:py-24 border-b border-border/40">
-        <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
-          <div className="mb-12">
+      <section className="py-20 sm:py-28 border-b border-border/40">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+          <div className="mb-14 max-w-3xl">
             <span className="text-xs font-mono uppercase tracking-widest text-primary font-bold block mb-2">
               Architecture &amp; Value Analysis
             </span>
-            <h2 className="text-2xl sm:text-4xl font-heading font-black tracking-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-black tracking-tight">
               RH CORE™ LIS Cloud vs. Outdated Desktop EXEs
             </h2>
-            <p className="text-sm text-muted-foreground font-light mt-2">
+            <p className="text-base sm:text-lg text-muted-foreground font-light mt-3 leading-relaxed">
               Why diagnostic centers across Guwahati and Assam are migrating away from legacy offline software.
             </p>
           </div>
 
-          <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse min-w-[600px]">
+          <div className="overflow-x-auto rounded-2xl border border-border/80">
+            <table className="w-full text-left border-collapse min-w-[650px]">
               <thead>
-                <tr className="border-b border-border/80">
-                  <th className="py-3 px-4 font-mono text-xs uppercase tracking-wider text-muted-foreground w-1/4">
+                <tr className="border-b border-border/80 bg-secondary/30">
+                  <th className="py-4 px-6 font-mono text-xs uppercase tracking-wider text-muted-foreground w-1/4">
                     Capability
                   </th>
-                  <th className="py-3 px-4 font-mono text-xs uppercase tracking-wider text-primary font-bold w-3/8 bg-primary/5 rounded-t-lg">
+                  <th className="py-4 px-6 font-mono text-xs uppercase tracking-wider text-primary font-bold w-3/8 bg-primary/5">
                     RH CORE™ LIS Cloud OS
                   </th>
-                  <th className="py-3 px-4 font-mono text-xs uppercase tracking-wider text-muted-foreground w-3/8">
+                  <th className="py-4 px-6 font-mono text-xs uppercase tracking-wider text-muted-foreground w-3/8">
                     Outdated Desktop Software (CDs/EXEs)
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-border/40 text-xs sm:text-sm">
+              <tbody className="divide-y divide-border/40 text-sm sm:text-base">
                 {comparisonMatrix.map((item, idx) => (
                   <tr key={idx} className="hover:bg-secondary/20 transition-colors">
-                    <td className="py-4 px-4 font-heading font-bold text-foreground">
+                    <td className="py-5 px-6 font-heading font-bold text-foreground">
                       {item.feature}
                     </td>
-                    <td className="py-4 px-4 bg-primary/[0.03] text-foreground font-light">
-                      <div className="flex items-start gap-2">
-                        <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
+                    <td className="py-5 px-6 bg-primary/[0.03] text-foreground font-light">
+                      <div className="flex items-start gap-2.5">
+                        <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-1" />
                         <span>{item.rh}</span>
                       </div>
                     </td>
-                    <td className="py-4 px-4 text-muted-foreground font-light">
+                    <td className="py-5 px-6 text-muted-foreground font-light">
                       <span>{item.legacy}</span>
                     </td>
                   </tr>
@@ -449,21 +449,21 @@ export default function PathologyLabSoftwareAssamPage() {
       </section>
 
       {/* Regional Assam Service Coverage */}
-      <section className="py-16 sm:py-24 border-b border-border/40 bg-secondary/10">
-        <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
-          <div className="mb-10 text-center max-w-2xl mx-auto">
+      <section className="py-20 sm:py-28 border-b border-border/40 bg-secondary/10">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+          <div className="mb-12 text-center max-w-3xl mx-auto">
             <span className="text-xs font-mono uppercase tracking-widest text-primary font-bold block mb-2">
               Active Regional Presence
             </span>
-            <h2 className="text-2xl sm:text-4xl font-heading font-black tracking-tight mb-3">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-black tracking-tight mb-4">
               Deploying Across Diagnostic Hubs in Assam
             </h2>
-            <p className="text-xs sm:text-sm text-muted-foreground font-light">
+            <p className="text-sm sm:text-base text-muted-foreground font-light leading-relaxed">
               We provide rapid on-site setup, local technician training, barcode printer configuration, and analyzer interfacing.
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center text-xs font-mono">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center text-xs sm:text-sm font-mono">
             {[
               "Guwahati (Dispur & Ulubari)",
               "Zoo Road & Chandmari",
@@ -474,8 +474,8 @@ export default function PathologyLabSoftwareAssamPage() {
               "Nagaon & Middle Assam",
               "Tinsukia Commercial Zone"
             ].map((loc, idx) => (
-              <div key={idx} className="p-3 rounded-lg border border-border/60 bg-card/60 flex items-center justify-center gap-1.5 text-foreground font-medium">
-                <MapPin className="w-3.5 h-3.5 text-primary shrink-0" />
+              <div key={idx} className="p-4 rounded-xl border border-border/60 bg-card/60 flex items-center justify-center gap-2 text-foreground font-medium">
+                <MapPin className="w-4 h-4 text-primary shrink-0" />
                 <span>{loc}</span>
               </div>
             ))}
@@ -484,13 +484,13 @@ export default function PathologyLabSoftwareAssamPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 sm:py-24 border-b border-border/40">
-        <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
-          <div className="mb-12">
+      <section className="py-20 sm:py-28 border-b border-border/40">
+        <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-14">
             <span className="text-xs font-mono uppercase tracking-widest text-primary font-bold block mb-2">
               Laboratory Queries
             </span>
-            <h2 className="text-2xl sm:text-4xl font-heading font-black tracking-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-black tracking-tight">
               Frequently Asked Questions (LIS &amp; Pathology)
             </h2>
           </div>
@@ -499,13 +499,13 @@ export default function PathologyLabSoftwareAssamPage() {
             {faqs.map((faq, idx) => (
               <div 
                 key={idx}
-                className="p-6 rounded-2xl border border-border/70 bg-card/40 hover:border-border transition-colors"
+                className="p-7 sm:p-8 rounded-2xl border border-border/70 bg-card/40 hover:border-border transition-colors"
               >
-                <h3 className="text-base font-heading font-bold text-foreground mb-2 flex items-center gap-2">
-                  <span className="text-primary font-mono text-sm">Q{idx + 1}.</span>
+                <h3 className="text-lg font-heading font-bold text-foreground mb-3 flex items-center gap-2.5">
+                  <span className="text-primary font-mono text-sm sm:text-base">Q{idx + 1}.</span>
                   {faq.q}
                 </h3>
-                <p className="text-xs sm:text-sm text-muted-foreground font-light leading-relaxed pl-6">
+                <p className="text-sm sm:text-base text-muted-foreground font-light leading-relaxed pl-7">
                   {faq.a}
                 </p>
               </div>
@@ -517,25 +517,25 @@ export default function PathologyLabSoftwareAssamPage() {
       {/* Final Conversion CTA */}
       <section className="py-20 sm:py-28 relative overflow-hidden">
         <div className="absolute inset-0 bg-primary/5 pointer-events-none" />
-        <div className="container mx-auto px-4 sm:px-6 relative z-10 max-w-4xl text-center">
-          <span className="inline-block px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-mono uppercase tracking-wider mb-4">
+        <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 relative z-10 text-center">
+          <span className="inline-block px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-mono uppercase tracking-wider mb-4 font-semibold">
             Zero Disruption Migration
           </span>
-          <h2 className="text-3xl sm:text-5xl font-heading font-black tracking-tight mb-4">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-heading font-black tracking-tight mb-5">
             Transform Your Pathology Center Into An Automated Cloud Lab.
           </h2>
-          <p className="text-sm sm:text-base text-muted-foreground font-light max-w-2xl mx-auto mb-8">
+          <p className="text-base sm:text-lg text-muted-foreground font-light max-w-2xl mx-auto mb-10 leading-relaxed">
             Experience sub-2s WhatsApp PDF delivery and seamless analyzer sync. Book a hands-on demo with our Assam laboratory engineers today.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-mono text-xs uppercase tracking-wider h-12 px-8 w-full sm:w-auto" asChild>
+            <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-mono text-xs uppercase tracking-wider h-13 px-8 w-full sm:w-auto rounded-full shadow-lg shadow-primary/20 hover:-translate-y-0.5 transition-all" asChild>
               <Link href="/contact">
                 <span>Request Custom Lab Quote</span>
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Link>
             </Button>
-            <Button size="lg" variant="outline" className="font-mono text-xs uppercase tracking-wider h-12 px-8 w-full sm:w-auto border-border/80" asChild>
+            <Button size="lg" variant="outline" className="font-mono text-xs uppercase tracking-wider h-13 px-8 w-full sm:w-auto rounded-full border-border/80" asChild>
               <a href="tel:+918638875149">
                 <Phone className="w-4 h-4 mr-2 text-primary" />
                 <span>Direct Hotline: +91 86388 75149</span>
@@ -543,15 +543,15 @@ export default function PathologyLabSoftwareAssamPage() {
             </Button>
           </div>
           
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-6 text-xs font-mono text-muted-foreground">
-            <span className="flex items-center gap-1.5">
-              <Check className="w-3.5 h-3.5 text-emerald-500" /> RHD Softwaresolutions LLP (ACN-1931)
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-6 text-xs sm:text-sm font-mono text-muted-foreground">
+            <span className="flex items-center gap-2">
+              <Check className="w-4 h-4 text-emerald-500" /> RHD Softwaresolutions LLP (ACN-1931)
             </span>
-            <span className="flex items-center gap-1.5">
-              <Check className="w-3.5 h-3.5 text-emerald-500" /> DPIIT Recognized Startup
+            <span className="flex items-center gap-2">
+              <Check className="w-4 h-4 text-emerald-500" /> DPIIT Recognized Startup
             </span>
-            <span className="flex items-center gap-1.5">
-              <Check className="w-3.5 h-3.5 text-emerald-500" /> &lt; 2-Hour Response SLA
+            <span className="flex items-center gap-2">
+              <Check className="w-4 h-4 text-emerald-500" /> &lt; 2-Hour Response SLA
             </span>
           </div>
         </div>

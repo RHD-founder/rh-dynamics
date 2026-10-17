@@ -54,6 +54,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.95,
     },
+    // Global & Offshore Engineering
+    {
+      url: `${baseUrl}/offshore-software-development`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.98,
+    },
     // Core Product & Service Pages
     {
       url: `${baseUrl}/services`,

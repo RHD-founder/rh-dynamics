@@ -151,14 +151,14 @@ export function HsmsClientPage() {
       <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-primary/5 rounded-full blur-[140px] pointer-events-none" />
 
-      <div className="container px-4 mx-auto relative z-10 max-w-6xl">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 relative z-10">
 
         {/* Hero Section */}
         <div className="max-w-4xl mb-16">
           
           {/* App Store / Version Pill */}
-          <div className="inline-flex flex-wrap items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-medium tracking-wider uppercase border border-border bg-secondary/40 text-muted-foreground mb-8">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+          <div className="inline-flex flex-wrap items-center gap-2.5 px-4 py-2 rounded-full text-xs sm:text-sm font-mono font-semibold tracking-wider uppercase border border-border bg-secondary/50 text-foreground/80 mb-8 shadow-sm">
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
             <span className="text-foreground font-bold">RH CORE™ v1.0 Live</span>
             <span className="text-border hidden sm:inline">•</span>
             <span className="hidden sm:inline">Healthcare Operating System</span>
@@ -166,12 +166,12 @@ export function HsmsClientPage() {
             <span className="text-primary font-bold">Continuous Cloud Updates</span>
           </div>
 
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black font-heading tracking-tight mb-8 leading-[1.08]">
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black font-heading tracking-tight mb-8 leading-[1.06] text-foreground">
             RH CORE™ <br className="hidden sm:block" />
             <span className="text-gradient">Next-Gen Hospital &amp; LIS</span>
           </h1>
 
-          <p className="text-xl text-muted-foreground max-w-3xl font-light leading-relaxed mb-10">
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl font-normal leading-relaxed mb-10">
             While conventional hospital and pathology software in the market remains trapped in outdated 2010 desktop binaries, <strong>RH CORE</strong> is engineered as an evergreen, continuously-updated clinical platform. Unifying <strong>RH CORE HSMS</strong> (Hospital Management) and <strong>RH CORE LIS</strong> (Laboratory Automation) with native ABDM M1–M3, automated WhatsApp reports, and a committed &lt; 2-hour SLA.
           </p>
 
@@ -205,15 +205,15 @@ export function HsmsClientPage() {
             </div>
             <div className="flex items-center gap-3 text-xs font-mono">
               <div className="px-3 py-1.5 rounded-xl bg-card border border-border text-center">
-                <span className="text-muted-foreground block text-[10px]">CURRENT VERSION</span>
+                <span className="text-muted-foreground block text-xs">CURRENT VERSION</span>
                 <strong className="text-foreground text-sm">v1.0.4</strong>
               </div>
               <div className="px-3 py-1.5 rounded-xl bg-card border border-border text-center">
-                <span className="text-muted-foreground block text-[10px]">DEPLOYMENT</span>
+                <span className="text-muted-foreground block text-xs">DEPLOYMENT</span>
                 <strong className="text-foreground text-sm">Cloud SaaS / On-Prem</strong>
               </div>
               <div className="px-3 py-1.5 rounded-xl bg-card border border-border text-center">
-                <span className="text-muted-foreground block text-[10px]">SUPPORT SLA</span>
+                <span className="text-muted-foreground block text-xs">SUPPORT SLA</span>
                 <strong className="text-foreground text-sm">&lt; 2 Hours</strong>
               </div>
             </div>
@@ -308,7 +308,7 @@ export function HsmsClientPage() {
                   >
                     <div>
                       <div className="flex items-center justify-between mb-4">
-                        <span className="text-[10px] font-mono tracking-wider uppercase text-muted-foreground">
+                        <span className="text-xs font-mono tracking-wider uppercase text-muted-foreground">
                           {item.tag}
                         </span>
                         <div className="p-2 rounded-xl bg-secondary text-primary group-hover:scale-105 transition-transform">
@@ -401,7 +401,7 @@ export function HsmsClientPage() {
               >
                 <Building2 className="w-3.5 h-3.5 text-primary" />
                 <span>{item.name}</span>
-                <span className="text-[10px] text-muted-foreground font-mono">({item.spec})</span>
+                <span className="text-xs text-muted-foreground font-mono">({item.spec})</span>
               </div>
             ))}
           </div>

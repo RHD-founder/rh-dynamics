@@ -110,7 +110,7 @@ export function GlitchModal({
             </div>
 
             {errorDigest && (
-              <div className="text-[10px] text-muted-foreground flex items-center gap-1.5">
+              <div className="text-xs text-muted-foreground flex items-center gap-1.5">
                 <span>Digest Code:</span>
                 <code className="px-1.5 py-0.5 rounded bg-background border border-border/60">
                   {errorDigest}
@@ -167,13 +167,13 @@ export function GlitchModal({
             <div className="mb-5">
               <button
                 onClick={() => setShowTechnicalDetails(!showTechnicalDetails)}
-                className="text-[11px] font-mono text-muted-foreground hover:text-foreground flex items-center gap-1 transition-colors"
+                className="text-xs font-mono text-muted-foreground hover:text-foreground flex items-center gap-1 transition-colors"
               >
                 <Terminal className="w-3.5 h-3.5 text-primary" />
                 {showTechnicalDetails ? "Hide technical stack" : "View technical stack"}
               </button>
               {showTechnicalDetails && (
-                <pre className="mt-2 p-3 bg-secondary/80 border border-border text-[10px] font-mono text-muted-foreground rounded-lg overflow-x-auto max-h-36 whitespace-pre-wrap">
+                <pre className="mt-2 p-3 bg-secondary/80 border border-border text-xs font-mono text-muted-foreground rounded-lg overflow-x-auto max-h-36 whitespace-pre-wrap">
                   {errorStack}
                 </pre>
               )}

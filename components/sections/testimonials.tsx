@@ -33,7 +33,7 @@ export function Testimonials() {
       {/* Background Grid Pattern */}
       <div className="absolute inset-0 bg-grid-pattern opacity-15 pointer-events-none" />
 
-      <div className="container px-4 mx-auto relative z-10 max-w-6xl">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 relative z-10">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
@@ -42,9 +42,9 @@ export function Testimonials() {
               initial={{ opacity: 0, y: 15 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium tracking-wider uppercase border border-border bg-secondary/40 text-muted-foreground mb-4"
+              className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-xs sm:text-sm font-mono font-semibold tracking-wider uppercase border border-border bg-secondary/50 text-foreground/80 mb-4 shadow-sm"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+              <span className="w-2 h-2 rounded-full bg-primary" />
               Verified Client Outcomes // Regional &amp; Global
             </motion.div>
 
@@ -52,7 +52,7 @@ export function Testimonials() {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-3xl sm:text-5xl font-black font-heading text-foreground tracking-tight"
+              className="text-3xl sm:text-5xl lg:text-6xl font-black font-heading text-foreground tracking-tight"
             >
               Trusted by Regional <br />
               <span className="text-gradient">Industry Leaders</span>
@@ -66,10 +66,10 @@ export function Testimonials() {
             className="flex items-center"
           >
             <Link href="/review">
-              <Button size="sm" className="rounded-full text-xs font-mono uppercase tracking-wider bg-primary hover:bg-primary/90 text-primary-foreground shadow-sm px-4">
-                <MessageSquare className="w-3.5 h-3.5 mr-1.5" />
+              <Button size="sm" className="rounded-full text-xs sm:text-sm font-mono uppercase tracking-wider bg-primary hover:bg-primary/90 text-primary-foreground shadow-sm px-5 py-2 font-semibold">
+                <MessageSquare className="w-4 h-4 mr-2" />
                 Submit Review
-                <ArrowRight className="ml-1.5 h-3 w-3" />
+                <ArrowRight className="ml-2 h-3.5 w-3.5" />
               </Button>
             </Link>
           </motion.div>
@@ -86,7 +86,7 @@ export function Testimonials() {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.45, delay: index * 0.1 }}
-              className="rounded-2xl glass-card dark:glass-card-dark border border-border/60 hover:border-primary/50 transition-all duration-300 p-6 flex flex-col justify-between"
+              className="rounded-2xl glass-card dark:glass-card-dark border border-border/70 hover:border-primary/50 transition-all duration-300 p-7 sm:p-8 flex flex-col justify-between shadow-sm hover:shadow-xl"
             >
               <div>
                 {/* Rating Stars & Source Badge */}
@@ -111,7 +111,7 @@ export function Testimonials() {
 
                   {testimonial.metric && (
                     <span 
-                      className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-secondary text-muted-foreground border border-border/50 truncate max-w-[120px] inline-block shrink-0 text-right font-medium"
+                      className="text-xs font-mono px-2.5 py-1 rounded-full bg-secondary text-foreground/80 border border-border/60 truncate max-w-[140px] inline-block shrink-0 text-right font-medium"
                       title={testimonial.metric}
                     >
                       {testimonial.metric}
@@ -120,21 +120,21 @@ export function Testimonials() {
                 </div>
 
                 {/* Quote Text */}
-                <p className="text-xs sm:text-sm text-foreground/90 font-light leading-relaxed mb-6 italic">
+                <p className="text-sm sm:text-base text-foreground/90 font-normal leading-relaxed mb-6 italic">
                   &ldquo;{testimonial.quote}&rdquo;
                 </p>
               </div>
 
               {/* Author Info */}
               <div className="pt-4 border-t border-border/40 flex items-center gap-3">
-                <div className="h-9 w-9 rounded-full bg-secondary text-foreground flex items-center justify-center font-mono font-bold text-xs border border-border/60">
+                <div className="h-10 w-10 rounded-full bg-secondary text-foreground flex items-center justify-center font-mono font-bold text-sm border border-border/60 shrink-0">
                   {testimonial.author.charAt(0)}
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold font-heading text-foreground leading-tight">
+                  <h4 className="text-sm font-bold font-heading text-foreground leading-tight">
                     {testimonial.author}
                   </h4>
-                  <p className="text-[11px] text-muted-foreground font-mono mt-0.5">
+                  <p className="text-xs text-muted-foreground font-mono mt-0.5">
                     {testimonial.position}, {testimonial.company}
                   </p>
                 </div>

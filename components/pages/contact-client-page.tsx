@@ -10,7 +10,8 @@ import {
   Mail, MapPin, Phone, Send, Clock, ShieldCheck, 
   CheckCircle2, ArrowRight, ArrowUpRight, 
   Building2, Server, Terminal, Lock, Check,
-  MessageSquare, Sparkles, HelpCircle, ChevronRight
+  MessageSquare, Sparkles, HelpCircle, ChevronRight,
+  Video, Globe
 } from "lucide-react";
 import {
   Dialog,
@@ -193,21 +194,21 @@ export function ContactClientPage() {
       {/* Background Grid Pattern */}
       <div className="absolute inset-0 bg-grid-pattern opacity-15 pointer-events-none" />
 
-      <div className="container px-4 mx-auto relative z-10 max-w-6xl">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 relative z-10">
         
         {/* Header Block */}
         <div className="max-w-4xl mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium tracking-wider uppercase border border-border/80 bg-secondary/40 text-muted-foreground mb-6">
-            <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-xs sm:text-sm font-mono font-semibold tracking-wider uppercase border border-border/80 bg-secondary/50 text-foreground/80 mb-6 shadow-sm">
+            <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
             Gateway // Direct Technical Intake &amp; Systems Discovery
           </div>
 
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black font-heading tracking-tight mb-6 leading-[1.08] text-foreground">
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black font-heading tracking-tight mb-6 leading-[1.06] text-foreground">
             Direct Technical Discovery. <br className="hidden sm:block" />
             <span className="text-gradient">Zero Agency Middlemen.</span>
           </h1>
 
-          <p className="text-base sm:text-lg text-muted-foreground max-w-3xl font-light leading-relaxed">
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl font-normal leading-relaxed">
             Consult directly with our systems engineers and software architects in Guwahati, Assam. We review your facility workflows, database schemas, local statutory requirements, and cost roadmaps within 2 hours.
           </p>
         </div>
@@ -242,7 +243,7 @@ export function ContactClientPage() {
                 <span className="text-xs font-mono uppercase tracking-widest text-primary font-bold">
                   Direct Engineering Lines
                 </span>
-                <span className="text-[10px] font-mono text-muted-foreground uppercase">
+                <span className="text-xs font-mono text-muted-foreground uppercase">
                   IST 08:00 – 21:00
                 </span>
               </div>
@@ -313,6 +314,28 @@ export function ContactClientPage() {
                   </div>
                   <ArrowUpRight className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
                 </a>
+
+                {/* Google Meet Video Discovery for US / EU / Global Clients */}
+                <a 
+                  href="mailto:founder@rhdynamics.in?subject=Request%20Google%20Meet%20Discovery%20Session%20-%20RH%20Dynamics&body=Hi%20RH%20Dynamics%20Team%2C%0A%0AI%20would%20like%20to%20schedule%20a%2015-minute%20Google%20Meet%20video%20discovery%20session%20for%20our%20software%20project.%0A%0ACompany%20%2F%20Organization%3A%0ACountry%20%2F%20Timezone%3A%0APreferred%20Date%20%26%20Time%3A%0AProject%20Overview%3A%0A%0AThank%20you!"
+                  className="p-3.5 rounded-xl bg-gradient-to-r from-blue-500/10 via-primary/10 to-blue-500/5 hover:from-blue-500/15 hover:to-primary/15 border border-blue-500/30 flex items-center justify-between group transition-all block shadow-sm"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 rounded-lg bg-blue-500 text-white shrink-0 shadow-md shadow-blue-500/20">
+                      <Video className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-1.5">
+                        <span className="text-[11px] font-mono text-blue-600 dark:text-blue-400 font-bold uppercase tracking-wider block">
+                          US, EU &amp; Global Clients
+                        </span>
+                        <span className="text-[10px] font-mono bg-blue-500/20 text-blue-600 dark:text-blue-300 px-1.5 py-0.2 rounded font-bold">15-MIN CALL</span>
+                      </div>
+                      <strong className="text-sm font-mono text-foreground group-hover:text-primary transition-colors">Book Google Meet Video Session</strong>
+                    </div>
+                  </div>
+                  <ArrowUpRight className="w-4 h-4 text-blue-600 dark:text-blue-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform shrink-0" />
+                </a>
               </div>
             </div>
 
@@ -322,7 +345,7 @@ export function ContactClientPage() {
                 <span className="text-xs font-mono uppercase tracking-widest text-primary font-bold">
                   On-The-Ground Assam Hubs
                 </span>
-                <span className="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 flex items-center gap-1">
+                <span className="text-xs font-mono text-emerald-600 dark:text-emerald-400 flex items-center gap-1">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                   Active
                 </span>
@@ -336,12 +359,12 @@ export function ContactClientPage() {
                       <MapPin className="w-3.5 h-3.5 text-primary shrink-0" />
                       <span>Upper Assam Corporate HQ</span>
                     </div>
-                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-primary/10 text-primary font-bold">MAIN HQ</span>
+                    <span className="text-xs font-mono px-2 py-0.5 rounded bg-primary/10 text-primary font-bold">MAIN HQ</span>
                   </div>
                   <p className="text-muted-foreground font-light leading-relaxed">
                     Near AGV Bank, Goranga, Golaghat, Assam 785603
                   </p>
-                  <span className="text-[10px] font-mono text-primary mt-2 block font-medium">
+                  <span className="text-xs font-mono text-primary mt-2 block font-medium">
                     Corporate Headquarters, Regional Operations &amp; Campus Lab Base
                   </span>
                 </div>
@@ -353,12 +376,12 @@ export function ContactClientPage() {
                       <MapPin className="w-3.5 h-3.5 text-primary shrink-0" />
                       <span>Guwahati Engineering Center</span>
                     </div>
-                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-secondary text-muted-foreground font-semibold">Engineering Lab</span>
+                    <span className="text-xs font-mono px-2 py-0.5 rounded bg-secondary text-muted-foreground font-semibold">Engineering Lab</span>
                   </div>
                   <p className="text-muted-foreground font-light leading-relaxed">
                     Near Downtown Hospital, Urban Villa, Sarumotoria, Guwahati, Assam 781036
                   </p>
-                  <span className="text-[10px] font-mono text-primary mt-2 block font-medium">
+                  <span className="text-xs font-mono text-primary mt-2 block font-medium">
                     Same-Day Emergency On-Site SLA in Kamrup Metro
                   </span>
                 </div>
@@ -421,7 +444,7 @@ export function ContactClientPage() {
                     Direct transmission to senior engineering leadership in Guwahati
                   </span>
                 </div>
-                <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-mono text-[10px] font-semibold tracking-wider border border-emerald-500/20 w-fit">
+                <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-mono text-xs font-semibold tracking-wider border border-emerald-500/20 w-fit">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                   Gateway Active // Brevo TLS Encrypted
                 </div>
@@ -571,7 +594,7 @@ export function ContactClientPage() {
                         <button
                           type="button"
                           onClick={() => form.setValue("service", "")}
-                          className="text-[10px] font-mono text-muted-foreground hover:text-foreground underline uppercase tracking-wider"
+                          className="text-xs font-mono text-muted-foreground hover:text-foreground underline uppercase tracking-wider"
                         >
                           Clear Selection
                         </button>
@@ -651,7 +674,7 @@ export function ContactClientPage() {
                             <FormLabel className="text-xs font-mono uppercase tracking-wider text-primary font-bold">
                               04 // Operational Challenge &amp; Technical Scope *
                             </FormLabel>
-                            <span className="text-[10px] font-mono text-muted-foreground">
+                            <span className="text-xs font-mono text-muted-foreground">
                               {field.value?.length || 0} / 1500 chars
                             </span>
                           </div>

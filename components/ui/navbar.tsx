@@ -57,6 +57,13 @@ const servicesDropdown = [
     href: "/web-development-guwahati",
     icon: Globe,
     badge: "Web Systems"
+  },
+  {
+    title: "Offshore Software Engineering",
+    description: "Dedicated full-stack pods with US/EU timezone overlap ($25–$45/hr).",
+    href: "/offshore-software-development",
+    icon: Globe,
+    badge: "Global"
   }
 ];
 
@@ -116,7 +123,8 @@ export function Navbar() {
     pathname === "/mobile-app-development-guwahati" ||
     pathname === "/hospital-management-software-assam" ||
     pathname === "/web-development-guwahati" ||
-    pathname === "/software-company-guwahati";
+    pathname === "/software-company-guwahati" ||
+    pathname === "/offshore-software-development";
 
   return (
     <>
@@ -125,10 +133,10 @@ export function Navbar() {
         scrolled ? "py-2 sm:py-3" : "py-4 sm:py-5"
       )}>
         <nav className={cn(
-          "mx-auto max-w-6xl px-4 sm:px-6 flex items-center justify-between transition-all duration-300 rounded-full",
+          "mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center justify-between transition-all duration-300 rounded-full",
           scrolled 
-            ? "bg-background/90 dark:bg-zinc-950/90 backdrop-blur-md border border-border/60 shadow-lg py-2.5 mx-3 sm:mx-auto" 
-            : "bg-background/40 backdrop-blur-sm border border-border/30 py-3 mx-3 sm:mx-auto"
+            ? "bg-background/90 dark:bg-zinc-950/90 backdrop-blur-md border border-border/60 shadow-lg py-2.5 mx-3 sm:mx-6 lg:mx-auto" 
+            : "bg-background/40 backdrop-blur-sm border border-border/30 py-3 mx-3 sm:mx-6 lg:mx-auto"
         )}>
           {/* Logo */}
           <Link href="/" className="flex items-center group shrink-0">
@@ -146,14 +154,14 @@ export function Navbar() {
               <span className="font-heading font-black text-sm uppercase tracking-[0.16em] text-foreground leading-none">
                 RH Dynamics
               </span>
-              <span className="text-[9px] font-mono tracking-widest text-muted-foreground uppercase mt-0.5 hidden sm:block">
+              <span className="text-[11px] font-mono tracking-wider text-muted-foreground uppercase mt-0.5 hidden sm:block">
                 Software &amp; Clinical Systems
               </span>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-1 justify-center relative">
+          <div className="hidden md:flex items-center gap-1.5 justify-center relative">
             
             {/* Services Dropdown Trigger */}
             <div 
@@ -163,10 +171,10 @@ export function Navbar() {
             >
               <button
                 className={cn(
-                  "px-3.5 py-1.5 rounded-full text-xs font-mono uppercase tracking-wider transition-all duration-200 flex items-center gap-1.5",
+                  "px-4 py-2 rounded-full text-xs font-mono uppercase tracking-wider transition-all duration-200 flex items-center gap-1.5",
                   isServicesActive || servicesHovered
                     ? "text-foreground bg-secondary font-bold" 
-                    : "text-muted-foreground hover:text-foreground hover:bg-secondary/60 font-medium"
+                    : "text-muted-foreground hover:text-foreground hover:bg-secondary/60 font-semibold"
                 )}
                 aria-expanded={servicesHovered}
               >
@@ -185,35 +193,35 @@ export function Navbar() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 6, scale: 0.98 }}
                     transition={{ duration: 0.18 }}
-                    className="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[580px] pointer-events-auto"
+                    className="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[640px] pointer-events-auto"
                   >
-                    <div className="rounded-2xl glass-card dark:glass-card-dark border border-border/80 shadow-2xl p-3 bg-background/95 backdrop-blur-xl">
+                    <div className="rounded-2xl glass-card dark:glass-card-dark border border-border/80 shadow-2xl p-4 bg-background/95 backdrop-blur-xl">
                       <div className="px-3 py-2 border-b border-border/50 mb-2 flex items-center justify-between">
-                        <span className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground">
+                        <span className="text-xs font-mono uppercase tracking-wider text-muted-foreground font-semibold">
                           Engineered Software &amp; Platforms
                         </span>
-                        <span className="text-[10px] font-mono text-primary font-bold">
+                        <span className="text-xs font-mono text-primary font-bold">
                           DPIIT Recognized (ACN-1931)
                         </span>
                       </div>
 
-                      <div className="grid grid-cols-2 gap-1.5">
+                      <div className="grid grid-cols-2 gap-2">
                         {servicesDropdown.map((item) => (
                           <Link
                             key={item.title}
                             href={item.href}
-                            className="p-2.5 rounded-xl hover:bg-secondary/70 transition-colors flex items-start gap-2.5 group/item border border-transparent hover:border-border/40"
+                            className="p-3 rounded-xl hover:bg-secondary/70 transition-colors flex items-start gap-3 group/item border border-transparent hover:border-border/40"
                           >
-                            <div className="p-1.5 rounded-lg bg-secondary text-primary group-hover/item:bg-primary group-hover/item:text-primary-foreground transition-colors shrink-0 mt-0.5">
-                              <item.icon className="w-3.5 h-3.5" />
+                            <div className="p-2 rounded-lg bg-secondary text-primary group-hover/item:bg-primary group-hover/item:text-primary-foreground transition-colors shrink-0 mt-0.5">
+                              <item.icon className="w-4 h-4" />
                             </div>
                             <div className="flex-1 min-w-0">
                               <div className="flex items-center justify-between gap-1 mb-0.5">
-                                <span className="text-xs font-bold font-heading text-foreground group-hover/item:text-primary transition-colors truncate">
+                                <span className="text-sm font-bold font-heading text-foreground group-hover/item:text-primary transition-colors truncate">
                                   {item.title}
                                 </span>
                               </div>
-                              <p className="text-[10px] text-muted-foreground line-clamp-2 font-light leading-tight">
+                              <p className="text-xs text-muted-foreground line-clamp-2 font-normal leading-relaxed mt-0.5">
                                 {item.description}
                               </p>
                             </div>
@@ -221,17 +229,17 @@ export function Navbar() {
                         ))}
                       </div>
 
-                      <div className="mt-2 pt-2 border-t border-border/50 px-2 flex items-center justify-between">
+                      <div className="mt-3 pt-2.5 border-t border-border/50 px-2 flex items-center justify-between">
                         <Link 
                           href="/services" 
-                          className="text-[11px] font-mono uppercase tracking-wider text-primary hover:underline flex items-center gap-1 font-bold"
+                          className="text-xs font-mono uppercase tracking-wider text-primary hover:underline flex items-center gap-1.5 font-bold"
                         >
                           <span>All Services &amp; Scope</span>
-                          <ArrowRight className="w-3 h-3" />
+                          <ArrowRight className="w-3.5 h-3.5" />
                         </Link>
                         <Link 
                           href="/software-company-guwahati"
-                          className="text-[10px] font-mono text-muted-foreground hover:text-foreground transition-colors"
+                          className="text-xs font-mono text-muted-foreground hover:text-foreground transition-colors"
                         >
                           Guwahati Engineering Hub &rarr;
                         </Link>
@@ -373,10 +381,10 @@ export function Navbar() {
                         >
                           <sub.icon className="w-4 h-4 text-primary shrink-0" />
                           <div>
-                            <span className="text-xs font-bold text-foreground block font-heading">
+                            <span className="text-sm font-bold text-foreground block font-heading">
                               {sub.title}
                             </span>
-                            <span className="text-[10px] text-muted-foreground font-light line-clamp-1">
+                            <span className="text-xs text-muted-foreground font-normal line-clamp-1 mt-0.5">
                               {sub.description}
                             </span>
                           </div>

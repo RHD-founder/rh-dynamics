@@ -125,20 +125,20 @@ export function CustomSoftwareClientPage() {
       <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-primary/5 rounded-full blur-[140px] pointer-events-none" />
 
-      <div className="container px-4 mx-auto relative z-10 max-w-6xl">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 relative z-10">
 
         {/* Hero Section */}
         <div className="max-w-4xl mb-24">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium tracking-wider uppercase border border-border bg-secondary/30 text-muted-foreground mb-8">
-            <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-xs sm:text-sm font-mono font-semibold tracking-wider uppercase border border-border bg-secondary/50 text-foreground/80 mb-8 shadow-sm">
+            <span className="w-2 h-2 rounded-full bg-primary" />
             Custom Enterprise Engineering &amp; Cloud ERP // Guwahati &amp; Golaghat
           </div>
 
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black font-heading tracking-tight mb-8 leading-[1.08]">
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black font-heading tracking-tight mb-8 leading-[1.06] text-foreground">
             Software Built Around Your <span className="text-gradient">Exact Workflow</span>.
           </h1>
 
-          <p className="text-xl text-muted-foreground max-w-2xl font-light leading-relaxed mb-10">
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl font-normal leading-relaxed mb-10">
             We architect tailor-made ERP systems, automated supply chain platforms, and custom business portals. Flexible delivery with full codebase sovereignty or turnkey cloud hosting, without hidden per-seat licensing penalties.
           </p>
 
@@ -250,7 +250,7 @@ export function CustomSoftwareClientPage() {
                   >
                     <div>
                       <div className="flex items-center justify-between mb-4">
-                        <span className="text-[10px] font-mono tracking-wider uppercase text-muted-foreground">
+                        <span className="text-xs font-mono tracking-wider uppercase text-muted-foreground">
                           {item.tag}
                         </span>
                         <div className="p-2 rounded-xl bg-secondary text-primary group-hover:scale-105 transition-transform">
@@ -296,7 +296,7 @@ export function CustomSoftwareClientPage() {
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
             {techStackBadges.map((tech, idx) => (
               <div key={idx} className="p-4 rounded-xl bg-card border border-border/60 flex flex-col justify-between">
-                <span className="text-[10px] font-mono text-muted-foreground uppercase">{tech.role}</span>
+                <span className="text-xs font-mono text-muted-foreground uppercase">{tech.role}</span>
                 <strong className="text-sm font-bold font-heading text-foreground mt-2">{tech.name}</strong>
               </div>
             ))}

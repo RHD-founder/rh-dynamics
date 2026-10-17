@@ -11,17 +11,19 @@ export const metadata: Metadata = {
 
 export default function EducationPage() {
     return (
-        <div className="container mx-auto px-4 py-12">
-            <Link href="/projects" className="flex items-center text-primary hover:text-primary/80 mb-8">
-                <ArrowLeft className="mr-2 h-4 w-4" />
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 py-12 sm:py-16 lg:py-20">
+            <Link href="/projects" className="inline-flex items-center text-xs sm:text-sm font-mono text-muted-foreground hover:text-primary transition-colors mb-8 group">
+                <ArrowLeft className="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-1" />
                 Back to Projects
             </Link>
 
-            <h1 className="text-4xl font-bold mb-6">Educational Platform</h1>
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-heading font-black tracking-tight mb-8 text-foreground">
+                Educational Platform
+            </h1>
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-12">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 mb-12">
                 <div className="lg:col-span-2">
-                    <div className="rounded-lg overflow-hidden border mb-6">
+                    <div className="rounded-2xl overflow-hidden border border-border/80 shadow-xl mb-8 bg-card">
                         <Image
                             src="https://btpvofmkuwtbutwggbli.supabase.co/storage/v1/object/public/%20SE-5286761//rcw.jpeg"
                             alt="Educational Platform"
@@ -31,16 +33,16 @@ export default function EducationPage() {
                         />
                     </div>
 
-                    <h2 className="text-2xl font-bold mb-4">Project Overview</h2>
-                    <p className="text-muted-foreground mb-6">
+                    <h2 className="text-2xl sm:text-3xl font-heading font-bold mb-4 text-foreground">Project Overview</h2>
+                    <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-8">
                         This educational platform was developed to provide a comprehensive online learning experience
                         for students across Northeast India, particularly in remote areas with limited access to quality education.
                         The platform includes video lessons, interactive quizzes, progress tracking, and live virtual classroom sessions.
                         It has been designed to work efficiently even with limited internet bandwidth.
                     </p>
 
-                    <h2 className="text-2xl font-bold mb-4">Key Features</h2>
-                    <ul className="list-disc pl-6 mb-6 space-y-2 text-muted-foreground">
+                    <h2 className="text-2xl sm:text-3xl font-heading font-bold mb-4 text-foreground">Key Features</h2>
+                    <ul className="list-disc pl-6 mb-8 space-y-2.5 text-base text-muted-foreground leading-relaxed">
                         <li>High-quality video streaming with adaptive quality</li>
                         <li>Interactive quizzes and assessments</li>
                         <li>Progress tracking and performance analytics</li>
@@ -50,8 +52,8 @@ export default function EducationPage() {
                         <li>Admin dashboard for educators to manage content</li>
                     </ul>
 
-                    <h2 className="text-2xl font-bold mb-4">Technical Details</h2>
-                    <p className="text-muted-foreground mb-6">
+                    <h2 className="text-2xl sm:text-3xl font-heading font-bold mb-4 text-foreground">Technical Details</h2>
+                    <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-6">
                         Built using Next.js for the frontend with server-side rendering for improved performance.
                         The platform uses AWS services for video storage and streaming, ensuring reliable delivery
                         to users regardless of their location. PostgreSQL database handles user data, course content,
@@ -60,51 +62,51 @@ export default function EducationPage() {
                 </div>
 
                 <div>
-                    <div className="rounded-lg border p-6 mb-6">
-                        <h3 className="text-xl font-bold mb-4">Project Details</h3>
+                    <div className="rounded-2xl border border-border/80 bg-card/60 backdrop-blur-sm p-6 sm:p-8 mb-6 shadow-lg">
+                        <h3 className="text-xl font-heading font-bold mb-6 text-foreground">Project Details</h3>
 
-                        <div className="space-y-4">
+                        <div className="space-y-5">
                             <div>
-                                <h4 className="text-sm font-semibold mb-1">Client</h4>
-                                <p className="text-muted-foreground">Regional Educational Institute</p>
+                                <h4 className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-1">Client</h4>
+                                <p className="text-base font-medium text-foreground">Regional Educational Institute</p>
                             </div>
 
                             <div>
-                                <h4 className="text-sm font-semibold mb-1">Timeline</h4>
-                                <p className="text-muted-foreground">6 months</p>
+                                <h4 className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-1">Timeline</h4>
+                                <p className="text-base font-medium text-foreground">6 months</p>
                             </div>
 
                             <div>
-                                <h4 className="text-sm font-semibold mb-1">Technologies Used</h4>
-                                <div className="flex flex-wrap gap-2 mt-2">
-                                    <span className="text-xs px-2 py-1 bg-primary/10 text-primary rounded-full">Next.js</span>
-                                    <span className="text-xs px-2 py-1 bg-primary/10 text-primary rounded-full">AWS</span>
-                                    <span className="text-xs px-2 py-1 bg-primary/10 text-primary rounded-full">PostgreSQL</span>
-                                    <span className="text-xs px-2 py-1 bg-primary/10 text-primary rounded-full">WebRTC</span>
-                                    <span className="text-xs px-2 py-1 bg-primary/10 text-primary rounded-full">Redis</span>
+                                <h4 className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-2">Technologies Used</h4>
+                                <div className="flex flex-wrap gap-2">
+                                    <span className="text-xs font-mono px-3 py-1 bg-primary/10 border border-primary/20 text-primary rounded-full font-medium">Next.js</span>
+                                    <span className="text-xs font-mono px-3 py-1 bg-primary/10 border border-primary/20 text-primary rounded-full font-medium">AWS</span>
+                                    <span className="text-xs font-mono px-3 py-1 bg-primary/10 border border-primary/20 text-primary rounded-full font-medium">PostgreSQL</span>
+                                    <span className="text-xs font-mono px-3 py-1 bg-primary/10 border border-primary/20 text-primary rounded-full font-medium">WebRTC</span>
+                                    <span className="text-xs font-mono px-3 py-1 bg-primary/10 border border-primary/20 text-primary rounded-full font-medium">Redis</span>
                                 </div>
                             </div>
 
                             <div>
-                                <h4 className="text-sm font-semibold mb-1">Services Provided</h4>
-                                <ul className="list-disc pl-6 text-muted-foreground text-sm">
+                                <h4 className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-2">Services Provided</h4>
+                                <ul className="list-disc pl-5 text-sm text-muted-foreground space-y-1.5 leading-relaxed">
                                     <li>Web Application Development</li>
                                     <li>UI/UX Design</li>
                                     <li>Video Streaming Implementation</li>
                                     <li>Database Architecture</li>
                                     <li>Cloud Infrastructure Setup</li>
-                                    <li>Testing & Deployment</li>
+                                    <li>Testing &amp; Deployment</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
 
-                    <div className="rounded-lg border p-6">
-                        <h3 className="text-xl font-bold mb-4">Want a Similar Solution?</h3>
-                        <p className="text-muted-foreground mb-6">
+                    <div className="rounded-2xl border border-border/80 bg-card/60 backdrop-blur-sm p-6 sm:p-8 shadow-lg">
+                        <h3 className="text-xl font-heading font-bold mb-3 text-foreground">Want a Similar Solution?</h3>
+                        <p className="text-sm text-muted-foreground leading-relaxed mb-6">
                             If you're an educational institution looking for a custom online learning platform, contact us today for a consultation.
                         </p>
-                        <Button asChild className="w-full">
+                        <Button asChild className="w-full h-11 text-sm font-semibold rounded-xl">
                             <Link href="/contact">Contact Us</Link>
                         </Button>
                     </div>

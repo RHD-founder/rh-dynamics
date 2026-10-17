@@ -174,7 +174,7 @@ export function NotFoundClient() {
                   <span className="text-xs font-mono font-bold text-foreground block leading-tight">
                     Voice Guide Active
                   </span>
-                  <span className="text-[10px] text-primary font-mono">
+                  <span className="text-xs text-primary font-mono">
                     Studio Neural AI Voice
                   </span>
                 </div>
@@ -186,7 +186,7 @@ export function NotFoundClient() {
                   <span className="text-xs font-mono text-muted-foreground block leading-tight">
                     Studio AI Voice Audio
                   </span>
-                  <span className="text-[10px] text-muted-foreground/70 font-mono">
+                  <span className="text-xs text-muted-foreground/70 font-mono">
                     Autoplay Enabled
                   </span>
                 </div>

@@ -310,21 +310,21 @@ export function ServicesClientPage() {
       <div className="absolute inset-0 bg-grid-pattern opacity-15 pointer-events-none" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-primary/5 rounded-full blur-[140px] pointer-events-none" />
 
-      <div className="container px-4 mx-auto relative z-10 max-w-6xl">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 relative z-10">
 
         {/* Hero Section */}
         <div className="max-w-4xl mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium tracking-wider uppercase border border-border bg-secondary/30 text-muted-foreground mb-8">
-            <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-xs sm:text-sm font-mono font-semibold tracking-wider uppercase border border-border bg-secondary/50 text-foreground/80 mb-8 shadow-sm">
+            <span className="w-2 h-2 rounded-full bg-primary" />
             Software Capabilities &amp; Architecture Catalogue
           </div>
 
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black font-heading tracking-tight mb-8 leading-[1.08]">
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black font-heading tracking-tight mb-8 leading-[1.06] text-foreground">
             Software Built for Scale. <br className="hidden sm:block" />
             <span className="text-gradient">Engineered Without Compromise.</span>
           </h1>
 
-          <p className="text-xl text-muted-foreground max-w-2xl font-light leading-relaxed mb-10">
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl font-normal leading-relaxed mb-10">
             From ABDM-compliant clinical software (RH-HSMS) and custom cloud ERPs to native mobile apps and high-speed web platforms. Review our capabilities, module deliverables, and response SLAs.
           </p>
 
@@ -391,7 +391,7 @@ export function ServicesClientPage() {
                 >
                   <Icon className="w-3.5 h-3.5" />
                   <span>{cat.name}</span>
-                  <span className={`text-[10px] px-1.5 py-0.2 rounded-full ${
+                  <span className={`text-xs px-1.5 py-0.2 rounded-full ${
                     activeTab === cat.id ? "bg-background text-foreground" : "bg-muted text-muted-foreground"
                   }`}>
                     0{cat.offerings.length}
@@ -438,11 +438,11 @@ export function ServicesClientPage() {
                   <div>
                     {/* Offering Header */}
                     <div className="flex items-center justify-between gap-2 mb-4">
-                      <span className="text-[10px] font-mono uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-secondary text-foreground/80 border border-border/50">
+                      <span className="text-xs font-mono uppercase tracking-wider px-3 py-1 rounded-full bg-secondary text-foreground font-semibold border border-border/60">
                         {offering.tag}
                       </span>
-                      <span className="text-[11px] font-mono text-muted-foreground flex items-center gap-1">
-                        <Clock className="w-3 h-3 text-primary" />
+                      <span className="text-xs font-mono text-muted-foreground flex items-center gap-1.5 font-medium">
+                        <Clock className="w-3.5 h-3.5 text-primary" />
                         {offering.timeframe}
                       </span>
                     </div>
@@ -459,21 +459,21 @@ export function ServicesClientPage() {
                       </span>
                     </div>
 
-                    <p className="text-xs sm:text-sm text-muted-foreground font-light leading-relaxed mb-6">
+                    <p className="text-sm text-muted-foreground font-normal leading-relaxed mb-6">
                       {offering.description}
                     </p>
 
                     {/* Ideal For */}
-                    <div className="mb-6 p-3 rounded-xl bg-secondary/30 border border-border/40 text-xs">
-                      <strong className="text-foreground font-mono uppercase text-[10px] tracking-wider block mb-0.5">
+                    <div className="mb-6 p-4 rounded-xl bg-secondary/30 border border-border/40 text-xs sm:text-sm">
+                      <strong className="text-foreground font-mono uppercase text-xs tracking-wider block mb-1">
                         Target Operational Profile:
                       </strong>
-                      <span className="text-muted-foreground font-light">{offering.ideal}</span>
+                      <span className="text-muted-foreground font-normal">{offering.ideal}</span>
                     </div>
 
                     {/* Deliverables Checklist */}
                     <div className="mb-6">
-                      <span className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground block mb-2.5">
+                      <span className="text-xs font-mono uppercase tracking-wider text-muted-foreground font-semibold block mb-3">
                         Core Architecture Deliverables
                       </span>
                       <div className="space-y-2">
@@ -528,11 +528,11 @@ export function ServicesClientPage() {
               >
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-4">
-                    <span className="text-[10px] font-mono uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-secondary text-foreground/80 border border-border/50">
+                    <span className="text-xs font-mono uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-secondary text-foreground/80 border border-border/50">
                       {plan.badge}
                     </span>
                     {plan.isPopular && (
-                      <span className="text-[10px] font-mono uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-primary/15 text-primary font-bold border border-primary/30">
+                      <span className="text-xs font-mono uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-primary/15 text-primary font-bold border border-primary/30">
                         Recommended
                       </span>
                     )}

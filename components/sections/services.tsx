@@ -61,17 +61,17 @@ export function Services() {
       {/* Background Grid Pattern */}
       <div className="absolute inset-0 bg-grid-pattern opacity-15 pointer-events-none" />
 
-      <div className="container px-4 mx-auto relative z-10 max-w-6xl" ref={ref}>
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 relative z-10" ref={ref}>
         
         {/* Section Header */}
-        <div className="max-w-3xl mb-20">
+        <div className="max-w-4xl mb-20">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium tracking-wider uppercase border border-border bg-secondary/40 text-muted-foreground mb-6"
+            className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-xs sm:text-sm font-mono font-semibold tracking-wider uppercase border border-border bg-secondary/50 text-foreground/80 mb-6 shadow-sm"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+            <span className="w-2 h-2 rounded-full bg-primary" />
             Core Capabilities // Engineering Registry
           </motion.div>
 
@@ -79,7 +79,7 @@ export function Services() {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-3xl sm:text-5xl font-black font-heading mb-4 text-foreground tracking-tight"
+            className="text-3xl sm:text-5xl lg:text-6xl font-black font-heading mb-4 text-foreground tracking-tight"
           >
             Four Disciplines. <br />
             <span className="text-gradient">Zero Outsourced Fluff.</span>
@@ -89,46 +89,46 @@ export function Services() {
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-base sm:text-lg text-muted-foreground font-light leading-relaxed"
+            className="text-base sm:text-lg lg:text-xl text-muted-foreground font-normal leading-relaxed"
           >
             From clinical hospital wards and diagnostic labs to enterprise supply chains, high-performance web systems, and mobile applications, explore our software engineering disciplines.
           </motion.p>
         </div>
 
         {/* 2x2 Bento Capability Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
           {capabilities.map((cap, idx) => (
             <motion.div
               key={cap.tag}
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.45, delay: 0.15 + idx * 0.1 }}
-              className="group relative rounded-2xl glass-card dark:glass-card-dark border border-border/60 hover:border-primary/50 transition-all duration-300 p-8 flex flex-col justify-between"
+              className="group relative rounded-2xl glass-card dark:glass-card-dark border border-border/70 hover:border-primary/50 transition-all duration-300 p-8 sm:p-10 flex flex-col justify-between shadow-sm hover:shadow-xl"
             >
               <div>
                 <div className="flex items-center justify-between mb-6">
-                  <span className="text-[11px] font-mono tracking-wider uppercase text-muted-foreground">
+                  <span className="text-xs font-mono font-bold tracking-wider uppercase text-muted-foreground">
                     {cap.tag}
                   </span>
-                  <div className="p-2.5 rounded-xl bg-secondary text-primary border border-border/50 group-hover:scale-105 transition-transform">
+                  <div className="p-3 rounded-xl bg-secondary text-primary border border-border/50 group-hover:scale-105 transition-transform">
                     <cap.icon className="w-5 h-5" />
                   </div>
                 </div>
 
-                <h3 className="text-2xl font-black font-heading text-foreground tracking-tight mb-3 group-hover:text-primary transition-colors">
+                <h3 className="text-2xl sm:text-3xl font-black font-heading text-foreground tracking-tight mb-3 group-hover:text-primary transition-colors">
                   {cap.title}
                 </h3>
 
-                <p className="text-sm text-muted-foreground font-light leading-relaxed mb-6">
+                <p className="text-base text-muted-foreground font-normal leading-relaxed mb-6">
                   {cap.description}
                 </p>
               </div>
 
               <div>
-                <div className="pt-4 border-t border-border/40 space-y-2 mb-6">
+                <div className="pt-5 border-t border-border/40 space-y-2.5 mb-6">
                   {cap.specs.map((spec, sIdx) => (
-                    <div key={sIdx} className="flex items-center gap-2 text-xs text-foreground/90 font-medium">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-primary shrink-0" />
+                    <div key={sIdx} className="flex items-center gap-2.5 text-sm text-foreground/90 font-medium">
+                      <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />
                       <span>{spec}</span>
                     </div>
                   ))}
@@ -136,10 +136,10 @@ export function Services() {
 
                 <Link 
                   href={cap.href}
-                  className="inline-flex items-center text-xs font-mono uppercase tracking-wider text-primary hover:underline font-bold group/link"
+                  className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-mono uppercase tracking-wider text-primary hover:underline font-bold group/link"
                 >
                   <span>{cap.cta}</span>
-                  <ArrowRight className="ml-1.5 h-3.5 w-3.5 group-hover/link:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-4 h-4 ml-1 transition-transform group-hover/link:translate-x-1" />
                 </Link>
               </div>
             </motion.div>

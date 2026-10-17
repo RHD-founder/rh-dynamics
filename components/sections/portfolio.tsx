@@ -77,18 +77,18 @@ export function Portfolio() {
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
       </div>
 
-      <div className="container px-4 mx-auto relative z-10 max-w-6xl" ref={ref}>
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 relative z-10" ref={ref}>
         
         {/* Section Header */}
-        <div className="max-w-3xl mb-20">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium tracking-wider uppercase border border-border bg-secondary/30 text-muted-foreground mb-6">
-            <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+        <div className="max-w-4xl mb-20">
+          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-xs sm:text-sm font-mono font-semibold tracking-wider uppercase border border-border bg-secondary/50 text-foreground/80 mb-6 shadow-sm">
+            <span className="w-2 h-2 rounded-full bg-primary" />
             Verified Case Studies // Northeast India
           </div>
-          <h2 className="text-4xl md:text-5xl font-black font-heading text-foreground tracking-tight mb-4">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black font-heading text-foreground tracking-tight mb-4">
             Engineered for <span className="text-gradient">Real-World Scale</span>.
           </h2>
-          <p className="text-lg text-muted-foreground font-light leading-relaxed">
+          <p className="text-base sm:text-lg lg:text-xl text-muted-foreground font-normal leading-relaxed">
             From hospital admissions and clinical diagnostics to high-throughput web applications and multi-branch cloud ERPs, explore how our systems power critical operations.
           </p>
         </div>
@@ -104,67 +104,67 @@ export function Portfolio() {
             >
               <div>
                 <div className="flex items-center gap-3 mb-2">
-                  <div className="p-2 rounded-lg bg-primary/10 text-primary border border-primary/20">
+                  <div className="p-2.5 rounded-xl bg-primary/10 text-primary border border-primary/20">
                     <category.icon className="w-5 h-5" />
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-black font-heading text-foreground tracking-tight">
+                  <h3 className="text-2xl sm:text-3xl font-black font-heading text-foreground tracking-tight">
                     {category.title}
                   </h3>
                 </div>
-                <p className="text-sm text-muted-foreground font-light max-w-2xl">
+                <p className="text-sm sm:text-base text-muted-foreground font-normal max-w-3xl">
                   {category.tagline}
                 </p>
               </div>
 
               <Link 
                 href="/projects" 
-                className="inline-flex items-center text-xs font-mono uppercase tracking-wider text-primary hover:underline font-bold shrink-0"
+                className="inline-flex items-center text-xs sm:text-sm font-mono uppercase tracking-wider text-primary hover:underline font-bold shrink-0"
               >
                 <span>View Full Registry</span>
-                <ArrowRight className="ml-1 h-3.5 w-3.5" />
+                <ArrowRight className="ml-1.5 h-4 w-4" />
               </Link>
             </motion.div>
 
             {/* Clients Grid */}
-            <div className={`grid grid-cols-1 ${category.clients.length === 3 ? "md:grid-cols-3" : "md:grid-cols-2"} gap-6`}>
+            <div className={`grid grid-cols-1 ${category.clients.length === 3 ? "lg:grid-cols-3 md:grid-cols-2" : "md:grid-cols-2"} gap-8`}>
               {category.clients.map((client, idx) => (
                 <motion.div
                   key={idx}
                   initial={{ opacity: 0, y: 20 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.4, delay: (categoryIdx * 0.15) + (idx * 0.08) }}
-                  className="group relative flex flex-col justify-between rounded-2xl glass-card dark:glass-card-dark border border-border/60 hover:border-primary/50 transition-all duration-300 p-6 md:p-8 hover:-translate-y-1"
+                  className="group relative flex flex-col justify-between rounded-2xl glass-card dark:glass-card-dark border border-border/70 hover:border-primary/50 transition-all duration-300 p-8 sm:p-9 hover:-translate-y-1 shadow-sm hover:shadow-xl"
                 >
                   <div>
                     <div className="flex items-center justify-between gap-2 mb-4">
-                      <span className="text-[10px] font-mono uppercase tracking-wider px-2.5 py-1 rounded-full bg-secondary text-foreground/80 border border-border/50">
+                      <span className="text-xs font-mono uppercase tracking-wider px-3 py-1 rounded-full bg-secondary text-foreground font-semibold border border-border/60">
                         {client.tag}
                       </span>
-                      <span className="text-[11px] font-mono text-muted-foreground">
+                      <span className="text-xs font-mono text-muted-foreground font-semibold">
                         SPEC // 0{idx + 1}
                       </span>
                     </div>
 
                     <Link href={client.link} className="block group/link">
-                      <h4 className="text-xl md:text-2xl font-black font-heading text-foreground tracking-tight mb-3 group-hover/link:text-primary transition-colors flex items-center justify-between">
+                      <h4 className="text-xl sm:text-2xl font-black font-heading text-foreground tracking-tight mb-3 group-hover/link:text-primary transition-colors flex items-center justify-between">
                         <span>{client.name}</span>
                         <ArrowRight className="w-4 h-4 opacity-0 group-hover/link:opacity-100 transition-all text-primary shrink-0 -translate-x-1 group-hover/link:translate-x-0" />
                       </h4>
                     </Link>
 
-                    <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed font-light mb-6">
+                    <p className="text-sm sm:text-base text-muted-foreground leading-relaxed font-normal mb-6">
                       {client.description}
                     </p>
 
                     <div className="mb-6">
-                      <span className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground block mb-2">
-                        Technologies & Modules
+                      <span className="text-xs font-mono uppercase tracking-wider text-muted-foreground font-semibold block mb-2.5">
+                        Technologies &amp; Modules
                       </span>
-                      <div className="flex flex-wrap gap-1.5">
+                      <div className="flex flex-wrap gap-2">
                         {client.services.map((service, i) => (
                           <span
                             key={i}
-                            className="text-[11px] px-2.5 py-0.5 bg-secondary/50 text-muted-foreground rounded-full border border-border/40 font-mono"
+                            className="text-xs px-3 py-1 bg-secondary text-foreground/90 rounded-full border border-border/60 font-mono font-medium"
                           >
                             {service}
                           </span>
@@ -173,23 +173,23 @@ export function Portfolio() {
                     </div>
                   </div>
 
-                  <div className="pt-4 border-t border-border/40">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-[10px] font-mono uppercase tracking-wider text-primary font-bold block">
+                  <div className="pt-5 border-t border-border/40">
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="text-xs font-mono uppercase tracking-wider text-primary font-bold block">
                         Verified Metrics
                       </span>
                       <Link 
                         href={client.link}
-                        className="text-[11px] font-mono text-primary font-bold hover:underline flex items-center gap-1"
+                        className="text-xs sm:text-sm font-mono text-primary font-bold hover:underline flex items-center gap-1"
                       >
                         <span>Details</span>
-                        <ArrowRight className="w-3 h-3" />
+                        <ArrowRight className="w-3.5 h-3.5" />
                       </Link>
                     </div>
-                    <ul className="space-y-1.5">
+                    <ul className="space-y-2">
                       {client.metrics.map((metric, i) => (
-                        <li key={i} className="flex items-center text-xs font-medium text-foreground/90">
-                          <Check className="w-3.5 h-3.5 mr-2 text-primary shrink-0" />
+                        <li key={i} className="flex items-center text-sm font-medium text-foreground/90">
+                          <Check className="w-4 h-4 mr-2 text-primary shrink-0" />
                           <span>{metric}</span>
                         </li>
                       ))}

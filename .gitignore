@@ -41,3 +41,6 @@ ga-credentials.json
 
 # IDE agents & local metadata
 .agents/
+
+# local runtime data & logs
+data/

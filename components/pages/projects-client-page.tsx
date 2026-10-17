@@ -197,21 +197,21 @@ export function ProjectsClientPage() {
       <div className="absolute inset-0 bg-grid-pattern opacity-15 pointer-events-none" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-primary/5 rounded-full blur-[140px] pointer-events-none" />
 
-      <div className="container px-4 mx-auto relative z-10 max-w-6xl">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 relative z-10">
 
         {/* Hero Section */}
         <div className="max-w-4xl mb-20">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium tracking-wider uppercase border border-border bg-secondary/30 text-muted-foreground mb-8">
-            <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-xs sm:text-sm font-mono font-semibold tracking-wider uppercase border border-border bg-secondary/50 text-foreground/80 mb-8 shadow-sm">
+            <span className="w-2 h-2 rounded-full bg-primary" />
             Software Architecture Registry // Verified Solutions
           </div>
 
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black font-heading tracking-tight mb-8 leading-[1.08]">
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black font-heading tracking-tight mb-8 leading-[1.06] text-foreground">
             Engineered Systems. <br className="hidden sm:block" />
             <span className="text-gradient">Measurable Outcomes.</span>
           </h1>
 
-          <p className="text-xl text-muted-foreground max-w-2xl font-light leading-relaxed mb-10">
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl font-normal leading-relaxed mb-10">
             A verified record of clinical healthcare ecosystems, bespoke cloud ERPs, and high-performance web and mobile platforms architected and deployed by RH Dynamics.
           </p>
 
@@ -232,18 +232,18 @@ export function ProjectsClientPage() {
         </div>
 
         {/* Aggregate Technical Performance Indicators */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border/40 rounded-2xl overflow-hidden mb-24 border border-border/60">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-border/60 rounded-2xl overflow-hidden mb-24 border border-border/80 shadow-lg">
           {[
             { label: "Deployment Track Record", value: "20+", sub: "Verified enterprise systems" },
             { label: "Platform Uptime", value: "99.9%", sub: "Guaranteed cloud reliability" },
             { label: "Rapid Response SLA", value: "< 2 Hours", sub: "Global & regional availability" },
             { label: "Delivery Flexibility", value: "SaaS / Private", sub: "Cloud SaaS or dedicated code" }
           ].map((stat, i) => (
-            <div key={i} className="bg-card p-6 md:p-8 flex flex-col justify-between">
-              <span className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-4">{stat.label}</span>
+            <div key={i} className="bg-card/90 backdrop-blur-sm p-6 sm:p-8 flex flex-col justify-between">
+              <span className="text-xs font-mono uppercase tracking-wider text-muted-foreground font-semibold mb-4">{stat.label}</span>
               <div>
-                <p className="text-2xl md:text-3xl font-black font-heading text-foreground tracking-tight">{stat.value}</p>
-                <p className="text-xs text-muted-foreground mt-1">{stat.sub}</p>
+                <p className="text-3xl sm:text-4xl font-black font-heading text-foreground tracking-tight">{stat.value}</p>
+                <p className="text-xs sm:text-sm text-muted-foreground font-normal mt-1">{stat.sub}</p>
               </div>
             </div>
           ))}
@@ -268,7 +268,7 @@ export function ProjectsClientPage() {
                 }`}
               >
                 <span>{tab.label}</span>
-                <span className={`text-[10px] px-1.5 py-0.2 rounded-full ${
+                <span className={`text-xs px-1.5 py-0.2 rounded-full ${
                   activeCategory === tab.id ? "bg-background text-foreground" : "bg-muted text-muted-foreground"
                 }`}>
                   0{tab.count}
@@ -325,19 +325,19 @@ export function ProjectsClientPage() {
                   </div>
 
                   {/* Problem vs Solution 2-Column Grid */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 text-xs sm:text-sm leading-relaxed">
-                    <div className="p-5 rounded-xl bg-secondary/20 border border-border/40">
-                      <span className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground block mb-1.5 font-bold">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 text-sm leading-relaxed">
+                    <div className="p-5 sm:p-6 rounded-xl bg-secondary/20 border border-border/40">
+                      <span className="text-xs font-mono uppercase tracking-wider text-muted-foreground block mb-2 font-bold">
                         Operational Challenge
                       </span>
-                      <p className="text-muted-foreground font-light">{project.problem}</p>
+                      <p className="text-muted-foreground font-normal">{project.problem}</p>
                     </div>
 
-                    <div className="p-5 rounded-xl bg-secondary/30 border border-border/50">
-                      <span className="text-[10px] font-mono uppercase tracking-wider text-primary block mb-1.5 font-bold">
+                    <div className="p-5 sm:p-6 rounded-xl bg-secondary/30 border border-border/50">
+                      <span className="text-xs font-mono uppercase tracking-wider text-primary block mb-2 font-bold">
                         Architectural Solution
                       </span>
-                      <p className="text-foreground/90 font-light">{project.solution}</p>
+                      <p className="text-foreground/90 font-normal">{project.solution}</p>
                     </div>
                   </div>
 
@@ -348,10 +348,10 @@ export function ProjectsClientPage() {
                     <div className="lg:col-span-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-1 gap-4">
                       {project.metrics.map((m, mIdx) => (
                         <div key={mIdx}>
-                          <span className="text-2xl font-black font-heading text-foreground block tracking-tight">
+                          <span className="text-2xl sm:text-3xl font-black font-heading text-foreground block tracking-tight">
                             {m.value}
                           </span>
-                          <span className="text-[11px] text-muted-foreground font-mono uppercase">
+                          <span className="text-xs text-muted-foreground font-mono uppercase font-semibold">
                             {m.label}
                           </span>
                         </div>
@@ -360,21 +360,21 @@ export function ProjectsClientPage() {
 
                     {/* Deliverables Checklist */}
                     <div className="lg:col-span-8">
-                      <span className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground block mb-3 font-bold">
+                      <span className="text-xs font-mono uppercase tracking-wider text-muted-foreground block mb-3 font-bold">
                         Core Module Deliverables
                       </span>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-6">
                         {project.deliverables.map((del, dIdx) => (
-                          <div key={dIdx} className="flex items-start gap-2 text-xs text-foreground/90">
-                            <Check className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
+                          <div key={dIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-foreground/90 font-medium">
+                            <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" />
                             <span>{del}</span>
                           </div>
                         ))}
                       </div>
 
-                      <div className="flex flex-wrap gap-1.5">
+                      <div className="flex flex-wrap gap-2">
                         {project.technologies.map((t) => (
-                          <span key={t} className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-secondary text-muted-foreground border border-border/40">
+                          <span key={t} className="text-xs font-mono px-3 py-1 rounded-full bg-secondary text-foreground/90 border border-border/60 font-medium">
                             {t}
                           </span>
                         ))}

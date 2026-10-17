@@ -79,13 +79,13 @@ export default function PathologyAnalyzerInterfacingGuidePage() {
           </Link>
 
           <div className="flex flex-wrap items-center gap-3 mb-4">
-            <span className="text-[10px] font-mono uppercase tracking-wider px-2.5 py-1 rounded-full border font-bold text-emerald-500 bg-emerald-500/10 border-emerald-500/20">
+            <span className="text-xs font-mono uppercase tracking-wider px-3 py-1 rounded-full border font-bold text-emerald-500 bg-emerald-500/10 border-emerald-500/20">
               Healthcare &amp; Diagnostics
             </span>
-            <span className="text-xs font-mono text-muted-foreground flex items-center gap-1">
+            <span className="text-xs sm:text-sm font-mono text-muted-foreground flex items-center gap-1.5">
               <Clock className="w-3.5 h-3.5" /> 7 min read
             </span>
-            <span className="text-xs font-mono text-muted-foreground flex items-center gap-1">
+            <span className="text-xs sm:text-sm font-mono text-muted-foreground flex items-center gap-1.5">
               <Calendar className="w-3.5 h-3.5" /> Published October 16, 2026
             </span>
           </div>
@@ -201,8 +201,8 @@ export default function PathologyAnalyzerInterfacingGuidePage() {
           </section>
 
           {/* Inline CTA Card */}
-          <div className="p-8 rounded-3xl bg-secondary/40 border border-primary/30 my-8 text-center">
-            <span className="text-[10px] font-mono uppercase tracking-widest text-primary font-bold block mb-2">
+          <div className="p-8 sm:p-10 rounded-3xl bg-secondary/40 border border-primary/30 my-8 text-center">
+            <span className="text-xs font-mono uppercase tracking-widest text-primary font-bold block mb-2">
               Ready to Upgrade Your Pathology Lab?
             </span>
             <h3 className="text-xl sm:text-2xl font-heading font-black text-foreground mb-3">
