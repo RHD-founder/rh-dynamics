@@ -66,11 +66,26 @@ async function getGoogleOAuthToken(creds: any): Promise<string> {
 export async function fetchGA4Realtime(): Promise<GA4AnalyticsPayload> {
   const propertyId = process.env.GA_PROPERTY_ID || "470856530";
   try {
-    let credsRaw: string;
-    try {
-      credsRaw = await fs.readFile(path.join(process.cwd(), "data", "google-service-account.json"), "utf-8");
-    } catch {
-      credsRaw = await fs.readFile(path.join(process.cwd(), "google-service-account.json"), "utf-8");
+    let credsRaw = process.env.GOOGLE_SERVICE_ACCOUNT_JSON || process.env.GOOGLE_SERVICE_ACCOUNT_KEY;
+    if (!credsRaw) {
+      try {
+        credsRaw = await fs.readFile(path.join(process.cwd(), "data", "google-service-account.json"), "utf-8");
+      } catch {
+        try {
+          credsRaw = await fs.readFile(path.join(process.cwd(), "google-service-account.json"), "utf-8");
+        } catch {
+          // No local file found
+        }
+      }
+    }
+    if (!credsRaw) {
+      return {
+        success: false,
+        activeUsers: 0,
+        cities: [],
+        pages: [],
+        error: "Google Service Account credentials not configured."
+      };
     }
     const creds = JSON.parse(credsRaw);
     const token = await getGoogleOAuthToken(creds);
