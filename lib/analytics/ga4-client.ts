@@ -38,7 +38,10 @@ async function getGoogleOAuthToken(creds: any): Promise<string> {
   const signer = crypto.createSign("RSA-SHA256");
   signer.update(unsignedToken);
   signer.end();
-  const signature = signer.sign(creds.private_key, "base64url");
+  const privateKey = typeof creds.private_key === "string"
+    ? creds.private_key.replace(/\\n/g, "\n")
+    : creds.private_key;
+  const signature = signer.sign(privateKey, "base64url");
   const jwt = `${unsignedToken}.${signature}`;
 
   const res = await fetch("https://oauth2.googleapis.com/token", {
