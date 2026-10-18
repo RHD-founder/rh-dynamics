@@ -244,7 +244,7 @@ export default function OffshoreSoftwareDevelopmentPage() {
             <CalBookingModal eventSlug="15min">
               <Button size="lg" className="w-full sm:w-auto h-14 px-8 text-base font-semibold rounded-full shadow-xl shadow-primary/25 hover:shadow-primary/40 hover:-translate-y-0.5 transition-all">
                 <Calendar className="w-5 h-5 mr-2 text-primary-foreground" />
-                Book 15-Min Call (Cal.com)
+                Book 15-Min Founder Call (Cal.com)
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </CalBookingModal>

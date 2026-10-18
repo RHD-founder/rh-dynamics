@@ -330,7 +330,7 @@ export function ContactClientPage() {
                           </span>
                           <span className="text-[10px] font-mono bg-blue-500/20 text-blue-600 dark:text-blue-300 px-1.5 py-0.2 rounded font-bold">15-MIN CALL</span>
                         </div>
-                        <strong className="text-sm font-mono text-foreground group-hover:text-primary transition-colors">Book 15-Min Meeting (Hashim Ahmed)</strong>
+                        <strong className="text-sm font-mono text-foreground group-hover:text-primary transition-colors">Book 15-Min Founder Call (Hashim Ahmed)</strong>
                       </div>
                     </div>
                     <ArrowUpRight className="w-4 h-4 text-blue-600 dark:text-blue-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform shrink-0" />
