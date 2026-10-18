@@ -11,7 +11,7 @@ import {
   CheckCircle2, ArrowRight, ArrowUpRight, 
   Building2, Server, Terminal, Lock, Check,
   MessageSquare, Sparkles, HelpCircle, ChevronRight,
-  Video, Globe, Linkedin, Instagram, Facebook
+  Video, Globe, Linkedin, Instagram, Facebook, Calendar
 } from "lucide-react";
 import {
   Dialog,
@@ -321,7 +321,7 @@ export function ContactClientPage() {
                   <div className="p-3.5 rounded-xl bg-gradient-to-r from-blue-500/10 via-primary/10 to-blue-500/5 hover:from-blue-500/15 hover:to-primary/15 border border-blue-500/30 flex items-center justify-between group transition-all cursor-pointer shadow-sm">
                     <div className="flex items-center gap-3">
                       <div className="p-2 rounded-lg bg-blue-500 text-white shrink-0 shadow-md shadow-blue-500/20">
-                        <Video className="w-4 h-4" />
+                        <Calendar className="w-4 h-4" />
                       </div>
                       <div>
                         <div className="flex items-center gap-1.5">
@@ -874,7 +874,7 @@ export function ContactClientPage() {
               rel="noopener noreferrer"
               className="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2 h-11 px-5 rounded-full bg-primary text-primary-foreground font-mono text-xs uppercase tracking-wider font-bold shadow-md hover:bg-primary/90 transition-all"
             >
-              <Video className="w-4 h-4" />
+              <Calendar className="w-4 h-4" />
               <span>Lock In Slot on Cal.com</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
             </a>

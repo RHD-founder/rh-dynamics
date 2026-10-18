@@ -243,8 +243,8 @@ export default function OffshoreSoftwareDevelopmentPage() {
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
             <CalBookingModal eventSlug="15min">
               <Button size="lg" className="w-full sm:w-auto h-14 px-8 text-base font-semibold rounded-full shadow-xl shadow-primary/25 hover:shadow-primary/40 hover:-translate-y-0.5 transition-all">
-                <Video className="w-5 h-5 mr-2 text-emerald-400" />
-                Book 15-Min Google Meet
+                <Calendar className="w-5 h-5 mr-2 text-primary-foreground" />
+                Book 15-Min Call (Cal.com)
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </CalBookingModal>
@@ -483,15 +483,15 @@ export default function OffshoreSoftwareDevelopmentPage() {
               Ready to Accelerate Your Product Roadmap?
             </h3>
             <p className="text-muted-foreground text-base sm:text-lg font-light max-w-2xl leading-relaxed">
-              Book a 15-minute Google Meet technical walkthrough. We will review your product specifications, recommend the optimal tech stack, and share verified engineer profiles within 24 hours.
+              Book a 15-minute technical walkthrough directly on Cal.com. We will review your product specifications, recommend the optimal tech stack, and share verified engineer profiles within 24 hours.
             </p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 w-full lg:w-auto shrink-0">
             <CalBookingModal eventSlug="15min">
               <Button size="lg" className="w-full sm:w-auto h-14 px-9 text-base font-semibold rounded-full shadow-xl shadow-primary/30 hover:-translate-y-0.5 transition-all">
-                <Video className="w-5 h-5 mr-2 text-emerald-400" />
-                Schedule Google Meet
+                <Calendar className="w-5 h-5 mr-2 text-primary-foreground" />
+                Schedule via Cal.com
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </CalBookingModal>

@@ -25,7 +25,7 @@ export function CalBookingModal({
   children,
   eventSlug = "15min",
   triggerClassName,
-  triggerButtonText = "Schedule 15-Min Google Meet",
+  triggerButtonText = "Schedule via Cal.com",
   variant = "default",
   size = "lg",
 }: CalBookingModalProps) {
@@ -50,7 +50,7 @@ export function CalBookingModal({
             size={size}
             className={triggerClassName}
           >
-            <Video className="w-4 h-4 mr-2 text-emerald-400" />
+            <Calendar className="w-4 h-4 mr-2" />
             {triggerButtonText}
           </Button>
         )}
@@ -68,15 +68,15 @@ export function CalBookingModal({
                 <DialogTitle className="text-base sm:text-lg font-heading font-black text-foreground">
                   Book Technical Discovery
                 </DialogTitle>
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-500 border border-emerald-500/30 uppercase font-bold">
-                  Live Sync
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-primary/15 text-primary border border-primary/30 uppercase font-bold">
+                  Cal.com Live
                 </span>
               </div>
               <p className="text-xs text-muted-foreground flex items-center gap-1.5 mt-0.5">
                 <span>With Hashim Ahmed (Founder &amp; Director)</span>
                 <span>•</span>
-                <span className="flex items-center gap-1 font-mono text-emerald-500 font-medium">
-                  <Video className="w-3 h-3" /> Google Meet
+                <span className="flex items-center gap-1 font-mono text-primary font-medium">
+                  <Calendar className="w-3 h-3" /> Cal.com
                 </span>
               </p>
             </div>
@@ -118,7 +118,7 @@ export function CalBookingModal({
         <div className="p-3 border-t border-border/50 bg-secondary/20 flex items-center justify-between text-[11px] font-mono text-muted-foreground px-5 shrink-0">
           <div className="flex items-center gap-2">
             <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
-            <span>Automatic Google Calendar &amp; Meet invite generated upon booking</span>
+            <span>Direct slot booking via Cal.com • Calendar &amp; video sync</span>
           </div>
           <span className="hidden sm:inline">Zero Middlemen</span>
         </div>
