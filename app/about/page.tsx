@@ -29,29 +29,25 @@ const corporateMilestones = [
     label: "Statutory Incorporation", 
     value: "LLP ACN-1931", 
     sub: "Ministry of Corporate Affairs",
-    icon: Building2,
     badge: "Govt. of India"
   },
   { 
     label: "Startup Recognition", 
     value: "DPIIT Certified", 
     sub: "Startup India Initiative",
-    icon: Award,
     badge: "National Status"
   },
   { 
     label: "Enterprise Deployments", 
     value: "20+ Platforms", 
     sub: "Healthcare, Web & Systems",
-    icon: Server,
     badge: "Production Live"
   },
   { 
     label: "Guaranteed Response", 
     value: "< 2-Hour SLA", 
     sub: "Direct Phone, WhatsApp & Cal.com",
-    icon: Clock,
-    badge: "24/7 Priority"
+    badge: "Priority Support"
   }
 ];
 
@@ -123,28 +119,23 @@ export default function AboutPage() {
           {corporateMilestones.map((milestone, i) => (
             <div 
               key={i} 
-              className="p-5 sm:p-6 rounded-2xl bg-card border border-border/70 hover:border-primary/40 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group"
+              className="p-5 sm:p-6 rounded-2xl bg-card border border-border/70 hover:border-primary/40 shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
             >
               <div className="flex items-center justify-between gap-2 mb-3">
                 <span className="text-[11px] font-mono uppercase tracking-wider text-muted-foreground font-semibold">
                   {milestone.label}
                 </span>
-                <div className="p-2 rounded-xl bg-secondary/80 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors shrink-0">
-                  <milestone.icon className="w-4 h-4" />
-                </div>
+                <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded-full bg-secondary text-foreground/75 font-semibold border border-border/50 shrink-0">
+                  {milestone.badge}
+                </span>
               </div>
               <div>
                 <p className="text-xl sm:text-2xl xl:text-3xl font-black font-heading text-foreground tracking-tight whitespace-nowrap">
                   {milestone.value}
                 </p>
-                <div className="flex items-center justify-between gap-2 mt-2 pt-2 border-t border-border/40">
-                  <p className="text-xs text-muted-foreground leading-relaxed truncate">
-                    {milestone.sub}
-                  </p>
-                  <span className="text-[9px] font-mono uppercase px-1.5 py-0.5 rounded bg-secondary text-foreground/80 font-semibold shrink-0">
-                    {milestone.badge}
-                  </span>
-                </div>
+                <p className="text-xs text-muted-foreground leading-relaxed mt-2 pt-2 border-t border-border/40 truncate">
+                  {milestone.sub}
+                </p>
               </div>
             </div>
           ))}
