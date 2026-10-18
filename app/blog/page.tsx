@@ -102,7 +102,7 @@ export default function BlogIndexPage() {
             "url": "https://rhdynamics.in/blog",
             "publisher": {
               "@type": "Organization",
-              "name": "RHD Softwaresolutions LLP",
+              "name": "RHD Software Solutions LLP",
               "url": "https://rhdynamics.in",
               "logo": "https://rhdynamics.in/images/rh-official-logo.jpg"
             },

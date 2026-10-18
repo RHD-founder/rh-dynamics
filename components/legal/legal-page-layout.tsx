@@ -145,7 +145,7 @@ export function LegalPageLayout({
           <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 mb-6">
             <span className="px-3.5 py-1.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-secondary border border-border/80 text-foreground flex items-center gap-1.5">
               <Building2 className="w-4 h-4 text-primary" />
-              RHD Softwaresolutions LLP
+              RHD Software Solutions LLP
             </span>
             <span className="px-3 py-1.5 rounded-full text-xs font-mono uppercase tracking-wider bg-secondary/60 text-muted-foreground border border-border/50 font-medium">
               ACN-1931
@@ -303,7 +303,7 @@ export function LegalPageLayout({
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-xs sm:text-sm font-mono text-muted-foreground">
                 <div className="space-y-1">
                   <strong className="text-foreground block font-bold mb-1.5">Registered Enterprise:</strong>
-                  <span>RHD Softwaresolutions LLP</span><br />
+                  <span>RHD Software Solutions LLP</span><br />
                   <span>LLPIN: ACN-1931</span><br />
                   <span>DPIIT Startup India Certified</span><br />
                   <span>MSME Registered Entity</span>

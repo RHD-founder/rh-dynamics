@@ -440,7 +440,7 @@ export function ContactClientPage() {
 
               {/* Statutory Credentials */}
               <div className="pt-4 mt-4 border-t border-border/50 flex flex-wrap items-center justify-between gap-2 text-[11px] font-mono text-muted-foreground">
-                <span>RHD Softwaresolutions LLP</span>
+                <span>RHD Software Solutions LLP</span>
                 <span className="text-foreground font-semibold">ACN-1931</span>
               </div>
             </div>

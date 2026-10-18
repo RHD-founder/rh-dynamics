@@ -195,7 +195,7 @@ export default function CustomErpSoftwareAssamPage() {
                 },
                 "provider": {
                   "@type": "Organization",
-                  "name": "RHD Softwaresolutions LLP",
+                  "name": "RHD Software Solutions LLP",
                   "url": "https://rhdynamics.in",
                   "logo": "https://rhdynamics.in/images/rh-official-logo.jpg",
                   "telephone": "+918638875149"
@@ -545,7 +545,7 @@ export default function CustomErpSoftwareAssamPage() {
           
           <div className="mt-10 flex flex-wrap items-center justify-center gap-6 text-xs sm:text-sm font-mono text-muted-foreground">
             <span className="flex items-center gap-2">
-              <Check className="w-4 h-4 text-purple-500" /> RHD Softwaresolutions LLP (ACN-1931)
+              <Check className="w-4 h-4 text-purple-500" /> RHD Software Solutions LLP (ACN-1931)
             </span>
             <span className="flex items-center gap-2">
               <Check className="w-4 h-4 text-purple-500" /> DPIIT Recognized Startup

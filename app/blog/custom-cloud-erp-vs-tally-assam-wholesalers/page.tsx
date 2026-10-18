@@ -53,7 +53,7 @@ export default function CustomErpVsTallyPage() {
             },
             "publisher": {
               "@type": "Organization",
-              "name": "RHD Softwaresolutions LLP",
+              "name": "RHD Software Solutions LLP",
               "url": "https://rhdynamics.in",
               "logo": {
                 "@type": "ImageObject",

@@ -9,7 +9,7 @@ import { CTA } from "@/components/sections/cta";
 export const metadata: Metadata = {
   title: "RH Dynamics | Software Company, Hospital Systems (HSMS/LIS) & Cloud ERP Guwahati",
   description:
-    "RHD Softwaresolutions LLP (ACN-1931). Startup India recognized software engineering firm building healthcare management systems (RH-HSMS), clinical LIS, custom enterprise ERPs, and high-performance web & mobile platforms.",
+    "RHD Software Solutions LLP (ACN-1931). Startup India recognized software engineering firm building healthcare management systems (RH-HSMS), clinical LIS, custom enterprise ERPs, and high-performance web & mobile platforms.",
   keywords: [
     "rh dynamics",
     "software company guwahati",

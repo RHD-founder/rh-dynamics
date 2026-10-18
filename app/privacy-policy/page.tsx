@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Lock, ShieldCheck, Database, EyeOff, Server, FileCheck, Mail } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | RHD Softwaresolutions LLP (RH Dynamics)",
+  title: "Privacy Policy | RHD Software Solutions LLP (RH Dynamics)",
   description: "Comprehensive privacy policy and data protection framework under the Digital Personal Data Protection (DPDP) Act 2023 and Indian IT Act 2000.",
 };
 
@@ -23,7 +23,7 @@ export default function PrivacyPolicyPage() {
   return (
     <LegalPageLayout
       title="Corporate Privacy Policy"
-      subtitle="How RHD Softwaresolutions LLP safeguards, processes, and protects your personal and commercial data under Indian and international privacy standards."
+      subtitle="How RHD Software Solutions LLP safeguards, processes, and protects your personal and commercial data under Indian and international privacy standards."
       effectiveDate="October 2026"
       version="v3.1 Compliance"
       sections={SECTIONS}
@@ -34,7 +34,7 @@ export default function PrivacyPolicyPage() {
           <span className="text-primary font-mono text-sm">01.</span> Overview &amp; Regulatory Mandate
         </h2>
         <p className="text-sm text-muted-foreground font-light leading-relaxed mb-4">
-          This Privacy Policy governs the processing of personal and corporate data by <strong>RHD Softwaresolutions LLP</strong> (operating as RH Dynamics, LLPIN: ACN-1931). We are committed to adhering strictly to the <strong>Digital Personal Data Protection (DPDP) Act 2023</strong>, the <strong>Information Technology Act, 2000</strong>, and applicable international data privacy standards.
+          This Privacy Policy governs the processing of personal and corporate data by <strong>RHD Software Solutions LLP</strong> (operating as RH Dynamics, LLPIN: ACN-1931). We are committed to adhering strictly to the <strong>Digital Personal Data Protection (DPDP) Act 2023</strong>, the <strong>Information Technology Act, 2000</strong>, and applicable international data privacy standards.
         </p>
       </section>
 
@@ -98,7 +98,7 @@ export default function PrivacyPolicyPage() {
           Zero Data Resale &amp; Brokering Guarantee
         </h2>
         <p className="text-sm text-muted-foreground font-light leading-relaxed">
-          RHD Softwaresolutions LLP has never sold, rented, leased, or brokered personal or enterprise data to third-party advertising networks, data brokers, or external commercial entities. Your data is used exclusively to facilitate your direct relationship with RH Dynamics.
+          RHD Software Solutions LLP has never sold, rented, leased, or brokered personal or enterprise data to third-party advertising networks, data brokers, or external commercial entities. Your data is used exclusively to facilitate your direct relationship with RH Dynamics.
         </p>
       </section>
 
@@ -166,7 +166,7 @@ export default function PrivacyPolicyPage() {
           For any data protection inquiries, privacy questions, or statutory grievance notices:
         </p>
         <div className="p-4 rounded-xl bg-secondary/50 border border-border/60 text-xs font-mono space-y-1">
-          <span className="text-foreground font-bold block">Grievance Officer, RHD Softwaresolutions LLP:</span>
+          <span className="text-foreground font-bold block">Grievance Officer, RHD Software Solutions LLP:</span>
           <span>Email: <a href="mailto:founder@rhdynamics.in" className="text-primary hover:underline font-bold">founder@rhdynamics.in</a></span><br />
           <span>General Support: <a href="mailto:support@rhdynamics.in" className="text-primary hover:underline font-bold">support@rhdynamics.in</a></span><br />
           <span>Postal: Near AGV Bank, Goranga, Golaghat, Assam 785603</span>

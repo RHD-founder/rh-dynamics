@@ -3,8 +3,8 @@ import type { Metadata } from "next";
 import { RefreshCcw, AlertCircle, CheckCircle2, ShieldCheck, DollarSign } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Cancellation & Refund Policy | RHD Softwaresolutions LLP (RH Dynamics)",
-  description: "Official cancellation terms, milestone refund policies, bespoke development rules, and SaaS subscription terms of RHD Softwaresolutions LLP.",
+  title: "Cancellation & Refund Policy | RHD Software Solutions LLP (RH Dynamics)",
+  description: "Official cancellation terms, milestone refund policies, bespoke development rules, and SaaS subscription terms of RHD Software Solutions LLP.",
 };
 
 const SECTIONS = [
@@ -31,7 +31,7 @@ export default function CancellationAndRefundsPage() {
           <span className="text-primary font-mono text-sm">01.</span> Nature of Custom Software Engineering
         </h2>
         <p className="text-sm text-muted-foreground font-light leading-relaxed mb-4">
-          All digital solutions, custom ERP systems, high-performance web applications, and clinical platforms engineered by <strong>RHD Softwaresolutions LLP</strong> are bespoke, knowledge-intensive services tailored strictly to individual client operational specifications. Unlike off-the-shelf physical merchandise, custom engineering involves the irreversible allocation of senior developer hours, compute infrastructure, and proprietary architecture design.
+          All digital solutions, custom ERP systems, high-performance web applications, and clinical platforms engineered by <strong>RHD Software Solutions LLP</strong> are bespoke, knowledge-intensive services tailored strictly to individual client operational specifications. Unlike off-the-shelf physical merchandise, custom engineering involves the irreversible allocation of senior developer hours, compute infrastructure, and proprietary architecture design.
         </p>
       </section>
 
@@ -104,7 +104,7 @@ export default function CancellationAndRefundsPage() {
           <span className="text-primary font-mono text-sm">06.</span> Dispute Escalation &amp; Official Appeals
         </h2>
         <p className="text-sm text-muted-foreground font-light leading-relaxed mb-4">
-          Any commercial disagreement or billing appeal should be directed in writing to the Designated Partners of RHD Softwaresolutions LLP:
+          Any commercial disagreement or billing appeal should be directed in writing to the Designated Partners of RHD Software Solutions LLP:
         </p>
         <div className="p-4 rounded-xl bg-secondary/50 border border-border/60 text-xs font-mono space-y-1">
           <span className="text-foreground font-bold block">Commercial Disputes &amp; Executive Resolution:</span>

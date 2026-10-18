@@ -4,11 +4,13 @@ import { HsmsClientPage } from "@/components/pages/hsms-client-page";
 export const metadata: Metadata = {
   title: "RH CORE™ | Next-Gen Hospital Software (HSMS) & Clinical LIS | v1.0 Live",
   description:
-    "RH CORE v1.0 by RH Dynamics is the premier, continuously-updated healthcare operating system. Unifying RH CORE HSMS (Hospital Management) and RH CORE LIS (Laboratory Automation) with ABDM M1-M3, WhatsApp reports, and rapid < 2-hour SLA.",
+    "RH CORE v1.0 by RH Dynamics unifies Hospital Management Systems (HMS administrative workflows) and Hospital Information Systems (HIS clinical telemetry) into an Ayushman Bharat ABDM M1-M3 compliant unified Hospital & Systems Management Suite (HSMS).",
   keywords: [
     "rh core",
     "rh core hsms",
-    "rh core lis",
+    "hsms vs hms vs his",
+    "hospital information system his",
+    "hospital management system hms",
     "hospital management software guwahati",
     "hospital software assam",
     "laboratory information system lis northeast india",

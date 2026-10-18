@@ -339,6 +339,163 @@ export function HsmsClientPage() {
           </div>
         </div>
 
+        {/* Architectural Clarity: HSMS vs HMS vs HIS */}
+        <div className="mb-28">
+          <div className="max-w-3xl mb-12">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono uppercase tracking-wider bg-primary/10 text-primary border border-primary/20 font-semibold mb-4">
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>Healthcare Software Taxonomy // Architectural Clarity</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-heading tracking-tight">
+              HMS vs. HIS vs. HSMS: <br />
+              <span className="text-gradient">Understanding the Architecture</span>
+            </h2>
+            <p className="text-muted-foreground mt-3 text-base sm:text-lg font-light leading-relaxed">
+              Healthcare platforms are frequently mislabeled under generic terms. In clinical software engineering, <strong className="text-foreground font-semibold">HMS</strong>, <strong className="text-foreground font-semibold">HIS</strong>, and <strong className="text-foreground font-semibold">HSMS</strong> describe distinctly different operational layers. Here is how they differ and why RH CORE™ bridges the entire ecosystem.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Card 1: Traditional HMS */}
+            <div className="p-7 sm:p-8 rounded-2xl bg-card border border-border/70 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-xs font-mono uppercase tracking-wider text-muted-foreground font-bold">
+                    Operational Backbone
+                  </span>
+                  <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded-full bg-secondary text-foreground/80 font-bold border border-border/50">
+                    Administration
+                  </span>
+                </div>
+                <h3 className="text-2xl font-black font-heading text-foreground mb-1">
+                  HMS
+                </h3>
+                <p className="text-xs font-mono text-primary font-semibold mb-4">
+                  Hospital Management System
+                </p>
+                <p className="text-sm text-muted-foreground leading-relaxed font-light mb-6">
+                  Focuses on administrative and commercial management. It runs physical facility operations, counter cashflows, staff rosters, and patient admissions.
+                </p>
+                
+                <div className="space-y-2.5 pt-4 border-t border-border/50 text-xs text-muted-foreground">
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
+                    <span>OPD appointment queues &amp; token registration</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
+                    <span>IPD admission, bed occupancy &amp; discharge (ADT)</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
+                    <span>Cashier desk counter billing &amp; GST tax ledgers</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
+                    <span>Hospital pharmacy stock &amp; ward inventory control</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-6 pt-4 border-t border-border/40 text-[11px] font-mono text-amber-500/90 dark:text-amber-400 bg-amber-500/10 p-3 rounded-xl border border-amber-500/20">
+                <strong>Limitation:</strong> Operates as an administrative ledger; lacks deep diagnostic machine integration and clinical telemetry.
+              </div>
+            </div>
+
+            {/* Card 2: Traditional HIS */}
+            <div className="p-7 sm:p-8 rounded-2xl bg-card border border-border/70 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-xs font-mono uppercase tracking-wider text-muted-foreground font-bold">
+                    Clinical Telemetry
+                  </span>
+                  <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded-full bg-secondary text-foreground/80 font-bold border border-border/50">
+                    Clinical Data
+                  </span>
+                </div>
+                <h3 className="text-2xl font-black font-heading text-foreground mb-1">
+                  HIS
+                </h3>
+                <p className="text-xs font-mono text-primary font-semibold mb-4">
+                  Hospital Information System
+                </p>
+                <p className="text-sm text-muted-foreground leading-relaxed font-light mb-6">
+                  Focuses on comprehensive clinical and healthcare information data. It manages electronic medical records, diagnostic observations, and patient health history.
+                </p>
+                
+                <div className="space-y-2.5 pt-4 border-t border-border/50 text-xs text-muted-foreground">
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
+                    <span>Electronic Medical Records (EMR) &amp; doctor charts</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
+                    <span>Pathology LIS &amp; analyzer machine telemetry</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
+                    <span>Radiology PACS/DICOM imaging integrations</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
+                    <span>Computerized Physician Order Entry (CPOE)</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-6 pt-4 border-t border-border/40 text-[11px] font-mono text-amber-500/90 dark:text-amber-400 bg-amber-500/10 p-3 rounded-xl border border-amber-500/20">
+                <strong>Limitation:</strong> Heavy clinical focus; often detached from Indian statutory compliance (ABDM/PMJAY) or modern patient WhatsApp delivery.
+              </div>
+            </div>
+
+            {/* Card 3: RH CORE HSMS (Unified) */}
+            <div className="p-7 sm:p-8 rounded-2xl bg-gradient-to-b from-primary/10 via-card to-card border-2 border-primary/50 shadow-xl shadow-primary/10 flex flex-col justify-between relative overflow-hidden">
+              <div className="absolute top-0 right-0 bg-primary text-primary-foreground text-[10px] font-mono font-bold uppercase px-3 py-1 rounded-bl-xl tracking-wider">
+                Unified Suite
+              </div>
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-xs font-mono uppercase tracking-wider text-primary font-bold">
+                    The Modern Standard
+                  </span>
+                </div>
+                <h3 className="text-2xl font-black font-heading text-foreground mb-1">
+                  RH CORE™ HSMS
+                </h3>
+                <p className="text-xs font-mono text-primary font-semibold mb-4">
+                  Hospital &amp; Systems Management Suite
+                </p>
+                <p className="text-sm text-foreground/90 leading-relaxed font-normal mb-6">
+                  Engineers a seamless synthesis of both <strong className="text-foreground">HMS administrative execution</strong> and <strong className="text-foreground">HIS clinical telemetry</strong>, built cloud-native with native Indian compliance.
+                </p>
+                
+                <div className="space-y-2.5 pt-4 border-t border-primary/20 text-xs text-foreground/90 font-medium">
+                  <div className="flex items-start gap-2">
+                    <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5 font-bold" />
+                    <span><strong>Unified HMS + HIS:</strong> Reception billing directly synced with doctor EMR &amp; ward telemetry</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5 font-bold" />
+                    <span><strong>ABDM Native:</strong> ABHA ID creation, M1-M3 clinical milestone linking &amp; PMJAY auto-matching</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5 font-bold" />
+                    <span><strong>Automated WhatsApp Reports:</strong> QR-verified diagnostic test PDFs dispatched in &lt; 2 seconds</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5 font-bold" />
+                    <span><strong>Zero Data Silos:</strong> Single database cluster eliminating billing leaks and lost test results</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-6 pt-4 border-t border-primary/20 text-[11px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 p-3 rounded-xl border border-emerald-500/20">
+                <strong>RH Dynamics Standard:</strong> Eliminates running two fragmented systems. A single sovereign platform for administrators, doctors, and patients.
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Comparison: RH CORE vs Outdated Traditional Healthcare Software */}
         <div className="mb-28">
           <div className="max-w-2xl mb-12">

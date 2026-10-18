@@ -3,8 +3,8 @@ import type { Metadata } from "next";
 import { FileText, ShieldAlert, CheckCircle2, Scale, DollarSign, Terminal } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Terms and Conditions | RHD Softwaresolutions LLP (RH Dynamics)",
-  description: "Master Terms of Service, Statement of Work execution, milestone billing, IP ownership, and legal liabilities of RHD Softwaresolutions LLP.",
+  title: "Terms and Conditions | RHD Software Solutions LLP (RH Dynamics)",
+  description: "Master Terms of Service, Statement of Work execution, milestone billing, IP ownership, and legal liabilities of RHD Software Solutions LLP.",
 };
 
 const SECTIONS = [
@@ -23,7 +23,7 @@ export default function TermsAndConditionsPage() {
   return (
     <LegalPageLayout
       title="Master Terms and Conditions"
-      subtitle="The official commercial and legal contract governing all software development, cloud licensing, and technical services provided by RHD Softwaresolutions LLP."
+      subtitle="The official commercial and legal contract governing all software development, cloud licensing, and technical services provided by RHD Software Solutions LLP."
       effectiveDate="October 2026"
       version="v3.1 Standard"
       sections={SECTIONS}
@@ -34,7 +34,7 @@ export default function TermsAndConditionsPage() {
           <span className="text-primary font-mono text-sm">01.</span> Binding Legal Agreement &amp; Parties
         </h2>
         <p className="text-sm text-muted-foreground font-light leading-relaxed mb-4">
-          These Terms and Conditions (&quot;Terms&quot;, &quot;Master Agreement&quot;) constitute a legally binding contract entered into between <strong>RHD Softwaresolutions LLP</strong> (&quot;RH Dynamics&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;, LLPIN: ACN-1931) and the corporate client, business entity, healthcare institution, or individual (&quot;Client&quot;, &quot;you&quot;, or &quot;your&quot;) commissioning or accessing our digital platforms and services.
+          These Terms and Conditions (&quot;Terms&quot;, &quot;Master Agreement&quot;) constitute a legally binding contract entered into between <strong>RHD Software Solutions LLP</strong> (&quot;RH Dynamics&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;, LLPIN: ACN-1931) and the corporate client, business entity, healthcare institution, or individual (&quot;Client&quot;, &quot;you&quot;, or &quot;your&quot;) commissioning or accessing our digital platforms and services.
         </p>
         <p className="text-sm text-muted-foreground font-light leading-relaxed">
           By executing a Statement of Work (SOW), issuing a purchase order, authorizing a milestone payment, or accessing RH CORE™ software, you unconditionally agree to be bound by these Terms.
@@ -105,7 +105,7 @@ export default function TermsAndConditionsPage() {
           <div className="p-4 rounded-xl bg-secondary/40 border border-border/60">
             <strong className="text-foreground block text-sm font-heading font-bold mb-1">RH CORE™ Core Platform</strong>
             <p className="text-muted-foreground font-light">
-              All proprietary algorithms, clinical database schemas, and architectural frameworks powering RH CORE™ remain the exclusive intellectual property of RHD Softwaresolutions LLP.
+              All proprietary algorithms, clinical database schemas, and architectural frameworks powering RH CORE™ remain the exclusive intellectual property of RHD Software Solutions LLP.
             </p>
           </div>
         </div>
@@ -147,7 +147,7 @@ export default function TermsAndConditionsPage() {
           <span className="text-primary font-mono text-sm">08.</span> Limitation of Liability
         </h2>
         <p className="text-sm text-muted-foreground font-light leading-relaxed mb-3">
-          To the maximum extent permitted by applicable Indian law, RHD Softwaresolutions LLP shall not be liable for any indirect, incidental, punitive, or consequential damages (including loss of profits, commercial interruption, or third-party cloud service outages). Our aggregate liability under any contract shall strictly not exceed the total fees paid by the Client to RH Dynamics under the specific SOW in the preceding 3-month period.
+          To the maximum extent permitted by applicable Indian law, RHD Software Solutions LLP shall not be liable for any indirect, incidental, punitive, or consequential damages (including loss of profits, commercial interruption, or third-party cloud service outages). Our aggregate liability under any contract shall strictly not exceed the total fees paid by the Client to RH Dynamics under the specific SOW in the preceding 3-month period.
         </p>
       </section>
 

@@ -511,7 +511,7 @@ export default function SeoCommandPage() {
 
             <div className="mt-6 pt-6 border-t border-border/40 text-center">
               <span className="text-xs font-mono text-muted-foreground block">
-                RHD Softwaresolutions LLP (ACN-1931)
+                RHD Software Solutions LLP (ACN-1931)
               </span>
               <span className="text-xs font-mono text-muted-foreground block mt-0.5">
                 Rate-limited with automatic 15-minute brute-force lockout.
@@ -624,7 +624,7 @@ export default function SeoCommandPage() {
                   AUTHENTICATED COMMAND HUB
                 </span>
                 <span className="text-xs font-mono text-muted-foreground font-medium">
-                  RHD Softwaresolutions LLP (ACN-1931)
+                  RHD Software Solutions LLP (ACN-1931)
                 </span>
               </div>
               <h1 className="text-2xl sm:text-4xl lg:text-5xl font-heading font-black tracking-tight text-foreground">

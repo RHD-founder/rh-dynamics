@@ -4,8 +4,8 @@ import { CheckCircle2, ShieldCheck, Zap, CreditCard, Scale, Lock, ArrowUpRight }
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Corporate Rule Book & Company Policy | RHD Softwaresolutions LLP",
-  description: "Official operating framework, deal governance, 50/50 milestone payment structure, code sovereignty, and SLA terms of RHD Softwaresolutions LLP (RH Dynamics).",
+  title: "Corporate Rule Book & Company Policy | RHD Software Solutions LLP",
+  description: "Official operating framework, deal governance, 50/50 milestone payment structure, code sovereignty, and SLA terms of RHD Software Solutions LLP (RH Dynamics).",
 };
 
 const SECTIONS = [
@@ -23,7 +23,7 @@ export default function CompanyPolicyPage() {
   return (
     <LegalPageLayout
       title="Corporate Rule Book & Operating Policy"
-      subtitle="The authoritative governance framework, commercial onboarding protocol, milestone payment terms, and delivery standards of RHD Softwaresolutions LLP."
+      subtitle="The authoritative governance framework, commercial onboarding protocol, milestone payment terms, and delivery standards of RHD Software Solutions LLP."
       effectiveDate="October 2026"
       version="v3.1 Production"
       sections={SECTIONS}
@@ -34,7 +34,7 @@ export default function CompanyPolicyPage() {
           <span className="text-primary font-mono text-sm">01.</span> Corporate Entity &amp; Accreditation
         </h2>
         <p className="text-sm text-muted-foreground font-light leading-relaxed mb-4">
-          RH Dynamics operates legally and commercially under <strong>RHD Softwaresolutions LLP</strong>, an incorporated Limited Liability Partnership under the Limited Liability Partnership Act 2008, Ministry of Corporate Affairs, Government of India.
+          RH Dynamics operates legally and commercially under <strong>RHD Software Solutions LLP</strong>, an incorporated Limited Liability Partnership under the Limited Liability Partnership Act 2008, Ministry of Corporate Affairs, Government of India.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-mono">
           <div className="p-3.5 rounded-xl bg-secondary/50 border border-border/60">

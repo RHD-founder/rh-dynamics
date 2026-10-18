@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 export const metadata: Metadata = {
   title: "Leading Software Company in Guwahati, Assam | RH Dynamics",
   description:
-    "RH Dynamics (RHD Softwaresolutions LLP, ACN-1931) is a premier systems engineering & software development company in Guwahati, Assam. Bespoke cloud ERPs, ABDM-compliant HSMS hospital software, and high-performance web applications with on-site SLAs.",
+    "RH Dynamics (RHD Software Solutions LLP, ACN-1931) is a premier systems engineering & software development company in Guwahati, Assam. Bespoke cloud ERPs, ABDM-compliant HSMS hospital software, and high-performance web applications with on-site SLAs.",
   keywords: [
     "software company in guwahati",
     "best software company in assam",
@@ -108,7 +108,7 @@ export default function SoftwareCompanyGuwahatiPage() {
   const faqs = [
     {
       q: "Which is the best software development company in Guwahati, Assam?",
-      a: "RH Dynamics (RHD Softwaresolutions LLP, ACN-1931) is recognized as a premier software development and systems engineering company in Guwahati, Assam. Located near Downtown Hospital, Sarumotoria, we engineer custom cloud ERPs, ABDM-compliant hospital software (RH-HSMS), and sub-second web and mobile applications."
+      a: "RH Dynamics (RHD Software Solutions LLP, ACN-1931) is recognized as a premier software development and systems engineering company in Guwahati, Assam. Located near Downtown Hospital, Sarumotoria, we engineer custom cloud ERPs, ABDM-compliant hospital software (RH-HSMS), and sub-second web and mobile applications."
     },
     {
       q: "What software services does RH Dynamics offer in Guwahati?",
@@ -147,7 +147,7 @@ export default function SoftwareCompanyGuwahatiPage() {
                 },
                 "provider": {
                   "@type": "Organization",
-                  "name": "RHD Softwaresolutions LLP",
+                  "name": "RHD Software Solutions LLP",
                   "url": "https://rhdynamics.in",
                   "telephone": "+918638875149"
                 }
@@ -194,7 +194,7 @@ export default function SoftwareCompanyGuwahatiPage() {
           </h1>
 
           <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl font-light leading-relaxed mb-8">
-            RH Dynamics (RHD Softwaresolutions LLP) engineers enterprise software, bespoke cloud ERPs, and ABDM-compliant clinical platforms for organizations in Assam, Northeast India, and worldwide. We deliver high-reliability software with both turnkey Cloud SaaS and dedicated enterprise codebase options, supported by a committed &lt; 2-hour SLA.
+            RH Dynamics (RHD Software Solutions LLP) engineers enterprise software, bespoke cloud ERPs, and ABDM-compliant clinical platforms for organizations in Assam, Northeast India, and worldwide. We deliver high-reliability software with both turnkey Cloud SaaS and dedicated enterprise codebase options, supported by a committed &lt; 2-hour SLA.
           </p>
 
           <div className="flex flex-wrap gap-4 items-center">

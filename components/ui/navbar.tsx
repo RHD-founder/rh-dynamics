@@ -18,7 +18,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const servicesDropdown = [
   {
     title: "RH CORE™ Hospital & HSMS",
-    description: "v1.0 Live: ABDM M1-M3, bed matrix, ward telemetry & PMJAY claims.",
+    description: "Unified HMS & HIS: ABDM M1-M3, bed matrix, clinical EMR & PMJAY claims.",
     href: "/hsms",
     icon: Activity,
     badge: "v1.0 Live"

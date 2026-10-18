@@ -3,8 +3,8 @@ import type { Metadata } from "next";
 import { Truck, Cloud, Code2, Globe2, CheckCircle2 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Digital Shipping & Electronic Delivery Policy | RHD Softwaresolutions LLP",
-  description: "Electronic delivery protocols, cloud software deployments, repository handovers, and digital shipping timelines of RHD Softwaresolutions LLP.",
+  title: "Digital Shipping & Electronic Delivery Policy | RHD Software Solutions LLP",
+  description: "Electronic delivery protocols, cloud software deployments, repository handovers, and digital shipping timelines of RHD Software Solutions LLP.",
 };
 
 const SECTIONS = [
@@ -19,7 +19,7 @@ export default function ShippingPolicyPage() {
   return (
     <LegalPageLayout
       title="Digital Delivery &amp; Shipping Policy"
-      subtitle="How RHD Softwaresolutions LLP delivers bespoke software architectures, cloud environments, and digital platform licenses electronically."
+      subtitle="How RHD Software Solutions LLP delivers bespoke software architectures, cloud environments, and digital platform licenses electronically."
       effectiveDate="October 2026"
       version="v3.1 Standard"
       sections={SECTIONS}
@@ -30,7 +30,7 @@ export default function ShippingPolicyPage() {
           <span className="text-primary font-mono text-sm">01.</span> Pure Digital &amp; Electronic Delivery
         </h2>
         <p className="text-sm text-muted-foreground font-light leading-relaxed mb-4">
-          <strong>RHD Softwaresolutions LLP</strong> is an enterprise software engineering and cloud solutions company. All software platforms, clinical management systems, mobile applications, APIs, and digital deliverables are manufactured and transferred <strong>100% electronically</strong>. We do not dispatch physical optical media, CDs, or boxed merchandise.
+          <strong>RHD Software Solutions LLP</strong> is an enterprise software engineering and cloud solutions company. All software platforms, clinical management systems, mobile applications, APIs, and digital deliverables are manufactured and transferred <strong>100% electronically</strong>. We do not dispatch physical optical media, CDs, or boxed merchandise.
         </p>
       </section>
 

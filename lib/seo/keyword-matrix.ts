@@ -270,7 +270,7 @@ export function getSeoMetadataPayload() {
   );
 
   return {
-    project: "RH Dynamics (RHD Softwaresolutions LLP)",
+    project: "RH Dynamics (RHD Software Solutions LLP)",
     llpin: "ACN-1931",
     domain: "https://rhdynamics.in",
     targetRegions: ["Guwahati", "Upper Assam (Golaghat, Jorhat, Dibrugarh)", "Silchar & Barak Valley", "Northeast India"],

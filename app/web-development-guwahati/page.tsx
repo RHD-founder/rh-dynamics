@@ -139,7 +139,7 @@ export default function WebDevelopmentGuwahatiPage() {
                 },
                 "provider": {
                   "@type": "Organization",
-                  "name": "RHD Softwaresolutions LLP",
+                  "name": "RHD Software Solutions LLP",
                   "url": "https://rhdynamics.in",
                   "telephone": "+918638875149"
                 }

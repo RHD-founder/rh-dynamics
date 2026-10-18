@@ -3,8 +3,8 @@ import type { Metadata } from "next";
 import { Smartphone, ShieldCheck, HardDrive, Lock, FileCode, CheckCircle2 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy - PDF Manager Pro | RHD Softwaresolutions LLP",
-  description: "Official Google Play Data Safety and Privacy Policy for PDF Manager Pro by RHD Softwaresolutions LLP. Local-first architecture with zero external data transmission.",
+  title: "Privacy Policy - PDF Manager Pro | RHD Software Solutions LLP",
+  description: "Official Google Play Data Safety and Privacy Policy for PDF Manager Pro by RHD Software Solutions LLP. Local-first architecture with zero external data transmission.",
 };
 
 const SECTIONS = [
@@ -21,7 +21,7 @@ export default function PrivacyPolicyPdfApp() {
   return (
     <LegalPageLayout
       title="Privacy Policy: PDF Manager Pro"
-      subtitle="Official privacy statement and Google Play Data Safety disclosure for PDF Manager Pro, engineered by RHD Softwaresolutions LLP."
+      subtitle="Official privacy statement and Google Play Data Safety disclosure for PDF Manager Pro, engineered by RHD Software Solutions LLP."
       effectiveDate="November 2025"
       version="v1.2 Mobile"
       sections={SECTIONS}
@@ -135,7 +135,7 @@ export default function PrivacyPolicyPdfApp() {
           For technical inquiries regarding PDF Manager Pro:
         </p>
         <div className="p-4 rounded-xl bg-secondary/50 border border-border/60 text-xs font-mono space-y-1">
-          <span className="text-foreground font-bold block">Developer Team: RHD Softwaresolutions LLP</span>
+          <span className="text-foreground font-bold block">Developer Team: RHD Software Solutions LLP</span>
           <span>Support Email: <a href="mailto:support@rhdynamics.in" className="text-primary hover:underline font-bold">support@rhdynamics.in</a></span><br />
           <span>Executive Email: <a href="mailto:founder@rhdynamics.in" className="text-primary hover:underline font-bold">founder@rhdynamics.in</a></span>
         </div>

@@ -11,11 +11,11 @@ import { CalBookingModal } from "@/components/booking/cal-booking-modal";
 export const metadata: Metadata = {
   title: "About RH Dynamics | Systems Engineering & Cloud Infrastructure Guwahati",
   description:
-    "Learn about RHD Softwaresolutions LLP (ACN-1931), a Startup India recognized systems engineering and clinical software firm rooted in Guwahati, Assam.",
+    "Learn about RHD Software Solutions LLP (ACN-1931), a Startup India recognized systems engineering and clinical software firm rooted in Guwahati, Assam.",
   keywords: [
     "rh dynamics about",
     "software company guwahati",
-    "rhd softwaresolutions llp",
+    "rhd software solutions llp",
     "systems engineering assam",
     "hospital software developers northeast india"
   ],
@@ -100,12 +100,12 @@ export default function AboutPage() {
           </h1>
 
           <p className="text-base sm:text-lg text-muted-foreground max-w-3xl font-light leading-relaxed mb-6">
-            RHD Softwaresolutions LLP was founded to engineer world-class software solutions rooted in Northeast India. We build clinical healthcare systems (HSMS, LIS), custom enterprise software, premium web platforms, and mobile apps with guaranteed rapid SLA.
+            RHD Software Solutions LLP was founded to engineer world-class software solutions rooted in Northeast India. We build clinical healthcare systems (HSMS, LIS), custom enterprise software, premium web platforms, and mobile apps with guaranteed rapid SLA.
           </p>
 
           <div className="flex flex-wrap items-center gap-3">
             <div className="px-3.5 py-1.5 rounded-full text-xs font-mono uppercase tracking-wider bg-secondary border border-border/60 text-foreground font-semibold">
-              RHD Softwaresolutions LLP (ACN-1931)
+              RHD Software Solutions LLP (ACN-1931)
             </div>
             <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-mono uppercase tracking-wider bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/20 font-semibold">
               <ShieldCheck className="w-4 h-4" />
@@ -157,7 +157,7 @@ export default function AboutPage() {
               <div className="p-5 rounded-2xl bg-secondary/30 border border-border/50 font-mono text-xs sm:text-sm text-muted-foreground space-y-3">
                 <div className="flex items-center justify-between gap-4">
                   <span>Legal Entity:</span>
-                  <strong className="text-foreground text-right">RHD Softwaresolutions LLP</strong>
+                  <strong className="text-foreground text-right">RHD Software Solutions LLP</strong>
                 </div>
                 <div className="flex items-center justify-between gap-4">
                   <span>LLP Identification:</span>

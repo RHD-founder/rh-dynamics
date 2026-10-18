@@ -62,7 +62,7 @@ export default function OffshoreSoftwareDevelopmentPage() {
       icon: Shield,
       title: "100% IP & Source Code Ownership",
       metric: "Mutual NDA Bound",
-      desc: "Comprehensive IP assignment and mutual NDAs under statutory corporate registration (RHD Softwaresolutions LLP, ACN-1931). All code lives in your private repository."
+      desc: "Comprehensive IP assignment and mutual NDAs under statutory corporate registration (RHD Software Solutions LLP, ACN-1931). All code lives in your private repository."
     }
   ];
 
@@ -153,7 +153,7 @@ export default function OffshoreSoftwareDevelopmentPage() {
     },
     {
       q: "Who owns the intellectual property (IP) and source code?",
-      a: "You retain 100% exclusive ownership of all code, documentation, architectures, and intellectual property. Before any project commences, we execute a comprehensive mutual Non-Disclosure Agreement (NDA) and Intellectual Property Assignment Agreement under RHD Softwaresolutions LLP (Govt. of India LLP ACN-1931). All commits are pushed directly to your organization's private GitHub or GitLab repositories."
+      a: "You retain 100% exclusive ownership of all code, documentation, architectures, and intellectual property. Before any project commences, we execute a comprehensive mutual Non-Disclosure Agreement (NDA) and Intellectual Property Assignment Agreement under RHD Software Solutions LLP (Govt. of India LLP ACN-1931). All commits are pushed directly to your organization's private GitHub or GitLab repositories."
     },
     {
       q: "What is your hourly rate compared to hiring domestically in the US or Europe?",
@@ -186,7 +186,7 @@ export default function OffshoreSoftwareDevelopmentPage() {
                 "provider": {
                   "@type": "Organization",
                   "name": "RH Dynamics",
-                  "legalName": "RHD Softwaresolutions LLP",
+                  "legalName": "RHD Software Solutions LLP",
                   "url": "https://rhdynamics.in",
                   "email": "support@rhdynamics.in",
                   "telephone": "+918638875149"

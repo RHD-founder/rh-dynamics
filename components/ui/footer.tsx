@@ -320,7 +320,7 @@ export function Footer() {
         {/* Bottom Legal & Copyright Bar */}
         <div className="pt-8 border-t border-border/50 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-mono text-muted-foreground">
           <p>
-            &copy; {new Date().getFullYear()} RHD Softwaresolutions LLP (RH Dynamics). All rights reserved.
+            &copy; {new Date().getFullYear()} RHD Software Solutions LLP (RH Dynamics). All rights reserved.
           </p>
           <div className="flex flex-wrap gap-x-6 gap-y-2 justify-center">
             <Link href="/company-policy" className="text-primary hover:underline font-bold transition-colors">

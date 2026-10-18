@@ -19,7 +19,7 @@ function createLegalDoc(title, subtitle, effectiveDate, version, sections) {
     doc.setFont("helvetica", "bold");
     doc.setFontSize(14);
     doc.setTextColor(15, 23, 42); // slate-900
-    doc.text("RHD Softwaresolutions LLP", margin, 16);
+    doc.text("RHD Software Solutions LLP", margin, 16);
 
     doc.setFont("helvetica", "normal");
     doc.setFontSize(8);
@@ -41,7 +41,7 @@ function createLegalDoc(title, subtitle, effectiveDate, version, sections) {
     doc.setFont("helvetica", "normal");
     doc.setFontSize(7.5);
     doc.setTextColor(100, 116, 139);
-    doc.text("RHD Softwaresolutions LLP (RH Dynamics) | Official Statutory Document", margin, pageHeight - 9);
+    doc.text("RHD Software Solutions LLP (RH Dynamics) | Official Statutory Document", margin, pageHeight - 9);
     doc.text(`Page ${pageNum} of ${totalPages}`, pageWidth - margin - 18, pageHeight - 9);
   }
 
@@ -134,7 +134,7 @@ function createLegalDoc(title, subtitle, effectiveDate, version, sections) {
   doc.setFont("helvetica", "normal");
   doc.setFontSize(7.5);
   doc.setTextColor(71, 85, 105);
-  doc.text("For & on behalf of: RHD Softwaresolutions LLP (LLPIN: ACN-1931)", margin + 5, y + 12);
+  doc.text("For & on behalf of: RHD Software Solutions LLP (LLPIN: ACN-1931)", margin + 5, y + 12);
   doc.text("Designated Corporate Officers & Founders | Recognized under DPIIT Startup India", margin + 5, y + 16);
   doc.text("Registered HQ: Near AGV Bank, Goranga, Golaghat, Assam 785603", margin + 5, y + 20);
   doc.text("Contact: founder@rhdynamics.in | +91 86388 75149", margin + 5, y + 24);
@@ -153,7 +153,7 @@ function createLegalDoc(title, subtitle, effectiveDate, version, sections) {
 const ruleBookSections = [
   {
     title: "Corporate Identity & Accreditation",
-    content: "RH Dynamics operates legally and commercially under RHD Softwaresolutions LLP, incorporated under the Limited Liability Partnership Act 2008, Ministry of Corporate Affairs, Government of India.\n\n• LLPIN: ACN-1931\n• National Accreditation: Recognized under Startup India (DPIIT Certificate)\n• MSME Category: Registered Micro, Small & Medium Enterprise"
+    content: "RH Dynamics operates legally and commercially under RHD Software Solutions LLP, incorporated under the Limited Liability Partnership Act 2008, Ministry of Corporate Affairs, Government of India.\n\n• LLPIN: ACN-1931\n• National Accreditation: Recognized under Startup India (DPIIT Certificate)\n• MSME Category: Registered Micro, Small & Medium Enterprise"
   },
   {
     title: "How Deals Are Initialized (Project Onboarding Protocol)",
@@ -189,7 +189,7 @@ const ruleBookSections = [
 const termsSections = [
   {
     title: "Binding Legal Agreement & Parties",
-    content: "These Terms and Conditions constitute a legally binding agreement between RHD Softwaresolutions LLP (LLPIN: ACN-1931) and the commissioned Client. By executing a Statement of Work (SOW), issuing a purchase order, or authorizing payment, Client agrees to these Terms."
+    content: "These Terms and Conditions constitute a legally binding agreement between RHD Software Solutions LLP (LLPIN: ACN-1931) and the commissioned Client. By executing a Statement of Work (SOW), issuing a purchase order, or authorizing payment, Client agrees to these Terms."
   },
   {
     title: "Engagement SOW & 50/50 Milestone Terms",
@@ -201,7 +201,7 @@ const termsSections = [
   },
   {
     title: "Intellectual Property & Code Ownership",
-    content: "For bespoke custom projects, Client receives 100% full IP transfer and private repository ownership upon final milestone settlement. Proprietary frameworks powering RH CORE™ remain the exclusive property of RHD Softwaresolutions LLP."
+    content: "For bespoke custom projects, Client receives 100% full IP transfer and private repository ownership upon final milestone settlement. Proprietary frameworks powering RH CORE™ remain the exclusive property of RHD Software Solutions LLP."
   },
   {
     title: "User Acceptance Testing & 30-Day Warranty",
@@ -213,7 +213,7 @@ const termsSections = [
   },
   {
     title: "Limitation of Liability & Governing Jurisdiction",
-    content: "RHD Softwaresolutions LLP liability shall not exceed the total fees paid under the specific SOW in the preceding 3-month period. Exclusive jurisdiction resides in the courts of Guwahati or Golaghat, Assam, India."
+    content: "RHD Software Solutions LLP liability shall not exceed the total fees paid under the specific SOW in the preceding 3-month period. Exclusive jurisdiction resides in the courts of Guwahati or Golaghat, Assam, India."
   }
 ];
 
@@ -221,7 +221,7 @@ const termsSections = [
 const privacySections = [
   {
     title: "Overview & Regulatory Mandate",
-    content: "RHD Softwaresolutions LLP (LLPIN: ACN-1931) operates in strict compliance with the Digital Personal Data Protection (DPDP) Act 2023 and the Information Technology Act 2000."
+    content: "RHD Software Solutions LLP (LLPIN: ACN-1931) operates in strict compliance with the Digital Personal Data Protection (DPDP) Act 2023 and the Information Technology Act 2000."
   },
   {
     title: "Information We Collect",
@@ -229,7 +229,7 @@ const privacySections = [
   },
   {
     title: "Zero Data Resale Guarantee",
-    content: "RHD Softwaresolutions LLP has never sold, rented, or brokered client personal or commercial data to third-party advertisers or data brokers. Your data is used exclusively to deliver commissioned software."
+    content: "RHD Software Solutions LLP has never sold, rented, or brokered client personal or commercial data to third-party advertisers or data brokers. Your data is used exclusively to deliver commissioned software."
   },
   {
     title: "Data Security & Healthcare Privacy",
@@ -269,7 +269,7 @@ const refundSections = [
 const shippingSections = [
   {
     title: "Pure Digital & Electronic Delivery",
-    content: "All software platforms, clinical management systems, mobile applications, APIs, and digital deliverables by RHD Softwaresolutions LLP are delivered 100% electronically. No physical media or courier parcels are dispatched."
+    content: "All software platforms, clinical management systems, mobile applications, APIs, and digital deliverables by RHD Software Solutions LLP are delivered 100% electronically. No physical media or courier parcels are dispatched."
   },
   {
     title: "Deployment Channels & Protocols",
@@ -293,7 +293,7 @@ const appPrivacySections = [
   },
   {
     title: "Developer Contact",
-    content: "Engineered by RHD Softwaresolutions LLP.\nSupport Contact: founder@rhdynamics.in | support@rhdynamics.in"
+    content: "Engineered by RHD Software Solutions LLP.\nSupport Contact: founder@rhdynamics.in | support@rhdynamics.in"
   }
 ];
 
@@ -304,7 +304,7 @@ const docs = [
   {
     filename: "RHD-Corporate-Rule-Book.pdf",
     title: "Corporate Rule Book & Operating Policy",
-    subtitle: "Official operating framework, 50/50 milestone payment terms, and delivery standards of RHD Softwaresolutions LLP.",
+    subtitle: "Official operating framework, 50/50 milestone payment terms, and delivery standards of RHD Software Solutions LLP.",
     effectiveDate: "October 2026",
     version: "v3.1 Production",
     sections: ruleBookSections
@@ -344,7 +344,7 @@ const docs = [
   {
     filename: "RHD-App-Privacy-Policy.pdf",
     title: "Privacy Policy: PDF Manager Pro",
-    subtitle: "Google Play Data Safety disclosure for PDF Manager Pro by RHD Softwaresolutions LLP.",
+    subtitle: "Google Play Data Safety disclosure for PDF Manager Pro by RHD Software Solutions LLP.",
     effectiveDate: "November 2025",
     version: "v1.2 Mobile",
     sections: appPrivacySections

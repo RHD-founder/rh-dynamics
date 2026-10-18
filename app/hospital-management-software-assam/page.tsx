@@ -104,8 +104,12 @@ export default function HospitalManagementSoftwareAssamPage() {
 
   const faqs = [
     {
+      q: "What is the difference between HMS, HIS, and HSMS?",
+      a: "An HMS (Hospital Management System) manages administrative and commercial operations like OPD/IPD registration, bed matrices, counter billing, and staff rosters. An HIS (Hospital Information System) focuses on clinical data like electronic medical records (EMR), laboratory diagnostics, and patient medical histories. RH-HSMS (Hospital & Systems Management Suite) merges both HMS administrative workflows and HIS clinical telemetry into a single unified cloud system, natively integrated with Ayushman Bharat ABDM M1–M3 and automated WhatsApp reporting."
+    },
+    {
       q: "Which is the best ABDM-compliant hospital management software in Assam?",
-      a: "RH-HSMS by RH Dynamics (RHD Softwaresolutions LLP) is Northeast India's leading ABDM-compliant Hospital Information System (HIS). It integrates OPD/IPD management, doctor EMR, pathology LIS with automated WhatsApp reports, pharmacy inventory, and Ayushman Bharat billing."
+      a: "RH-HSMS by RH Dynamics (RHD Software Solutions LLP) is Northeast India's leading ABDM-compliant Hospital Information System (HIS). It integrates OPD/IPD management, doctor EMR, pathology LIS with automated WhatsApp reports, pharmacy inventory, and Ayushman Bharat billing."
     },
     {
       q: "Does RH-HSMS support Ayushman Bharat (PMJAY) and Atal Amrit Abhiyan billing?",
@@ -144,7 +148,7 @@ export default function HospitalManagementSoftwareAssamPage() {
                 },
                 "provider": {
                   "@type": "Organization",
-                  "name": "RHD Softwaresolutions LLP",
+                  "name": "RHD Software Solutions LLP",
                   "url": "https://rhdynamics.in",
                   "telephone": "+918638875149"
                 }
