@@ -20,6 +20,7 @@ import {
   DialogTitle,
   DialogFooter,
 } from "@/components/ui/dialog";
+import { CalBookingModal } from "@/components/booking/cal-booking-modal";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -315,27 +316,26 @@ export function ContactClientPage() {
                   <ArrowUpRight className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
                 </a>
 
-                {/* Google Meet Video Discovery for US / EU / Global Clients */}
-                <a 
-                  href="mailto:founder@rhdynamics.in?subject=Request%20Google%20Meet%20Discovery%20Session%20-%20RH%20Dynamics&body=Hi%20RH%20Dynamics%20Team%2C%0A%0AI%20would%20like%20to%20schedule%20a%2015-minute%20Google%20Meet%20video%20discovery%20session%20for%20our%20software%20project.%0A%0ACompany%20%2F%20Organization%3A%0ACountry%20%2F%20Timezone%3A%0APreferred%20Date%20%26%20Time%3A%0AProject%20Overview%3A%0A%0AThank%20you!"
-                  className="p-3.5 rounded-xl bg-gradient-to-r from-blue-500/10 via-primary/10 to-blue-500/5 hover:from-blue-500/15 hover:to-primary/15 border border-blue-500/30 flex items-center justify-between group transition-all block shadow-sm"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-lg bg-blue-500 text-white shrink-0 shadow-md shadow-blue-500/20">
-                      <Video className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <div className="flex items-center gap-1.5">
-                        <span className="text-[11px] font-mono text-blue-600 dark:text-blue-400 font-bold uppercase tracking-wider block">
-                          US, EU &amp; Global Clients
-                        </span>
-                        <span className="text-[10px] font-mono bg-blue-500/20 text-blue-600 dark:text-blue-300 px-1.5 py-0.2 rounded font-bold">15-MIN CALL</span>
+                {/* Cal.com Live Video Discovery with Hashim Ahmed */}
+                <CalBookingModal eventSlug="15min">
+                  <div className="p-3.5 rounded-xl bg-gradient-to-r from-blue-500/10 via-primary/10 to-blue-500/5 hover:from-blue-500/15 hover:to-primary/15 border border-blue-500/30 flex items-center justify-between group transition-all cursor-pointer shadow-sm">
+                    <div className="flex items-center gap-3">
+                      <div className="p-2 rounded-lg bg-blue-500 text-white shrink-0 shadow-md shadow-blue-500/20">
+                        <Video className="w-4 h-4" />
                       </div>
-                      <strong className="text-sm font-mono text-foreground group-hover:text-primary transition-colors">Book Google Meet Video Session</strong>
+                      <div>
+                        <div className="flex items-center gap-1.5">
+                          <span className="text-[11px] font-mono text-blue-600 dark:text-blue-400 font-bold uppercase tracking-wider block">
+                            Live Calendar • Cal.com
+                          </span>
+                          <span className="text-[10px] font-mono bg-blue-500/20 text-blue-600 dark:text-blue-300 px-1.5 py-0.2 rounded font-bold">15-MIN CALL</span>
+                        </div>
+                        <strong className="text-sm font-mono text-foreground group-hover:text-primary transition-colors">Book 15-Min Meeting (Hashim Ahmed)</strong>
+                      </div>
                     </div>
+                    <ArrowUpRight className="w-4 h-4 text-blue-600 dark:text-blue-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform shrink-0" />
                   </div>
-                  <ArrowUpRight className="w-4 h-4 text-blue-600 dark:text-blue-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform shrink-0" />
-                </a>
+                </CalBookingModal>
 
                 {/* Official Social Channels Strip */}
                 <div className="pt-3 border-t border-border/50">
@@ -868,12 +868,23 @@ export function ContactClientPage() {
           </div>
           
           <DialogFooter className="mt-6 flex flex-col sm:flex-row gap-2 justify-center w-full">
+            <a
+              href="https://cal.com/hashim-ahmed-p4itsj/15min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2 h-11 px-5 rounded-full bg-primary text-primary-foreground font-mono text-xs uppercase tracking-wider font-bold shadow-md hover:bg-primary/90 transition-all"
+            >
+              <Video className="w-4 h-4" />
+              <span>Lock In Slot on Cal.com</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
+            </a>
             <Button
               type="button"
-              className="w-full rounded-full h-11 text-xs font-mono uppercase tracking-wider font-bold"
+              variant="outline"
+              className="w-full sm:w-auto rounded-full h-11 text-xs font-mono uppercase tracking-wider font-bold"
               onClick={() => setShowSuccessPopup(false)}
             >
-              Close &amp; Return to Page
+              Close
             </Button>
           </DialogFooter>
         </DialogContent>

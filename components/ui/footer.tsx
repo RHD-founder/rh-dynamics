@@ -204,6 +204,20 @@ export function Footer() {
                   <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </a>
               </li>
+              <li>
+                <a 
+                  href="https://cal.com/hashim-ahmed-p4itsj/15min"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-foreground transition-colors flex items-center justify-between group"
+                >
+                  <span className="flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                    <span>Book Meeting (Cal.com)</span>
+                  </span>
+                  <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </a>
+              </li>
               <li className="pt-1">
                 <Link href="/about" className="text-primary hover:underline font-bold flex items-center gap-1">
                   <span>About Our Organization</span>
