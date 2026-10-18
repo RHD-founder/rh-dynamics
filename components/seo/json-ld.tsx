@@ -16,6 +16,7 @@ export function JsonLd() {
         "email": "support@rhdynamics.in",
         "sameAs": [
           "https://www.linkedin.com/company/rhdymanics/",
+          "https://x.com/rhdynamics07",
           "https://www.instagram.com/rhdynamics/",
           "https://www.facebook.com/rhdynamics",
           "https://www.zaubacorp.com/company/RHD-SOFTWARE-SOLUTIONS-LLP/ACN-1931"

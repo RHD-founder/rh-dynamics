@@ -92,7 +92,8 @@ export const metadata: Metadata = {
     description:
       'Transforming businesses across Northeast India & globally with custom software, HSMS hospital systems, high-speed web apps, and digital dominance.',
     images: ['/opengraph-image'],
-    creator: '@rhdynamics',
+    creator: '@rhdynamics07',
+    site: '@rhdynamics07',
   },
   robots: {
     index: true,
