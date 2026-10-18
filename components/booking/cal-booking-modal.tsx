@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Video, Calendar, ExternalLink, Loader2, Clock, CheckCircle2 } from "lucide-react";
+import { useTheme } from "next-themes";
 
 interface CalBookingModalProps {
   children?: React.ReactNode;
@@ -30,11 +31,13 @@ export function CalBookingModal({
 }: CalBookingModalProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const { resolvedTheme } = useTheme();
 
   const calUsername = "hashim-ahmed-p4itsj";
   const calPath = eventSlug ? `${calUsername}/${eventSlug}` : calUsername;
   const calUrl = `https://cal.com/${calPath}`;
-  const embedUrl = `https://cal.com/${calPath}?embed=true`;
+  const themeParam = resolvedTheme === "dark" ? "dark" : "light";
+  const embedUrl = `https://cal.com/${calPath}?embed=true&theme=${themeParam}`;
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
