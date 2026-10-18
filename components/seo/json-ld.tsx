@@ -15,8 +15,9 @@ export function JsonLd() {
         "telephone": "+918638875149",
         "email": "support@rhdynamics.in",
         "sameAs": [
-          "https://www.linkedin.com/company/rhdynamics",
-          "https://twitter.com/rhdynamics",
+          "https://www.linkedin.com/company/rhdymanics/",
+          "https://www.instagram.com/rhdynamics/",
+          "https://www.facebook.com/rhdynamics",
           "https://www.zaubacorp.com/company/RHD-SOFTWARE-SOLUTIONS-LLP/ACN-1931"
         ],
         "priceRange": "₹₹",

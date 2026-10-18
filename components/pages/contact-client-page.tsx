@@ -11,7 +11,7 @@ import {
   CheckCircle2, ArrowRight, ArrowUpRight, 
   Building2, Server, Terminal, Lock, Check,
   MessageSquare, Sparkles, HelpCircle, ChevronRight,
-  Video, Globe
+  Video, Globe, Linkedin, Instagram, Facebook
 } from "lucide-react";
 import {
   Dialog,
@@ -336,6 +336,45 @@ export function ContactClientPage() {
                   </div>
                   <ArrowUpRight className="w-4 h-4 text-blue-600 dark:text-blue-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform shrink-0" />
                 </a>
+
+                {/* Official Social Channels Strip */}
+                <div className="pt-3 border-t border-border/50">
+                  <span className="text-[11px] font-mono uppercase tracking-wider text-muted-foreground block mb-2 font-bold">
+                    Official Social &amp; Registry Channels:
+                  </span>
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <a
+                      href="https://www.linkedin.com/company/rhdymanics/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-3 py-2 rounded-xl bg-secondary/40 hover:bg-primary/10 border border-border/60 hover:border-primary/40 text-xs font-mono text-foreground hover:text-primary flex items-center gap-2 transition-all font-semibold"
+                    >
+                      <Linkedin className="w-3.5 h-3.5 text-[#0A66C2]" />
+                      <span>LinkedIn</span>
+                      <ArrowUpRight className="w-3 h-3 text-muted-foreground" />
+                    </a>
+                    <a
+                      href="https://www.instagram.com/rhdynamics/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-3 py-2 rounded-xl bg-secondary/40 hover:bg-pink-500/10 border border-border/60 hover:border-pink-500/40 text-xs font-mono text-foreground hover:text-pink-500 flex items-center gap-2 transition-all font-semibold"
+                    >
+                      <Instagram className="w-3.5 h-3.5 text-[#E4405F]" />
+                      <span>Instagram</span>
+                      <ArrowUpRight className="w-3 h-3 text-muted-foreground" />
+                    </a>
+                    <a
+                      href="https://www.facebook.com/rhdynamics"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-3 py-2 rounded-xl bg-secondary/40 hover:bg-blue-600/10 border border-border/60 hover:border-blue-600/40 text-xs font-mono text-foreground hover:text-blue-600 flex items-center gap-2 transition-all font-semibold"
+                    >
+                      <Facebook className="w-3.5 h-3.5 text-[#1877F2]" />
+                      <span>Facebook</span>
+                      <ArrowUpRight className="w-3 h-3 text-muted-foreground" />
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
 

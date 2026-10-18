@@ -241,6 +241,52 @@ export function Footer() {
                   founder@rhdynamics.in
                 </a>
               </div>
+
+              {/* Official Social Channels */}
+              <div className="pt-3 border-t border-border/40">
+                <span className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground block mb-2 font-bold">
+                  Official Channels:
+                </span>
+                <div className="flex items-center gap-2 flex-wrap">
+                  <a
+                    href="https://www.linkedin.com/company/rhdymanics/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="RH Dynamics on LinkedIn"
+                    className="p-2 rounded-lg bg-secondary/60 hover:bg-primary/10 text-muted-foreground hover:text-primary border border-border/60 hover:border-primary/30 transition-all"
+                  >
+                    <Linkedin className="w-4 h-4" />
+                  </a>
+                  <a
+                    href="https://www.instagram.com/rhdynamics/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="RH Dynamics on Instagram"
+                    className="p-2 rounded-lg bg-secondary/60 hover:bg-pink-500/10 text-muted-foreground hover:text-pink-500 border border-border/60 hover:border-pink-500/30 transition-all"
+                  >
+                    <Instagram className="w-4 h-4" />
+                  </a>
+                  <a
+                    href="https://www.facebook.com/rhdynamics"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="RH Dynamics on Facebook"
+                    className="p-2 rounded-lg bg-secondary/60 hover:bg-blue-600/10 text-muted-foreground hover:text-blue-600 border border-border/60 hover:border-blue-600/30 transition-all"
+                  >
+                    <Facebook className="w-4 h-4" />
+                  </a>
+                  <a
+                    href="https://wa.me/918638875149?text=Hello%20RH%20Dynamics%20team,%20I%20would%20like%20to%20discuss%20a%20software%20project"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Chat with RH Dynamics on WhatsApp"
+                    className="px-2.5 py-1.5 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 flex items-center gap-1.5 text-[11px] font-mono font-bold transition-all"
+                  >
+                    <span>WhatsApp</span>
+                    <ArrowUpRight className="w-3 h-3" />
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
 
