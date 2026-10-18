@@ -3,9 +3,10 @@ import Link from "next/link";
 import { 
   ShieldCheck, Server, Network, Database, 
   Building2, MapPin, CheckCircle2, ArrowRight, 
-  ArrowUpRight, Phone, Mail, Award, Lock, Cpu
+  ArrowUpRight, Phone, Mail, Award, Lock, Cpu, Clock, Calendar
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { CalBookingModal } from "@/components/booking/cal-booking-modal";
 
 export const metadata: Metadata = {
   title: "About RH Dynamics | Systems Engineering & Cloud Infrastructure Guwahati",
@@ -24,10 +25,34 @@ export const metadata: Metadata = {
 };
 
 const corporateMilestones = [
-  { label: "Statutory Incorporation", value: "LLP ACN-1931", sub: "Ministry of Corporate Affairs" },
-  { label: "Startup Recognition", value: "DPIIT Certified", sub: "Startup India Initiative" },
-  { label: "Enterprise Deployments", value: "20+ Platforms", sub: "Healthcare, Web & Business Systems" },
-  { label: "Response SLA", value: "< 2 Hours", sub: "Worldwide via Phone, WhatsApp, Video & In-Person" }
+  { 
+    label: "Statutory Incorporation", 
+    value: "LLP ACN-1931", 
+    sub: "Ministry of Corporate Affairs",
+    icon: Building2,
+    badge: "Govt. of India"
+  },
+  { 
+    label: "Startup Recognition", 
+    value: "DPIIT Certified", 
+    sub: "Startup India Initiative",
+    icon: Award,
+    badge: "National Status"
+  },
+  { 
+    label: "Enterprise Deployments", 
+    value: "20+ Platforms", 
+    sub: "Healthcare, Web & Systems",
+    icon: Server,
+    badge: "Production Live"
+  },
+  { 
+    label: "Guaranteed Response", 
+    value: "< 2-Hour SLA", 
+    sub: "Direct Phone, WhatsApp & Cal.com",
+    icon: Clock,
+    badge: "24/7 Priority"
+  }
 ];
 
 const engineeringPillars = [
@@ -52,8 +77,8 @@ const engineeringPillars = [
   {
     tag: "04 // RAPID SLA",
     title: "< 2-Hour Response Worldwide & In-Person",
-    description: "Mission-critical software cannot wait days for automated tickets. Once you are in touch with us, we commit to a response SLA within 2 hours. We are available via direct phone, WhatsApp, website appointment, Google Meet, or in-person across Assam.",
-    points: ["Direct senior engineer access", "Phone, WhatsApp & video appointments", "In-person availability across Assam & Northeast"]
+    description: "Mission-critical software cannot wait days for automated tickets. Once you are in touch with us, we commit to a response SLA within 2 hours. We are available via direct phone, WhatsApp, website appointment, Cal.com, or in-person across Assam.",
+    points: ["Direct senior engineer access", "Phone, WhatsApp & Cal.com appointments", "In-person availability across Assam & Northeast"]
   }
 ];
 
@@ -63,29 +88,30 @@ export default function AboutPage() {
       
       {/* Background Grid Pattern */}
       <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-primary/5 rounded-full blur-[140px] pointer-events-none" />      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 relative z-10">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-primary/5 rounded-full blur-[140px] pointer-events-none" />
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 relative z-10">
 
         {/* Hero Section */}
-        <div className="max-w-4xl mb-20">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-medium tracking-wider uppercase border border-border bg-secondary/30 text-muted-foreground mb-8">
+        <div className="max-w-4xl mb-12 sm:mb-16">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-medium tracking-wider uppercase border border-border bg-secondary/30 text-muted-foreground mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-primary" />
             Organization &amp; Engineering Mandate // Guwahati, Assam
           </div>
 
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black font-heading tracking-tight mb-8 leading-[1.08]">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black font-heading tracking-tight mb-6 leading-[1.1]">
             Systems Engineered for Longevity. <br className="hidden sm:block" />
             <span className="text-gradient">Rooted in Northeast India.</span>
           </h1>
 
-          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl font-light leading-relaxed mb-10">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-3xl font-light leading-relaxed mb-6">
             RHD Softwaresolutions LLP was founded to engineer world-class software solutions rooted in Northeast India. We build clinical healthcare systems (HSMS, LIS), custom enterprise software, premium web platforms, and mobile apps with guaranteed rapid SLA.
           </p>
 
           <div className="flex flex-wrap items-center gap-3">
-            <div className="px-4 py-2 rounded-full text-xs font-mono uppercase tracking-wider bg-secondary border border-border/60 text-foreground font-semibold">
+            <div className="px-3.5 py-1.5 rounded-full text-xs font-mono uppercase tracking-wider bg-secondary border border-border/60 text-foreground font-semibold">
               RHD Softwaresolutions LLP (ACN-1931)
             </div>
-            <div className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-mono uppercase tracking-wider bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/20 font-semibold">
+            <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-mono uppercase tracking-wider bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/20 font-semibold">
               <ShieldCheck className="w-4 h-4" />
               Startup India Recognized (DPIIT)
             </div>
@@ -93,13 +119,32 @@ export default function AboutPage() {
         </div>
 
         {/* Corporate Metrics Ribbon */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-border/40 rounded-2xl overflow-hidden mb-28 border border-border/60 shadow-lg">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-24">
           {corporateMilestones.map((milestone, i) => (
-            <div key={i} className="bg-card p-6 sm:p-8 md:p-10 flex flex-col justify-between">
-              <span className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-4 font-medium">{milestone.label}</span>
+            <div 
+              key={i} 
+              className="p-5 sm:p-6 rounded-2xl bg-card border border-border/70 hover:border-primary/40 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group"
+            >
+              <div className="flex items-center justify-between gap-2 mb-3">
+                <span className="text-[11px] font-mono uppercase tracking-wider text-muted-foreground font-semibold">
+                  {milestone.label}
+                </span>
+                <div className="p-2 rounded-xl bg-secondary/80 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors shrink-0">
+                  <milestone.icon className="w-4 h-4" />
+                </div>
+              </div>
               <div>
-                <p className="text-2xl sm:text-3xl md:text-4xl font-black font-heading text-foreground tracking-tight">{milestone.value}</p>
-                <p className="text-xs sm:text-sm text-muted-foreground mt-2 leading-relaxed">{milestone.sub}</p>
+                <p className="text-xl sm:text-2xl xl:text-3xl font-black font-heading text-foreground tracking-tight whitespace-nowrap">
+                  {milestone.value}
+                </p>
+                <div className="flex items-center justify-between gap-2 mt-2 pt-2 border-t border-border/40">
+                  <p className="text-xs text-muted-foreground leading-relaxed truncate">
+                    {milestone.sub}
+                  </p>
+                  <span className="text-[9px] font-mono uppercase px-1.5 py-0.5 rounded bg-secondary text-foreground/80 font-semibold shrink-0">
+                    {milestone.badge}
+                  </span>
+                </div>
               </div>
             </div>
           ))}
@@ -255,16 +300,22 @@ export default function AboutPage() {
             <p className="text-muted-foreground text-sm sm:text-base leading-relaxed mb-8 font-light">
               Speak directly with our technical partners in Guwahati. We will review your existing architecture, database schemas, and hardware setup without commercial fluff.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <div className="flex flex-col sm:flex-row gap-3.5 justify-center items-center">
+              <CalBookingModal eventSlug="15min">
+                <Button size="lg" className="h-12 px-7 text-xs font-mono uppercase tracking-wider font-bold rounded-full shadow-lg shadow-primary/20 hover:-translate-y-0.5 transition-all">
+                  <Calendar className="mr-2 h-4 w-4" />
+                  Schedule on Cal.com
+                </Button>
+              </CalBookingModal>
               <Link href="/contact">
-                <Button size="lg" className="h-13 px-8 text-sm font-semibold rounded-full shadow-lg shadow-primary/20 hover:-translate-y-0.5 transition-all">
-                  Request Technical Consultation
-                  <ArrowRight className="ml-2 h-4 w-4" />
+                <Button variant="outline" size="lg" className="h-12 px-6 text-xs font-mono uppercase tracking-wider font-semibold rounded-full border-border/80 hover:bg-secondary/50">
+                  Contact Form
+                  <ArrowRight className="ml-2 h-3.5 w-3.5" />
                 </Button>
               </Link>
               <a href="tel:+918638875149">
-                <Button variant="ghost" size="lg" className="h-13 px-8 text-sm font-medium rounded-full text-muted-foreground hover:text-foreground">
-                  <Phone className="mr-2 h-4 w-4 text-primary" />
+                <Button variant="ghost" size="lg" className="h-12 px-5 text-xs font-mono uppercase tracking-wider font-medium rounded-full text-muted-foreground hover:text-foreground">
+                  <Phone className="mr-2 h-3.5 w-3.5 text-primary" />
                   +91 86388 75149
                 </Button>
               </a>
